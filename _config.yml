@@ -7,12 +7,13 @@ title: ThinerZQ's Blog
 subtitle:
 description: 白云山高，珠江水长！
 author: ThinerZQ
+email: 601097836@qq.com
 language: zh-Hans
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://thinerzq.com
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -48,6 +49,8 @@ default_category: uncategorized
 category_map:
 tag_map:
 
+archive: 1
+
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
 ## You can customize the date format as defined in
@@ -74,9 +77,14 @@ deploy:
   
 avatar: https://avatars3.githubusercontent.com/u/10881023?v=3&s=460
 duoshuo_shortname: thinerzq
-baidu_analytics: 3ef097b3d9a03a9b6839d3dd7465769a
+
+# Swiftype Search Key
+swiftype_key: JesUP7ZhCHhKkRxmxyjh
+
 since: 2016
 
 links_title: Links
 links:
-	MacTalk: http://www.baidu.com
+	Bing: http://cn.bing.com
+	StackOverflow: http://stackoverflow.com
+	GitHub: http://github.com
