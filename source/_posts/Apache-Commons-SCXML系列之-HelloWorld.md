@@ -18,12 +18,15 @@ Commons-SCXML 是一个状态机框架，
 >3. <font color=blue>编写程序加载xml文件</font>，编写界面，控制状态图的状态转移。
 
 我们通过一系列的例子来讲学习SCXML标准和Commons-SCXML框架。
-
+<!--more-->
 # HelloWorld例子
 ## 画出状态图
 >本例比较简单就不画图了
 
 ## 编写状态图xml文件
+
+
+
 ```xml
 <scxml xmlns="http://www.w3.org/2005/07/scxml"
        version="1.0" inital="end">
@@ -87,3 +90,4 @@ public class HelloWorld {
 
 
 接下来准备再写一个 秒表和请假流程的例子，再把相关的标签和属性值约束给汉化了。
+

@@ -4,8 +4,8 @@
 
 # Site
 title: ThinerZQ's Blog
-subtitle:
-description: 白云山高，珠江水长！
+subtitle: 写写画画，走走停停，生命在于折腾！
+description: 写写画画，走走停停！
 author: ThinerZQ
 email: 601097836@qq.com
 language: zh-Hans
@@ -40,7 +40,7 @@ relative_link: false
 future: true
 highlight:
   enable: true
-  line_number: true
+  line_number: false
   auto_detect: true
   tab_replace:
 
@@ -66,27 +66,33 @@ pagination_dir: page
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
-theme: next
+theme: lightest
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: https://github.com/ThinerZQ/ThinerZQ.github.io
+  repository: git@github.com:ThinerZQ/ThinerZQ.github.io.git
   branch: master
-  
+
+
+# personal photot 
 avatar: https://avatars3.githubusercontent.com/u/10881023?v=3&s=460
+
+
+# duoshao setting 
 duoshuo_shortname: thinerzq
 
 # Swiftype Search Key
 swiftype_key: JesUP7ZhCHhKkRxmxyjh
 
+# configure footer
 since: 2016
 
+
+# link
 links_title: Links
 links:
 	Bing: http://cn.bing.com
 	StackOverflow: http://stackoverflow.com
 	GitHub: http://github.com
-  lmm博客: http://lengmm.github.io
-  kenny博客: http://sharefantasy.github.io

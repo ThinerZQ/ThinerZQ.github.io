@@ -10,6 +10,8 @@ categories:
 # 问题描述
 >汉诺塔：有三根柱子，<font color=red>第一根柱子上面从上到下依次摆放着n个从小到大的圆盘</font>，第二和  第三根柱子是空的，遵循一定的<font color=red>游戏规则</font>，将第一根柱子上面的圆盘移动到第三根柱子上.游戏规则就是：移动过程中可以<font color=red>借助第二根柱子</font>，但是<font color=red>始终</font>不能够将<font color=red>大的盘子放在小的盘子之上</font>。
 
+<!--more-->
+
 简单的摆法如下图所示：
 <br>
 ![有三个盘子的移动方法](http://wuzhiwei.net/articlePic/Tower_of_Hanoi.jpeg)
@@ -24,6 +26,7 @@ categories:
 
 让我们来看看情况3、<font color=red><SUP>[1]</SUP></font>处使用了C作为辅助的柱子，先将A上的前2个移动到了B上(这里就是<b>情况2</b>)，<font color=red><SUP>[2]</SUP></font>处直接将A上的，最后一个移动到了C上(这里就是<b>情况1</b>)，最后<font color=red><SUP>[3]</SUP></font>处是用了A作为辅助的柱子，将B上的东西移动 到了C上(这里就是<b>情况2</b>，不同的是辅助的柱子不一样了)。
 >总结：当有n个盘子的时候，首先将上面的n-1个借助C移动到B上，然后将A上的最后一个移动到C上，然后再借助A将B上的n-1个移动到C上。
+
 
 
 # 代码

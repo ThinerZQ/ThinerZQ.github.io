@@ -16,6 +16,8 @@ Apache Commons 工具包比较多，具体可以参看[Apache Commons官网](htt
 ## SCXML 是什么？
 >SCXML（<font color=red>State Chart XML</font>），简单地说就是状态图的xml描述文件。这里的状态图和UML里面的状态图是基本一致的，都是继承自[Harel](http://www.wisdom.weizmann.ac.il/~harel/%20%E4%B8%BB%E9%A1%B5) [Start Chart](http://www.wisdom.weizmann.ac.il/~harel/SCANNED.PAPERS/Statecharts.pdf)。我还没有看到不一致的地方，欢迎指正。
 
+<!--more-->
+
 ## xml的描述文件？那么一个大家都遵从的标准是什么？
 >标准就是W3C制定的的标准：[State Chart XML(SCXML):State Machine Notation for Control Abstraction](http://www.w3.org/TR/scxml/)下面我简要的介绍一下这个标准，如下图所示：红框里面的标签，每一个链接里面都有标签的具体介绍（子标签和属性值等）。就是这个标准。
 ![这里写图片描述](http://img.blog.csdn.net/20151126102750992)
@@ -23,6 +25,8 @@ Apache Commons 工具包比较多，具体可以参看[Apache Commons官网](htt
 </br>
 ## Apache 做什么了？
 >W3C只是制定了这个标准，告诉大家怎么做。Apache组织成立了SCXML项目，对这个标准进行了java语言的实现，of course,其他组织个人有其他语言的实现等等。
+
+
 
 ## 都有哪些实现？看下表
 | 名字 | 描述 |
