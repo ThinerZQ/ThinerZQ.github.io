@@ -21,13 +21,30 @@ widgets:
 - weibo
 
 
+
+sidebar:
+  # Sidebar Position, available value: left | right
+  #position: left
+  position: right
+
+  # Sidebar Display, available value:
+  #  - post    expand on posts automatically. Default.
+  #  - always  expand for all pages automatically
+  #  - hide    expand only when click on the sidebar toggle icon.
+  #  - remove  Totally remove sidebar including sidebar toggle icon.
+  #display: post
+  display: always
+  #display: hide
+  #display: remove
+
+
 excerpt_link: Read More
 comment_link: Comments
 
 # header头像
 avatar: https://avatars3.githubusercontent.com/u/10881023?v=3&s=460
 # header右侧图片展示
-ad: https://avatars3.githubusercontent.com/u/10881023?v=3&s=460
+# ad: https://avatars3.githubusercontent.com/u/10881023?v=3&s=460
 
 
 baidu_share: true
