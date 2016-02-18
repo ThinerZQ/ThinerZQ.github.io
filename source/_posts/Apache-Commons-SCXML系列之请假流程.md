@@ -10,9 +10,11 @@ categories:
 
 # 请假流程状态图
 
+<!--more-->
+
 ![请假流程状态图，画图工具EA](http://img.blog.csdn.net/20151202150236801)
 
-<!--more-->
+
 
 # 根据状态图编写xml文件
 

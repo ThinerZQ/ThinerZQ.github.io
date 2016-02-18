@@ -4,7 +4,7 @@
 
 # Site
 title: ThinerZQ's Blog
-subtitle: 写写画画，走走停停，生命在于折腾！
+subtitle: 写写画画，走走停停！
 description: 写写画画，走走停停！
 author: ThinerZQ
 email: 601097836@qq.com
@@ -66,7 +66,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
-theme: lightest
+theme: next
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
