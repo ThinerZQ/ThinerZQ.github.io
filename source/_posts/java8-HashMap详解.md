@@ -1,8 +1,9 @@
 title: java8 HashMap详解
-tags: 
+date: 2016-04-22 14:02:04
+tags:
  java
  HashMap
-categories: 
+categories:
  java
 ---
 
@@ -43,7 +44,7 @@ java里面还有一些方法定义了没有实现，不知道会不会在1.9里�
 ```
 ## 三个构造方法
     ```java  
-     public HashMap(int initialCapacity, float loadFactor) 
+     public HashMap(int initialCapacity, float loadFactor)
         this.loadFactor = loadFactor;
         this.threshold = tableSizeFor(initialCapacity);//得到的threshold (是一个2的整数次幂-1) >=initialCapacity
     }
@@ -63,7 +64,7 @@ java里面还有一些方法定义了没有实现，不知道会不会在1.9里�
 ```java
  static final int hash(Object key) {
         int h;
-        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);//为什么这么做，不是很了解//TODO: 
+        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);//为什么这么做，不是很了解//TODO:
     }
 ```
 

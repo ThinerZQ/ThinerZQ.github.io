@@ -1,10 +1,10 @@
 title: 'Apache Commons-SCXML系列之 HelloWorld '
 date: 2016-01-28 16:38:52
-tags: 
+tags:
  Commons SCXML
  用法
  Hello World
-categories: 
+categories:
  Commons-SCXML
 ---
 
@@ -24,7 +24,6 @@ Commons-SCXML 是一个状态机框架，
 >本例比较简单就不画图了
 
 ## 编写状态图xml文件
-
 
 
 ```xml
@@ -62,15 +61,15 @@ import org.apache.commons.scxml2.model.SCXML;
 import java.net.URL;
 
 public class HelloWorld {
-    
+
     //通过加载HelloWorld类的类加载器加载helloworld.xml资源文件，得到URL
     private static final URL HELLOWORLD = HelloWorld.class.getResource("helloworld.xml");
 
     public static void main(String[] args) throws Exception {
-        
+
         //得到xml文件所对应的 SCXML对象
         SCXML scxml = SCXMLReader.read(HELLOWORLD);
-        
+
         //实例化状态机引擎，
         SCXMLExecutor executor = new SCXMLExecutor();
 
@@ -90,4 +89,3 @@ public class HelloWorld {
 
 
 接下来准备再写一个 秒表和请假流程的例子，再把相关的标签和属性值约束给汉化了。
-

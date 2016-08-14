@@ -30,6 +30,7 @@ menu:
   about: /about
   archives: /archives
   tags: /tags
+  history: /categories/history
   #commonweal: /404.html
 
 
@@ -56,9 +57,9 @@ menu_icons:
 # ---------------------------------------------------------------
 
 # Schemes
-scheme: Muse
+#scheme: Muse
 #scheme: Mist
-#scheme: Pisces
+scheme: Pisces
 
 
 # ---------------------------------------------------------------
@@ -132,7 +133,8 @@ social:
   微博: http://weibo.com/ZhengShouZi
   知乎: https://www.zhihu.com/people/zhengshouzi
   豆瓣: https://read.douban.com/people/65276245/
-
+  片刻: http://www.pianke.me/profile/136988/
+  贴吧: http://tieba.baidu.com/home/main?un=a601097836&fr=home
 social_icons:
   enable: true
   # Icon Mappings.
@@ -176,8 +178,8 @@ sidebar:
   #  - always  expand for all pages automatically
   #  - hide    expand only when click on the sidebar toggle icon.
   #  - remove  Totally remove sidebar including sidebar toggler.
-  display: post
-  #display: always
+  #display: post
+  display: always
   #display: hide
   #display: remove
 
@@ -222,7 +224,7 @@ auto_excerpt:
   #description: ex. subscribe to my blog by scanning my public wechat account
 
 
-  
+
 
 # ---------------------------------------------------------------
 # Third Party Services Settings

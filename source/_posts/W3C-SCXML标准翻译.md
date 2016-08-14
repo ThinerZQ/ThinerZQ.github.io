@@ -1,10 +1,10 @@
 title: State Chart XML (SCXML) 状态机规范
 date: 2016-02-01 21:53:08
 updated: 2016-02-05 22:10:23
-tags: 
+tags:
  SCXML标准翻译
  SCXML标准
-categories: 
+categories:
  w3c
  SCXML
 ---

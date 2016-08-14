@@ -4,7 +4,7 @@
 
 # Site
 title: ThinerZQ's Blog
-subtitle: 写写画画，走走停停！
+subtitle: 酷爱历史文学的程序猿
 description: Every dog has its day
 author: Money Zheng
 email: 601097836@qq.com
@@ -76,11 +76,11 @@ deploy:
   branch: master
 
 
-# personal photot 
+# personal photot
 avatar: https://avatars3.githubusercontent.com/u/10881023?v=3&s=460
 
 
-# duoshao setting 
+# duoshao setting
 duoshuo_shortname: thinerzq
 # baidu_analytics
 baidu_analytics: eccf2cb5f3f2279cab9f2d56853e8907
@@ -94,9 +94,9 @@ since: 2016
 # link
 links_title: Links
 links:
-	Bing: http://cn.bing.com
-	StackOverflow: http://stackoverflow.com
-	GitHub: http://github.com
+ Bing: http://cn.bing.com
+ StackOverflow: http://stackoverflow.com
+ GitHub: http://github.com
 
 feed:
   type: atom
