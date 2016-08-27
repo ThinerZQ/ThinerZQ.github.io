@@ -1,0 +1,993 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="HSF 分布式服务," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="ThinerZQ's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="HSF(High-Speed Service Framework)，是一个高性能的分布式服务框架。一个分布式框架提供的最基本的功能就是远程调用（A机器调用B机器上的一个对象的方法，B机器将方法到返回值发送回A机器）。HSF面向接口编程，以“Service”的形式进行远程调用，简单的说就是接口的具体实现(服务)运行在服务器上，服务器将这些接口暴露出来，客户端拿到这些接口之后通过接口调用具体的服务。在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HSF学习">
+<meta property="og:url" content="http://thinerzq.com/2016/07/22/HSF学习报告/index.html">
+<meta property="og:site_name" content="ThinerZQ's Blog">
+<meta property="og:description" content="HSF(High-Speed Service Framework)，是一个高性能的分布式服务框架。一个分布式框架提供的最基本的功能就是远程调用（A机器调用B机器上的一个对象的方法，B机器将方法到返回值发送回A机器）。HSF面向接口编程，以“Service”的形式进行远程调用，简单的说就是接口的具体实现(服务)运行在服务器上，服务器将这些接口暴露出来，客户端拿到这些接口之后通过接口调用具体的服务。在">
+<meta property="og:image" content="http://thinerzq.com/images/hsf.png">
+<meta property="og:updated_time" content="2016-08-14T14:36:49.730Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HSF学习">
+<meta name="twitter:description" content="HSF(High-Speed Service Framework)，是一个高性能的分布式服务框架。一个分布式框架提供的最基本的功能就是远程调用（A机器调用B机器上的一个对象的方法，B机器将方法到返回值发送回A机器）。HSF面向接口编程，以“Service”的形式进行远程调用，简单的说就是接口的具体实现(服务)运行在服务器上，服务器将这些接口暴露出来，客户端拿到这些接口之后通过接口调用具体的服务。在">
+<meta name="twitter:image" content="http://thinerzq.com/images/hsf.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6243707489116751000,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <title> HSF学习 | ThinerZQ's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?3ef097b3d9a03a9b6839d3dd7465769a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">ThinerZQ's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">酷爱历史文学的程序猿</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-history">
+          <a href="/categories/history" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            menu.history
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'JesUP7ZhCHhKkRxmxyjh','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                HSF学习
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-22T09:08:06+08:00" content="2016-07-22">
+              2016-07-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/HSF/" itemprop="url" rel="index">
+                    <span itemprop="name">HSF</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/22/HSF学习报告/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/22/HSF学习报告/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/22/HSF学习报告/" class="leancloud_visitors" data-flag-title="HSF学习">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o">本站总阅读量</i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>HSF(High-Speed Service Framework)，是一个高性能的分布式服务框架。一个分布式框架提供的最基本的功能就是远程调用（A机器调用B机器上的一个对象的方法，B机器将方法到返回值发送回A机器）。HSF面向接口编程，以“Service”的形式进行远程调用，简单的说就是接口的具体实现(服务)运行在服务器上，服务器将这些接口暴露出来，客户端拿到这些接口之后通过接口调用具体的服务。在服务发布和调用过程中主要涉及到下面这些知识。</p>
+<h1 id="1-服务注册"><a href="#1-服务注册" class="headerlink" title="1.服务注册"></a>1.服务注册</h1><p>服务注册的基本要素就是</p>
+<h2 id="1-1-将服务metadata发布到ConfigServer上"><a href="#1-1-将服务metadata发布到ConfigServer上" class="headerlink" title="1.1 将服务metadata发布到ConfigServer上"></a>1.1 将服务metadata发布到ConfigServer上</h2><p>ConfigServer就是存放ServiceID – ip地址映射关系(多对多)的机器，服务的元信息包括在HSFSpringProviderBean中配置的信息和服务所在的ip地址。服务的发布流程非常复杂</p>
+<p>首先在beans里面配置一个HSFSpringProviderBean以及一些属性，必要的有serviceInterface和target。在HSFSpringProviderBean里面还包装了一层 HSFApiProviderBean,HSFApiProviderBean里面包装了ServiceMetadata元数据类（关于服务的配置信息基本都在这儿）和MetadataService类，当所有配置的属性初始化完成之后，就开始调用init方法做一些发布之前的配置信息检查，再调用publish方法准备发布服务（这里面涉及到一个HSFServiceContainer单例类），通过HSFServiceContainer得到ProcessComponent的对象，调用ProcessComponent.publish()方法正真的发布服务.实际的发布过程挺复杂。</p>
+<h2 id="1-2-将服务对象注册到本地Server容器，"><a href="#1-2-将服务对象注册到本地Server容器，" class="headerlink" title="1.2. 将服务对象注册到本地Server容器，"></a>1.2. 将服务对象注册到本地Server容器，</h2><p>将某一个接口的具体实现注册到本地的Server容器里面，等待客户端调用</p>
+<a id="more"></a>
+<h1 id="2-服务发现"><a href="#2-服务发现" class="headerlink" title="2. 服务发现"></a>2. 服务发现</h1><p>为了调用一个HFS服务，客户端首先要从ConfigServer订阅这个服务的dataId，及时拿到服务发布方的地址列表。。ConfigServer负责管理地址，异步推送。服务提供者将服务发布到某一个机器上，并向ConfigServer报告服务所在的机器ip和服务对应的ddataId。当服务消费者需要调用服务的时候，首先向ConfigServer请求服务对应的ip,根据配置的规则（服务寻址）返回某一个ip，之后由服务消费者向对应的服务提供者ip发起TCP连接，建立通信。整个服务发现的过程就完成了</p>
+<h1 id="3-远程调用"><a href="#3-远程调用" class="headerlink" title="3. 远程调用"></a>3. 远程调用</h1><p>分布式框架主要特点就是远程调用，在提供强大的远程调用能力时不损失本地调用的语义简洁性.  由于HSF自身屏蔽了异步网络之间调用的差异性，同时HSF采用面向接口的实现形式，整个远程调用的关键就是拿到和服务端暴露出来的借口并编写正确清晰的业务逻辑。<br>调用分类</p>
+<ol>
+<li>Sync,这个就是一般同步调用，不适合于耗时长的服务调用。</li>
+<li>Future，这个和Java中的Future模式一样，在需要的时候通过HSFResponseFuture.getResponse(timeout)返回结果</li>
+<li>Callback，这个是属于回调类型，需要注意的是由于只用方法名字来标识方法,所以并不区分重载的方法。同名的方法都会被设置为同样的调用方式。<br>回调函数是由 io 线程来调用, 所以不要在拿到结果后做费时的操作。<br>不能在 onReponse 里边再发起 hsf 调用,目前这种做法可能导致 io 线程挂起,无法恢复。</li>
+<li>泛化调用，就是完全剥离的对api的依赖，以字符串的形式提供远程调用的接口名，方法名，参数类型等</li>
+</ol>
+<h1 id="4-动态代理"><a href="#4-动态代理" class="headerlink" title="4. 动态代理"></a>4. 动态代理</h1><p>动态代理主要用于实现无侵入式的代码扩展和远程调用，动态代理在远程调用中主要是通过在InvocationHandler的invoke方法里面将需要调用的对象的名字，方法的名字，参数等信息发送给服务端，等待服务端的返回。因为HSF使用的是基于接口的编程，所以其中的代理主要使用的是jdk自带的动态代理。</p>
+<h1 id="5-序列化-反序列化"><a href="#5-序列化-反序列化" class="headerlink" title="5. 序列化/反序列化"></a>5. 序列化/反序列化</h1><p>序列化一般用于本地持久化存储和网络传输，在这里使用序列化主要就是将客户端和服务端需要传递到对端的对象转化成字节数组，以便于网络传输。序列化的产品比较多，HSF的序列化是通过Hessian来完成的。下面将Java自带的序列化和Hessian做一个对比：</p>
+<ol>
+<li>Java序列化会把要序列化的对象类的元数据和业务数据全部序列化从字节流，而且是把整个继承关系上的东西全部序列化了。它序列化出来的字节流是对那个对象结构到内容的完全描述，包含所有的信息，因此效率较低而且字节流比较大。但是由于确实是序列化了所有内容，所以可以说什么都可以传输，因此也更可用和可靠。   </li>
+<li>hessian序列化，它的实现机制是着重于数据，附带简单的类型信息的方法。就像Integer a = 1，hessian会序列化成I 1这样的流，I表示int or Integer，1就是数据内容。而对于复杂对象，通过Java的反射机制，hessian把对象所有的属性当成一个Map来序列化，产生类似M className1 propertyName1 I 1 propertyName S stringValue这样的流，包含了基本的类型描述和数据内容。而在序列化过程中，如果一个对象之前出现过，hessian会直接插入一个R index这样的块来表示一个引用位置，从而省去再次序列化和反序列化的时间。Hessian序列化直接忽略了serialVersionUID，同时在遇到子类和父类中有同名变量的时候，对子类进行序列化子类的值被父类的值覆盖的问题。</li>
+</ol>
+<h1 id="6-超时机制"><a href="#6-超时机制" class="headerlink" title="6. 超时机制"></a>6. 超时机制</h1><p>超时机制是远程方法调用过程中配置调用超时的超时时间，可以在服务端和客户端同时配置，同时配置可以细化到接口和接口中的方法。clientTimeout：对接口中的所有方法生效，methodspecial,对指定的某几个方法生效。四个方法的优先级规则如下：    客户端methodspecial &gt; 客户端clientTimeout &gt; 服务端methodspecial &gt; 服务端clientTimeout。超时了HSF会throw HSFTimeoutException，由业务代码catch之后处理，比如重试、fail fast等等。</p>
+<h1 id="7-机房路由"><a href="#7-机房路由" class="headerlink" title="7. 机房路由"></a>7. 机房路由</h1><p>机房路由主要指的是分布在所有服务器上的各个服务的调用规则，主要通过Diamond配置中心配置的</p>
+<ol>
+<li>路由规则，可以通过groovy脚本指定接口路由，方法路由，参数路由。</li>
+<li>归组规则，用于对发布了同一 HSF 服务的所有机器进行统一归组的规则 。通过xml文件配置</li>
+<li>同机房优先规则，保证 HSF 服务消费者在请求 HSF 服务时，优先选择与服务消费者同机房的服务提供者。主要需要指定一个阈值，生效阀值的计算方法: 服务可用比例=本机房可用机器数量/所有服务机器数量 当服务可用比例 &gt;= threshold 时，启用本地机房优先策略，当服务可用比例 &lt; threshold 时，本地机房优先策略关闭,服务仍然采用随机调用的方式。通过xml形式配置</li>
+<li>权重规则，如果用户不想对流量进行硬性导向，但倾向于将流量多往某几台机 器上引导，这时候就可以将这几台机器的权重规则配置大一点。某一台机器的调用概率计算公式：某一台机器的权重/所有机器的权重之和。</li>
+<li>全局规则，配置HSF日志级别，虚机房等</li>
+<li>TPS限流，允许应用提供方指定某个接口的TPS，当单位时间内的TPS达到设定值时，该接口将停止对外提供服务，所有的请求都会被拦截（立刻返回，错误消息TPS限流)，直到下一个刷新时间点。支持接口级别和方法级别。</li>
+<li>支持应用级别，接口级别和方法级别，只有白名单中的应用才可以调用，通过Diamond推送到服务端生效。</li>
+</ol>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>HSF作为一个高性能分布式服务框架，主要使用了ConfigServer来作为注册中心，Diamond来做软负载，通过接口变成实现动态代理。它的高性能应该主要体现在Diamond中规则的配置和ConfigServer的服务的动态注册和发现。从HSF的整体结构上来看,还涉及到了协议层，以及Netty网络流传输。<br><img src="/images/hsf.png" alt="HSF整体结构"><br>下面这几点配合链接里面流程图和源码看对于深入理解HSF很有启发，</p>
+<ol>
+<li><a href="http://www.atatech.org/articles/43956" target="_blank" rel="external">HSF服务发布流程</a></li>
+<li><a href="http://www.atatech.org/articles/43956" target="_blank" rel="external">HSF服务消费流程</a></li>
+<li><a href="http://www.atatech.org/articles/51156" target="_blank" rel="external">服务端发布与处理请求，客户端订阅与调用流程</a></li>
+<li><a href="http://iwinit.iteye.com/blog/1745132" target="_blank" rel="external">容器启动流程</a></li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat_pay.png" alt="Money Zheng WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/zhifubao_pay.jpg" alt="Money Zheng Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HSF-分布式服务/" rel="tag">#HSF 分布式服务</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/20/ibatis学习报告/" rel="next" title="Ibatis学习">
+                <i class="fa fa-chevron-left"></i> Ibatis学习
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/25/metaQ学习报告/" rel="prev" title="MetaQ(RocketMQ)学习">
+                MetaQ(RocketMQ)学习 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/07/22/HSF学习报告/"
+     data-title="HSF学习"
+     data-content=""
+     data-url="http://thinerzq.com/2016/07/22/HSF学习报告/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/07/22/HSF学习报告/"
+           data-title="HSF学习" data-url="http://thinerzq.com/2016/07/22/HSF学习报告/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars3.githubusercontent.com/u/10881023?v=3&s=460"
+               alt="Money Zheng" />
+          <p class="site-author-name" itemprop="name">Money Zheng</p>
+          <p class="site-description motion-element" itemprop="description">Every dog has its day</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ThinerZQ" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/ZhengShouZi" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/zhengshouzi" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://read.douban.com/people/65276245/" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.pianke.me/profile/136988/" target="_blank" title="片刻">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  片刻
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://tieba.baidu.com/home/main?un=a601097836&fr=home" target="_blank" title="贴吧">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  贴吧
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.bingoogolapple.cn/" title="bingoogle" target="_blank">bingoogle</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-服务注册"><span class="nav-number">1.</span> <span class="nav-text">1.服务注册</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-将服务metadata发布到ConfigServer上"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 将服务metadata发布到ConfigServer上</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-将服务对象注册到本地Server容器，"><span class="nav-number">1.2.</span> <span class="nav-text">1.2. 将服务对象注册到本地Server容器，</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-服务发现"><span class="nav-number">2.</span> <span class="nav-text">2. 服务发现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-远程调用"><span class="nav-number">3.</span> <span class="nav-text">3. 远程调用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-动态代理"><span class="nav-number">4.</span> <span class="nav-text">4. 动态代理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-序列化-反序列化"><span class="nav-number">5.</span> <span class="nav-text">5. 序列化/反序列化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-超时机制"><span class="nav-number">6.</span> <span class="nav-text">6. 超时机制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-机房路由"><span class="nav-number">7.</span> <span class="nav-text">7. 机房路由</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">8.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Money Zheng</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user">本站访客数</i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye">本站总访问量</i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"thinerzq"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Ejk3T06mIIR6qAsgj2xDACNt-gzGzoHsz", "t6iVWLLthVAcMzIBKMfPaalb");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>

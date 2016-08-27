@@ -1,0 +1,1079 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="spring," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="ThinerZQ's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Spring最为最强大的java 企业级开发框架，大约3年前有接触过，但是学的不深，读研的日子没有多少时间去学习这个框架，现在找实习就要用并且之前的学的是Spring 3的内容，现在都Spring 4, Servlt 3.0了变化好大，有必要重新系统的学习一边，从看官方文档开始。spring framework
+模块Spring的核心容器Spring的核心模块包括：spring‐core , sp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring in my mind">
+<meta property="og:url" content="http://thinerzq.com/2016/04/24/Spring-in-my-mind/index.html">
+<meta property="og:site_name" content="ThinerZQ's Blog">
+<meta property="og:description" content="Spring最为最强大的java 企业级开发框架，大约3年前有接触过，但是学的不深，读研的日子没有多少时间去学习这个框架，现在找实习就要用并且之前的学的是Spring 3的内容，现在都Spring 4, Servlt 3.0了变化好大，有必要重新系统的学习一边，从看官方文档开始。spring framework
+模块Spring的核心容器Spring的核心模块包括：spring‐core , sp">
+<meta property="og:updated_time" content="2016-04-28T09:20:10.870Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring in my mind">
+<meta name="twitter:description" content="Spring最为最强大的java 企业级开发框架，大约3年前有接触过，但是学的不深，读研的日子没有多少时间去学习这个框架，现在找实习就要用并且之前的学的是Spring 3的内容，现在都Spring 4, Servlt 3.0了变化好大，有必要重新系统的学习一边，从看官方文档开始。spring framework
+模块Spring的核心容器Spring的核心模块包括：spring‐core , sp">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6243707489116751000,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <title> Spring in my mind | ThinerZQ's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?3ef097b3d9a03a9b6839d3dd7465769a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">ThinerZQ's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">酷爱历史文学的程序猿</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-history">
+          <a href="/categories/history" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            menu.history
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'JesUP7ZhCHhKkRxmxyjh','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Spring in my mind
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-24T18:41:17+08:00" content="2016-04-24">
+              2016-04-24
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/spring/" itemprop="url" rel="index">
+                    <span itemprop="name">spring</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/24/Spring-in-my-mind/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/24/Spring-in-my-mind/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/04/24/Spring-in-my-mind/" class="leancloud_visitors" data-flag-title="Spring in my mind">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o">本站总阅读量</i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Spring最为最强大的java 企业级开发框架，大约3年前有接触过，但是学的不深，读研的日子没有多少时间去学习这个框架，现在找实习就要用并且之前的学的是Spring 3的内容，现在都Spring 4, Servlt 3.0了变化好大，有必要重新系统的学习一边，从看官方文档开始。<a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/" target="_blank" rel="external">spring framework</a></p>
+<h1 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h1><h2 id="Spring的核心容器"><a href="#Spring的核心容器" class="headerlink" title="Spring的核心容器"></a>Spring的核心容器</h2><p>Spring的核心模块包括：<code>spring‐core</code> , <code>spring‐beans</code> , <code>spring‐context</code> , <code>spring‐context‐support</code> , and<br><code>spring‐expression</code> modules.</p>
+<p><code>spring‐core</code>，<code>spring‐beans</code> ：Beans和Core提供了最基本的DI功能  </p>
+<p><code>spring‐context</code>: Context提供了在应用程序中访问对象的方式，并且在Beans和Core的基础上提供了，国际化，事件传播，资源加载的功能,同时也支持EJB,JMX等JavaEE特征，其中最重要的<code>ApplicationContext</code>&gt;接口  </p>
+<p><code>spring‐context‐support</code>：提供了整合第三方类库到Spring Context中，例如：(EhCache, Guava, JCache), 邮件 (JavaMail), 调度 (CommonJ, Quartz)，和模板引擎(FreeMarker, JasperReports, Velocity).  </p>
+<p><code>spring‐expression</code>：spring的表达式语言，扩展自 JSP规范里面的EL表达式，提供了在运行时查询或者访问对象属性值的功能，同时还支持投影，选择和聚合功能</p>
+<a id="more"></a>
+<h2 id="AOP模块"><a href="#AOP模块" class="headerlink" title="AOP模块"></a>AOP模块</h2><p><code>spring-aop</code>&gt;: 提供了面向切面编程的功能，实现了功能的解耦<br><code>spring‐aspects</code>: 提供了和AspectJ整合的功能</p>
+<h2 id="Messaging模块"><a href="#Messaging模块" class="headerlink" title="Messaging模块"></a>Messaging模块</h2><p><code>spring-messaging</code> 模块为集成messaging api和消息协议提供支持。</p>
+<h2 id="Data-Access-Integration模块"><a href="#Data-Access-Integration模块" class="headerlink" title="Data Access/Integration模块"></a>Data Access/Integration模块</h2><p><code>spring‐jdbc</code>: 提供了JDBC的抽象<br><code>spring‐tx</code>: 提供了声明式的实物管理<br><code>spring‐orm</code>: 提供了和其他ORM框架的整合能力，例如：including JPA, JDO, and Hibernate<br><code>pring‐oxm</code>: provides an abstraction layer that supports Object/XML mapping implementations such as JAXB, Castor, 没了解过<br>XMLBeans, JiBX and XStream. （不是很了解）<br><code>spring‐jms</code>: 提供了产生和消费的功能，从spring 4.1以后，这个模块逐渐和<code>spring-messaging</code>模块进行整合了。</p>
+<h2 id="Web-部分"><a href="#Web-部分" class="headerlink" title="Web 部分"></a>Web 部分</h2><p><code>spring‐web</code>&gt;: 提供了基础的web相关的整合，例如文件上传，使用面向web应用程序的监听器去初始化IOC容器等。<br><code>spring‐webmvc</code>&gt;： 包含了Web MVC模式和REST web service的实现<br><code>spring‐webmvc-portlet</code>&gt;：提供了在Portlet环境下的Web mvc模式的实现  </p>
+<h2 id="Test-部分"><a href="#Test-部分" class="headerlink" title="Test 部分"></a>Test 部分</h2><p><code>spring-test</code>: 支持Junit和TestNG的单元测试和整合测试，他提供了加载Spring应用程序上下文和cache的功能，同时还提供了Mock 对象的功能。  </p>
+<h2 id="Spring-框架Artifacts"><a href="#Spring-框架Artifacts" class="headerlink" title="Spring 框架Artifacts"></a>Spring 框架Artifacts</h2><table>
+<thead>
+<tr>
+<th>Group id</th>
+<th style="text-align:center">Artifact id</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-aop</td>
+<td style="text-align:center">Proxybased AOP support</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-aspects</td>
+<td style="text-align:center">AspectJ based aspects</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-beans</td>
+<td style="text-align:center">Beans support, including Groovy</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-context</td>
+<td style="text-align:center">Application context runtime, including scheduling and remoting abstractions</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-context-support</td>
+<td style="text-align:center">Support classes for integrating common thirdparty libraries into a Spring application context</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-core</td>
+<td style="text-align:center">Core utilities, used by many other Spring modules</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-expression</td>
+<td style="text-align:center">Spring Expression Language (SpEL)</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-instrument</td>
+<td style="text-align:center">Instrumentation agent for JVM bootstrapping</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-instrument-tomcat</td>
+<td style="text-align:center">Instrumentation agent for Tomcat</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-jdbc</td>
+<td style="text-align:center">JDBC support package, including DataSource setup and JDBC access support</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-jms</td>
+<td style="text-align:center">JMS support package, including helper classes to send and receive JMS messages</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-messaging</td>
+<td style="text-align:center">Support for messaging architectures and protocols</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-orm</td>
+<td style="text-align:center">Object/Relational Mapping, including JPA and Hibernate support</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-oxm</td>
+<td style="text-align:center">Object/XML Mapping</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-test</td>
+<td style="text-align:center">Support for unit testing and integration testing Spring components</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-tx</td>
+<td style="text-align:center">Transaction infrastructure, including DAO support and JCA integration</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-web</td>
+<td style="text-align:center">Web support packages, including client and web remoting</td>
+</tr>
+<tr>
+<td>org.springframework</td>
+<td style="text-align:center">spring-webmvc</td>
+<td style="text-align:center">REST Web Services and modelviewcontroller</td>
+</tr>
+</tbody>
+</table>
+<p>implementation for web applications|<br>|org.springframework |spring-webmvc-portlet|MVC implementation to be used in a Portlet environment|<br>|org.springframework |spring-websocket|WebSocket and SockJS implementations, including STOMP support|</p>
+<h2 id="使用Maven管理依赖"><a href="#使用Maven管理依赖" class="headerlink" title="使用Maven管理依赖"></a>使用Maven管理依赖</h2><h3 id="Spring远程仓库"><a href="#Spring远程仓库" class="headerlink" title="Spring远程仓库"></a>Spring远程仓库</h3><p>for release<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">repositories</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">repository</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">id</span>&gt;</span>io.spring.repo.maven.release<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">url</span>&gt;</span>http://repo.spring.io/release/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">snapshots</span>&gt;</span><span class="tag">&lt;<span class="name">enabled</span>&gt;</span>false<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span><span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">repository</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>for milestones<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">repositories</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">repository</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">id</span>&gt;</span>io.spring.repo.maven.milestone<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">url</span>&gt;</span>http://repo.spring.io/milestone/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">snapshots</span>&gt;</span><span class="tag">&lt;<span class="name">enabled</span>&gt;</span>false<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span><span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">repository</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>for snapshot<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">repositories</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">repository</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">id</span>&gt;</span>io.spring.repo.maven.snapshot<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">url</span>&gt;</span>http://repo.spring.io/snapshot/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">snapshots</span>&gt;</span><span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span><span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">repository</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="BOM-依赖"><a href="#BOM-依赖" class="headerlink" title="BOM 依赖"></a>BOM 依赖</h3><p>使用这个依赖可以不用指定spring模块的版本号<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring‐framework‐bom<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>4.2.5.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="如何选择Spring中的日志框架"><a href="#如何选择Spring中的日志框架" class="headerlink" title="如何选择Spring中的日志框架"></a>如何选择Spring中的日志框架</h2><p>首先Spring里面默认使用了 <code>commons-logging</code>作为内部的日志框架。</p>
+<h3 id="1、commons-logging-log4j-搭配"><a href="#1、commons-logging-log4j-搭配" class="headerlink" title="1、commons-logging  + log4j 搭配"></a>1、commons-logging  + log4j 搭配</h3><p>依赖配置如下<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring‐core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>4.2.5.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.14<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>commons-logging 会自动发现类路径下的log4j类库和log4j.propertites文件，使用log4j来记录日志</p>
+<h3 id="2、不使用commons-logging-，改为-SLF4J-log4j记录日志"><a href="#2、不使用commons-logging-，改为-SLF4J-log4j记录日志" class="headerlink" title="2、不使用commons-logging ，改为 SLF4J +log4j记录日志"></a>2、不使用commons-logging ，改为 SLF4J +log4j记录日志</h3><p>依赖配置如下<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring‐core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>4.2.5.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons‐logging<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons‐logging<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jcl‐over‐slf4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>1.5.8<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>slf4j‐api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>1.5.8<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>slf4j‐log4j12<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>1.5.8<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.14<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>首先将在<code>Spring-core</code>包里面使用的commons-logging 框架去掉，然后加上slf4j和 log4j的包，spring会自动调用slf4j的接口，由slf4j区发现真正的日志实现框架log4j。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat_pay.png" alt="Money Zheng WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/zhifubao_pay.jpg" alt="Money Zheng Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/spring/" rel="tag">#spring</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/22/java8-HashMap详解/" rel="next" title="java8 HashMap详解">
+                <i class="fa fa-chevron-left"></i> java8 HashMap详解
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/26/NanoHTTPD简易http服务器解读/" rel="prev" title="NanoHTTPD简易http服务器解读">
+                NanoHTTPD简易http服务器解读 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/04/24/Spring-in-my-mind/"
+     data-title="Spring in my mind"
+     data-content=""
+     data-url="http://thinerzq.com/2016/04/24/Spring-in-my-mind/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/04/24/Spring-in-my-mind/"
+           data-title="Spring in my mind" data-url="http://thinerzq.com/2016/04/24/Spring-in-my-mind/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars3.githubusercontent.com/u/10881023?v=3&s=460"
+               alt="Money Zheng" />
+          <p class="site-author-name" itemprop="name">Money Zheng</p>
+          <p class="site-description motion-element" itemprop="description">Every dog has its day</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ThinerZQ" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/ZhengShouZi" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/zhengshouzi" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://read.douban.com/people/65276245/" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.pianke.me/profile/136988/" target="_blank" title="片刻">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  片刻
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://tieba.baidu.com/home/main?un=a601097836&fr=home" target="_blank" title="贴吧">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  贴吧
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.bingoogolapple.cn/" title="bingoogle" target="_blank">bingoogle</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#模块"><span class="nav-number">1.</span> <span class="nav-text">模块</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring的核心容器"><span class="nav-number">1.1.</span> <span class="nav-text">Spring的核心容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AOP模块"><span class="nav-number">1.2.</span> <span class="nav-text">AOP模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Messaging模块"><span class="nav-number">1.3.</span> <span class="nav-text">Messaging模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Access-Integration模块"><span class="nav-number">1.4.</span> <span class="nav-text">Data Access/Integration模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web-部分"><span class="nav-number">1.5.</span> <span class="nav-text">Web 部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Test-部分"><span class="nav-number">1.6.</span> <span class="nav-text">Test 部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-框架Artifacts"><span class="nav-number">1.7.</span> <span class="nav-text">Spring 框架Artifacts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Maven管理依赖"><span class="nav-number">1.8.</span> <span class="nav-text">使用Maven管理依赖</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring远程仓库"><span class="nav-number">1.8.1.</span> <span class="nav-text">Spring远程仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BOM-依赖"><span class="nav-number">1.8.2.</span> <span class="nav-text">BOM 依赖</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何选择Spring中的日志框架"><span class="nav-number">1.9.</span> <span class="nav-text">如何选择Spring中的日志框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、commons-logging-log4j-搭配"><span class="nav-number">1.9.1.</span> <span class="nav-text">1、commons-logging  + log4j 搭配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、不使用commons-logging-，改为-SLF4J-log4j记录日志"><span class="nav-number">1.9.2.</span> <span class="nav-text">2、不使用commons-logging ，改为 SLF4J +log4j记录日志</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Money Zheng</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user">本站访客数</i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye">本站总访问量</i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"thinerzq"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Ejk3T06mIIR6qAsgj2xDACNt-gzGzoHsz", "t6iVWLLthVAcMzIBKMfPaalb");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>

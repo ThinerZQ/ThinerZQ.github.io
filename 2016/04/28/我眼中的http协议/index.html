@@ -1,0 +1,1250 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="http," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="ThinerZQ's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="URI是下面的这样的形式
+
+http://user:pass@www.example.jp:80/dir/index.htm?uid=1#ch1
+
+各部分标示的意思如下     
+
+
+
+字符串
+用途
+
+
+
+
+http
+协议类型
+
+
+user：pass
+登录服务器的用户名和密码
+
+
+www.example.jp
+服务器地址，还可以用ipv6的标示的表示形式[0:0:0:0:0:0:0:1]
+
+
+80">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我眼中的http协议">
+<meta property="og:url" content="http://thinerzq.com/2016/04/28/我眼中的http协议/index.html">
+<meta property="og:site_name" content="ThinerZQ's Blog">
+<meta property="og:description" content="URI是下面的这样的形式
+
+http://user:pass@www.example.jp:80/dir/index.htm?uid=1#ch1
+
+各部分标示的意思如下     
+
+
+
+字符串
+用途
+
+
+
+
+http
+协议类型
+
+
+user：pass
+登录服务器的用户名和密码
+
+
+www.example.jp
+服务器地址，还可以用ipv6的标示的表示形式[0:0:0:0:0:0:0:1]
+
+
+80">
+<meta property="og:updated_time" content="2016-05-02T02:11:07.994Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="我眼中的http协议">
+<meta name="twitter:description" content="URI是下面的这样的形式
+
+http://user:pass@www.example.jp:80/dir/index.htm?uid=1#ch1
+
+各部分标示的意思如下     
+
+
+
+字符串
+用途
+
+
+
+
+http
+协议类型
+
+
+user：pass
+登录服务器的用户名和密码
+
+
+www.example.jp
+服务器地址，还可以用ipv6的标示的表示形式[0:0:0:0:0:0:0:1]
+
+
+80">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6243707489116751000,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <title> 我眼中的http协议 | ThinerZQ's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?3ef097b3d9a03a9b6839d3dd7465769a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">ThinerZQ's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">酷爱历史文学的程序猿</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-history">
+          <a href="/categories/history" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            menu.history
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'JesUP7ZhCHhKkRxmxyjh','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                我眼中的http协议
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-28T10:24:35+08:00" content="2016-04-28">
+              2016-04-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/http/" itemprop="url" rel="index">
+                    <span itemprop="name">http</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/28/我眼中的http协议/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/28/我眼中的http协议/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/04/28/我眼中的http协议/" class="leancloud_visitors" data-flag-title="我眼中的http协议">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o">本站总阅读量</i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>URI是下面的这样的形式</p>
+<blockquote>
+<p><a href="http://user:pass@www.example.jp:80/dir/index.htm?uid=1#ch1" target="_blank" rel="external">http://user:pass@www.example.jp:80/dir/index.htm?uid=1#ch1</a></p>
+</blockquote>
+<pre><code>各部分标示的意思如下     
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:center">字符串</th>
+<th style="text-align:center">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">http</td>
+<td style="text-align:center">协议类型</td>
+</tr>
+<tr>
+<td style="text-align:center">user：pass</td>
+<td style="text-align:center">登录服务器的用户名和密码</td>
+</tr>
+<tr>
+<td style="text-align:center">www.example.jp</td>
+<td style="text-align:center">服务器地址，还可以用ipv6的标示的表示形式[0:0:0:0:0:0:0:1]</td>
+</tr>
+<tr>
+<td style="text-align:center">80</td>
+<td style="text-align:center">端口号</td>
+</tr>
+<tr>
+<td style="text-align:center">index.html</td>
+<td style="text-align:center">带层次的文件路径</td>
+</tr>
+<tr>
+<td style="text-align:center">uid=1</td>
+<td style="text-align:center">查询字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">ch1</td>
+<td style="text-align:center">片段标示符，锚</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<h2 id="请求方法"><a href="#请求方法" class="headerlink" title="请求方法"></a>请求方法</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">方法类型</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">支持的协议版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">GET</td>
+<td style="text-align:center">请求http服务器上的某一个页面资源, 如果请求的是文本资源，保持原样返回；如果是CGI一样的程序，则返回执行后的输出结果，主要目的是想访问资源</td>
+<td style="text-align:center">1.0,1.1</td>
+</tr>
+<tr>
+<td style="text-align:center">POST</td>
+<td style="text-align:center">post的主要目的是把消息传递给服务器</td>
+<td style="text-align:center">1.0,1.1</td>
+</tr>
+<tr>
+<td style="text-align:center">PUT</td>
+<td style="text-align:center">传输文件，但是HTTP/1.1的PUT方法不带验证机制，任何人都可以上传文件， 需要配合web应用程序的验证机制，或REST程序使用。</td>
+<td style="text-align:center">1.0,1.1</td>
+</tr>
+<tr>
+<td style="text-align:center">HEAD</td>
+<td style="text-align:center">和GET方法一样，但是不返回报文主体，用于确认URI的有效性和资源更新的日期等</td>
+<td style="text-align:center">1.0,1.1</td>
+</tr>
+<tr>
+<td style="text-align:center">DELETE</td>
+<td style="text-align:center">删除文件，但是HTTP/1.1的DELETE方法不带验证机制，任何人都可以删除文件， 需要配合web应用程序的验证机制，或REST程序使用。</td>
+<td style="text-align:center">1.0,1.1</td>
+</tr>
+<tr>
+<td style="text-align:center">OPTIONS</td>
+<td style="text-align:center">询问服务器只会哪些请求方法</td>
+<td style="text-align:center">1.1</td>
+</tr>
+<tr>
+<td style="text-align:center">TRACE</td>
+<td style="text-align:center">该方法需要配合请求头中的Max-Forwards字段使用，并指定一个初始值， 如果使用了<font color="red"> 代理服务器</font>，没经过一个代理服务器，该字段值就会减1， 直到为0，服务器就返回请求内容。可能会引起跨站追踪</td>
+<td style="text-align:center">1.1</td>
+</tr>
+<tr>
+<td style="text-align:center">CONNECT</td>
+<td style="text-align:center">要求在于代理服务器通信时候，建立隧道</td>
+<td style="text-align:center">1.1</td>
+</tr>
+<tr>
+<td style="text-align:center">LINK</td>
+<td style="text-align:center">建立与资源之间的联系</td>
+<td style="text-align:center">1.0</td>
+</tr>
+<tr>
+<td style="text-align:center">UNLINK</td>
+<td style="text-align:center">断开连接关系</td>
+<td style="text-align:center">1.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="持久连接"><a href="#持久连接" class="headerlink" title="持久连接"></a>持久连接</h2><p>没有持久连接之前，如果一个页面包含多个图片等请求，则每一服务图片的请求，都需要与服务器端建立TPC/IP连接，大大浪费了时间，有了持久连接之后，只需要建立一次TCP/IP连接，就能在其中保持多个HTTP请求和响应。<font color="red">HTTP1.1所有的连接，默认都是持久连接,主要的做法是在请求头中增加了，keep-alive选项</font></p>
+<h2 id="管线化"><a href="#管线化" class="headerlink" title="管线化"></a>管线化</h2><p>持久化连接虽然能够，在一次TCP/IP连接内，进行多次HTTP请求，但是这些请求是串行的，只有一个请求结束了之后，才能继续第二个请求。管线化使得在一个TCP/IP连接内，多个请求可以并发执行</p>
+<h2 id="使用Cookie做状态管理"><a href="#使用Cookie做状态管理" class="headerlink" title="使用Cookie做状态管理"></a>使用Cookie做状态管理</h2><p>HTTP是无状态的协议，它不对之前发生过的请求和响应的状态进行管理，无法根据之前的状态尽心Benin的处理。但是通过服务端向客户端指定一个cookie信息，每次客户端请求的使用，使用这个cookie信息请求服务端，服务端就知道客户端的情况了。</p>
+<h1 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h1><table>
+<thead>
+<tr>
+<th style="text-align:center">状态码</th>
+<th style="text-align:center">字段值</th>
+<th style="text-align:center">原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">200</td>
+<td style="text-align:center">OK</td>
+<td style="text-align:center">成功</td>
+</tr>
+<tr>
+<td style="text-align:center">204</td>
+<td style="text-align:center">No Content</td>
+<td style="text-align:center">请求已经正确处理，不需要返回任何实体内容</td>
+</tr>
+<tr>
+<td style="text-align:center">206</td>
+<td style="text-align:center">Partial Contex</td>
+<td style="text-align:center">客户端进行了范围请求，服务器成功执行了这部分范围请求，可用于断点续传</td>
+</tr>
+<tr>
+<td style="text-align:center">301</td>
+<td style="text-align:center">Move Permanently</td>
+<td style="text-align:center">标示被请求的资源已经被分配了新的URI</td>
+</tr>
+<tr>
+<td style="text-align:center">302</td>
+<td style="text-align:center">Found</td>
+<td style="text-align:center">临时性重定向，访问的URI临时的迁移到另外的地方了，以后还可能会变化, 禁止POST转化为GET</td>
+</tr>
+<tr>
+<td style="text-align:center">303</td>
+<td style="text-align:center">See Other</td>
+<td style="text-align:center">指示客户端以Get形式重定向到另一个URI上去</td>
+</tr>
+<tr>
+<td style="text-align:center">304</td>
+<td style="text-align:center">Not Modified</td>
+<td style="text-align:center">附带条件的请求时，但是没有找到合适的资源，不包含任何响应的主体部分</td>
+</tr>
+<tr>
+<td style="text-align:center">307</td>
+<td style="text-align:center">Temporary Redirect</td>
+<td style="text-align:center">禁止POST变为GET</td>
+</tr>
+<tr>
+<td style="text-align:center">400</td>
+<td style="text-align:center">Bas Request</td>
+<td style="text-align:center">请求报文中存在语法错误</td>
+</tr>
+<tr>
+<td style="text-align:center">401</td>
+<td style="text-align:center">Unauthorized</td>
+<td style="text-align:center">发送的请求需要通过HTTP认证（BASIC,DIGEST）</td>
+</tr>
+<tr>
+<td style="text-align:center">403</td>
+<td style="text-align:center">Forbidden</td>
+<td style="text-align:center">对请求资源的访问被服务器拒绝了</td>
+</tr>
+<tr>
+<td style="text-align:center">404</td>
+<td style="text-align:center">Not Found</td>
+<td style="text-align:center">服务器没有请求的资源</td>
+</tr>
+<tr>
+<td style="text-align:center">500</td>
+<td style="text-align:center">Internal Server Error</td>
+<td style="text-align:center">服务器端在执行请求时候发生了错误</td>
+</tr>
+<tr>
+<td style="text-align:center">503</td>
+<td style="text-align:center">Service Unavailable</td>
+<td style="text-align:center">服务器处于超负载状态，一段时候后再访问</td>
+</tr>
+</tbody>
+</table>
+<h1 id="通信数据转发程序"><a href="#通信数据转发程序" class="headerlink" title="通信数据转发程序"></a>通信数据转发程序</h1><h2 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h2><p>转发功能的应用程序</p>
+<h2 id="网关"><a href="#网关" class="headerlink" title="网关"></a>网关</h2><p>转发其他服务器通信数据的服务器，除了具备代理服务器的相关功能之外，还能够使通信线路上的服务器提供非HTTP协议服务</p>
+<h2 id="隧道"><a href="#隧道" class="headerlink" title="隧道"></a>隧道</h2><p>建立一条与其他服务器的通信线路，到时候使用SSL等加密手段进行通信。目的是为了确保客户端与服务器进行安全的通信</p>
+<h1 id="http的瓶颈"><a href="#http的瓶颈" class="headerlink" title="http的瓶颈"></a>http的瓶颈</h1><ol>
+<li>一条链接只可发送一个请求</li>
+<li>请求只能从客户端开始。客户端不可以接受除了响应意外的指令</li>
+<li>请求/响应首部未经过压缩就发送，首部信息越大延迟越大</li>
+<li>发送冗长的首部。每次互相发送相同的首部造成浪费较多</li>
+<li>可选择任意数据的压缩格式。非强制压缩发送</li>
+</ol>
+<h1 id="Ajax解决方法"><a href="#Ajax解决方法" class="headerlink" title="Ajax解决方法"></a>Ajax解决方法</h1><p>只用于更新一部分页面，使得响应中传输的数据因此减少，缺点：但是会导师大量请求产生。</p>
+<h1 id="Comet解决方法"><a href="#Comet解决方法" class="headerlink" title="Comet解决方法"></a>Comet解决方法</h1><p>一旦服务器有内容更新，Comet不会让请求等待，而是直接给客户端访问响应，如果服务端没有内容更新，Comet挂起请求，当服务器有更新的时候，再返回响应。缺点：挂起了去请求，消耗服务端资源。</p>
+<h1 id="SPDY的解决方法"><a href="#SPDY的解决方法" class="headerlink" title="SPDY的解决方法"></a>SPDY的解决方法</h1><p>在协议解决消除HTTP的瓶颈<br>要求在应用程和传输层之间如下会话层SPDY，并在表示层使用SSL，带来的改变如下：</p>
+<h2 id="多路复用流"><a href="#多路复用流" class="headerlink" title="多路复用流"></a>多路复用流</h2><p>单一的TCP连接，可以无限制处理多个HTTP请求</p>
+<h2 id="赋予请求优先级"><a href="#赋予请求优先级" class="headerlink" title="赋予请求优先级"></a>赋予请求优先级</h2><p>这样主要是为了在发送多个请求时候，解决因为带宽低而导致的响应变慢的问题（TODO）</p>
+<h2 id="压缩HTTP首部"><a href="#压缩HTTP首部" class="headerlink" title="压缩HTTP首部"></a>压缩HTTP首部</h2><p>通信的数据量少了</p>
+<h2 id="推送功能"><a href="#推送功能" class="headerlink" title="推送功能"></a>推送功能</h2><p>支持服务端主动向客户端发送数据</p>
+<h1 id="全双工通信的WebSocket"><a href="#全双工通信的WebSocket" class="headerlink" title="全双工通信的WebSocket"></a>全双工通信的WebSocket</h1><p>WebSocket协议的特点</p>
+<h2 id="推送功能-1"><a href="#推送功能-1" class="headerlink" title="推送功能"></a>推送功能</h2><p>支持服务端向客户端推送数据</p>
+<h2 id="减少通信量"><a href="#减少通信量" class="headerlink" title="减少通信量"></a>减少通信量</h2><p>只要建立了WebSocket连接，就希望一直保持连接状态<br>为了实现WebSocket通信，在HTTP连接之后，需要完成一次“握手“步骤</p>
+<h3 id="握手-请求"><a href="#握手-请求" class="headerlink" title="握手*请求"></a>握手*请求</h3><p>设置HTTP hearder</p>
+<blockquote>
+<p>Upgrade: wbsocket<br>Connection: Upgrade<br>Sec-WebSocket-Key: XXXXXXXXXXXX<br>Sec-WebSocket-Protocol : chat, superchat<br>Sec-WebSocket-Version : 13</p>
+</blockquote>
+<h3 id="握手-响应"><a href="#握手-响应" class="headerlink" title="握手*响应"></a>握手*响应</h3><p>对应之前的请求，返回状态码<font color="red">101 Switching Protocols</font>响应</p>
+<p>成功确立WebSocket连接之后，通行时不再使用HTTP数据帧，而采用WebSocket独立的数据帧</p>
+<blockquote>
+<p>http不具备必要的安全功能，</p>
+</blockquote>
+<h1 id="因输出值转义不完全而应发的安全漏洞"><a href="#因输出值转义不完全而应发的安全漏洞" class="headerlink" title="因输出值转义不完全而应发的安全漏洞"></a>因输出值转义不完全而应发的安全漏洞</h1><p>一般是用户点击了某一个<font color="red">别人写好的 有各种陷阱的链接</font></p>
+<h2 id="跨站脚本攻击"><a href="#跨站脚本攻击" class="headerlink" title="跨站脚本攻击"></a>跨站脚本攻击</h2><h2 id="SQL注入攻击"><a href="#SQL注入攻击" class="headerlink" title="SQL注入攻击"></a>SQL注入攻击</h2><h2 id="OS命名注入攻击"><a href="#OS命名注入攻击" class="headerlink" title="OS命名注入攻击"></a>OS命名注入攻击</h2><h2 id="HTTP首部注入攻击"><a href="#HTTP首部注入攻击" class="headerlink" title="HTTP首部注入攻击"></a>HTTP首部注入攻击</h2><h2 id="邮件首部注入攻击"><a href="#邮件首部注入攻击" class="headerlink" title="邮件首部注入攻击"></a>邮件首部注入攻击</h2><h2 id="目录遍历攻击"><a href="#目录遍历攻击" class="headerlink" title="目录遍历攻击"></a>目录遍历攻击</h2><h2 id="远程文件包含攻击"><a href="#远程文件包含攻击" class="headerlink" title="远程文件包含攻击"></a>远程文件包含攻击</h2><h1 id="因设置或设计上的缺陷引发的安全漏洞"><a href="#因设置或设计上的缺陷引发的安全漏洞" class="headerlink" title="因设置或设计上的缺陷引发的安全漏洞"></a>因设置或设计上的缺陷引发的安全漏洞</h1><h2 id="强制浏览"><a href="#强制浏览" class="headerlink" title="强制浏览"></a>强制浏览</h2><h2 id="不正确的错误消息处理"><a href="#不正确的错误消息处理" class="headerlink" title="不正确的错误消息处理"></a>不正确的错误消息处理</h2><h2 id="开放重定向"><a href="#开放重定向" class="headerlink" title="开放重定向"></a>开放重定向</h2><h1 id="因会话管理疏忽的安全漏洞"><a href="#因会话管理疏忽的安全漏洞" class="headerlink" title="因会话管理疏忽的安全漏洞"></a>因会话管理疏忽的安全漏洞</h1><h2 id="会话劫持"><a href="#会话劫持" class="headerlink" title="会话劫持"></a>会话劫持</h2><h2 id="会话固定攻击"><a href="#会话固定攻击" class="headerlink" title="会话固定攻击"></a>会话固定攻击</h2><h2 id="跨站点请求伪造"><a href="#跨站点请求伪造" class="headerlink" title="跨站点请求伪造"></a>跨站点请求伪造</h2><h1 id="其他安全漏洞"><a href="#其他安全漏洞" class="headerlink" title="其他安全漏洞"></a>其他安全漏洞</h1><h2 id="密码破解"><a href="#密码破解" class="headerlink" title="密码破解"></a>密码破解</h2><h2 id="点击劫持"><a href="#点击劫持" class="headerlink" title="点击劫持"></a>点击劫持</h2><h2 id="DOS攻击"><a href="#DOS攻击" class="headerlink" title="DOS攻击"></a>DOS攻击</h2><h2 id="后门程序"><a href="#后门程序" class="headerlink" title="后门程序"></a>后门程序</h2>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat_pay.png" alt="Money Zheng WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/zhifubao_pay.jpg" alt="Money Zheng Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/http/" rel="tag">#http</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/26/spring注解/" rel="next" title="spring注解">
+                <i class="fa fa-chevron-left"></i> spring注解
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/01/java反射基础/" rel="prev" title="java反射基础">
+                java反射基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/04/28/我眼中的http协议/"
+     data-title="我眼中的http协议"
+     data-content=""
+     data-url="http://thinerzq.com/2016/04/28/我眼中的http协议/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/04/28/我眼中的http协议/"
+           data-title="我眼中的http协议" data-url="http://thinerzq.com/2016/04/28/我眼中的http协议/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars3.githubusercontent.com/u/10881023?v=3&s=460"
+               alt="Money Zheng" />
+          <p class="site-author-name" itemprop="name">Money Zheng</p>
+          <p class="site-description motion-element" itemprop="description">Every dog has its day</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ThinerZQ" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/ZhengShouZi" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/zhengshouzi" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://read.douban.com/people/65276245/" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.pianke.me/profile/136988/" target="_blank" title="片刻">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  片刻
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://tieba.baidu.com/home/main?un=a601097836&fr=home" target="_blank" title="贴吧">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  贴吧
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.bingoogolapple.cn/" title="bingoogle" target="_blank">bingoogle</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#请求方法"><span class="nav-number">1.</span> <span class="nav-text">请求方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#持久连接"><span class="nav-number">2.</span> <span class="nav-text">持久连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#管线化"><span class="nav-number">3.</span> <span class="nav-text">管线化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Cookie做状态管理"><span class="nav-number">4.</span> <span class="nav-text">使用Cookie做状态管理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#状态码"><span class="nav-number"></span> <span class="nav-text">状态码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#通信数据转发程序"><span class="nav-number"></span> <span class="nav-text">通信数据转发程序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#代理"><span class="nav-number">1.</span> <span class="nav-text">代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网关"><span class="nav-number">2.</span> <span class="nav-text">网关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#隧道"><span class="nav-number">3.</span> <span class="nav-text">隧道</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#http的瓶颈"><span class="nav-number"></span> <span class="nav-text">http的瓶颈</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ajax解决方法"><span class="nav-number"></span> <span class="nav-text">Ajax解决方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Comet解决方法"><span class="nav-number"></span> <span class="nav-text">Comet解决方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SPDY的解决方法"><span class="nav-number"></span> <span class="nav-text">SPDY的解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#多路复用流"><span class="nav-number">1.</span> <span class="nav-text">多路复用流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#赋予请求优先级"><span class="nav-number">2.</span> <span class="nav-text">赋予请求优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#压缩HTTP首部"><span class="nav-number">3.</span> <span class="nav-text">压缩HTTP首部</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推送功能"><span class="nav-number">4.</span> <span class="nav-text">推送功能</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#全双工通信的WebSocket"><span class="nav-number"></span> <span class="nav-text">全双工通信的WebSocket</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#推送功能-1"><span class="nav-number">1.</span> <span class="nav-text">推送功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#减少通信量"><span class="nav-number">2.</span> <span class="nav-text">减少通信量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#握手-请求"><span class="nav-number">2.1.</span> <span class="nav-text">握手*请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#握手-响应"><span class="nav-number">2.2.</span> <span class="nav-text">握手*响应</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#因输出值转义不完全而应发的安全漏洞"><span class="nav-number"></span> <span class="nav-text">因输出值转义不完全而应发的安全漏洞</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#跨站脚本攻击"><span class="nav-number">1.</span> <span class="nav-text">跨站脚本攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL注入攻击"><span class="nav-number">2.</span> <span class="nav-text">SQL注入攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OS命名注入攻击"><span class="nav-number">3.</span> <span class="nav-text">OS命名注入攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP首部注入攻击"><span class="nav-number">4.</span> <span class="nav-text">HTTP首部注入攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#邮件首部注入攻击"><span class="nav-number">5.</span> <span class="nav-text">邮件首部注入攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目录遍历攻击"><span class="nav-number">6.</span> <span class="nav-text">目录遍历攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远程文件包含攻击"><span class="nav-number">7.</span> <span class="nav-text">远程文件包含攻击</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#因设置或设计上的缺陷引发的安全漏洞"><span class="nav-number"></span> <span class="nav-text">因设置或设计上的缺陷引发的安全漏洞</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#强制浏览"><span class="nav-number">1.</span> <span class="nav-text">强制浏览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不正确的错误消息处理"><span class="nav-number">2.</span> <span class="nav-text">不正确的错误消息处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开放重定向"><span class="nav-number">3.</span> <span class="nav-text">开放重定向</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#因会话管理疏忽的安全漏洞"><span class="nav-number"></span> <span class="nav-text">因会话管理疏忽的安全漏洞</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#会话劫持"><span class="nav-number">1.</span> <span class="nav-text">会话劫持</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#会话固定攻击"><span class="nav-number">2.</span> <span class="nav-text">会话固定攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跨站点请求伪造"><span class="nav-number">3.</span> <span class="nav-text">跨站点请求伪造</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他安全漏洞"><span class="nav-number"></span> <span class="nav-text">其他安全漏洞</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#密码破解"><span class="nav-number">1.</span> <span class="nav-text">密码破解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#点击劫持"><span class="nav-number">2.</span> <span class="nav-text">点击劫持</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOS攻击"><span class="nav-number">3.</span> <span class="nav-text">DOS攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后门程序"><span class="nav-number">4.</span> <span class="nav-text">后门程序</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Money Zheng</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user">本站访客数</i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye">本站总访问量</i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"thinerzq"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Ejk3T06mIIR6qAsgj2xDACNt-gzGzoHsz", "t6iVWLLthVAcMzIBKMfPaalb");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>

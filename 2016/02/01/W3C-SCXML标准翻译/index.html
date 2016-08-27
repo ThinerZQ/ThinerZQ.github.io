@@ -1,0 +1,1533 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="SCXML标准翻译 SCXML标准," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="ThinerZQ's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="摘要这篇文档描述了SCXML，或者说是“状态图可扩展标记语言”。SCXML基于CCXML和Harel State Tables为状态机提供了一个一般性的可执行环境，
+概述这篇文档描述的SCXML，是一种基于事件的状态机语言。它是CCXML和Harel State Tables 结合的产物。CCXML是一种基于事件的状态机语言，被设计用来在语音应用中支持通话控制。CCXML1.0规范定义了一个状态机">
+<meta property="og:type" content="article">
+<meta property="og:title" content="State Chart XML (SCXML) 状态机规范">
+<meta property="og:url" content="http://thinerzq.com/2016/02/01/W3C-SCXML标准翻译/index.html">
+<meta property="og:site_name" content="ThinerZQ's Blog">
+<meta property="og:description" content="摘要这篇文档描述了SCXML，或者说是“状态图可扩展标记语言”。SCXML基于CCXML和Harel State Tables为状态机提供了一个一般性的可执行环境，
+概述这篇文档描述的SCXML，是一种基于事件的状态机语言。它是CCXML和Harel State Tables 结合的产物。CCXML是一种基于事件的状态机语言，被设计用来在语音应用中支持通话控制。CCXML1.0规范定义了一个状态机">
+<meta property="og:updated_time" content="2016-02-05T14:10:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="State Chart XML (SCXML) 状态机规范">
+<meta name="twitter:description" content="摘要这篇文档描述了SCXML，或者说是“状态图可扩展标记语言”。SCXML基于CCXML和Harel State Tables为状态机提供了一个一般性的可执行环境，
+概述这篇文档描述的SCXML，是一种基于事件的状态机语言。它是CCXML和Harel State Tables 结合的产物。CCXML是一种基于事件的状态机语言，被设计用来在语音应用中支持通话控制。CCXML1.0规范定义了一个状态机">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6243707489116751000,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <title> State Chart XML (SCXML) 状态机规范 | ThinerZQ's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?3ef097b3d9a03a9b6839d3dd7465769a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">ThinerZQ's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">酷爱历史文学的程序猿</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-history">
+          <a href="/categories/history" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            menu.history
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'JesUP7ZhCHhKkRxmxyjh','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                State Chart XML (SCXML) 状态机规范
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-02-01T21:53:08+08:00" content="2016-02-01">
+              2016-02-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/w3c-SCXML/" itemprop="url" rel="index">
+                    <span itemprop="name">w3c SCXML</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/02/01/W3C-SCXML标准翻译/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/01/W3C-SCXML标准翻译/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/02/01/W3C-SCXML标准翻译/" class="leancloud_visitors" data-flag-title="State Chart XML (SCXML) 状态机规范">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o">本站总阅读量</i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>这篇文档描述了SCXML，或者说是“状态图可扩展标记语言”。SCXML基于CCXML和Harel State Tables为状态机提供了一个一般性的可执行环境，</p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>这篇文档描述的SCXML，是一种基于事件的状态机语言。它是CCXML和Harel State Tables 结合的产物。CCXML是一种基于事件的状态机语言，被设计用来在语音应用中支持通话控制。CCXML1.0规范定义了一个状态机和事件处理语法以及一系列的通话控制元素。Harel State Table由David Harel于1987年提出的一种状态机记号，后来UML中的状态机沿用了这些记号。Harel State Tables 提供了一个简洁、语义良好和功能强大的控制结构。这篇文章就是使用XML语法和Harel State Table语义来描述CCXML中状态和事件转移的逻辑概念</p>
+<a id="more"></a>
+<h1 id="核心结构"><a href="#核心结构" class="headerlink" title="核心结构"></a>核心结构</h1><p>[这部分是非正式的]</p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><h3 id="基础的状态机概念"><a href="#基础的状态机概念" class="headerlink" title="基础的状态机概念"></a>基础的状态机概念</h3><h3 id="组合状态"><a href="#组合状态" class="headerlink" title="组合状态"></a>组合状态</h3><h3 id="并行状态"><a href="#并行状态" class="headerlink" title="并行状态"></a>并行状态</h3><h3 id="初始化，终止和历史状态"><a href="#初始化，终止和历史状态" class="headerlink" title="初始化，终止和历史状态"></a>初始化，终止和历史状态</h3><h3 id="转移类型"><a href="#转移类型" class="headerlink" title="转移类型"></a>转移类型</h3><h2 id="scxml"><a href="#scxml" class="headerlink" title="scxml"></a>scxml</h2><p>[这部分是规范的]<br>文档的顶层元素，携带了版本信息。一个状态机由&lt;scxml&gt;和他的孩子元素共同组成。</p>
+<blockquote>
+<p>提示：任何时候只有一个孩子是处于活跃状态。  </p>
+</blockquote>
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">名字</th>
+<th style="text-align:left">必须</th>
+<th style="text-align:left">约束</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">默认值</th>
+<th style="text-align:left">有效值</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">inital</td>
+<td style="text-align:left">False</td>
+<td style="text-align:left">None</td>
+<td style="text-align:left">Id引用</td>
+<td style="text-align:left">None</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">初始状态的id值，如果没有指定，默认的初始状态是文档中第一个孩子状态</td>
+</tr>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:left">False</td>
+<td style="text-align:left">None</td>
+<td style="text-align:left">名称记号</td>
+<td style="text-align:left">None</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">任何有效的名称记号    状态机的名字</td>
+</tr>
+<tr>
+<td style="text-align:left">xmlns</td>
+<td style="text-align:left">True</td>
+<td style="text-align:left">None</td>
+<td style="text-align:left">URI</td>
+<td style="text-align:left">None</td>
+<td style="text-align:left">必须是：“<a href="http://w3.org/005/07/scxml”" target="_blank" rel="external">http://w3.org/005/07/scxml”</a></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">version</td>
+<td style="text-align:left">True</td>
+<td style="text-align:left">None</td>
+<td style="text-align:left">数字</td>
+<td style="text-align:left">None</td>
+<td style="text-align:left">必须是：“1.0”</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">datamodel</td>
+<td style="text-align:left">False</td>
+<td style="text-align:left">None</td>
+<td style="text-align:left">名称记号</td>
+<td style="text-align:left">自定义</td>
+<td style="text-align:left">“null”,“ecmascript”,”xpath”，或者实现者定义的值</td>
+<td style="text-align:left">表示状态机中的数据模型</td>
+</tr>
+<tr>
+<td style="text-align:left">binding</td>
+<td style="text-align:left">False</td>
+<td style="text-align:left">None</td>
+<td style="text-align:left">Enum</td>
+<td style="text-align:left">early</td>
+<td style="text-align:left">“early”,”late”</td>
+<td style="text-align:left">指明数据绑定的时间</td>
+</tr>
+</tbody>
+</table>
+<h3 id="孩子元素"><a href="#孩子元素" class="headerlink" title="孩子元素"></a>孩子元素</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">名字名字</th>
+<th style="text-align:left">说明</th>
+<th style="text-align:left">出现次数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">&lt;state&gt;</td>
+<td style="text-align:left">一个组合状态或者原子状态</td>
+<td style="text-align:left">0…*</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;parallel&gt;</td>
+<td style="text-align:left">一个并行状态</td>
+<td style="text-align:left">0…*</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;final&gt;</td>
+<td style="text-align:left">一个顶层的终止状态，当状态机达到这个状态必须终止</td>
+<td style="text-align:left">0…*</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;datamodel&gt;</td>
+<td style="text-align:left">定义了部分或者所有的数据模型</td>
+<td style="text-align:left">0…1</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;script&gt;</td>
+<td style="text-align:left">提供了全局脚本的能力</td>
+<td style="text-align:left">0…1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>一个结构良好的SCXML文档必须至少有一个&lt;state&gt;,或者&lt;parallel&gt;或者&lt;final&gt;孩子，在系统初始化的时候，如果执行呢‘initial’属性，SCXML Processer必须进入 ‘initial’属性指定的状态中。如果没有执行‘initial’属性，Processer必须进入文档中的第一个状态。平台应该顶一个默认的datamodel值。</p>
+<h2 id="state"><a href="#state" class="headerlink" title="state"></a>state</h2><p>[这部分是规范的]  </p>
+<h3 id="属性-1"><a href="#属性-1" class="headerlink" title="属性"></a>属性</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">名字</th>
+<th style="text-align:left">必须</th>
+<th style="text-align:left">约束</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">默认值</th>
+<th style="text-align:left">有效值</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">False</td>
+<td style="text-align:left">None</td>
+<td style="text-align:left">Id引用</td>
+<td style="text-align:left">None</td>
+<td style="text-align:left">一个有效的id定义</td>
+<td style="text-align:left">状态的标识符</td>
+</tr>
+<tr>
+<td style="text-align:left">initial</td>
+<td style="text-align:left">False</td>
+<td style="text-align:left">不能和&lt;initial&gt;元素同时指定，不能在原子状态内部指定</td>
+<td style="text-align:left">名称记号</td>
+<td style="text-align:left">None</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">另一个状态的ID标识符，但是要保证配置后是合法的状态机配置    复合状态或者并发状态默认初始化的状态</td>
+</tr>
+</tbody>
+</table>
+<h3 id="孩子元素-1"><a href="#孩子元素-1" class="headerlink" title="孩子元素"></a>孩子元素</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">名字名字</th>
+<th style="text-align:left">说明</th>
+<th style="text-align:left">出现次数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">&lt;onentry&gt;</td>
+<td style="text-align:left">可选的元素，用来呈现进入这个状态时可执行内容</td>
+<td style="text-align:left">0…*</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;onexit&gt;</td>
+<td style="text-align:left">可选的元素，用来呈现退出这个状态时可执行内容</td>
+<td style="text-align:left">0…*</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;transition&gt;</td>
+<td style="text-align:left">定义了一个转移，源状态是当前状态</td>
+<td style="text-align:left">0…*</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;initial&gt;</td>
+<td style="text-align:left">复合状态机的子状态，定义了默认的初始化状态</td>
+<td style="text-align:left">0…1</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;parallel&gt;</td>
+<td style="text-align:left">定义了并发子状态</td>
+<td style="text-align:left">0…*</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;final&gt;</td>
+<td style="text-align:left">定义了一个final子状态</td>
+<td style="text-align:left">0…*</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;history&gt;</td>
+<td style="text-align:left">一个伪状态机，记录了上转移出此状态机的子孙状态</td>
+<td style="text-align:left">0…*</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;datamodel&gt;</td>
+<td style="text-align:left">定义了部分或者所有的数据模型</td>
+<td style="text-align:left">0…1</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;invoke&gt;</td>
+<td style="text-align:left">调用一个外部服务</td>
+<td style="text-align:left">0…*</td>
+</tr>
+</tbody>
+</table>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>定义1 ：一个原子（atomic）状态是一个没有&lt;state&gt;元素，&lt;parallel&gt;或者&lt;final&gt;孩子的&lt;state&gt;    </p>
+<p>定义2 ：一个复合（compound）状态是一个有&lt;state&gt;元素，&lt;parallel&gt;或者&lt;final&gt;孩子（或者这几者的组合）的&lt;state&gt;  </p>
+<p>定义3 ：一个复合状态的默认的初始化状态由‘initial’属性或者&lt;initial&gt;元素指定，如果前两者都没有出现，那么初始化状态就是当前复合状态的按文档顺序来说的第一个孩子状态</p>
+<h3 id="说明-1"><a href="#说明-1" class="headerlink" title="说明"></a>说明</h3><p>在一个结构良好的SCXML文档，一个复合状态必须制定‘initial’属性或者一个&lt;initial&gt;元素，但是二者不能同时指定。</p>
+<h2 id="parallel"><a href="#parallel" class="headerlink" title="parallel"></a>parallel</h2><p>[这部分是规范的]<br>&lt;parallel&gt;元素封装了一系列的孩子状态，如果并行状态是处于活跃状态，当孩子元素的父元素是active的，这些孩子状态会同时处于active状态</p>
+<h3 id="属性-2"><a href="#属性-2" class="headerlink" title="属性"></a>属性</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">名字</th>
+<th style="text-align:left">必须</th>
+<th style="text-align:left">约束</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">默认值</th>
+<th style="text-align:left">有效值</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">False</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Id</td>
+<td style="text-align:left">None</td>
+<td style="text-align:left">一个有效的id定义</td>
+<td style="text-align:left">状态的标识符</td>
+</tr>
+<tr>
+<td style="text-align:left">initial</td>
+<td style="text-align:left">False</td>
+<td style="text-align:left">不能和&lg;initial&gt;元素同时指定，不能在原子状态内部指定</td>
+<td style="text-align:left">名称记号</td>
+<td style="text-align:left">None</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">另一个状态的ID标识符，但是要保证配置后是合法的状态机配置    复合状态或者并发状态默认初始化的状态</td>
+</tr>
+</tbody>
+</table>
+<h3 id="孩子元素-2"><a href="#孩子元素-2" class="headerlink" title="孩子元素"></a>孩子元素</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">名字名字</th>
+<th style="text-align:left">说明</th>
+<th style="text-align:left">出现次数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">&lt;onentry&gt;</td>
+<td style="text-align:left">可选的元素，用来呈现进入这个状态时可执行内容</td>
+<td style="text-align:left">0…*</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;onexit&gt;</td>
+<td style="text-align:left">可选的元素，用来呈现退出这个状态时可执行内容</td>
+<td style="text-align:left">0…*</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;transition&gt;</td>
+<td style="text-align:left">定义了一个转移，源状态是当前状态</td>
+<td style="text-align:left">0…*</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;initial&gt;</td>
+<td style="text-align:left">复合状态机的子状态，定义了默认的初始化状态</td>
+<td style="text-align:left">0…1</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;parallel&gt;</td>
+<td style="text-align:left">定义了并发子状态</td>
+<td style="text-align:left">0…*</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;final&gt;</td>
+<td style="text-align:left">定义了一个final子状态</td>
+<td style="text-align:left">0…*</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;history&gt;</td>
+<td style="text-align:left">一个伪状态机，记录了上转移出此状态机的子孙状态</td>
+<td style="text-align:left">0…*</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;datamodel&gt;</td>
+<td style="text-align:left">定义了部分或者所有的数据模型</td>
+<td style="text-align:left">0…1</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;invoke&gt;</td>
+<td style="text-align:left">调用一个外部服务</td>
+<td style="text-align:left">0…*</td>
+</tr>
+</tbody>
+</table>
+<h2 id="transition"><a href="#transition" class="headerlink" title="transition"></a>transition</h2><p>[这部分是规范的]<br>states 之间的Transition是有 事件（Events）和条件（Condition）触发的。在Transition中可以包含可执行内容（executable content），当转移发生的时候这些可执行内容将会执行。</p>
+<h3 id="属性-3"><a href="#属性-3" class="headerlink" title="属性"></a>属性</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">名字</th>
+<th style="text-align:left">必须</th>
+<th style="text-align:left">约束</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">默认值</th>
+<th style="text-align:left">有效值</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">event</td>
+<td style="text-align:left">False</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">EventTypes.datatype</td>
+<td style="text-align:left">None</td>
+<td style="text-align:left">一个使用”.”分割符指定的字符串</td>
+<td style="text-align:left">触发这个转移的事件</td>
+</tr>
+<tr>
+<td style="text-align:left">cond</td>
+<td style="text-align:left">False</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Boolean表达式</td>
+<td style="text-align:left">True</td>
+<td style="text-align:left">任何boolean表达式</td>
+<td style="text-align:left">转移的守护条件</td>
+</tr>
+<tr>
+<td style="text-align:left">target</td>
+<td style="text-align:left">False</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">ID引用</td>
+<td style="text-align:left">None</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">转向的状态或者并行状态的标识符</td>
+</tr>
+<tr>
+<td style="text-align:left">type</td>
+<td style="text-align:left">False</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Enum</td>
+<td style="text-align:left">external</td>
+<td style="text-align:left">“internal”,”external”</td>
+<td style="text-align:left">当目标状态是子孙状态的时候,决定是否源状态要不要退出再重新进入</td>
+</tr>
+</tbody>
+</table>
+<h3 id="孩子元素-3"><a href="#孩子元素-3" class="headerlink" title="孩子元素"></a>孩子元素</h3><p>可执行内容都可以作为孩子元素，</p>
+<h3 id="说明-2"><a href="#说明-2" class="headerlink" title="说明"></a>说明</h3><p>一份结构良好的SCXML文档必须至少指定 ‘event’ ,’cond’ 或者’target’中的一个。</p>
+<h2 id="initial"><a href="#initial" class="headerlink" title="initial"></a>initial</h2><p>[这部分是规范的]  </p>
+<p>这个元素表示一个复合状态默认的初始化状态</p>
+<h3 id="属性-4"><a href="#属性-4" class="headerlink" title="属性"></a>属性</h3><p>本元素没有属性</p>
+<h3 id="孩子元素-4"><a href="#孩子元素-4" class="headerlink" title="孩子元素"></a>孩子元素</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">名字名字</th>
+<th style="text-align:left">说明</th>
+<th style="text-align:left">出现次数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">&lt;transition&gt;</td>
+<td style="text-align:left">定义了一个转移，这个转移不能指定cond和event属性，但是必须指定一个非空的有效的target属性，属性值必须是当前容器状态的子孙状态.可以包含可执行内容</td>
+<td style="text-align:left">1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="final"><a href="#final" class="headerlink" title="final"></a>final</h2><p>[这部分是规范的]<br>这个元素表示&lt;scxml&gt;或者复合状态中的最终状态</p>
+<h3 id="属性-5"><a href="#属性-5" class="headerlink" title="属性"></a>属性</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">名字</th>
+<th style="text-align:left">必须</th>
+<th style="text-align:left">约束</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">默认值</th>
+<th style="text-align:left">有效值</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">False</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Id</td>
+<td style="text-align:left">None</td>
+<td style="text-align:left">一个有效的id值</td>
+<td style="text-align:left">状态的标识符</td>
+</tr>
+</tbody>
+</table>
+<h3 id="孩子元素-5"><a href="#孩子元素-5" class="headerlink" title="孩子元素"></a>孩子元素</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">名字名字</th>
+<th style="text-align:left">说明</th>
+<th style="text-align:left">出现次数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">&lt;onentry&gt;</td>
+<td style="text-align:left">可选的元素，用来呈现进入这个状态时可执行内容</td>
+<td style="text-align:left">0…*</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;onexit&gt;</td>
+<td style="text-align:left">可选的元素，用来呈现退出这个状态时可执行内容</td>
+<td style="text-align:left">0…*(个人觉得&lt;scxml&gt;节点下的&lt;final&gt;元素不应该有&lt;onexit&gt;)孩子节点</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;donedata&gt;</td>
+<td style="text-align:left">指定数据被包含在done.state.id 或者 done.invoke.id 事件里面</td>
+</tr>
+</tbody>
+</table>
+<h3 id="说明-3"><a href="#说明-3" class="headerlink" title="说明"></a>说明</h3><p>当状态机进入一个&lt;state&gt;元素的&lt;final&gt;孩子节点的时候，SCXML Processor在完成了&lt;onentry&gt;元素中可执行内容之后 必须生成一个done.state.id事件，id是父亲状态的id值。然后，如果父状态是一个&lt;parallel&gt;的孩子元素，并且所有的&lt;parallel&gt;的孩子都进入了&lt;final&gt;状态，Processor必须生成一个done.state.id 事件，id是&lt;parallel&gt;元素的id值。</p>
+<p>当状态机达到了&lt;scxml&gt;元素的&lt;final&gt;孩子时候，状态机必须终止。如果当前的SCXML状态机（以后简称SCXML session 会话）是被另外一个状态机（Session）的&lt;invoke&gt;元素触发的。当当前session终止的时候，SCXML Processor 必须生成一个done.invoke.id 事件，并且返回这个事件给调用的那个session, id的值是一个唯一的标识符。</p>
+<h2 id="onentry"><a href="#onentry" class="headerlink" title="onentry"></a>onentry</h2><p>[这部分是规范的]<br>一个包含可执行内容的元素，当进入某一个状态的时候，&lt;onentry&gt;内的内容被执行</p>
+<h3 id="属性-6"><a href="#属性-6" class="headerlink" title="属性"></a>属性</h3><p>没有属性|</p>
+<h3 id="孩子元素-6"><a href="#孩子元素-6" class="headerlink" title="孩子元素"></a>孩子元素</h3><p>可执行内容都可以在这里定义</p>
+<h3 id="说明-4"><a href="#说明-4" class="headerlink" title="说明"></a>说明</h3><p>SCXML Processor 必须按文档中定义的顺序，执行&lt;onentry&gt;元素和元素内的内容。</p>
+<h2 id="onexit"><a href="#onexit" class="headerlink" title="onexit"></a>onexit</h2><p>[这部分是规范的]<br>一个包含可执行内容的元素，当退出某一个状态的时候，&lt;onexit&gt;内的内容被执行</p>
+<h3 id="属性-7"><a href="#属性-7" class="headerlink" title="属性"></a>属性</h3><p>没有属性|</p>
+<h3 id="孩子元素-7"><a href="#孩子元素-7" class="headerlink" title="孩子元素"></a>孩子元素</h3><p>可执行内容都可以在这里定义</p>
+<h3 id="说明-5"><a href="#说明-5" class="headerlink" title="说明"></a>说明</h3><p>SCXML Processor 必须按文档中定义的顺序，执行&lt;onexit&gt;元素和元素内的内容。</p>
+<h2 id="history"><a href="#history" class="headerlink" title="history"></a>history</h2><p>[这部分是规范的]<br>&lt;history&gt;伪状态允许一个状态机记住它的状态配置。如果一个转移使用&lt;history&gt;状态作为它的目标状态，将会返回状态机记录到的状态配置。伪状态知识参考uml状态图</p>
+<h3 id="属性-8"><a href="#属性-8" class="headerlink" title="属性"></a>属性</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">名字</th>
+<th style="text-align:left">必须</th>
+<th style="text-align:left">约束</th>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">默认值</th>
+<th style="text-align:left">有效值</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">False</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Id</td>
+<td style="text-align:left">None</td>
+<td style="text-align:left">一个有效的id值</td>
+<td style="text-align:left">这个伪状态的标识符</td>
+</tr>
+<tr>
+<td style="text-align:left">type</td>
+<td style="text-align:left">False</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Enum</td>
+<td style="text-align:left">“shallow”</td>
+<td style="text-align:left">“deep”,”shallow”</td>
+<td style="text-align:left">决定了究竟是当前状态的活跃的原子状态还是，当前状态向内一层的活跃的子状态被记录</td>
+</tr>
+</tbody>
+</table>
+<h3 id="孩子元素-8"><a href="#孩子元素-8" class="headerlink" title="孩子元素"></a>孩子元素</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">名字名字</th>
+<th style="text-align:left">说明</th>
+<th style="text-align:left">出现次数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">&lt;transition&gt;</td>
+<td style="text-align:left">转移的目标指定了默认的历史配置。</td>
+<td style="text-align:left">1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="说明-6"><a href="#说明-6" class="headerlink" title="说明"></a>说明</h3><p>在一份结构良好的SCXML文档中，这个转移不能包含cond和event属性，但是必须包含一个非空的target属性，这个值构成了一个有效的状态配置。</p>
+<h2 id="合法的状态配置"><a href="#合法的状态配置" class="headerlink" title="合法的状态配置"></a>合法的状态配置</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><p>定义4：一个&lt;state&gt;或者&lt;parallel&gt;元素是active：如果它已经通过一个转移进入了这个元素，并且没有退出。<br>定义5：状态机的状态配置是一个当前 active 状态的集合</p>
+<h3 id="说明-7"><a href="#说明-7" class="headerlink" title="说明"></a>说明</h3><p>一个SCXML文档，初始化的时候初始化一个状态机配置（通过initial属性或者&lt;scxml&gt;里面的&lt;initial&gt;元素），此后状态机的每一个转移都将导致状态机进入另一个状态配置（不需要和前一个有区别）。一个结构良好的scxml文档必须将状态机置于一个合法的状态配置下，一个合法的状态配置满足下面的条件：<br>1 配置明确的只包含一个&lt;scxml&gt;的元素<br>2 配置包含0到多个原子状态<br>3 当当前配置包含一个原子状态，当前配置必须包含这个原子状态所有的&lt;state&gt;&gt;&lt;parallel&gt;祖先<br>4 当配置包含一个非原子的&lt;state&gt; ，配置必须包含&lt;state&gt;的一个，仅且一个孩子。<br>如果配置包含&lt;parallel&gt;状态，配置必须包含所有的孩子。</p>
+<p>如果一个尊从上面定义的状态机有超过一个原子状态，那么任何一个原子状态都能通过他们的父亲和祖先&lt;state&gt;或者&lt;parallel&gt; 回溯到同一个&lt;parallel&gt;祖先</p>
+<p>一个转移的“target”属性或者initial属性要么是空，要么指定的状态是一个合法的状态配置。</p>
+<h2 id="SCXML-Events"><a href="#SCXML-Events" class="headerlink" title="SCXML Events"></a>SCXML Events</h2><p>[这部分是规范的]<br>Events是SCXML中的一个基础概念，他们驱动了转移。事件的内部结构是由实现指定的，只要如下的外部接口是可见的<br>1、    SCXML Processor 必须使数据在一个事件中可以通过“_event”变量访问<br>2、    SCXML Processor 必须使事件名字可以通过“_event”变量访问。SCXML Processor必须使用相同的名字值匹配转移的event属性<br>在很多情况下，事件是在SCXML会话执行过程中产生的，我们可以通过&lt;raise&gt;和&lt;send&gt;元素来控制。有一些事件是必须要产生的，或者解释器自动生成的。实现者可以通过添加后缀的方法来扩展这些自动生成的事件名字。例如，一个平台可以扩展done.state.id 用一个时间戳作为后缀done.state.id.timestamp，任何匹配这个事件的转移都将转移。</p>
+<h3 id="事件描述符"><a href="#事件描述符" class="headerlink" title="事件描述符"></a>事件描述符</h3><p>像一个事件名字一样，一个事件描述符是一系列通过“.”分割的的字母数字符号。一个转移的事件属性，可以同包含一个或多个这样的事件描述符，通过空格隔开</p>
+<h4 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h4><p>定义6：一个转移匹配一个事件，至少一个事件描述符和事件的名字匹配<br>定义7：一个事件描述符匹配事件属性的名字，如果事件属性能够和描述符完全匹配或者，时间名能够匹配上事件描述符的每一个”.”之前的部分。</p>
+<p>例如，一个转移的事件属性event=” error foo”，将会匹配事件名”error”,”error.send”,”error.send.failed”,或者“foo”,”foo.bar”等，但是不能匹配“errors.my.custom”,”errorhandler.mistake”,”error.send”,”foobar”等（仔细体会一下吧）。为了更好的阅读SCXML文档，一个evnet属性可以这样写event=”error”,或者event=”error.”,或者event=”error.*”来匹配任意满足这个前缀的事件。这种事件匹配机制和没有事件属性指定的转移有一点不同：没有事件属性指定的转移，不会匹配任何事件，只要cond属性为真就转移，每当第一次进入一个状态的时候，SCXML Processor应该先寻找这样没有任何事件属性的转移来进行判断。</p>
+<h3 id="错误（Errors）"><a href="#错误（Errors）" class="headerlink" title="错误（Errors）"></a>错误（Errors）</h3><p>一旦一个SCXML Processor开始执行一个形式良好的SCXML文档，它必须将过程中任何内部错误以事件“error.”作为前缀抛出。Processor必须将这个事件放入到内部事件队列像处理其他事件一样处理它。（如果队列里面还有其他事件，这个error事件不会立即被处理，并且如果在当前状态下没有转移匹配这个事件，这个错误事件将会被忽略）。这里定义了两个error事件：“error.communication” 和”error.execution”.前者覆盖了当试图与外部实体进行通信的时候发生的错误，例如&lt;send&gt;和&lt;invoke&gt;里面的错误；后者定义了当前Session内部执行中的错误，例如表达式解析错误等。</p>
+<p>这一些列的error事件，将来可能会被扩展。然而，这些以“error.platform”开头的名字将被保留作为平台实现者定义平台和应用相关的错误。因此，平台或者应用可以通过两种方式来扩展这些错误：在事件名上添加一个后缀，或者使用“error.platform”添加一个后缀。另外，平台还可添加额外的错误信息在event的“data”变量里面。</p>
+<p>Xml文件编写者可以通过创建一个带有event=“error”的属性的转移，并且目标是顶层的final 状态，这样可以使程序一旦发生错误就终止。如果这样的一个转移T被放置在状态S里面，如果S或者S的任何子状态有任何其他转移t（t是被放置在S的子状态中，或者S中T转移的文档顺序之前）未处理的错误，转移T将会导致状态机终止。</p>
+<h3 id="错误和事件列表"><a href="#错误和事件列表" class="headerlink" title="错误和事件列表"></a>错误和事件列表</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">名字</th>
+<th style="text-align:left">描述</th>
+<th style="text-align:left">定义在</th>
+<th style="text-align:left">参考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">done.state.id</td>
+<td style="text-align:left">表明状态机已经进入一个某一个复合状态（id）的final子状态中</td>
+<td style="text-align:left">&lt;final&gt;</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">done.invoke.id</td>
+<td style="text-align:left">表明被&lt;invoke id=””&gt;元素调用的过程已经结束了</td>
+<td style="text-align:left">&lt;invoke&gt;</td>
+<td style="text-align:left">&lt;final&gt;退出解释器程序，SCXML解释器的算法</td>
+</tr>
+<tr>
+<td style="text-align:left">error.communication</td>
+<td style="text-align:left">表明当试图和一个外部实体通信的时候，有错误发生</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lt;send&gt; ,SCXML的Event I/O Processor</td>
+</tr>
+<tr>
+<td style="text-align:left">error.execute</td>
+<td style="text-align:left">表明状态机已经进入一个某一个复合状态（id）的final子状态中</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">&lt;foreach&gt;&lt;assign&gt;&lt;param&gt;条件表达式，位置表达式，合法的数据值和数据表达式，表达式错误，系统变量</td>
+</tr>
+<tr>
+<td style="text-align:left">error.platform</td>
+<td style="text-align:left">表明一个平台或者应用相关的错误发生了</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="选择和执行转移"><a href="#选择和执行转移" class="headerlink" title="选择和执行转移"></a>选择和执行转移</h2><p>为了简化下面的定义，我们介绍一个事件：NULL.NULL没有名字，被使用在这些定义里面。它从不进入到事件队列里面，所有的有名字的时间和NULL是截然不同的。（事实上，NULL是一个伪事件，只是被用来在这些定义里面作为一个无事件转移的触发器）。</p>
+<p>定义8：在一个原子状态S中的一个具有event属性(“event=E”)的转移T是enabled,  </p>
+<ul>
+<li>A、    如果T的源状态是S或者S的一个祖先</li>
+<li>B、    如果T 匹配E的名字</li>
+<li>C、    T缺少一个cond属性，或者cond属性为真  </li>
+</ul>
+<p>在一个原子状态S中一个转移（NULL事件）是enabled  </p>
+<ul>
+<li>A、    T缺少一个event 属性</li>
+<li>B、    如果T的源状态是S或者S的一个祖先</li>
+<li>C、    T缺少一个cond属性，或者cond属性为真</li>
+</ul>
+<p>定义9：一个转移的源状态是&lt;state&gt;或者&lt;parallel&gt;元素，有效的目标状态是是一个或者一些通过target属性指定的状态，任何history状态将会被系统存储的状态配置或者默认配置替代。一个转移完整的目标集是由所有转移发生后的active状态构成的。这个目标集包含这个转移有效的目标状态，和这些状态的所有祖先。可以通过递归来扩展这些应用程序：</p>
+<ol>
+<li><p>如果任何&lt;parallel&gt;元素是这个结合中的一个元素，如果它的任何孩子没有包含在这个集合里面，那么必须添加进去。</p>
+</li>
+<li><p>如果任何组合&lt;state&gt;是这个结合中的一个元素，如果它没有孩子在这个结合中，那么它的默认转移将被添加到集合<br>定义：在配置C中一个转移的退出的集合是一个状态的集合（当状态机在配置C当中的时候，当转移发生的时候，将发生退出动作的状态）如果转移没有指定target属性，退出集是空的。如果转移指定了target属性，并且type属性是“external”,它的退出集合就是配置C中的所有活跃状态（这些活跃状态是源状态和目标状态最近的公共的祖先（least common compound ancestor））。如果转移的类型是”internal”，但是源状态不是compound复合状态，或者目标状态不是合适的源状态的子孙状态，这个转移的退出集就和type=”external”一样。多个转移的退出集是每个转移退出集的并集（U）</p>
+</li>
+</ol>
+<p>定义10：在配置C中一个转移的进入集合是一个状态的集合（当转移发生的的时候，这些状态将进入）。如果一个转移没有包含一个target属性，他的进入集合就是空的。进入集合由转移的完成目标集合</p>
+<p>定义11：原子状态S下面的一个转移T（event=”E”）是最优的enabled的转移满足下面3个条件  </p>
+<ol>
+<li>T是S中的转移，是通过E达到enabled</li>
+<li>文档顺序中没有转移优先于T能处理E事件</li>
+<li>在S中没有转移是通过E事件enabled，或者任何T的源状态所在的子孙状态能处理E事件</li>
+</ol>
+<p>定义11：在配置C中两个转移T1和T2 冲突了，如果他们的退出集合的交集是非空的<br>例如，如果两个转移是冲突的，这两个转移都发生将导致非配的配置，因此，只有一个转移可以安全的执行。为了解决这个冲突，我们提出了优先级的概念。如果T1和T2冲突，T1是位于原子状态S1中的，T2是处于原子状态S2中的，S1和S2都是active的。满足以下条件之一我们说T1的优先级比T2高：</p>
+<ol>
+<li>T1的源状态是T2源状态的子孙</li>
+<li>S1 在文档中的位置是在T2前面</li>
+</ol>
+<p>定义12：一个microstep 由位于optimal enabled 转移集合中的转移的执行组成</p>
+<p>定义13：一个microstep是一系列一个或者多个mircrostep，达到的最终效果是：内部事件队列是空的，没有转移是通过NULL enabled。</p>
+<p>执行一个microstep，SCXML Processor必须执行所对应的optimal enabled 转移集合里面的转移。为了执行这些转移，SCXML Processor必须首先以某一种退出顺序退出这些转移退出集合里面的所有状态。它必须以文档先后顺序执行包含在转移里面的可执行内容，接下来它必须以进入顺序进入这些转移的进入集合。</p>
+<p>为了退出一个状态，SCXML Processor必须执行&lt;onexit&gt;里面的可执行内容。它必须取消掉在本状态中触发的的还处于进行中的invocation。最终Processor必须从active state list<br>移除这个状态.<br>为了进入一个状态，SCXML Processor必须将这个状态添加到active list。然后执行&lt;onentry&gt;里面的内容。如果状态是一个复合状态有一个&lt;initial&gt;孩子，SCXML Processor必须执行&lt;initial&gt;里面转移的可执行内容。</p>
+<p>在开始的时候，SCXML Processor必须将状态机放入到一个通过initial属性指定的配置环境中。</p>
+<p>在进入了初始化配置之后，在执行了每一个microstep之后，SCXML Processor必须检查在这个microstep中状态配置是否进入了&lt;final&gt;状态。如果进入了&lt;scxml&gt;元素的&lt;final&gt;状态，那么状态机停机。如果进入了某一个复合状态的&lt;final&gt;那么生成一个done.state.id时间，id是复合状态的id值。如果复合状态本身是一个&lt;parallel&gt;元素的孩子，并且&lt;parallel&gt;元素的其他孩子都进入了&lt;final&gt;状态，Processor必须根生一个done.state.id事件，id是&lt;parallel&gt;元素的id</p>
+<p>在检查完配置之后，Processor必须选择当前配置下通过NULL enabled的optimal 转移集合。如果集合不是空的，执行下一个microstep.如果集合是空的，Processor必须从internal event queue移除所有事件，直到queue是空的，并且在当前配置下它找到了一个event，这个事件enabled一个非空的optimal转移集合，然后Processor必须执行这样一个mircrostep。</p>
+<p>在完成一个microstep之后，SCXML Processor必须按照文档顺序执行各个状态下&lt;invoke&gt;里面的内容。然后Processor必须移除事件从external event queue，等待需要的生成生成，然后找到一个enables 非空的转移集合。然后Processor像microstep一样执行这个集合。</p>
+<h2 id="IDS"><a href="#IDS" class="headerlink" title="IDS"></a>IDS</h2><p>在一个良好的SCXML 文档里面，每一个id属性的值在某一个session会话里面必须是唯一的。当这样的一个属性被定义成optional的时候，并且你忽略了这个id。SCXML processor会在文档加载的时候自动生成一个唯一的id值（除了&lt;send&gt;和&lt;invok&gt;元素）（注意：这样生成一个一个id不能够在文档其他地方被引用，因为你不知道它的值是多少，特别是如果一个状态的id是自动生成的，那么这个状态不能作为任何转移的目标）。&lt;send&gt;和&lt;invoke&gt;的id属性有一点不同，当作者没有指定这两个元素的id的时候，系统不会在加载文档的时候生成这两个元素的id，而是每次这两个元素执行的生成生成id.而且idlocation属性能够捕捉到这个自动生成的id。&lt;invoke&gt;标签自动生成的id有一个特殊的形式，参见后面的&lt;invoke&gt;标签。SCXML Processor可以生成所有其他的id以任何的形式，只要是唯一的。</p>
+<h1 id="可执行内容"><a href="#可执行内容" class="headerlink" title="可执行内容"></a>可执行内容</h1><p>可执行内容允许状态机to do things. 它提供了hooks ，允许一个SCXML session去修改它的数据模型和与外部实体交互。可执行内容由一系列actions组成。特别的，可执行内容，发生在&lt;onentry&gt;和&lt;onexit&gt;元素内，或者&lt;transition&gt;内。一个状态内部的这三个元素的执行顺序是如果退出了当前状态：&lt;onentry&gt;&lt;onexit&gt;&lt;transition&gt;，：如果没有退出当前状态&lt;onentry&gt;,&lt;transition1&gt;,&lt;transition2&gt;,&lt;transition3&gt;,&lt;onexit&gt;,&lt;transition4&gt;</p>
+<p>可执行内容，有如下的元素：<br>&lt;raise&gt;,&lt;send&gt;,&lt;log&gt;,&lt;script&gt;,&lt;assign&gt;,&lt;if&gt;,&lt;foreach&gt;<br>另外SCXML的实现者可以自由扩展有哪些可执行内容。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat_pay.png" alt="Money Zheng WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/zhifubao_pay.jpg" alt="Money Zheng Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SCXML标准翻译-SCXML标准/" rel="tag">#SCXML标准翻译 SCXML标准</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/02/01/Apache-Commons-SCXML系列之请假流程/" rel="next" title="Apache Commons-SCXML系列之请假流程">
+                <i class="fa fa-chevron-left"></i> Apache Commons-SCXML系列之请假流程
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/02/15/计算机中基础知识点/" rel="prev" title="计算机中的基础知识">
+                计算机中的基础知识 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/02/01/W3C-SCXML标准翻译/"
+     data-title="State Chart XML (SCXML) 状态机规范"
+     data-content=""
+     data-url="http://thinerzq.com/2016/02/01/W3C-SCXML标准翻译/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/02/01/W3C-SCXML标准翻译/"
+           data-title="State Chart XML (SCXML) 状态机规范" data-url="http://thinerzq.com/2016/02/01/W3C-SCXML标准翻译/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars3.githubusercontent.com/u/10881023?v=3&s=460"
+               alt="Money Zheng" />
+          <p class="site-author-name" itemprop="name">Money Zheng</p>
+          <p class="site-description motion-element" itemprop="description">Every dog has its day</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ThinerZQ" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/ZhengShouZi" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/zhengshouzi" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://read.douban.com/people/65276245/" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.pianke.me/profile/136988/" target="_blank" title="片刻">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  片刻
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://tieba.baidu.com/home/main?un=a601097836&fr=home" target="_blank" title="贴吧">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  贴吧
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.bingoogolapple.cn/" title="bingoogle" target="_blank">bingoogle</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">2.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#核心结构"><span class="nav-number">3.</span> <span class="nav-text">核心结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">3.1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础的状态机概念"><span class="nav-number">3.1.1.</span> <span class="nav-text">基础的状态机概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组合状态"><span class="nav-number">3.1.2.</span> <span class="nav-text">组合状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#并行状态"><span class="nav-number">3.1.3.</span> <span class="nav-text">并行状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化，终止和历史状态"><span class="nav-number">3.1.4.</span> <span class="nav-text">初始化，终止和历史状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转移类型"><span class="nav-number">3.1.5.</span> <span class="nav-text">转移类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scxml"><span class="nav-number">3.2.</span> <span class="nav-text">scxml</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性"><span class="nav-number">3.2.1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#孩子元素"><span class="nav-number">3.2.2.</span> <span class="nav-text">孩子元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#说明"><span class="nav-number">3.2.3.</span> <span class="nav-text">说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#state"><span class="nav-number">3.3.</span> <span class="nav-text">state</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性-1"><span class="nav-number">3.3.1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#孩子元素-1"><span class="nav-number">3.3.2.</span> <span class="nav-text">孩子元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">3.3.3.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#说明-1"><span class="nav-number">3.3.4.</span> <span class="nav-text">说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#parallel"><span class="nav-number">3.4.</span> <span class="nav-text">parallel</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性-2"><span class="nav-number">3.4.1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#孩子元素-2"><span class="nav-number">3.4.2.</span> <span class="nav-text">孩子元素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#transition"><span class="nav-number">3.5.</span> <span class="nav-text">transition</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性-3"><span class="nav-number">3.5.1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#孩子元素-3"><span class="nav-number">3.5.2.</span> <span class="nav-text">孩子元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#说明-2"><span class="nav-number">3.5.3.</span> <span class="nav-text">说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#initial"><span class="nav-number">3.6.</span> <span class="nav-text">initial</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性-4"><span class="nav-number">3.6.1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#孩子元素-4"><span class="nav-number">3.6.2.</span> <span class="nav-text">孩子元素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#final"><span class="nav-number">3.7.</span> <span class="nav-text">final</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性-5"><span class="nav-number">3.7.1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#孩子元素-5"><span class="nav-number">3.7.2.</span> <span class="nav-text">孩子元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#说明-3"><span class="nav-number">3.7.3.</span> <span class="nav-text">说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#onentry"><span class="nav-number">3.8.</span> <span class="nav-text">onentry</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性-6"><span class="nav-number">3.8.1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#孩子元素-6"><span class="nav-number">3.8.2.</span> <span class="nav-text">孩子元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#说明-4"><span class="nav-number">3.8.3.</span> <span class="nav-text">说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#onexit"><span class="nav-number">3.9.</span> <span class="nav-text">onexit</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性-7"><span class="nav-number">3.9.1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#孩子元素-7"><span class="nav-number">3.9.2.</span> <span class="nav-text">孩子元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#说明-5"><span class="nav-number">3.9.3.</span> <span class="nav-text">说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#history"><span class="nav-number">3.10.</span> <span class="nav-text">history</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性-8"><span class="nav-number">3.10.1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#孩子元素-8"><span class="nav-number">3.10.2.</span> <span class="nav-text">孩子元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#说明-6"><span class="nav-number">3.10.3.</span> <span class="nav-text">说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#合法的状态配置"><span class="nav-number">3.11.</span> <span class="nav-text">合法的状态配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义-1"><span class="nav-number">3.11.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#说明-7"><span class="nav-number">3.11.2.</span> <span class="nav-text">说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SCXML-Events"><span class="nav-number">3.12.</span> <span class="nav-text">SCXML Events</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事件描述符"><span class="nav-number">3.12.1.</span> <span class="nav-text">事件描述符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-2"><span class="nav-number">3.12.1.1.</span> <span class="nav-text">定义</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误（Errors）"><span class="nav-number">3.12.2.</span> <span class="nav-text">错误（Errors）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误和事件列表"><span class="nav-number">3.12.3.</span> <span class="nav-text">错误和事件列表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择和执行转移"><span class="nav-number">3.13.</span> <span class="nav-text">选择和执行转移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDS"><span class="nav-number">3.14.</span> <span class="nav-text">IDS</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可执行内容"><span class="nav-number">4.</span> <span class="nav-text">可执行内容</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Money Zheng</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user">本站访客数</i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye">本站总访问量</i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"thinerzq"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Ejk3T06mIIR6qAsgj2xDACNt-gzGzoHsz", "t6iVWLLthVAcMzIBKMfPaalb");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>
