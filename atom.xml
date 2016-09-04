@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://thinerzq.com/"/>
-  <updated>2016-08-27T04:21:29.818Z</updated>
+  <updated>2016-09-01T02:43:14.502Z</updated>
   <id>http://thinerzq.com/</id>
   
   <author>
@@ -14,6 +14,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://thinerzq.com/2016/09/01/mysql%20win64%205.7.9%20zip%E5%8C%85%E5%AE%89%E8%A3%85%E6%97%A5%E8%AE%B0/"/>
+    <id>http://thinerzq.com/2016/09/01/mysql win64 5.7.9 zip包安装日记/</id>
+    <published>2016-09-01T02:31:09.239Z</published>
+    <updated>2016-09-01T02:43:14.502Z</updated>
+    
+    <content type="html"><![CDATA[<p>官网下载win64 zip包<br>找到合适的目录解压<br>配置my-default.ini</p>
+<blockquote>
+<p>basedir = D:\Study\MySQL\mysql-5.7.14-server-win64<br> datadir = D:\Study\MySQL\mysql-5.7.14-server-win64\data<br> port = 3306</p>
+</blockquote>
+<p> 管理员方式打开命令行，进入mysql home 目录下的bin目录</p>
+<p>执行如下命令：<br>mysqld –initialize（我使用mysqld –initialize -secure生成的data目录下的文件不完整）</p>
+<blockquote>
+<p>在mysql的根目录下自动生成data目录以及其他文件，初始化一个随机密码的root用户</p>
+</blockquote>
+<p>mysqld -install/remove<br>注册mysql服务</p>
+<p>net start/stop mysql<br>启动服务</p>
+<p>关于root的随机密码在那里<br>windows在data目录下的DESKTOP-M03IEJ5.err文件里面，搜索“2016-09-01T02:15:22.399996Z 1 [Note] A temporary password is generated for root@localhost: -/br&gt;,B;o9gm”这样的一个字符串就能找到了，其他系统也都写在日志里面，找找总会有的</p>
+<p>最后<br>mysql -u root -p password 进入mysql 控制台<br>更改mysql密码</p>
+<blockquote>
+<p>alter user ‘root’@’localhost’ identified by ‘your password’;</p>
+</blockquote>
+<p>that’s all </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;官网下载win64 zip包&lt;br&gt;找到合适的目录解压&lt;br&gt;配置my-default.ini&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;basedir = D:\Study\MySQL\mysql-5.7.14-server-win64&lt;br&gt; datadir = D:\S
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>战国纵横</title>
@@ -1065,146 +1102,6 @@
   </entry>
   
   <entry>
-    <title>Java NIO学习</title>
-    <link href="http://thinerzq.com/2016/07/09/java%20nio%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
-    <id>http://thinerzq.com/2016/07/09/java nio学习报告/</id>
-    <published>2016-07-09T01:08:06.000Z</published>
-    <updated>2016-08-14T14:28:02.483Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="NIO概述"><a href="#NIO概述" class="headerlink" title="NIO概述"></a>NIO概述</h1><p>Java NIO: Non-blocking IO（非阻塞IO）是jdk 1.4提出的，简单的理解就是使用nio api读写数据的时候不会等待把所有数据读写完再返回(所以读写的时候应该使用while循环不断尝试读写数据)。NIO中关键的三个概念是通道，缓冲区，选择器。</p>
-<a id="more"></a>
-<h2 id="Channel-通道"><a href="#Channel-通道" class="headerlink" title="Channel(通道)"></a>Channel(通道)</h2><p>所有的数据读写在NIO 中都从Channel 开始，可以把Channel想象成io 中的Stream。数据是从Channel读到Buffer中，或者从Buffer 写到Channel中。Channel主要有以下几种</p>
-<ol>
-<li>FileChannel: 从FileInputStream和FileOutputStream打开的文件通道</li>
-<li>DatagramChannel：通过UDP协议读写网络中的数据</li>
-<li>SocketChannel：通过TCP协议读写网络中的数据</li>
-<li>ServerSocketChannel：对每一个连接创建一个SocketChannel</li>
-</ol>
-<h2 id="Buffer-缓冲区"><a href="#Buffer-缓冲区" class="headerlink" title="Buffer(缓冲区)"></a>Buffer(缓冲区)</h2><p>读取数据的第一步是Channel，第二步是Buffer。数据从通道读取到Buffer中，然后再使用，或者从Buffer中写入通道。Buffer本质上是一块可以写入数据，然后可以从中读取数据的内存,这块内存被包装成NIO Buffer对象。</p>
-<p>Buffer主要由三个属性，它们决定了每次读写缓冲区的什么位置。</p>
-<ol>
-<li>capacity：缓冲区的大小</li>
-<li>position：读模式的时候，position为下一个可以读取的位置；写模式的时候，position为下一个可以写入数据的位置</li>
-<li>limit：写模式的时候，可以写入的数据的大小；读模式下，limit表示可以读取的数据大小</li>
-</ol>
-<p>当向buffer写入数据时，buffer会记录下写了多少数据。一旦要读取数据，需要通过flip()方法将Buffer从写模式切换到读模式（相应的position和limit值会改变）。在读模式下，可以读取之前写入到buffer的所有数据。</p>
-<p>一旦读完Buffer中的数据，需要让Buffer准备好再次被写入。可以通过clear()或compact()方法来完成。clear()将Buffer中剩余的数据清除，compact()会将没有读取的数据移动到Buffer起始处，之后还可以读取。</p>
-<p>Buffer.allocate() 直接在Head上分配内存，Buffer.directAllocate()在堆外分配内存（分配的内存不受GC影响，需要自己手动释放）。</p>
-<h2 id="Selector-选择器"><a href="#Selector-选择器" class="headerlink" title="Selector(选择器)"></a>Selector(选择器)</h2><p>Selector（选择器）是NIO中能够侦听多个NIO Channel，并能够知晓这些Channel是否为特定的事件做好准备的组件。<br>Selector的使用主要是通过如下这种形式来使用<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">ServerSocketChannel ssChannel = ServerSocketChannel.open();</div><div class="line">ServerSocket ss = ssChannel.socket();</div><div class="line">InetSocketAddress address = <span class="keyword">new</span> InetSocketAddress(port);</div><div class="line">ss.bind(address);</div><div class="line"></div><div class="line">Selector selector = Selector.open();</div><div class="line"></div><div class="line">ssChannel.configureBlocking(<span class="keyword">false</span>);</div><div class="line">ssChannel.register(selector, SelectionKey.OP_ACCEPT); <span class="comment">//向selector注册监听连接请求</span></div><div class="line"></div><div class="line"><span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">    selector.select();<span class="comment">//阻塞 直到某个channel注册的感兴趣的事件被触发</span></div><div class="line">    Set&lt;SelectionKey&gt; keys = selector.selectedKeys();</div><div class="line">    <span class="keyword">for</span> (SelectionKey key : keys) &#123;</div><div class="line">        <span class="keyword">if</span> (key.isAcceptable()) &#123; <span class="comment">//客户端连接请求</span></div><div class="line">            ServerSocketChannel ssc = (ServerSocketChannel) key.channel();</div><div class="line">            SocketChannel sc = ssc.accept();</div><div class="line">            sc.configureBlocking(<span class="keyword">false</span>);</div><div class="line">            sc.register(selector, SelectionKey.OP_READ); <span class="comment">//向selector注册监听客户端输入</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (key.isReadable()) &#123; <span class="comment">//客户端输入</span></div><div class="line"></div><div class="line">            ByteBuffer buffer = ByteBuffer.allocate(<span class="number">1024</span>);</div><div class="line"></div><div class="line">            SocketChannel socketChannel = (SocketChannel) key.channel();</div><div class="line"></div><div class="line">            <span class="comment">// 针对当前连接做一些事情.read or write</span></div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    keys.clear();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>Selector必须和Channel配合使用，而且Channel必须处于非阻塞模式下。通过resigter()方法绑定selector和channel的时候，第二个参数指定了当前channel对什么事件感兴趣。一个channel可以有如下4种感兴趣的事件</p>
-<ol>
-<li>SelectionKey.OP_CONNECT</li>
-<li>SelectionKey.OP_ACCEPT</li>
-<li>SelectionKey.OP_READ</li>
-<li>SelectionKey.OP_WRITE</li>
-</ol>
-<p>当channel向selector注册了事件之后，selector.selector()方法会阻塞直到channel关心的哪些事件已经就绪。事件就绪之后判断事件的类别，根据不同类别分别做不同的读写处理。</p>
-<h1 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h1><p>一个对象可以被表示为一个字节序列，该字节序列包括该对象的数据、有关对象的类型的信息和存储在对象中数据的类型。</p>
-<p>对应的流是ObjectOutputStream，ObjectInputStream。static变量, transient不会序列化，static final会序列化。实现这两个接口的类可以序列化：Serializible ,Externalizible。</p>
-<p>如果想自己控制一部分序列化的过程，可以在需要序列化的类种加入private级别的readObject()和writeObject()方法，这两个方法再ObjectInputStream和ObjectOutputStream中会反射调用。write和read的顺序必须一致。使用实现Externalizible接口来序列化，序列化的过程完全可控。</p>
-<p>如果需要序列化的对象使用了Signleton模式，（序列化前的对象 == 序列化后的对象）=false,如果要使这两者相等，可以在Singleton类种加入readResolve()方法，在这个方法中返回Signleton对象替换掉在流中创建的对象。——这些都是在同一个jvm中才有用</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;NIO概述&quot;&gt;&lt;a href=&quot;#NIO概述&quot; class=&quot;headerlink&quot; title=&quot;NIO概述&quot;&gt;&lt;/a&gt;NIO概述&lt;/h1&gt;&lt;p&gt;Java NIO: Non-blocking IO（非阻塞IO）是jdk 1.4提出的，简单的理解就是使用nio api读写数据的时候不会等待把所有数据读写完再返回(所以读写的时候应该使用while循环不断尝试读写数据)。NIO中关键的三个概念是通道，缓冲区，选择器。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="java" scheme="http://thinerzq.com/categories/java/"/>
-    
-    
-      <category term="nio" scheme="http://thinerzq.com/tags/nio/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java 多线程学习</title>
-    <link href="http://thinerzq.com/2016/07/09/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
-    <id>http://thinerzq.com/2016/07/09/java多线程学习报告/</id>
-    <published>2016-07-09T01:08:06.000Z</published>
-    <updated>2016-08-14T14:28:18.696Z</updated>
-    
-    <content type="html"><![CDATA[<ol>
-<li><p>ConcurrentHashMap：线程安全HashMap，分段锁。put(),remove()加锁，size()三次后再加锁</p>
-</li>
-<li><p>CopyOnWriteArrayList：线程安全，读无锁的ArrayList,使用ReentrantLock, 每次add，remove都是新创建一个数组，复制元素到新的数组，最后切换全局数组引用。适用于多读少写</p>
-</li>
-<li><p>CopyOnWriteArraySet：通过CopyOnWriteSet实现，add()的时候会遍历整个数组判断数组是否存在这个值，因此性能略低于CopyOnWriteArrayList</p>
-</li>
-<li><p>ArrayBlockingQueue： 基于数组，ReentrantLock,Condition实现的有界队列。add(E e):队满，抛异常。put(E e):队满，阻塞。offer(E e):队满，返回false。remove()，take()，poll()。和上面对应。</p>
-</li>
-<li><p>LinkedBlockingQueue：基于链表，读写锁分离，遍历同时锁。此按FIFO （先进先出） 排序元素，吞吐量通常要高于ArrayBlockingQueue。</p>
-</li>
-<li><p>SynchronousQueue：一个不存储元素的阻塞队列。每个插入操作必须等到另一个线程调用移除操作，否则插入操作一直处于阻塞状态，吞吐量通常要高于LinkedBlockingQueue。</p>
-</li>
-<li><p>PriorityBlockingQueue：一个具有优先级的无限阻塞队列。</p>
-</li>
-<li><p>Atomic：支持原子操作的类，由硬件指令cmpxchg提供CAS支持（简单来说，先使用一个期望值和一个变量的当前值进行比较，如果当前变量的值与期望的值相等，就使用一个新值替换当前变量的值）,比synchronize性能高出2倍。实现类有AtomicBoolean，AtomicInteger，AtomicIntegerArray，AtomicLong，AtomicLongArray，AtomicReference，AtomicReferenceArray等。需要注意的是ABA问题，可以通过AtomicStampedReference解决。</p>
-</li>
-<li><p>线程池<br>线程池就是有一堆线程，随时可以取一个线程出来用。学习线程池最好的方法就是从线程池的构造函数开始看。一个线程池的关注点在构造函数中的几个参数。常用的Executor类的几个方法都是返回一个的ThreadPoolExecutor，这些ThreadPoolExecutor的构造函数的参数各不相同。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">ThreadPoolExecutor</span><span class="params">(<span class="keyword">int</span> corePoolSize,<span class="keyword">int</span> maximumPoolSize,<span class="keyword">long</span> keepAliveTime,TimeUnit unit,  BlockingQueue&lt;Runnable&gt; workQueue,ThreadFactory threadFactory,RejectedExecutionHandler handler)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (corePoolSize &lt; <span class="number">0</span> ||</div><div class="line">            maximumPoolSize &lt;= <span class="number">0</span> ||</div><div class="line">            maximumPoolSize &lt; corePoolSize ||</div><div class="line">            keepAliveTime &lt; <span class="number">0</span>)</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException();</div><div class="line">        <span class="keyword">if</span> (workQueue == <span class="keyword">null</span> || threadFactory == <span class="keyword">null</span> || handler == <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</div><div class="line">        <span class="keyword">this</span>.corePoolSize = corePoolSize;</div><div class="line">        <span class="keyword">this</span>.maximumPoolSize = maximumPoolSize;</div><div class="line">        <span class="keyword">this</span>.workQueue = workQueue;</div><div class="line">        <span class="keyword">this</span>.keepAliveTime = unit.toNanos(keepAliveTime);</div><div class="line">        <span class="keyword">this</span>.threadFactory = threadFactory;</div><div class="line">        <span class="keyword">this</span>.handler = handler;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<ol>
-<li><p>corePoolSize： 线程池维护线程的最少数量：当提交一个任务到线程池时，线程池会创建一个线程来执行任务，即使其他空闲的基本线程能够执行新任务也会创建线程，等到需要执行的任务数大于线程池基本大小时就不再创建。如果调用了线程池的prestartAllCoreThreads方法，线程池会提前创建并启动所有基本线程。</p>
-</li>
-<li><p>maximumPoolSize：线程池维护线程的最大数量：线程池允许创建的最大线程数。如果队列满了，并且已创建的线程数小于最大线程数，则线程池会再创建新的线程执行任务。如果使用了无界的任务队列这个参数就没什么效果。</p>
-</li>
-<li><p>keepAliveTime： 线程池维护线程所允许的空闲时间：线程池的工作线程空闲后，保持存活的时间。所以如果任务很多，并且每个任务执行的时间比较短，可以调大这个时间，提高线程的利用率。</p>
-</li>
-<li><p>unit： 线程池维护线程所允许的空闲时间的单位：可选的单位有天（DAYS），小时（HOURS），分钟（MINUTES），毫秒(MILLISECONDS)，微秒(MICROSECONDS, 千分之一毫秒)和毫微秒(NANOSECONDS, 千分之一微秒)。</p>
-</li>
-<li><p>workQueue： 线程池所使用的缓冲队列。</p>
-</li>
-<li><p>threadFactory：线程池创建线程的工厂：可以通过线程工厂给每个创建出来的线程设置更有意义的名字。</p>
-</li>
-<li><p>handler： 线程池对拒绝任务的处理策略：AbortPolicy：直接抛出异常。<br>CallerRunsPolicy：只用调用者所在线程来运行任务。<br>DiscardOldestPolicy：丢弃队列里最近的一个任务，并执行当前任务。<br>DiscardPolicy：不处理，丢弃掉。<br>当然也可以根据应用场景需要来实现RejectedExecutionHandler接口自定义策略。如记录日志或持久化不能处理的任务。</p>
-</li>
-</ol>
-</li>
-<li><p>Executors：对ThreadPoolExecutor再封装。</p>
-<ol>
-<li><p>nexFixedThreadPool(int) :直接创建固定大小的线程池，keepAlive=0，超过LinkedBlockingQueue的最大范围拒绝</p>
-</li>
-<li><p>newSingleThreadExecutor:线程只有1个，其他的等待</p>
-</li>
-<li><p>newCachedThreadPool:corePoolSize=0,keepAlive=60s,SynchronousQueue,最大线程未Integer.Max_Value</p>
-</li>
-<li><p>newScheduledThreadPool(int):DelayedWorkQueue:会对新加入的任务按照执行时间排序</p>
-</li>
-</ol>
-</li>
-<li><p>FutureTask：异步获取执行结果，保证只执行一次，可取消任务。</p>
-</li>
-<li>Semaphore：控制某资源同时被访问的个数的类，通过构造函数可以达到公平访问和非公平访问，默认非公平。如果把资源那个数设置为1,可以达到锁的效果。</li>
-<li>CountDownLatch：用于多个线程同时开始某一个动作，每个线程执行的时候，计数器-1，如果计数器为0，位于latch.await()后面代码才会执行。一般用来等待任务执行完毕</li>
-<li><p>CyclicBarrier: 和CountDownLatch刚好反过来，它是当await()的数量达到一定，才继续往后执行，另外还能设置一个回调：当await()达到一定数量后，开始执行回调的Runable对象</p>
-</li>
-<li><p>ReentrantLock：ReentrantLock提供了公平锁和非公平锁，lock().trylock(),trylockInterrupted, tryLock(time)等方法</p>
-</li>
-<li><p>Condition： 一般和RenentrantLock配合使用，可在同一个锁上启用多个Condition,用于等待，通知操作。</p>
-</li>
-<li><p>和ReentrantLock没有任何继承关系    ，提供了读写锁分离。读的时候如果没有线程写就直接获取，读操作是无阻赛的。写的时候如果有其他线程在读或者写就会被阻塞。在同一线程中，持有读锁后不能调用写锁的lock方法（会死锁）：读锁不可升级。同一个线程中，持有写锁后，可以调用读锁的lock方法，之后如果调用写锁的unlock(0方法，当前锁降级为读锁。适用于读多写少</p>
-</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;ConcurrentHashMap：线程安全HashMap，分段锁。put(),remove()加锁，size()三次后再加锁&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;CopyOnWriteArrayList：线程安全，读无锁的ArrayList,使用Reent
-    
-    </summary>
-    
-      <category term="java" scheme="http://thinerzq.com/categories/java/"/>
-    
-    
-      <category term="多线程" scheme="http://thinerzq.com/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Spring基础学习</title>
     <link href="http://thinerzq.com/2016/07/09/spring%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
     <id>http://thinerzq.com/2016/07/09/spring学习报告/</id>
@@ -1546,6 +1443,146 @@
     
     
       <category term="io" scheme="http://thinerzq.com/tags/io/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java 多线程学习</title>
+    <link href="http://thinerzq.com/2016/07/09/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    <id>http://thinerzq.com/2016/07/09/java多线程学习报告/</id>
+    <published>2016-07-09T01:08:06.000Z</published>
+    <updated>2016-08-14T14:28:18.696Z</updated>
+    
+    <content type="html"><![CDATA[<ol>
+<li><p>ConcurrentHashMap：线程安全HashMap，分段锁。put(),remove()加锁，size()三次后再加锁</p>
+</li>
+<li><p>CopyOnWriteArrayList：线程安全，读无锁的ArrayList,使用ReentrantLock, 每次add，remove都是新创建一个数组，复制元素到新的数组，最后切换全局数组引用。适用于多读少写</p>
+</li>
+<li><p>CopyOnWriteArraySet：通过CopyOnWriteSet实现，add()的时候会遍历整个数组判断数组是否存在这个值，因此性能略低于CopyOnWriteArrayList</p>
+</li>
+<li><p>ArrayBlockingQueue： 基于数组，ReentrantLock,Condition实现的有界队列。add(E e):队满，抛异常。put(E e):队满，阻塞。offer(E e):队满，返回false。remove()，take()，poll()。和上面对应。</p>
+</li>
+<li><p>LinkedBlockingQueue：基于链表，读写锁分离，遍历同时锁。此按FIFO （先进先出） 排序元素，吞吐量通常要高于ArrayBlockingQueue。</p>
+</li>
+<li><p>SynchronousQueue：一个不存储元素的阻塞队列。每个插入操作必须等到另一个线程调用移除操作，否则插入操作一直处于阻塞状态，吞吐量通常要高于LinkedBlockingQueue。</p>
+</li>
+<li><p>PriorityBlockingQueue：一个具有优先级的无限阻塞队列。</p>
+</li>
+<li><p>Atomic：支持原子操作的类，由硬件指令cmpxchg提供CAS支持（简单来说，先使用一个期望值和一个变量的当前值进行比较，如果当前变量的值与期望的值相等，就使用一个新值替换当前变量的值）,比synchronize性能高出2倍。实现类有AtomicBoolean，AtomicInteger，AtomicIntegerArray，AtomicLong，AtomicLongArray，AtomicReference，AtomicReferenceArray等。需要注意的是ABA问题，可以通过AtomicStampedReference解决。</p>
+</li>
+<li><p>线程池<br>线程池就是有一堆线程，随时可以取一个线程出来用。学习线程池最好的方法就是从线程池的构造函数开始看。一个线程池的关注点在构造函数中的几个参数。常用的Executor类的几个方法都是返回一个的ThreadPoolExecutor，这些ThreadPoolExecutor的构造函数的参数各不相同。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">ThreadPoolExecutor</span><span class="params">(<span class="keyword">int</span> corePoolSize,<span class="keyword">int</span> maximumPoolSize,<span class="keyword">long</span> keepAliveTime,TimeUnit unit,  BlockingQueue&lt;Runnable&gt; workQueue,ThreadFactory threadFactory,RejectedExecutionHandler handler)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (corePoolSize &lt; <span class="number">0</span> ||</div><div class="line">            maximumPoolSize &lt;= <span class="number">0</span> ||</div><div class="line">            maximumPoolSize &lt; corePoolSize ||</div><div class="line">            keepAliveTime &lt; <span class="number">0</span>)</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException();</div><div class="line">        <span class="keyword">if</span> (workQueue == <span class="keyword">null</span> || threadFactory == <span class="keyword">null</span> || handler == <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</div><div class="line">        <span class="keyword">this</span>.corePoolSize = corePoolSize;</div><div class="line">        <span class="keyword">this</span>.maximumPoolSize = maximumPoolSize;</div><div class="line">        <span class="keyword">this</span>.workQueue = workQueue;</div><div class="line">        <span class="keyword">this</span>.keepAliveTime = unit.toNanos(keepAliveTime);</div><div class="line">        <span class="keyword">this</span>.threadFactory = threadFactory;</div><div class="line">        <span class="keyword">this</span>.handler = handler;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<ol>
+<li><p>corePoolSize： 线程池维护线程的最少数量：当提交一个任务到线程池时，线程池会创建一个线程来执行任务，即使其他空闲的基本线程能够执行新任务也会创建线程，等到需要执行的任务数大于线程池基本大小时就不再创建。如果调用了线程池的prestartAllCoreThreads方法，线程池会提前创建并启动所有基本线程。</p>
+</li>
+<li><p>maximumPoolSize：线程池维护线程的最大数量：线程池允许创建的最大线程数。如果队列满了，并且已创建的线程数小于最大线程数，则线程池会再创建新的线程执行任务。如果使用了无界的任务队列这个参数就没什么效果。</p>
+</li>
+<li><p>keepAliveTime： 线程池维护线程所允许的空闲时间：线程池的工作线程空闲后，保持存活的时间。所以如果任务很多，并且每个任务执行的时间比较短，可以调大这个时间，提高线程的利用率。</p>
+</li>
+<li><p>unit： 线程池维护线程所允许的空闲时间的单位：可选的单位有天（DAYS），小时（HOURS），分钟（MINUTES），毫秒(MILLISECONDS)，微秒(MICROSECONDS, 千分之一毫秒)和毫微秒(NANOSECONDS, 千分之一微秒)。</p>
+</li>
+<li><p>workQueue： 线程池所使用的缓冲队列。</p>
+</li>
+<li><p>threadFactory：线程池创建线程的工厂：可以通过线程工厂给每个创建出来的线程设置更有意义的名字。</p>
+</li>
+<li><p>handler： 线程池对拒绝任务的处理策略：AbortPolicy：直接抛出异常。<br>CallerRunsPolicy：只用调用者所在线程来运行任务。<br>DiscardOldestPolicy：丢弃队列里最近的一个任务，并执行当前任务。<br>DiscardPolicy：不处理，丢弃掉。<br>当然也可以根据应用场景需要来实现RejectedExecutionHandler接口自定义策略。如记录日志或持久化不能处理的任务。</p>
+</li>
+</ol>
+</li>
+<li><p>Executors：对ThreadPoolExecutor再封装。</p>
+<ol>
+<li><p>nexFixedThreadPool(int) :直接创建固定大小的线程池，keepAlive=0，超过LinkedBlockingQueue的最大范围拒绝</p>
+</li>
+<li><p>newSingleThreadExecutor:线程只有1个，其他的等待</p>
+</li>
+<li><p>newCachedThreadPool:corePoolSize=0,keepAlive=60s,SynchronousQueue,最大线程未Integer.Max_Value</p>
+</li>
+<li><p>newScheduledThreadPool(int):DelayedWorkQueue:会对新加入的任务按照执行时间排序</p>
+</li>
+</ol>
+</li>
+<li><p>FutureTask：异步获取执行结果，保证只执行一次，可取消任务。</p>
+</li>
+<li>Semaphore：控制某资源同时被访问的个数的类，通过构造函数可以达到公平访问和非公平访问，默认非公平。如果把资源那个数设置为1,可以达到锁的效果。</li>
+<li>CountDownLatch：用于多个线程同时开始某一个动作，每个线程执行的时候，计数器-1，如果计数器为0，位于latch.await()后面代码才会执行。一般用来等待任务执行完毕</li>
+<li><p>CyclicBarrier: 和CountDownLatch刚好反过来，它是当await()的数量达到一定，才继续往后执行，另外还能设置一个回调：当await()达到一定数量后，开始执行回调的Runable对象</p>
+</li>
+<li><p>ReentrantLock：ReentrantLock提供了公平锁和非公平锁，lock().trylock(),trylockInterrupted, tryLock(time)等方法</p>
+</li>
+<li><p>Condition： 一般和RenentrantLock配合使用，可在同一个锁上启用多个Condition,用于等待，通知操作。</p>
+</li>
+<li><p>和ReentrantLock没有任何继承关系    ，提供了读写锁分离。读的时候如果没有线程写就直接获取，读操作是无阻赛的。写的时候如果有其他线程在读或者写就会被阻塞。在同一线程中，持有读锁后不能调用写锁的lock方法（会死锁）：读锁不可升级。同一个线程中，持有写锁后，可以调用读锁的lock方法，之后如果调用写锁的unlock(0方法，当前锁降级为读锁。适用于读多写少</p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;ConcurrentHashMap：线程安全HashMap，分段锁。put(),remove()加锁，size()三次后再加锁&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;CopyOnWriteArrayList：线程安全，读无锁的ArrayList,使用Reent
+    
+    </summary>
+    
+      <category term="java" scheme="http://thinerzq.com/categories/java/"/>
+    
+    
+      <category term="多线程" scheme="http://thinerzq.com/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java NIO学习</title>
+    <link href="http://thinerzq.com/2016/07/09/java%20nio%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    <id>http://thinerzq.com/2016/07/09/java nio学习报告/</id>
+    <published>2016-07-09T01:08:06.000Z</published>
+    <updated>2016-08-14T14:28:02.483Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="NIO概述"><a href="#NIO概述" class="headerlink" title="NIO概述"></a>NIO概述</h1><p>Java NIO: Non-blocking IO（非阻塞IO）是jdk 1.4提出的，简单的理解就是使用nio api读写数据的时候不会等待把所有数据读写完再返回(所以读写的时候应该使用while循环不断尝试读写数据)。NIO中关键的三个概念是通道，缓冲区，选择器。</p>
+<a id="more"></a>
+<h2 id="Channel-通道"><a href="#Channel-通道" class="headerlink" title="Channel(通道)"></a>Channel(通道)</h2><p>所有的数据读写在NIO 中都从Channel 开始，可以把Channel想象成io 中的Stream。数据是从Channel读到Buffer中，或者从Buffer 写到Channel中。Channel主要有以下几种</p>
+<ol>
+<li>FileChannel: 从FileInputStream和FileOutputStream打开的文件通道</li>
+<li>DatagramChannel：通过UDP协议读写网络中的数据</li>
+<li>SocketChannel：通过TCP协议读写网络中的数据</li>
+<li>ServerSocketChannel：对每一个连接创建一个SocketChannel</li>
+</ol>
+<h2 id="Buffer-缓冲区"><a href="#Buffer-缓冲区" class="headerlink" title="Buffer(缓冲区)"></a>Buffer(缓冲区)</h2><p>读取数据的第一步是Channel，第二步是Buffer。数据从通道读取到Buffer中，然后再使用，或者从Buffer中写入通道。Buffer本质上是一块可以写入数据，然后可以从中读取数据的内存,这块内存被包装成NIO Buffer对象。</p>
+<p>Buffer主要由三个属性，它们决定了每次读写缓冲区的什么位置。</p>
+<ol>
+<li>capacity：缓冲区的大小</li>
+<li>position：读模式的时候，position为下一个可以读取的位置；写模式的时候，position为下一个可以写入数据的位置</li>
+<li>limit：写模式的时候，可以写入的数据的大小；读模式下，limit表示可以读取的数据大小</li>
+</ol>
+<p>当向buffer写入数据时，buffer会记录下写了多少数据。一旦要读取数据，需要通过flip()方法将Buffer从写模式切换到读模式（相应的position和limit值会改变）。在读模式下，可以读取之前写入到buffer的所有数据。</p>
+<p>一旦读完Buffer中的数据，需要让Buffer准备好再次被写入。可以通过clear()或compact()方法来完成。clear()将Buffer中剩余的数据清除，compact()会将没有读取的数据移动到Buffer起始处，之后还可以读取。</p>
+<p>Buffer.allocate() 直接在Head上分配内存，Buffer.directAllocate()在堆外分配内存（分配的内存不受GC影响，需要自己手动释放）。</p>
+<h2 id="Selector-选择器"><a href="#Selector-选择器" class="headerlink" title="Selector(选择器)"></a>Selector(选择器)</h2><p>Selector（选择器）是NIO中能够侦听多个NIO Channel，并能够知晓这些Channel是否为特定的事件做好准备的组件。<br>Selector的使用主要是通过如下这种形式来使用<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">ServerSocketChannel ssChannel = ServerSocketChannel.open();</div><div class="line">ServerSocket ss = ssChannel.socket();</div><div class="line">InetSocketAddress address = <span class="keyword">new</span> InetSocketAddress(port);</div><div class="line">ss.bind(address);</div><div class="line"></div><div class="line">Selector selector = Selector.open();</div><div class="line"></div><div class="line">ssChannel.configureBlocking(<span class="keyword">false</span>);</div><div class="line">ssChannel.register(selector, SelectionKey.OP_ACCEPT); <span class="comment">//向selector注册监听连接请求</span></div><div class="line"></div><div class="line"><span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">    selector.select();<span class="comment">//阻塞 直到某个channel注册的感兴趣的事件被触发</span></div><div class="line">    Set&lt;SelectionKey&gt; keys = selector.selectedKeys();</div><div class="line">    <span class="keyword">for</span> (SelectionKey key : keys) &#123;</div><div class="line">        <span class="keyword">if</span> (key.isAcceptable()) &#123; <span class="comment">//客户端连接请求</span></div><div class="line">            ServerSocketChannel ssc = (ServerSocketChannel) key.channel();</div><div class="line">            SocketChannel sc = ssc.accept();</div><div class="line">            sc.configureBlocking(<span class="keyword">false</span>);</div><div class="line">            sc.register(selector, SelectionKey.OP_READ); <span class="comment">//向selector注册监听客户端输入</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (key.isReadable()) &#123; <span class="comment">//客户端输入</span></div><div class="line"></div><div class="line">            ByteBuffer buffer = ByteBuffer.allocate(<span class="number">1024</span>);</div><div class="line"></div><div class="line">            SocketChannel socketChannel = (SocketChannel) key.channel();</div><div class="line"></div><div class="line">            <span class="comment">// 针对当前连接做一些事情.read or write</span></div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    keys.clear();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Selector必须和Channel配合使用，而且Channel必须处于非阻塞模式下。通过resigter()方法绑定selector和channel的时候，第二个参数指定了当前channel对什么事件感兴趣。一个channel可以有如下4种感兴趣的事件</p>
+<ol>
+<li>SelectionKey.OP_CONNECT</li>
+<li>SelectionKey.OP_ACCEPT</li>
+<li>SelectionKey.OP_READ</li>
+<li>SelectionKey.OP_WRITE</li>
+</ol>
+<p>当channel向selector注册了事件之后，selector.selector()方法会阻塞直到channel关心的哪些事件已经就绪。事件就绪之后判断事件的类别，根据不同类别分别做不同的读写处理。</p>
+<h1 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h1><p>一个对象可以被表示为一个字节序列，该字节序列包括该对象的数据、有关对象的类型的信息和存储在对象中数据的类型。</p>
+<p>对应的流是ObjectOutputStream，ObjectInputStream。static变量, transient不会序列化，static final会序列化。实现这两个接口的类可以序列化：Serializible ,Externalizible。</p>
+<p>如果想自己控制一部分序列化的过程，可以在需要序列化的类种加入private级别的readObject()和writeObject()方法，这两个方法再ObjectInputStream和ObjectOutputStream中会反射调用。write和read的顺序必须一致。使用实现Externalizible接口来序列化，序列化的过程完全可控。</p>
+<p>如果需要序列化的对象使用了Signleton模式，（序列化前的对象 == 序列化后的对象）=false,如果要使这两者相等，可以在Singleton类种加入readResolve()方法，在这个方法中返回Signleton对象替换掉在流中创建的对象。——这些都是在同一个jvm中才有用</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;NIO概述&quot;&gt;&lt;a href=&quot;#NIO概述&quot; class=&quot;headerlink&quot; title=&quot;NIO概述&quot;&gt;&lt;/a&gt;NIO概述&lt;/h1&gt;&lt;p&gt;Java NIO: Non-blocking IO（非阻塞IO）是jdk 1.4提出的，简单的理解就是使用nio api读写数据的时候不会等待把所有数据读写完再返回(所以读写的时候应该使用while循环不断尝试读写数据)。NIO中关键的三个概念是通道，缓冲区，选择器。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="java" scheme="http://thinerzq.com/categories/java/"/>
+    
+    
+      <category term="nio" scheme="http://thinerzq.com/tags/nio/"/>
     
   </entry>
   
@@ -2463,289 +2500,6 @@
     
     
       <category term="反射" scheme="http://thinerzq.com/tags/%E5%8F%8D%E5%B0%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>我眼中的http协议</title>
-    <link href="http://thinerzq.com/2016/04/28/%E6%88%91%E7%9C%BC%E4%B8%AD%E7%9A%84http%E5%8D%8F%E8%AE%AE/"/>
-    <id>http://thinerzq.com/2016/04/28/我眼中的http协议/</id>
-    <published>2016-04-28T02:24:35.000Z</published>
-    <updated>2016-05-02T02:11:07.994Z</updated>
-    
-    <content type="html"><![CDATA[<p>URI是下面的这样的形式</p>
-<blockquote>
-<p><a href="http://user:pass@www.example.jp:80/dir/index.htm?uid=1#ch1" target="_blank" rel="external">http://user:pass@www.example.jp:80/dir/index.htm?uid=1#ch1</a></p>
-</blockquote>
-<pre><code>各部分标示的意思如下     
-</code></pre><table>
-<thead>
-<tr>
-<th style="text-align:center">字符串</th>
-<th style="text-align:center">用途</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">http</td>
-<td style="text-align:center">协议类型</td>
-</tr>
-<tr>
-<td style="text-align:center">user：pass</td>
-<td style="text-align:center">登录服务器的用户名和密码</td>
-</tr>
-<tr>
-<td style="text-align:center">www.example.jp</td>
-<td style="text-align:center">服务器地址，还可以用ipv6的标示的表示形式[0:0:0:0:0:0:0:1]</td>
-</tr>
-<tr>
-<td style="text-align:center">80</td>
-<td style="text-align:center">端口号</td>
-</tr>
-<tr>
-<td style="text-align:center">index.html</td>
-<td style="text-align:center">带层次的文件路径</td>
-</tr>
-<tr>
-<td style="text-align:center">uid=1</td>
-<td style="text-align:center">查询字符串</td>
-</tr>
-<tr>
-<td style="text-align:center">ch1</td>
-<td style="text-align:center">片段标示符，锚</td>
-</tr>
-</tbody>
-</table>
-<a id="more"></a>
-<h2 id="请求方法"><a href="#请求方法" class="headerlink" title="请求方法"></a>请求方法</h2><table>
-<thead>
-<tr>
-<th style="text-align:center">方法类型</th>
-<th style="text-align:center">说明</th>
-<th style="text-align:center">支持的协议版本</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">GET</td>
-<td style="text-align:center">请求http服务器上的某一个页面资源, 如果请求的是文本资源，保持原样返回；如果是CGI一样的程序，则返回执行后的输出结果，主要目的是想访问资源</td>
-<td style="text-align:center">1.0,1.1</td>
-</tr>
-<tr>
-<td style="text-align:center">POST</td>
-<td style="text-align:center">post的主要目的是把消息传递给服务器</td>
-<td style="text-align:center">1.0,1.1</td>
-</tr>
-<tr>
-<td style="text-align:center">PUT</td>
-<td style="text-align:center">传输文件，但是HTTP/1.1的PUT方法不带验证机制，任何人都可以上传文件， 需要配合web应用程序的验证机制，或REST程序使用。</td>
-<td style="text-align:center">1.0,1.1</td>
-</tr>
-<tr>
-<td style="text-align:center">HEAD</td>
-<td style="text-align:center">和GET方法一样，但是不返回报文主体，用于确认URI的有效性和资源更新的日期等</td>
-<td style="text-align:center">1.0,1.1</td>
-</tr>
-<tr>
-<td style="text-align:center">DELETE</td>
-<td style="text-align:center">删除文件，但是HTTP/1.1的DELETE方法不带验证机制，任何人都可以删除文件， 需要配合web应用程序的验证机制，或REST程序使用。</td>
-<td style="text-align:center">1.0,1.1</td>
-</tr>
-<tr>
-<td style="text-align:center">OPTIONS</td>
-<td style="text-align:center">询问服务器只会哪些请求方法</td>
-<td style="text-align:center">1.1</td>
-</tr>
-<tr>
-<td style="text-align:center">TRACE</td>
-<td style="text-align:center">该方法需要配合请求头中的Max-Forwards字段使用，并指定一个初始值， 如果使用了<font color="red"> 代理服务器</font>，没经过一个代理服务器，该字段值就会减1， 直到为0，服务器就返回请求内容。可能会引起跨站追踪</td>
-<td style="text-align:center">1.1</td>
-</tr>
-<tr>
-<td style="text-align:center">CONNECT</td>
-<td style="text-align:center">要求在于代理服务器通信时候，建立隧道</td>
-<td style="text-align:center">1.1</td>
-</tr>
-<tr>
-<td style="text-align:center">LINK</td>
-<td style="text-align:center">建立与资源之间的联系</td>
-<td style="text-align:center">1.0</td>
-</tr>
-<tr>
-<td style="text-align:center">UNLINK</td>
-<td style="text-align:center">断开连接关系</td>
-<td style="text-align:center">1.0</td>
-</tr>
-</tbody>
-</table>
-<h2 id="持久连接"><a href="#持久连接" class="headerlink" title="持久连接"></a>持久连接</h2><p>没有持久连接之前，如果一个页面包含多个图片等请求，则每一服务图片的请求，都需要与服务器端建立TPC/IP连接，大大浪费了时间，有了持久连接之后，只需要建立一次TCP/IP连接，就能在其中保持多个HTTP请求和响应。<font color="red">HTTP1.1所有的连接，默认都是持久连接,主要的做法是在请求头中增加了，keep-alive选项</font></p>
-<h2 id="管线化"><a href="#管线化" class="headerlink" title="管线化"></a>管线化</h2><p>持久化连接虽然能够，在一次TCP/IP连接内，进行多次HTTP请求，但是这些请求是串行的，只有一个请求结束了之后，才能继续第二个请求。管线化使得在一个TCP/IP连接内，多个请求可以并发执行</p>
-<h2 id="使用Cookie做状态管理"><a href="#使用Cookie做状态管理" class="headerlink" title="使用Cookie做状态管理"></a>使用Cookie做状态管理</h2><p>HTTP是无状态的协议，它不对之前发生过的请求和响应的状态进行管理，无法根据之前的状态尽心Benin的处理。但是通过服务端向客户端指定一个cookie信息，每次客户端请求的使用，使用这个cookie信息请求服务端，服务端就知道客户端的情况了。</p>
-<h1 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h1><table>
-<thead>
-<tr>
-<th style="text-align:center">状态码</th>
-<th style="text-align:center">字段值</th>
-<th style="text-align:center">原因</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">200</td>
-<td style="text-align:center">OK</td>
-<td style="text-align:center">成功</td>
-</tr>
-<tr>
-<td style="text-align:center">204</td>
-<td style="text-align:center">No Content</td>
-<td style="text-align:center">请求已经正确处理，不需要返回任何实体内容</td>
-</tr>
-<tr>
-<td style="text-align:center">206</td>
-<td style="text-align:center">Partial Contex</td>
-<td style="text-align:center">客户端进行了范围请求，服务器成功执行了这部分范围请求，可用于断点续传</td>
-</tr>
-<tr>
-<td style="text-align:center">301</td>
-<td style="text-align:center">Move Permanently</td>
-<td style="text-align:center">标示被请求的资源已经被分配了新的URI</td>
-</tr>
-<tr>
-<td style="text-align:center">302</td>
-<td style="text-align:center">Found</td>
-<td style="text-align:center">临时性重定向，访问的URI临时的迁移到另外的地方了，以后还可能会变化, 禁止POST转化为GET</td>
-</tr>
-<tr>
-<td style="text-align:center">303</td>
-<td style="text-align:center">See Other</td>
-<td style="text-align:center">指示客户端以Get形式重定向到另一个URI上去</td>
-</tr>
-<tr>
-<td style="text-align:center">304</td>
-<td style="text-align:center">Not Modified</td>
-<td style="text-align:center">附带条件的请求时，但是没有找到合适的资源，不包含任何响应的主体部分</td>
-</tr>
-<tr>
-<td style="text-align:center">307</td>
-<td style="text-align:center">Temporary Redirect</td>
-<td style="text-align:center">禁止POST变为GET</td>
-</tr>
-<tr>
-<td style="text-align:center">400</td>
-<td style="text-align:center">Bas Request</td>
-<td style="text-align:center">请求报文中存在语法错误</td>
-</tr>
-<tr>
-<td style="text-align:center">401</td>
-<td style="text-align:center">Unauthorized</td>
-<td style="text-align:center">发送的请求需要通过HTTP认证（BASIC,DIGEST）</td>
-</tr>
-<tr>
-<td style="text-align:center">403</td>
-<td style="text-align:center">Forbidden</td>
-<td style="text-align:center">对请求资源的访问被服务器拒绝了</td>
-</tr>
-<tr>
-<td style="text-align:center">404</td>
-<td style="text-align:center">Not Found</td>
-<td style="text-align:center">服务器没有请求的资源</td>
-</tr>
-<tr>
-<td style="text-align:center">500</td>
-<td style="text-align:center">Internal Server Error</td>
-<td style="text-align:center">服务器端在执行请求时候发生了错误</td>
-</tr>
-<tr>
-<td style="text-align:center">503</td>
-<td style="text-align:center">Service Unavailable</td>
-<td style="text-align:center">服务器处于超负载状态，一段时候后再访问</td>
-</tr>
-</tbody>
-</table>
-<h1 id="通信数据转发程序"><a href="#通信数据转发程序" class="headerlink" title="通信数据转发程序"></a>通信数据转发程序</h1><h2 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h2><p>转发功能的应用程序</p>
-<h2 id="网关"><a href="#网关" class="headerlink" title="网关"></a>网关</h2><p>转发其他服务器通信数据的服务器，除了具备代理服务器的相关功能之外，还能够使通信线路上的服务器提供非HTTP协议服务</p>
-<h2 id="隧道"><a href="#隧道" class="headerlink" title="隧道"></a>隧道</h2><p>建立一条与其他服务器的通信线路，到时候使用SSL等加密手段进行通信。目的是为了确保客户端与服务器进行安全的通信</p>
-<h1 id="http的瓶颈"><a href="#http的瓶颈" class="headerlink" title="http的瓶颈"></a>http的瓶颈</h1><ol>
-<li>一条链接只可发送一个请求</li>
-<li>请求只能从客户端开始。客户端不可以接受除了响应意外的指令</li>
-<li>请求/响应首部未经过压缩就发送，首部信息越大延迟越大</li>
-<li>发送冗长的首部。每次互相发送相同的首部造成浪费较多</li>
-<li>可选择任意数据的压缩格式。非强制压缩发送</li>
-</ol>
-<h1 id="Ajax解决方法"><a href="#Ajax解决方法" class="headerlink" title="Ajax解决方法"></a>Ajax解决方法</h1><p>只用于更新一部分页面，使得响应中传输的数据因此减少，缺点：但是会导师大量请求产生。</p>
-<h1 id="Comet解决方法"><a href="#Comet解决方法" class="headerlink" title="Comet解决方法"></a>Comet解决方法</h1><p>一旦服务器有内容更新，Comet不会让请求等待，而是直接给客户端访问响应，如果服务端没有内容更新，Comet挂起请求，当服务器有更新的时候，再返回响应。缺点：挂起了去请求，消耗服务端资源。</p>
-<h1 id="SPDY的解决方法"><a href="#SPDY的解决方法" class="headerlink" title="SPDY的解决方法"></a>SPDY的解决方法</h1><p>在协议解决消除HTTP的瓶颈<br>要求在应用程和传输层之间如下会话层SPDY，并在表示层使用SSL，带来的改变如下：</p>
-<h2 id="多路复用流"><a href="#多路复用流" class="headerlink" title="多路复用流"></a>多路复用流</h2><p>单一的TCP连接，可以无限制处理多个HTTP请求</p>
-<h2 id="赋予请求优先级"><a href="#赋予请求优先级" class="headerlink" title="赋予请求优先级"></a>赋予请求优先级</h2><p>这样主要是为了在发送多个请求时候，解决因为带宽低而导致的响应变慢的问题（TODO）</p>
-<h2 id="压缩HTTP首部"><a href="#压缩HTTP首部" class="headerlink" title="压缩HTTP首部"></a>压缩HTTP首部</h2><p>通信的数据量少了</p>
-<h2 id="推送功能"><a href="#推送功能" class="headerlink" title="推送功能"></a>推送功能</h2><p>支持服务端主动向客户端发送数据</p>
-<h1 id="全双工通信的WebSocket"><a href="#全双工通信的WebSocket" class="headerlink" title="全双工通信的WebSocket"></a>全双工通信的WebSocket</h1><p>WebSocket协议的特点</p>
-<h2 id="推送功能-1"><a href="#推送功能-1" class="headerlink" title="推送功能"></a>推送功能</h2><p>支持服务端向客户端推送数据</p>
-<h2 id="减少通信量"><a href="#减少通信量" class="headerlink" title="减少通信量"></a>减少通信量</h2><p>只要建立了WebSocket连接，就希望一直保持连接状态<br>为了实现WebSocket通信，在HTTP连接之后，需要完成一次“握手“步骤</p>
-<h3 id="握手-请求"><a href="#握手-请求" class="headerlink" title="握手*请求"></a>握手*请求</h3><p>设置HTTP hearder</p>
-<blockquote>
-<p>Upgrade: wbsocket<br>Connection: Upgrade<br>Sec-WebSocket-Key: XXXXXXXXXXXX<br>Sec-WebSocket-Protocol : chat, superchat<br>Sec-WebSocket-Version : 13</p>
-</blockquote>
-<h3 id="握手-响应"><a href="#握手-响应" class="headerlink" title="握手*响应"></a>握手*响应</h3><p>对应之前的请求，返回状态码<font color="red">101 Switching Protocols</font>响应</p>
-<p>成功确立WebSocket连接之后，通行时不再使用HTTP数据帧，而采用WebSocket独立的数据帧</p>
-<blockquote>
-<p>http不具备必要的安全功能，</p>
-</blockquote>
-<h1 id="因输出值转义不完全而应发的安全漏洞"><a href="#因输出值转义不完全而应发的安全漏洞" class="headerlink" title="因输出值转义不完全而应发的安全漏洞"></a>因输出值转义不完全而应发的安全漏洞</h1><p>一般是用户点击了某一个<font color="red">别人写好的 有各种陷阱的链接</font></p>
-<h2 id="跨站脚本攻击"><a href="#跨站脚本攻击" class="headerlink" title="跨站脚本攻击"></a>跨站脚本攻击</h2><h2 id="SQL注入攻击"><a href="#SQL注入攻击" class="headerlink" title="SQL注入攻击"></a>SQL注入攻击</h2><h2 id="OS命名注入攻击"><a href="#OS命名注入攻击" class="headerlink" title="OS命名注入攻击"></a>OS命名注入攻击</h2><h2 id="HTTP首部注入攻击"><a href="#HTTP首部注入攻击" class="headerlink" title="HTTP首部注入攻击"></a>HTTP首部注入攻击</h2><h2 id="邮件首部注入攻击"><a href="#邮件首部注入攻击" class="headerlink" title="邮件首部注入攻击"></a>邮件首部注入攻击</h2><h2 id="目录遍历攻击"><a href="#目录遍历攻击" class="headerlink" title="目录遍历攻击"></a>目录遍历攻击</h2><h2 id="远程文件包含攻击"><a href="#远程文件包含攻击" class="headerlink" title="远程文件包含攻击"></a>远程文件包含攻击</h2><h1 id="因设置或设计上的缺陷引发的安全漏洞"><a href="#因设置或设计上的缺陷引发的安全漏洞" class="headerlink" title="因设置或设计上的缺陷引发的安全漏洞"></a>因设置或设计上的缺陷引发的安全漏洞</h1><h2 id="强制浏览"><a href="#强制浏览" class="headerlink" title="强制浏览"></a>强制浏览</h2><h2 id="不正确的错误消息处理"><a href="#不正确的错误消息处理" class="headerlink" title="不正确的错误消息处理"></a>不正确的错误消息处理</h2><h2 id="开放重定向"><a href="#开放重定向" class="headerlink" title="开放重定向"></a>开放重定向</h2><h1 id="因会话管理疏忽的安全漏洞"><a href="#因会话管理疏忽的安全漏洞" class="headerlink" title="因会话管理疏忽的安全漏洞"></a>因会话管理疏忽的安全漏洞</h1><h2 id="会话劫持"><a href="#会话劫持" class="headerlink" title="会话劫持"></a>会话劫持</h2><h2 id="会话固定攻击"><a href="#会话固定攻击" class="headerlink" title="会话固定攻击"></a>会话固定攻击</h2><h2 id="跨站点请求伪造"><a href="#跨站点请求伪造" class="headerlink" title="跨站点请求伪造"></a>跨站点请求伪造</h2><h1 id="其他安全漏洞"><a href="#其他安全漏洞" class="headerlink" title="其他安全漏洞"></a>其他安全漏洞</h1><h2 id="密码破解"><a href="#密码破解" class="headerlink" title="密码破解"></a>密码破解</h2><h2 id="点击劫持"><a href="#点击劫持" class="headerlink" title="点击劫持"></a>点击劫持</h2><h2 id="DOS攻击"><a href="#DOS攻击" class="headerlink" title="DOS攻击"></a>DOS攻击</h2><h2 id="后门程序"><a href="#后门程序" class="headerlink" title="后门程序"></a>后门程序</h2>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;URI是下面的这样的形式&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;http://user:pass@www.example.jp:80/dir/index.htm?uid=1#ch1&quot;&gt;http://user:pass@www.example.jp:80/dir/index.htm?uid=1#ch1&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre&gt;&lt;code&gt;各部分标示的意思如下     
-&lt;/code&gt;&lt;/pre&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;字符串&lt;/th&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;用途&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;http&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;协议类型&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;user：pass&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;登录服务器的用户名和密码&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;www.example.jp&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;服务器地址，还可以用ipv6的标示的表示形式[0:0:0:0:0:0:0:1]&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;80&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;端口号&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;index.html&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;带层次的文件路径&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;uid=1&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;查询字符串&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;ch1&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;片段标示符，锚&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-    
-    </summary>
-    
-      <category term="http" scheme="http://thinerzq.com/categories/http/"/>
-    
-    
-      <category term="http" scheme="http://thinerzq.com/tags/http/"/>
     
   </entry>
   
