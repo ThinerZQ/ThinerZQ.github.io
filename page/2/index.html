@@ -308,6 +308,195 @@
             
               
                 
+                <a class="post-title-link" href="/2016/07/09/java多线程学习报告/" itemprop="url">
+                  Java 多线程学习
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-09T09:08:06+08:00" content="2016-07-09">
+              2016-07-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/09/java多线程学习报告/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/09/java多线程学习报告/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/09/java多线程学习报告/" class="leancloud_visitors" data-flag-title="Java 多线程学习">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>ConcurrentHashMap：线程安全HashMap，分段锁。put(),remove()加锁，size()三次后再加锁</p>
+</li>
+<li><p>CopyOnWriteArrayList：线程安全，读无锁的ArrayList,使用ReentrantLock, 每次add，remove都是新创建一个数组，复制元素到新的数组，最后切换全局数组引用。适用于多读少写</p>
+</li>
+<li><p>CopyOnWriteArraySet：通过CopyOnWriteSet实现，add()的时候会遍历整个数组判断数组是否存在这个值，因此性能略低于CopyOnWriteArrayList</p>
+</li>
+<li><p>ArrayBlockingQueue： 基于数组，ReentrantLock,Condition实现的有界队列。add(E e):队满，抛异常。put(E e):队满，阻塞。offer(E e):队满，返回false。remove()，take()，poll()。和上面对应。</p>
+</li>
+<li><p>LinkedBlockingQueue：基于链表，读写锁分离，遍历同时锁。此按FIFO （先进先出） 排序元素，吞吐量通常要高于ArrayBlockingQueue。</p>
+</li>
+<li><p>SynchronousQueue：一个不存储元素的阻塞队列。每个插入操作必须等到另一个线程调用移除操作，否则插入操作一直处于阻塞状态，吞吐量通常要高于LinkedBlockingQueue。</p>
+</li>
+<li><p>PriorityBlockingQueue：一个具有优先级的无限阻塞队列。</p>
+</li>
+<li><p>Atomic：支持原子操作的类，由硬件指令cmpxchg提供CAS支持（简单来说，先使用一个期望值和一个变量的当前值进行比较，如果当前变量的值与期望的值相等，就使用一个新值替换当前变量的值）,比synchronize性能高出2倍。实现类有AtomicBoolean，AtomicInteger，AtomicIntegerArray，AtomicLong，AtomicLongArray，AtomicReference，AtomicReferenceArray等。需要注意的是ABA问题，可以通过AtomicStampedReference解决。</p>
+</li>
+<li><p>线程池<br>线程池就是有一堆线程，随时可以取一个线程出来用。学习线程池最好的方法就是从线程池的构造函数开始看。一个线程池的关注点在构造函数中的几个参数。常用的Executor类的几个方法都是返回一个的ThreadPoolExecutor，这些ThreadPoolExecutor的构造函数的参数各不相同。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">ThreadPoolExecutor</span><span class="params">(<span class="keyword">int</span> corePoolSize,<span class="keyword">int</span> maximumPoolSize,<span class="keyword">long</span> keepAliveTime,TimeUnit unit,  BlockingQueue&lt;Runnable&gt; workQueue,ThreadFactory threadFactory,RejectedExecutionHandler handler)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (corePoolSize &lt; <span class="number">0</span> ||</div><div class="line">            maximumPoolSize &lt;= <span class="number">0</span> ||</div><div class="line">            maximumPoolSize &lt; corePoolSize ||</div><div class="line">            keepAliveTime &lt; <span class="number">0</span>)</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException();</div><div class="line">        <span class="keyword">if</span> (workQueue == <span class="keyword">null</span> || threadFactory == <span class="keyword">null</span> || handler == <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</div><div class="line">        <span class="keyword">this</span>.corePoolSize = corePoolSize;</div><div class="line">        <span class="keyword">this</span>.maximumPoolSize = maximumPoolSize;</div><div class="line">        <span class="keyword">this</span>.workQueue = workQueue;</div><div class="line">        <span class="keyword">this</span>.keepAliveTime = unit.toNanos(keepAliveTime);</div><div class="line">        <span class="keyword">this</span>.threadFactory = threadFactory;</div><div class="line">        <span class="keyword">this</span>.handler = handler;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<ol>
+<li><p>corePoolSize： 线程池维护线程的最少数量：当提交一个任务到线程池时，线程池会创建一个线程来执行任务，即使其他空闲的基本线程能够执行新任务也会创建线程，等到需要执行的任务数大于线程池基本大小时就不再创建。如果调用了线程池的prestartAllCoreThreads方法，线程池会提前创建并启动所有基本线程。</p>
+</li>
+<li><p>maximumPoolSize：线程池维护线程的最大数量：线程池允许创建的最大线程数。如果队列满了，并且已创建的线程数小于最大线程数，则线程池会再创建新的线程执行任务。如果使用了无界的任务队列这个参数就没什么效果。</p>
+</li>
+<li><p>keepAliveTime： 线程池维护线程所允许的空闲时间：线程池的工作线程空闲后，保持存活的时间。所以如果任务很多，并且每个任务执行的时间比较短，可以调大这个时间，提高线程的利用率。</p>
+</li>
+<li><p>unit： 线程池维护线程所允许的空闲时间的单位：可选的单位有天（DAYS），小时（HOURS），分钟（MINUTES），毫秒(MILLISECONDS)，微秒(MICROSECONDS, 千分之一毫秒)和毫微秒(NANOSECONDS, 千分之一微秒)。</p>
+</li>
+<li><p>workQueue： 线程池所使用的缓冲队列。</p>
+</li>
+<li><p>threadFactory：线程池创建线程的工厂：可以通过线程工厂给每个创建出来的线程设置更有意义的名字。</p>
+</li>
+<li><p>handler： 线程池对拒绝任务的处理策略：AbortPolicy：直接抛出异常。<br>CallerRunsPolicy：只用调用者所在线程来运行任务。<br>DiscardOldestPolicy：丢弃队列里最近的一个任务，并执行当前任务。<br>DiscardPolicy：不处理，丢弃掉。<br>当然也可以根据应用场景需要来实现RejectedExecutionHandler接口自定义策略。如记录日志或持久化不能处理的任务。</p>
+</li>
+</ol>
+</li>
+<li><p>Executors：对ThreadPoolExecutor再封装。</p>
+<ol>
+<li><p>nexFixedThreadPool(int) :直接创建固定大小的线程池，keepAlive=0，超过LinkedBlockingQueue的最大范围拒绝</p>
+</li>
+<li><p>newSingleThreadExecutor:线程只有1个，其他的等待</p>
+</li>
+<li><p>newCachedThreadPool:corePoolSize=0,keepAlive=60s,SynchronousQueue,最大线程未Integer.Max_Value</p>
+</li>
+<li><p>newScheduledThreadPool(int):DelayedWorkQueue:会对新加入的任务按照执行时间排序</p>
+</li>
+</ol>
+</li>
+<li><p>FutureTask：异步获取执行结果，保证只执行一次，可取消任务。</p>
+</li>
+<li>Semaphore：控制某资源同时被访问的个数的类，通过构造函数可以达到公平访问和非公平访问，默认非公平。如果把资源那个数设置为1,可以达到锁的效果。</li>
+<li>CountDownLatch：用于多个线程同时开始某一个动作，每个线程执行的时候，计数器-1，如果计数器为0，位于latch.await()后面代码才会执行。一般用来等待任务执行完毕</li>
+<li><p>CyclicBarrier: 和CountDownLatch刚好反过来，它是当await()的数量达到一定，才继续往后执行，另外还能设置一个回调：当await()达到一定数量后，开始执行回调的Runable对象</p>
+</li>
+<li><p>ReentrantLock：ReentrantLock提供了公平锁和非公平锁，lock().trylock(),trylockInterrupted, tryLock(time)等方法</p>
+</li>
+<li><p>Condition： 一般和RenentrantLock配合使用，可在同一个锁上启用多个Condition,用于等待，通知操作。</p>
+</li>
+<li><p>和ReentrantLock没有任何继承关系    ，提供了读写锁分离。读的时候如果没有线程写就直接获取，读操作是无阻赛的。写的时候如果有其他线程在读或者写就会被阻塞。在同一线程中，持有读锁后不能调用写锁的lock方法（会死锁）：读锁不可升级。同一个线程中，持有写锁后，可以调用读锁的lock方法，之后如果调用写锁的unlock(0方法，当前锁降级为读锁。适用于读多写少</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/09/java nio学习报告/" itemprop="url">
                   Java NIO学习
                 </a>
@@ -1526,153 +1715,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/01/java反射基础/" itemprop="url">
-                  java反射基础
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-01T16:38:52+08:00" content="2016-05-01">
-              2016-05-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/01/java反射基础/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/01/java反射基础/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/05/01/java反射基础/" class="leancloud_visitors" data-flag-title="java反射基础">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <center><h1>java 反射</h1></center>
-
-<blockquote>
-<p>使用Java反射机制可以在运行时期检查Java类的信息，<br>检查Java类的信息往往是你在使用Java反射机制的时候所做的第一件事情，<br>通过获取类的信息你可以获取以下相关的内容：</p>
-</blockquote>
-<ol>
-<li>Class对象</li>
-<li>类名</li>
-<li>修饰符</li>
-<li>包信息</li>
-<li>父类</li>
-<li>实现的接口</li>
-<li>构造器</li>
-<li>方法</li>
-<li>变量</li>
-<li>注解</li>
-</ol>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/01/java反射基础/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1718,7 +1760,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-count">40</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1726,7 +1768,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1735,7 +1777,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">37</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
