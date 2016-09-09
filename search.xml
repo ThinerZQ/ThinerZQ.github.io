@@ -5,7 +5,7 @@
     
     <entry>
       <title><![CDATA[58. Length of Last Word]]></title>
-      <url>http://thinerzq.com/2016/09/09/leetcode/58-Length-of-Last-Word/</url>
+      <url>http://thinerzq.me/2016/09/09/leetcode/58-Length-of-Last-Word/</url>
       <content type="html"><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Given a string s consists of upper/lower-case alphabets and empty space characters <code>‘ ‘</code>, return the length of last word in the string.</p>
 <p>If the last word does not exist, return 0.</p>
 <p>Note: A word is defined as a character sequence consists of non-space characters only.</p>
@@ -18,7 +18,7 @@
     
     <entry>
       <title><![CDATA[20. Valid Parentheses]]></title>
-      <url>http://thinerzq.com/2016/09/09/leetcode/20-Valid-Parentheses/</url>
+      <url>http://thinerzq.me/2016/09/09/leetcode/20-Valid-Parentheses/</url>
       <content type="html"><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Given a string containing just the characters <code>‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’</code>, determine if the input string is valid.</p>
 <p>The brackets must close in the correct order, <code>“()” and “()[]{}” are all valid but “(]” and “([)]”</code> are not.</p>
 <a id="more"></a>
@@ -29,7 +29,7 @@
     
     <entry>
       <title><![CDATA[19. Remove Nth Node From End of List]]></title>
-      <url>http://thinerzq.com/2016/09/09/leetcode/19-Remove-Nth-Node-From-End-of-List/</url>
+      <url>http://thinerzq.me/2016/09/09/leetcode/19-Remove-Nth-Node-From-End-of-List/</url>
       <content type="html"><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Given a linked list, remove the nth node from the end of list and return its head.</p>
 <p>For example, Given linked list:</p>
 <pre>   
@@ -46,7 +46,7 @@
     
     <entry>
       <title><![CDATA[111.Minimum Depth of Binary Tree]]></title>
-      <url>http://thinerzq.com/2016/09/09/leetcode/111-Minimum-Depth-of-Binary-Tree/</url>
+      <url>http://thinerzq.me/2016/09/09/leetcode/111-Minimum-Depth-of-Binary-Tree/</url>
       <content type="html"><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Given a binary tree, find its minimum depth.</p>
 <p>The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.<br><a id="more"></a></p>
 <h1 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h1><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>二叉树层次遍历的变种，使用层次遍历解决即可</p>
@@ -56,7 +56,7 @@
     
     <entry>
       <title><![CDATA[112. Path Sum]]></title>
-      <url>http://thinerzq.com/2016/09/09/leetcode/112-Path%20Sum/</url>
+      <url>http://thinerzq.me/2016/09/09/leetcode/112-Path%20Sum/</url>
       <content type="html"><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.</p>
 <p>For example:<br>Given the below binary tree and <code>sum = 22</code>,</p>
 <p><pre>              5<br>             / \<br>            4   8<br>           /   / \<br>          11  13  4<br>         /  \      \<br>        7    2      1<br></pre><br>return true, as there exist a root-to-leaf path <code>5-&gt;4-&gt;11-&gt;2</code> which sum is 22.<br><a id="more"></a></p>
@@ -67,7 +67,7 @@
     
     <entry>
       <title><![CDATA[119.Pascal's Triangle II]]></title>
-      <url>http://thinerzq.com/2016/09/09/leetcode/119-Pascal-s-Triangle-II/</url>
+      <url>http://thinerzq.me/2016/09/09/leetcode/119-Pascal-s-Triangle-II/</url>
       <content type="html"><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Given an index k, return the k<sup>th</sup> row of the Pascal’s triangle.</p>
 <p>For example, given k = 3,</p>
 <p>Return</p>
@@ -79,7 +79,7 @@
     
     <entry>
       <title><![CDATA[172. Factorial Trailing Zeroes]]></title>
-      <url>http://thinerzq.com/2016/09/09/leetcode/172-Factorial%20Trailing%20Zeroes/</url>
+      <url>http://thinerzq.me/2016/09/09/leetcode/172-Factorial%20Trailing%20Zeroes/</url>
       <content type="html"><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Given an integer n, return the number of trailing zeroes in n!.</p>
 <p>Note: Your solution should be in logarithmic time complexity.</p>
 <a id="more"></a>
@@ -108,7 +108,7 @@
     
     <entry>
       <title><![CDATA[26.Remove Duplicates from Sorted Array]]></title>
-      <url>http://thinerzq.com/2016/09/09/leetcode/26-Remove-Duplicates-from-Sorted-Array/</url>
+      <url>http://thinerzq.me/2016/09/09/leetcode/26-Remove-Duplicates-from-Sorted-Array/</url>
       <content type="html"><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.</p>
 <p>Do not allocate extra space for another array, you must do this in place with constant memory.</p>
 <p>For example,<br>Given input array nums =<code> [1,1,2]</code>,</p>
@@ -121,7 +121,7 @@
     
     <entry>
       <title><![CDATA[102. Binary Tree Level Order Traversal]]></title>
-      <url>http://thinerzq.com/2016/09/09/leetcode/102-Binary-Tree-Level-Order-Traversal/</url>
+      <url>http://thinerzq.me/2016/09/09/leetcode/102-Binary-Tree-Level-Order-Traversal/</url>
       <content type="html"><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Given a binary tree, return the level order traversal of its nodes’ values. (ie, from left to right, level by level).</p>
 <p>For example:<br>Given binary tree [3,9,20,null,null,15,7],</p>
 <pre>
@@ -149,7 +149,7 @@
     
     <entry>
       <title><![CDATA[102 Pascal'a Triangle]]></title>
-      <url>http://thinerzq.com/2016/09/08/leetcode/118-Pascal's%20Triangle/</url>
+      <url>http://thinerzq.me/2016/09/08/leetcode/118-Pascal's%20Triangle/</url>
       <content type="html"><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>given numRows, generate the first numRows of Pascal’s triangle.</p>
 <p>For example, given numRows = 5</p>
 <p>Return</p>
@@ -161,7 +161,7 @@
     
     <entry>
       <title><![CDATA[mysql win64 5.7.9 zip包安装日记]]></title>
-      <url>http://thinerzq.com/2016/09/01/mysql/mysql%20win64%205.7.9%20zip%E5%8C%85%E5%AE%89%E8%A3%85%E6%97%A5%E8%AE%B0/</url>
+      <url>http://thinerzq.me/2016/09/01/mysql/mysql%20win64%205.7.9%20zip%E5%8C%85%E5%AE%89%E8%A3%85%E6%97%A5%E8%AE%B0/</url>
       <content type="html"><![CDATA[<h1 id="官网下载win64-zip包"><a href="#官网下载win64-zip包" class="headerlink" title="官网下载win64 zip包"></a>官网下载win64 zip包</h1><p>找到合适的目录解压</p>
 <h1 id="配置my-default-ini"><a href="#配置my-default-ini" class="headerlink" title="配置my-default.ini"></a>配置my-default.ini</h1><blockquote>
 <p>basedir = D:\Study\MySQL\mysql-5.7.14-server-win64<br> datadir = D:\Study\MySQL\mysql-5.7.14-server-win64\data<br> port = 3306</p>
@@ -186,7 +186,7 @@
     
     <entry>
       <title><![CDATA[战国纵横]]></title>
-      <url>http://thinerzq.com/2016/08/27/history/%E6%88%98%E5%9B%BD%E7%BA%B5%E6%A8%AA/</url>
+      <url>http://thinerzq.me/2016/08/27/history/%E6%88%98%E5%9B%BD%E7%BA%B5%E6%A8%AA/</url>
       <content type="html"><![CDATA[<p>乱世总有英雄，奇人，最早的乱世莫过于春秋战国。</p>
 <p>庞涓，孙膑，苏秦，张仪，纵横捭阖。以前对这段历史充满了向往，总是一直没时间看，终于借助这两个月的上下班时间熟悉了一下这段历史，记录一下，留个印象。</p>
 <p>还是从周朝说起，西周末年，周氏衰落，天子雄风不在，天下早已礼崩乐坏，各路诸侯明着都尊周天子，实际上都在谋划着如何除掉其他诸侯，如何称王。</p>
@@ -197,7 +197,7 @@
     
     <entry>
       <title><![CDATA[Tair学习]]></title>
-      <url>http://thinerzq.com/2016/07/28/AliBaBa/tair%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/</url>
+      <url>http://thinerzq.me/2016/07/28/AliBaBa/tair%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/</url>
       <content type="html"><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>首先tair是一个的Key-Value结构分布式存储系统，既可以做高速缓存，也可以做持久化存储。分布式系统一般来说是一个集群，而在Tair的集群中主要存在如下几个模块：</p>
 <p><strong>ConfigServer</strong><br>一个集群中包含2台configserver,两台configserver互为主备。</p>
 <ol>
@@ -706,7 +706,7 @@
     
     <entry>
       <title><![CDATA[MetaQ(RocketMQ)学习]]></title>
-      <url>http://thinerzq.com/2016/07/25/AliBaBa/metaQ%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/</url>
+      <url>http://thinerzq.me/2016/07/25/AliBaBa/metaQ%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/</url>
       <content type="html"><![CDATA[<h1 id="1-消息中间件解决的问题"><a href="#1-消息中间件解决的问题" class="headerlink" title="1. 消息中间件解决的问题"></a>1. 消息中间件解决的问题</h1><p>消息中间件的核心作用就是三点：解耦，异步和并行，其中解耦是目的，异步和并行是表现形式。生产者和消费者彼此没有直接依赖，同步化解成了异步，大大减少了等待时间。例如：手机验证码的发送，当点击发送验证码的时候，只需要Client发送一条消息：{topic:sendVerifyCode,to:155xxxxxxxx,..}到消息中间件，消息中间件返回Client ok;然后消息中间件会将这条消息转发给订阅了这一个topic的Consumer，由Consumer去执行发送验证码的任务。由此看出消息中间主要做了三件事：接收消息+存储消息+转发消息。</p>
 <h1 id="2-JMS-与-MetaQ"><a href="#2-JMS-与-MetaQ" class="headerlink" title="2. JMS 与 MetaQ"></a>2. JMS 与 MetaQ</h1><ol>
 <li><p><strong>消息传递方式</strong><br>JMS：1 基于队列的点对点消费模型，2 基于发布/订阅的消费模型<br>MetaQ： 只有发布/订阅的消费方式</p>
@@ -834,7 +834,7 @@
     
     <entry>
       <title><![CDATA[HSF学习]]></title>
-      <url>http://thinerzq.com/2016/07/22/AliBaBa/HSF%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/</url>
+      <url>http://thinerzq.me/2016/07/22/AliBaBa/HSF%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/</url>
       <content type="html"><![CDATA[<p>HSF(High-Speed Service Framework)，是一个高性能的分布式服务框架。一个分布式框架提供的最基本的功能就是远程调用（A机器调用B机器上的一个对象的方法，B机器将方法到返回值发送回A机器）。HSF面向接口编程，以“Service”的形式进行远程调用，简单的说就是接口的具体实现(服务)运行在服务器上，服务器将这些接口暴露出来，客户端拿到这些接口之后通过接口调用具体的服务。在服务发布和调用过程中主要涉及到下面这些知识。</p>
 <h1 id="1-服务注册"><a href="#1-服务注册" class="headerlink" title="1.服务注册"></a>1.服务注册</h1><p>服务注册的基本要素就是</p>
 <h2 id="1-1-将服务metadata发布到ConfigServer上"><a href="#1-1-将服务metadata发布到ConfigServer上" class="headerlink" title="1.1 将服务metadata发布到ConfigServer上"></a>1.1 将服务metadata发布到ConfigServer上</h2><p>ConfigServer就是存放ServiceID – ip地址映射关系(多对多)的机器，服务的元信息包括在HSFSpringProviderBean中配置的信息和服务所在的ip地址。服务的发布流程非常复杂</p>
@@ -878,7 +878,7 @@
     
     <entry>
       <title><![CDATA[Ibatis学习]]></title>
-      <url>http://thinerzq.com/2016/07/20/ibatis/ibatis%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/</url>
+      <url>http://thinerzq.me/2016/07/20/ibatis/ibatis%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/</url>
       <content type="html"><![CDATA[<h1 id="iBatis-简介："><a href="#iBatis-简介：" class="headerlink" title="iBatis 简介："></a>iBatis 简介：</h1><p>iBatis 是apache 的一个开源项目(2010后改名为Mybatis)，一个半自动化的O/R Mapping 解决方案，iBatis 最大的特点就是小巧，上手很快。<br>适用于以下场景：</p>
 <ol>
 <li>系统的部分或全部数据来自现有数据库，出于安全考虑，只对开发团队提供几条Select SQL（或存储过程）以获取所需数据，具体的表结构不予公开。</li>
@@ -951,7 +951,7 @@
     
     <entry>
       <title><![CDATA[Jvm学习]]></title>
-      <url>http://thinerzq.com/2016/07/11/java/jvm%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/</url>
+      <url>http://thinerzq.me/2016/07/11/java/jvm%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/</url>
       <content type="html"><![CDATA[<h1 id="内存布局"><a href="#内存布局" class="headerlink" title="内存布局"></a>内存布局</h1><ol>
 <li>程序计数器（Program Counter Register）：程序计数器是一个比较小的内存区域，用于指示当前线程所执行的字节码执行到了第几行，可以理解为是当前线程的行号指示器。字节码解释器在工作时，会通过改变这个计数器的值来取下一条语句指令。每个程序计数器只用来记录一个线程的行号，所以它是线程私有（一个线程就有一个程序计数器）的。</li>
 <li>虚拟机栈（JVM Stack）：一个线程的每个方法在执行的同时，都会创建一个栈帧（Statck Frame），栈帧中存储的有局部变量表、操作站、动态链接、方法出口等，当方法被调用时，栈帧在JVM栈中入栈，当方法执行完成时，栈帧出栈。局部变量表中存储着方法的相关局部变量，包括各种基本数据类型，对象的引用，返回地址等。在局部变量表中，只有long和double类型会占用2个局部变量空间（Slot，对于32位机器，一个Slot就是32个bit），其它都是1个Slot。局部变量表是在编译时就已经确定好的，方法运行所需要分配的空间在栈帧中是完全确定的，在方法的生命周期内都不会改变。每个线程对应着一个虚拟机栈，因此虚拟机栈也是线程私有的。</li>
@@ -1080,7 +1080,7 @@
     
     <entry>
       <title><![CDATA[Java NIO学习]]></title>
-      <url>http://thinerzq.com/2016/07/09/java/java%20nio%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/</url>
+      <url>http://thinerzq.me/2016/07/09/java/java%20nio%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/</url>
       <content type="html"><![CDATA[<h1 id="NIO概述"><a href="#NIO概述" class="headerlink" title="NIO概述"></a>NIO概述</h1><p>Java NIO: Non-blocking IO（非阻塞IO）是jdk 1.4提出的，简单的理解就是使用nio api读写数据的时候不会等待把所有数据读写完再返回(所以读写的时候应该使用while循环不断尝试读写数据)。NIO中关键的三个概念是通道，缓冲区，选择器。</p>
 <a id="more"></a>
 <h2 id="Channel-通道"><a href="#Channel-通道" class="headerlink" title="Channel(通道)"></a>Channel(通道)</h2><p>所有的数据读写在NIO 中都从Channel 开始，可以把Channel想象成io 中的Stream。数据是从Channel读到Buffer中，或者从Buffer 写到Channel中。Channel主要有以下几种</p>
@@ -1118,7 +1118,7 @@
     
     <entry>
       <title><![CDATA[Java 多线程学习]]></title>
-      <url>http://thinerzq.com/2016/07/09/java/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/</url>
+      <url>http://thinerzq.me/2016/07/09/java/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/</url>
       <content type="html"><![CDATA[<ol>
 <li><p>ConcurrentHashMap：线程安全HashMap，分段锁。put(),remove()加锁，size()三次后再加锁</p>
 </li>
@@ -1185,7 +1185,7 @@
     
     <entry>
       <title><![CDATA[Java Io学习]]></title>
-      <url>http://thinerzq.com/2016/07/09/java/java%20Io%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/</url>
+      <url>http://thinerzq.me/2016/07/09/java/java%20Io%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/</url>
       <content type="html"><![CDATA[<h1 id="Io概述"><a href="#Io概述" class="headerlink" title="Io概述"></a>Io概述</h1><p>流是一组有顺序的，有起点和终点的字节集合，是对数据传输的总称或抽象。即数据在两设备间的传输称为流，流的本质是数据传输，根据数据传输介质将流抽象为各种类，方便更直观的进行数据操作。说白了这些类就是用来读取和写入数据的，由于可以读取或写入的媒介非常多，针对每一种媒介jdk提供了单独的类来读和写数据。同时根据读写单位又分为读取按字节读写和按字符读取(根据不同的编码方案,一个字符可能按多个字节读取)。大致可以分为如下</p>
 <p>从读写介质的角度来看</p>
 <table>
@@ -1336,7 +1336,7 @@
     
     <entry>
       <title><![CDATA[Spring基础学习]]></title>
-      <url>http://thinerzq.com/2016/07/09/spring/spring%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/</url>
+      <url>http://thinerzq.me/2016/07/09/spring/spring%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/</url>
       <content type="html"><![CDATA[<p>通常说的Spring其实指的是Spring Framework，它是Spring下的一个子项目，Spring围绕Spring Framework这个核心项目开发了大量其他项目，比如Spring Security，Spring Data，Spring Boot等. Spring Framework包括他的核心解决方案IoC容器、 AOP。</p>
 <a id="more"></a>
 <h1 id="控制反转"><a href="#控制反转" class="headerlink" title="控制反转"></a>控制反转</h1><p>所谓控制反转，是指通过使用IoC容器对象依赖关系的管理被反转了，也就是说，对象之间的依赖关系由IoC容器进行管理，并且由Ioc容器通过依赖注入（DI，Dependency Injection）的方式来完成对象的注入（以前一个对象需要new了才能使用，现在你只要声明就行了，spring会帮你new好了，在你需要的时候把这个对象的引用传递给你）。</p>
@@ -1400,7 +1400,7 @@
     
     <entry>
       <title><![CDATA[linux里面一些文件或者目录的作用]]></title>
-      <url>http://thinerzq.com/2016/05/29/linux/linux%E9%87%8C%E9%9D%A2%E4%B8%80%E4%BA%9B%E6%96%87%E4%BB%B6%E6%88%96%E7%9B%AE%E5%BD%95%E7%9A%84%E4%BD%9C%E7%94%A8/</url>
+      <url>http://thinerzq.me/2016/05/29/linux/linux%E9%87%8C%E9%9D%A2%E4%B8%80%E4%BA%9B%E6%96%87%E4%BB%B6%E6%88%96%E7%9B%AE%E5%BD%95%E7%9A%84%E4%BD%9C%E7%94%A8/</url>
       <content type="html"><![CDATA[<p>linux里面文件或者目录作用索引表</p>
 <a id="more"></a>
 <table>
@@ -1435,7 +1435,7 @@
     
     <entry>
       <title><![CDATA[mysql存储引擎]]></title>
-      <url>http://thinerzq.com/2016/05/10/mysql/mysql%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/</url>
+      <url>http://thinerzq.me/2016/05/10/mysql/mysql%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/</url>
       <content type="html"><![CDATA[<blockquote>
 <p>mysql&gt; select version();<br>+—————–+<br>| version()       |<br>+—————–+<br>| 5.7.12-0ubuntu1 |<br>+—————–+</p>
 </blockquote>
@@ -1545,7 +1545,7 @@
     
     <entry>
       <title><![CDATA[linux命令大全]]></title>
-      <url>http://thinerzq.com/2016/05/06/linux/linux%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/</url>
+      <url>http://thinerzq.me/2016/05/06/linux/linux%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/</url>
       <content type="html"><![CDATA[<p>主要是为了通过命令的目的或者全名，理解记忆各个命令的功能</p>
 <a id="more"></a>
 <table>
@@ -1894,7 +1894,7 @@
     
     <entry>
       <title><![CDATA[linux杂记]]></title>
-      <url>http://thinerzq.com/2016/05/06/linux/linux%E6%9D%82%E8%AE%B0/</url>
+      <url>http://thinerzq.me/2016/05/06/linux/linux%E6%9D%82%E8%AE%B0/</url>
       <content type="html"><![CDATA[<p>linux 中的一些琐碎知识点<br><a id="more"></a></p>
 <h1 id="目录标识："><a href="#目录标识：" class="headerlink" title="目录标识："></a>目录标识：</h1><table>
 <thead>
@@ -1940,7 +1940,7 @@
     
     <entry>
       <title><![CDATA[linux 文件与目录权限问题]]></title>
-      <url>http://thinerzq.com/2016/05/06/linux/linux-%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98/</url>
+      <url>http://thinerzq.me/2016/05/06/linux/linux-%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98/</url>
       <content type="html"><![CDATA[<h1 id="File"><a href="#File" class="headerlink" title="File"></a>File</h1><table>
 <thead>
 <tr>
@@ -1995,7 +1995,7 @@
     
     <entry>
       <title><![CDATA[多线程知识点总结]]></title>
-      <url>http://thinerzq.com/2016/05/04/java/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/</url>
+      <url>http://thinerzq.me/2016/05/04/java/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/</url>
       <content type="html"><![CDATA[<p>java多线程中一些零碎的知识点总结</p>
 <a id="more"></a>
 <h1 id="LockSupport"><a href="#LockSupport" class="headerlink" title="LockSupport"></a>LockSupport</h1><p>它在线程类任意位置让线程阻塞，和Thread.suspend()相比，弥补了resume()提前发生，导致线程无法继续执行的情况。和Object.wait()相比，它不需要先获得对象的锁，也不会跑出InterruptedException异常，<br>方法：<br>part();<br>parkNanos()<br>parkUntil();<br>part(Object);</p>
@@ -2008,7 +2008,7 @@
     
     <entry>
       <title><![CDATA[java线程池的实现总结]]></title>
-      <url>http://thinerzq.com/2016/05/03/java/java%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%80%BB%E7%BB%93/</url>
+      <url>http://thinerzq.me/2016/05/03/java/java%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%80%BB%E7%BB%93/</url>
       <content type="html"><![CDATA[<h1 id="Thread-和Runnable-的区别"><a href="#Thread-和Runnable-的区别" class="headerlink" title="Thread 和Runnable 的区别"></a>Thread 和Runnable 的区别</h1><p>学了这么久的多线程，始终有一点迷惑</p>
 <blockquote>
 <p>往线程池里面提交的时候，提交的是一个实现了Runnable接口的对象，本来提交的时候就是一个Runnable,那么怎么实现线程复用。</p>
@@ -2036,7 +2036,7 @@
     
     <entry>
       <title><![CDATA[synchronized和ReentrantLock区别与联系]]></title>
-      <url>http://thinerzq.com/2016/05/03/java/synchronized%E5%92%8CReentrantLock%E5%8C%BA%E5%88%AB%E4%B8%8E%E8%81%94%E7%B3%BB/</url>
+      <url>http://thinerzq.me/2016/05/03/java/synchronized%E5%92%8CReentrantLock%E5%8C%BA%E5%88%AB%E4%B8%8E%E8%81%94%E7%B3%BB/</url>
       <content type="html"><![CDATA[<ol>
 <li>synchronized是在JVM层面上实现的，不但可以通过一些监控工具监控synchronized的锁定，而且在代码执行时出现异常，JVM会自动释放锁定，但是使用ReentrantLock则不行，ReentrantLock是通过自己写代码实现加锁和释放的，要保证锁定一定会被释放，就必须将unLock()放到finally{}中</li>
 <li><p>synchronized 采用了悲观锁的机制，ReentrantLock采用了乐观锁的机制，通过原子类来实现</p>
@@ -2050,7 +2050,7 @@
     
     <entry>
       <title><![CDATA[java反射基础]]></title>
-      <url>http://thinerzq.com/2016/05/01/java/java%E5%8F%8D%E5%B0%84%E5%9F%BA%E7%A1%80/</url>
+      <url>http://thinerzq.me/2016/05/01/java/java%E5%8F%8D%E5%B0%84%E5%9F%BA%E7%A1%80/</url>
       <content type="html"><![CDATA[<center><h1>java 反射</h1></center>
 
 <blockquote>
@@ -2101,7 +2101,7 @@
     
     <entry>
       <title><![CDATA[我眼中的http协议]]></title>
-      <url>http://thinerzq.com/2016/04/28/http/%E6%88%91%E7%9C%BC%E4%B8%AD%E7%9A%84http%E5%8D%8F%E8%AE%AE/</url>
+      <url>http://thinerzq.me/2016/04/28/http/%E6%88%91%E7%9C%BC%E4%B8%AD%E7%9A%84http%E5%8D%8F%E8%AE%AE/</url>
       <content type="html"><![CDATA[<p>URI是下面的这样的形式</p>
 <blockquote>
 <p><a href="http://user:pass@www.example.jp:80/dir/index.htm?uid=1#ch1" target="_blank" rel="external">http://user:pass@www.example.jp:80/dir/index.htm?uid=1#ch1</a></p>
@@ -2326,7 +2326,7 @@
     
     <entry>
       <title><![CDATA[spring注解]]></title>
-      <url>http://thinerzq.com/2016/04/26/spring/spring%E6%B3%A8%E8%A7%A3/</url>
+      <url>http://thinerzq.me/2016/04/26/spring/spring%E6%B3%A8%E8%A7%A3/</url>
       <content type="html"><![CDATA[<table>
 <thead>
 <tr>
@@ -2493,7 +2493,7 @@
     
     <entry>
       <title><![CDATA[NanoHTTPD简易http服务器解读]]></title>
-      <url>http://thinerzq.com/2016/04/26/http/NanoHTTPD%E7%AE%80%E6%98%93http%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A7%A3%E8%AF%BB/</url>
+      <url>http://thinerzq.me/2016/04/26/http/NanoHTTPD%E7%AE%80%E6%98%93http%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A7%A3%E8%AF%BB/</url>
       <content type="html"><![CDATA[<p>前两天学RMI的时候，看java core上说有一个简易的HTTP服务器，只有一个类文件。就像去瞧瞧，结果发现这个类里面有20+个内部类和接口。看了源代码之后，对http服务器的理解也更加深入了。<a href="https://github.com/NanoHttpd/nanohttpd" target="_blank" rel="external">源代码</a></p>
 <h1 id="NanoHTTPD-服务器的请求流程图"><a href="#NanoHTTPD-服务器的请求流程图" class="headerlink" title="NanoHTTPD 服务器的请求流程图"></a>NanoHTTPD 服务器的请求流程图</h1><p><img src="/images/NanoHTTPD.jpg" alt="NanoHTTPD服务器请求流程的序列图"></p>
 <p><font color="red"> 图上3中不同颜色的箭头，分别代表三种线程。</font>&gt;<br><a id="more"></a></p>
@@ -2527,7 +2527,7 @@
     
     <entry>
       <title><![CDATA[Spring in my mind]]></title>
-      <url>http://thinerzq.com/2016/04/24/spring/Spring-in-my-mind/</url>
+      <url>http://thinerzq.me/2016/04/24/spring/Spring-in-my-mind/</url>
       <content type="html"><![CDATA[<p>Spring最为最强大的java 企业级开发框架，大约3年前有接触过，但是学的不深，读研的日子没有多少时间去学习这个框架，现在找实习就要用并且之前的学的是Spring 3的内容，现在都Spring 4, Servlt 3.0了变化好大，有必要重新系统的学习一边，从看官方文档开始。<a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/" target="_blank" rel="external">spring framework</a></p>
 <h1 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h1><h2 id="Spring的核心容器"><a href="#Spring的核心容器" class="headerlink" title="Spring的核心容器"></a>Spring的核心容器</h2><p>Spring的核心模块包括：<code>spring‐core</code> , <code>spring‐beans</code> , <code>spring‐context</code> , <code>spring‐context‐support</code> , and<br><code>spring‐expression</code> modules.</p>
 <p><code>spring‐core</code>，<code>spring‐beans</code> ：Beans和Core提供了最基本的DI功能  </p>
@@ -2656,7 +2656,7 @@
     
     <entry>
       <title><![CDATA[java8 HashMap详解]]></title>
-      <url>http://thinerzq.com/2016/04/22/java/java8-HashMap%E8%AF%A6%E8%A7%A3/</url>
+      <url>http://thinerzq.me/2016/04/22/java/java8-HashMap%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>HashMap的原理：<br>HashMap基于Hash算法，通过put(key,value)存储，get(key)来获取。当传入key时，HashMap会根据hash(K key)计算出hash值，根据hash值将value保存在数组里。  </p>
 <p>当计算出的hash值相同时使用链表或者红黑树来解决Hash冲突，HashMap的做法是用链表和红黑树存储相同hash值的value。当Hash冲突的个数比较少时，使用链表，否则使用红黑树。这样做的好处是，最坏的情况下即所有的key都Hash冲突，采用链表的话查找时间为O(n),而采用红黑树为O(lgn)。  </p>
 <p>java里面还有一些方法定义了没有实现，不知道会不会在1.9里面加入一些新功能</p>
@@ -2674,7 +2674,7 @@
     
     <entry>
       <title><![CDATA[java8 ArrayList详解]]></title>
-      <url>http://thinerzq.com/2016/04/20/java/java8-ArrayList%E8%AF%A6%E8%A7%A3/</url>
+      <url>http://thinerzq.me/2016/04/20/java/java8-ArrayList%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<p>以前一直听说ArrayList底层通过数组实现，没有去阅读过源代码，为了知其然也知其所以然，开始啃源代码，ArrayList的源代码其实蛮简单的，容易理解，</p>
 <p> ArrayList是按照插入顺序放入其内部的ElementData数组中的，元素也是可以重复放入 ，他的查询操作是直接通过数组下标的形式实现，效率高，但是删除和插入操作效率较低，需要大量移动元素。并且不是线程安全的,因为add,remove的操作都不是在原子步内进行的，单一个线程改变了size值后不会马上对另外一个线程感知。<br> 使用ArrayList的注意事项：</p>
 <blockquote>
@@ -2687,7 +2687,7 @@
     
     <entry>
       <title><![CDATA[java集合类详解]]></title>
-      <url>http://thinerzq.com/2016/04/20/java/java%E9%9B%86%E5%90%88%E7%B1%BB%E8%AF%A6%E8%A7%A3/</url>
+      <url>http://thinerzq.me/2016/04/20/java/java%E9%9B%86%E5%90%88%E7%B1%BB%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<p>学了挺久java的了，但是发现对java里面的集合类没有达到融汇贯通的地步，之前都只是看别人的Blog，用一些常用的集合类，慢慢发现如果想再上一个台阶必须要自己去看源代码，自己去分析理解。</p>
 <h1 id="集合框架图"><a href="#集合框架图" class="headerlink" title="集合框架图"></a>集合框架图</h1><p>网上流传的集合框架图基本上都来自Core java这本书里面的集合类介绍，结合自己的理解，自己再画了一次。<br><img src="/images/java_collection.jpg" alt="Java Collection"></p>
 <a id="more"></a>
@@ -2781,7 +2781,7 @@
     
     <entry>
       <title><![CDATA[实习面试碰到的问题]]></title>
-      <url>http://thinerzq.com/2016/03/25/%E6%9D%82%E8%AE%B0/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E7%A2%B0%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+      <url>http://thinerzq.me/2016/03/25/%E6%9D%82%E8%AE%B0/%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E7%A2%B0%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
       <content type="html"><![CDATA[<p>最近找实习，被问到了不少问题，来记录一下，第一次面试面的腾讯，先从腾讯说起吧</p>
 <h1 id="腾讯一电面"><a href="#腾讯一电面" class="headerlink" title="腾讯一电面"></a>腾讯一电面</h1><p> 由于是第一次电面，当时4点过，我在外面吃饭，接着电话找了一个角落开始聊了</p>
 <p> 先是自我介绍，巴拉巴拉<br> 然后问了我的研究方向，我简单的介绍了一个之后，越问越深，你的研究方向里面有哪些算法啊，介绍一下啊……<br> 然后问了数据库的三大范式<br> 然后问了一道算法，关于爬楼梯的：一次只能爬1级和2级台阶，问到第N 级台阶有多少种爬法，这题还好，以前在了leetcode上刷过，属于简单类型，当时想了一下就答上来了。<br> 然后问了操作系统怎么做内存管理，程序是怎么被转入内存的，怎么切换的。我简单的说了一下，说的不详细也就这样过去了。这段时间一直忙着写论文，根本没复习过好嘛。<br> 然后问了设计模型的单例模式怎么实现的，我回答饿汉和懒汉，然后简单的解释了一下。后来回来百度才发现有5中实现方式…..<br> 然后问了java中hashmap 和hashtable的区别，这个比较好说。<br> 然后问了TCP/IP 三次握手，四次挥手，为什么要3次，2次行不行。这是老问题了。<br> 然后….想不起来了。</p>
@@ -2798,7 +2798,7 @@
     
     <entry>
       <title><![CDATA[你一定爱都的极简欧洲史]]></title>
-      <url>http://thinerzq.com/2016/03/09/history/%E4%BD%A0%E4%B8%80%E5%AE%9A%E7%88%B1%E9%83%BD%E7%9A%84%E6%9E%81%E7%AE%80%E6%AC%A7%E6%B4%B2%E5%8F%B2/</url>
+      <url>http://thinerzq.me/2016/03/09/history/%E4%BD%A0%E4%B8%80%E5%AE%9A%E7%88%B1%E9%83%BD%E7%9A%84%E6%9E%81%E7%AE%80%E6%AC%A7%E6%B4%B2%E5%8F%B2/</url>
       <content type="html"><![CDATA[<p>欧洲文明是一个混合体。</p>
 <h1 id="1-从希腊说起，讲到日耳曼–古典时期到中世纪"><a href="#1-从希腊说起，讲到日耳曼–古典时期到中世纪" class="headerlink" title="1 从希腊说起，讲到日耳曼–古典时期到中世纪"></a>1 从希腊说起，讲到日耳曼–古典时期到中世纪</h1><p>欧洲文明发端之处，由三部分组成</p>
 <ol>
@@ -2822,7 +2822,7 @@
     
     <entry>
       <title><![CDATA[世界上下五千年历史变迁]]></title>
-      <url>http://thinerzq.com/2016/02/22/history/%E4%B8%96%E7%95%8C%E4%B8%8A%E4%B8%8B%E4%BA%94%E5%8D%83%E5%B9%B4%E5%8E%86%E5%8F%B2%E5%8F%98%E8%BF%81/</url>
+      <url>http://thinerzq.me/2016/02/22/history/%E4%B8%96%E7%95%8C%E4%B8%8A%E4%B8%8B%E4%BA%94%E5%8D%83%E5%B9%B4%E5%8E%86%E5%8F%B2%E5%8F%98%E8%BF%81/</url>
       <content type="html"><![CDATA[<h1 id="1、四分钟尽览世界各国地图变迁史"><a href="#1、四分钟尽览世界各国地图变迁史" class="headerlink" title="1、四分钟尽览世界各国地图变迁史"></a>1、四分钟尽览世界各国地图变迁史</h1><embed wmode="window" flashvars="vid=u0155c4a7w8&amp;duration=253&amp;cid=blqw3ozm7fo096m&amp;tpid=27&amp;showend=1&amp;showcfg=1&amp;searchbar=1&amp;shownext=1&amp;list=2&amp;autoplay=1&amp;outhost=http%3A%2F%2Fv.qq.com%2Fcover%2Fb%2Fblqw3ozm7fo096m.html%3Fvid%3Du0155c4a7w8&amp;openbc=1&amp;fakefull=1&amp;bullet=1&amp;bulletid=&amp;title=%E9%9C%87%E6%92%BC%E8%A7%86%E8%A7%89%EF%BC%81%E5%9B%9B%E5%88%86%E9%92%9F%E5%B0%BD%E8%A7%88%E4%B8%96%E7%95%8C%E5%90%84%E5%9B%BD%E5%9C%B0%E5%9B%BE%E5%8F%98%E8%BF%81%E5%8F%B2" src="http://imgcache.qq.com/tencentvideo_v1/player/TencentPlayer.swf?max_age=86400&amp;v=20151010" quality="high" name="tenvideo_flash_player_1456151610454" id="tenvideo_flash_player_1456151610454" bgcolor="#000000" width="650px" height="530px" align="middle" allowscriptaccess="always" allowfullscreen="true" type="application/x-shockwave-flash" pluginspage="http://get.adobe.com/cn/flashplayer/" style="width: 100%; height: 530px;">
 
  <a id="more"></a>
@@ -2832,7 +2832,7 @@
     
     <entry>
       <title><![CDATA[计算机中的基础知识]]></title>
-      <url>http://thinerzq.com/2016/02/15/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+      <url>http://thinerzq.me/2016/02/15/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
       <content type="html"><![CDATA[<a id="more"></a>
 <h1 id="有符号数与无符号数之间的转换"><a href="#有符号数与无符号数之间的转换" class="headerlink" title="有符号数与无符号数之间的转换"></a>有符号数与无符号数之间的转换</h1><h2 id="补码转化"><a href="#补码转化" class="headerlink" title="补码转化"></a>补码转化</h2><p>负数的原码 = (符号位+1) + 对应正数的原码。</p>
 <h3 id="已知一个负数，求其补码"><a href="#已知一个负数，求其补码" class="headerlink" title="已知一个负数，求其补码"></a>已知一个负数，求其补码</h3><ol>
@@ -2850,7 +2850,7 @@
     
     <entry>
       <title><![CDATA[State Chart XML (SCXML) 状态机规范]]></title>
-      <url>http://thinerzq.com/2016/02/01/Apache%20Commons/W3C-SCXML%E6%A0%87%E5%87%86%E7%BF%BB%E8%AF%91/</url>
+      <url>http://thinerzq.me/2016/02/01/Apache%20Commons/W3C-SCXML%E6%A0%87%E5%87%86%E7%BF%BB%E8%AF%91/</url>
       <content type="html"><![CDATA[<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>这篇文档描述了SCXML，或者说是“状态图可扩展标记语言”。SCXML基于CCXML和Harel State Tables为状态机提供了一个一般性的可执行环境，</p>
 <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>这篇文档描述的SCXML，是一种基于事件的状态机语言。它是CCXML和Harel State Tables 结合的产物。CCXML是一种基于事件的状态机语言，被设计用来在语音应用中支持通话控制。CCXML1.0规范定义了一个状态机和事件处理语法以及一系列的通话控制元素。Harel State Table由David Harel于1987年提出的一种状态机记号，后来UML中的状态机沿用了这些记号。Harel State Tables 提供了一个简洁、语义良好和功能强大的控制结构。这篇文章就是使用XML语法和Harel State Table语义来描述CCXML中状态和事件转移的逻辑概念</p>
 <a id="more"></a>
@@ -3433,7 +3433,7 @@
     
     <entry>
       <title><![CDATA[Apache Commons-SCXML系列之请假流程]]></title>
-      <url>http://thinerzq.com/2016/02/01/Apache%20Commons/Apache-Commons-SCXML%E7%B3%BB%E5%88%97%E4%B9%8B%E8%AF%B7%E5%81%87%E6%B5%81%E7%A8%8B/</url>
+      <url>http://thinerzq.me/2016/02/01/Apache%20Commons/Apache-Commons-SCXML%E7%B3%BB%E5%88%97%E4%B9%8B%E8%AF%B7%E5%81%87%E6%B5%81%E7%A8%8B/</url>
       <content type="html"><![CDATA[<p>首先分析自己的业务逻辑，画好状态图</p>
 <h1 id="请假流程状态图"><a href="#请假流程状态图" class="headerlink" title="请假流程状态图"></a>请假流程状态图</h1><a id="more"></a>
 <p><img src="http://img.blog.csdn.net/20151202150236801" alt="请假流程状态图，画图工具EA"></p>
@@ -3453,7 +3453,7 @@
     
     <entry>
       <title><![CDATA[Apache Commons-SCXML系列之秒表(StopWatch)]]></title>
-      <url>http://thinerzq.com/2016/02/01/Apache%20Commons/Apache-Commons-SCXML%E7%B3%BB%E5%88%97%E4%B9%8B%E7%A7%92%E8%A1%A8-StopWatch/</url>
+      <url>http://thinerzq.me/2016/02/01/Apache%20Commons/Apache-Commons-SCXML%E7%B3%BB%E5%88%97%E4%B9%8B%E7%A7%92%E8%A1%A8-StopWatch/</url>
       <content type="html"><![CDATA[<h1 id="编程方式一"><a href="#编程方式一" class="headerlink" title="编程方式一"></a>编程方式一</h1><h2 id="画状态图"><a href="#画状态图" class="headerlink" title="画状态图"></a>画状态图</h2><p>秒表的状态图，其中秒表有：<strong>重置</strong>，<strong>运行中</strong>，<strong>已停止</strong>3个状态</p>
 <a id="more"></a>
 <p><img src="http://img.blog.csdn.net/20151129172008935" alt="秒表状态图"></p>
@@ -3479,7 +3479,7 @@
     
     <entry>
       <title><![CDATA[Multiple representations of the same entity are being merged解决方法]]></title>
-      <url>http://thinerzq.com/2016/02/01/hibernate/Multiple-representations-of-the-same-entity-are-being-merged%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+      <url>http://thinerzq.me/2016/02/01/hibernate/Multiple-representations-of-the-same-entity-are-being-merged%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
       <content type="html"><![CDATA[<p>最近在写网站过程中发现自己hibernate学的还不到家，好多错误，特地来记录一下这个错误:<br><code>java.lang.IllegalStateException: Multiple representations of the same entity are being merged.</code></p>
 <h1 id="错误信息"><a href="#错误信息" class="headerlink" title="错误信息"></a>错误信息</h1><figure class="highlight"><table><tr><td class="code"><pre><div class="line"> java.lang.IllegalStateException: Multiple representations of the same entity [com.sysu.workflow.entity.FormEntity#5] are being merged. Detached: [com.sysu.workflow.entity.FormEntity@79bc3f5b]; Detached: [com.sysu.workflow.entity.FormEntity@7e5533c0]</div><div class="line">    userworkit5_.itemId as itemId1_10_3_,</div><div class="line">at org.hibernate.event.internal.EntityCopyNotAllowedObserver.entityCopyDetected(EntityCopyNotAllowedObserver.java:51)</div><div class="line">    userworkit5_.itemAssignee as itemAssi7_10_3_,</div></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -3498,7 +3498,7 @@
     
     <entry>
       <title><![CDATA[Apache Commons-SCXML系列之 HelloWorld ]]></title>
-      <url>http://thinerzq.com/2016/01/28/Apache%20Commons/Apache-Commons-SCXML%E7%B3%BB%E5%88%97%E4%B9%8B-HelloWorld/</url>
+      <url>http://thinerzq.me/2016/01/28/Apache%20Commons/Apache-Commons-SCXML%E7%B3%BB%E5%88%97%E4%B9%8B-HelloWorld/</url>
       <content type="html"><![CDATA[<p>Commons-SCXML 是一个状态机框架，<br><br><br>阅读本文之前，最好有对UML状态机有一个基本认识</p>
 <h1 id="编程思路："><a href="#编程思路：" class="headerlink" title="编程思路："></a>编程思路：</h1><blockquote>
 <ol>
@@ -3524,7 +3524,7 @@
     
     <entry>
       <title><![CDATA[Apache Commons SCXML系列之项目介绍]]></title>
-      <url>http://thinerzq.com/2016/01/28/Apache%20Commons/Apache-Commons-SCXML%E7%B3%BB%E5%88%97%E4%B9%8B%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/</url>
+      <url>http://thinerzq.me/2016/01/28/Apache%20Commons/Apache-Commons-SCXML%E7%B3%BB%E5%88%97%E4%B9%8B%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/</url>
       <content type="html"><![CDATA[<p>Apache Commons 工具包比较多，具体可以参看<a href="http://commons.apache.org/" target="_blank" rel="external">Apache Commons官网</a>。这里只讨论SCXML</p>
 <h1 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ :"></a>FAQ :</h1><p><br></p>
 <h2 id="SCXML-是什么？"><a href="#SCXML-是什么？" class="headerlink" title="SCXML 是什么？"></a>SCXML 是什么？</h2><blockquote>
@@ -3619,7 +3619,7 @@
     
     <entry>
       <title><![CDATA[CrowdSourcing 分析]]></title>
-      <url>http://thinerzq.com/2016/01/28/CrowdSourcing/CrowdSourcing-%E5%88%86%E6%9E%90/</url>
+      <url>http://thinerzq.me/2016/01/28/CrowdSourcing/CrowdSourcing-%E5%88%86%E6%9E%90/</url>
       <content type="html"><![CDATA[<h1 id="1、我的理解"><a href="#1、我的理解" class="headerlink" title="1、我的理解"></a>1、我的理解</h1><blockquote>
 <p>众包：指的是一个公司或机构把过去由员工执行的工作任务，以自由自愿的形式外包给非特定的（而且通常是大型的）大众网络的做法，就是原来是公司做的事情，出于资金或者工作质量的考虑，通过游戏<a href="http://www.baike.com/wiki/GOOGLE+IMAGE+LABELER" target="_blank" rel="external">ImageLabeler</a>，社区如、<a href="http://www.zhihu.com/" target="_blank" rel="external">知乎</a>,<a href="">维基百科</a>，竞赛<a href="https://www.kaggle.com/" target="_blank" rel="external">kaggle</a>，任务平台<a href="https://www.mturk.com/mturk/welcome" target="_blank" rel="external">Amazon turk</a>,猪八戒网等手段交给整个互联网的人去做的一种商业模式。</p>
 </blockquote>
@@ -3635,7 +3635,7 @@
     
     <entry>
       <title><![CDATA[汉诺塔之python]]></title>
-      <url>http://thinerzq.com/2016/01/26/python/%E6%B1%89%E8%AF%BA%E5%A1%94%E4%B9%8Bpython/</url>
+      <url>http://thinerzq.me/2016/01/26/python/%E6%B1%89%E8%AF%BA%E5%A1%94%E4%B9%8Bpython/</url>
       <content type="html"><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><blockquote>
 <p>汉诺塔：有三根柱子，<font color="red">第一根柱子上面从上到下依次摆放着n个从小到大的圆盘</font>，第二和  第三根柱子是空的，遵循一定的<font color="red">游戏规则</font>，将第一根柱子上面的圆盘移动到第三根柱子上.游戏规则就是：移动过程中可以<font color="red">借助第二根柱子</font>，但是<font color="red">始终</font>不能够将<font color="red">大的盘子放在小的盘子之上</font>。</p>
 </blockquote>

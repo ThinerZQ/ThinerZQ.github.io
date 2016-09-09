@@ -4,9 +4,9 @@
   <subtitle>酷爱历史文学的程序猿</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://thinerzq.com/"/>
+  <link href="http://thinerzq.me/"/>
   <updated>2016-09-09T08:21:03.741Z</updated>
-  <id>http://thinerzq.com/</id>
+  <id>http://thinerzq.me/</id>
   
   <author>
     <name>Monet Zheng</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>58. Length of Last Word</title>
-    <link href="http://thinerzq.com/2016/09/09/leetcode/58-Length-of-Last-Word/"/>
-    <id>http://thinerzq.com/2016/09/09/leetcode/58-Length-of-Last-Word/</id>
+    <link href="http://thinerzq.me/2016/09/09/leetcode/58-Length-of-Last-Word/"/>
+    <id>http://thinerzq.me/2016/09/09/leetcode/58-Length-of-Last-Word/</id>
     <published>2016-09-09T08:14:49.000Z</published>
     <updated>2016-09-09T08:21:03.741Z</updated>
     
@@ -45,8 +45,8 @@
   
   <entry>
     <title>20. Valid Parentheses</title>
-    <link href="http://thinerzq.com/2016/09/09/leetcode/20-Valid-Parentheses/"/>
-    <id>http://thinerzq.com/2016/09/09/leetcode/20-Valid-Parentheses/</id>
+    <link href="http://thinerzq.me/2016/09/09/leetcode/20-Valid-Parentheses/"/>
+    <id>http://thinerzq.me/2016/09/09/leetcode/20-Valid-Parentheses/</id>
     <published>2016-09-09T08:00:46.000Z</published>
     <updated>2016-09-09T08:13:51.666Z</updated>
     
@@ -64,19 +64,19 @@
     
     </summary>
     
-      <category term="leetcode" scheme="http://thinerzq.com/categories/leetcode/"/>
+      <category term="leetcode" scheme="http://thinerzq.me/categories/leetcode/"/>
     
     
-      <category term="Stack" scheme="http://thinerzq.com/tags/Stack/"/>
+      <category term="Stack" scheme="http://thinerzq.me/tags/Stack/"/>
     
-      <category term="String" scheme="http://thinerzq.com/tags/String/"/>
+      <category term="String" scheme="http://thinerzq.me/tags/String/"/>
     
   </entry>
   
   <entry>
     <title>19. Remove Nth Node From End of List</title>
-    <link href="http://thinerzq.com/2016/09/09/leetcode/19-Remove-Nth-Node-From-End-of-List/"/>
-    <id>http://thinerzq.com/2016/09/09/leetcode/19-Remove-Nth-Node-From-End-of-List/</id>
+    <link href="http://thinerzq.me/2016/09/09/leetcode/19-Remove-Nth-Node-From-End-of-List/"/>
+    <id>http://thinerzq.me/2016/09/09/leetcode/19-Remove-Nth-Node-From-End-of-List/</id>
     <published>2016-09-09T07:32:22.000Z</published>
     <updated>2016-09-09T07:59:39.593Z</updated>
     
@@ -106,19 +106,19 @@
     
     </summary>
     
-      <category term="leetcode" scheme="http://thinerzq.com/categories/leetcode/"/>
+      <category term="leetcode" scheme="http://thinerzq.me/categories/leetcode/"/>
     
     
-      <category term="Linked List" scheme="http://thinerzq.com/tags/Linked-List/"/>
+      <category term="Linked List" scheme="http://thinerzq.me/tags/Linked-List/"/>
     
-      <category term="Two Pointers" scheme="http://thinerzq.com/tags/Two-Pointers/"/>
+      <category term="Two Pointers" scheme="http://thinerzq.me/tags/Two-Pointers/"/>
     
   </entry>
   
   <entry>
     <title>111.Minimum Depth of Binary Tree</title>
-    <link href="http://thinerzq.com/2016/09/09/leetcode/111-Minimum-Depth-of-Binary-Tree/"/>
-    <id>http://thinerzq.com/2016/09/09/leetcode/111-Minimum-Depth-of-Binary-Tree/</id>
+    <link href="http://thinerzq.me/2016/09/09/leetcode/111-Minimum-Depth-of-Binary-Tree/"/>
+    <id>http://thinerzq.me/2016/09/09/leetcode/111-Minimum-Depth-of-Binary-Tree/</id>
     <published>2016-09-09T07:17:22.000Z</published>
     <updated>2016-09-09T07:23:30.641Z</updated>
     
@@ -135,21 +135,21 @@
     
     </summary>
     
-      <category term="leetcode" scheme="http://thinerzq.com/categories/leetcode/"/>
+      <category term="leetcode" scheme="http://thinerzq.me/categories/leetcode/"/>
     
     
-      <category term="Tree" scheme="http://thinerzq.com/tags/Tree/"/>
+      <category term="Tree" scheme="http://thinerzq.me/tags/Tree/"/>
     
-      <category term="Depth-first Search" scheme="http://thinerzq.com/tags/Depth-first-Search/"/>
+      <category term="Depth-first Search" scheme="http://thinerzq.me/tags/Depth-first-Search/"/>
     
-      <category term="Breadth-first Search" scheme="http://thinerzq.com/tags/Breadth-first-Search/"/>
+      <category term="Breadth-first Search" scheme="http://thinerzq.me/tags/Breadth-first-Search/"/>
     
   </entry>
   
   <entry>
     <title>112. Path Sum</title>
-    <link href="http://thinerzq.com/2016/09/09/leetcode/112-Path%20Sum/"/>
-    <id>http://thinerzq.com/2016/09/09/leetcode/112-Path Sum/</id>
+    <link href="http://thinerzq.me/2016/09/09/leetcode/112-Path%20Sum/"/>
+    <id>http://thinerzq.me/2016/09/09/leetcode/112-Path Sum/</id>
     <published>2016-09-09T07:02:26.000Z</published>
     <updated>2016-09-09T07:15:11.803Z</updated>
     
@@ -168,19 +168,19 @@
     
     </summary>
     
-      <category term="leetcode" scheme="http://thinerzq.com/categories/leetcode/"/>
+      <category term="leetcode" scheme="http://thinerzq.me/categories/leetcode/"/>
     
     
-      <category term="leetcode" scheme="http://thinerzq.com/tags/leetcode/"/>
+      <category term="leetcode" scheme="http://thinerzq.me/tags/leetcode/"/>
     
-      <category term="Tree，Deep-first Search" scheme="http://thinerzq.com/tags/Tree%EF%BC%8CDeep-first-Search/"/>
+      <category term="Tree，Deep-first Search" scheme="http://thinerzq.me/tags/Tree%EF%BC%8CDeep-first-Search/"/>
     
   </entry>
   
   <entry>
     <title>119.Pascal&#39;s Triangle II</title>
-    <link href="http://thinerzq.com/2016/09/09/leetcode/119-Pascal-s-Triangle-II/"/>
-    <id>http://thinerzq.com/2016/09/09/leetcode/119-Pascal-s-Triangle-II/</id>
+    <link href="http://thinerzq.me/2016/09/09/leetcode/119-Pascal-s-Triangle-II/"/>
+    <id>http://thinerzq.me/2016/09/09/leetcode/119-Pascal-s-Triangle-II/</id>
     <published>2016-09-09T06:43:26.000Z</published>
     <updated>2016-09-09T06:55:08.242Z</updated>
     
@@ -201,19 +201,19 @@
     
     </summary>
     
-      <category term="leetcode" scheme="http://thinerzq.com/categories/leetcode/"/>
+      <category term="leetcode" scheme="http://thinerzq.me/categories/leetcode/"/>
     
     
-      <category term="leetcode" scheme="http://thinerzq.com/tags/leetcode/"/>
+      <category term="leetcode" scheme="http://thinerzq.me/tags/leetcode/"/>
     
-      <category term="array" scheme="http://thinerzq.com/tags/array/"/>
+      <category term="array" scheme="http://thinerzq.me/tags/array/"/>
     
   </entry>
   
   <entry>
     <title>172. Factorial Trailing Zeroes</title>
-    <link href="http://thinerzq.com/2016/09/09/leetcode/172-Factorial%20Trailing%20Zeroes/"/>
-    <id>http://thinerzq.com/2016/09/09/leetcode/172-Factorial Trailing Zeroes/</id>
+    <link href="http://thinerzq.me/2016/09/09/leetcode/172-Factorial%20Trailing%20Zeroes/"/>
+    <id>http://thinerzq.me/2016/09/09/leetcode/172-Factorial Trailing Zeroes/</id>
     <published>2016-09-09T05:49:06.000Z</published>
     <updated>2016-09-09T06:12:16.177Z</updated>
     
@@ -249,19 +249,19 @@
     
     </summary>
     
-      <category term="leetcode" scheme="http://thinerzq.com/categories/leetcode/"/>
+      <category term="leetcode" scheme="http://thinerzq.me/categories/leetcode/"/>
     
     
-      <category term="leetcode" scheme="http://thinerzq.com/tags/leetcode/"/>
+      <category term="leetcode" scheme="http://thinerzq.me/tags/leetcode/"/>
     
-      <category term="math" scheme="http://thinerzq.com/tags/math/"/>
+      <category term="math" scheme="http://thinerzq.me/tags/math/"/>
     
   </entry>
   
   <entry>
     <title>26.Remove Duplicates from Sorted Array</title>
-    <link href="http://thinerzq.com/2016/09/09/leetcode/26-Remove-Duplicates-from-Sorted-Array/"/>
-    <id>http://thinerzq.com/2016/09/09/leetcode/26-Remove-Duplicates-from-Sorted-Array/</id>
+    <link href="http://thinerzq.me/2016/09/09/leetcode/26-Remove-Duplicates-from-Sorted-Array/"/>
+    <id>http://thinerzq.me/2016/09/09/leetcode/26-Remove-Duplicates-from-Sorted-Array/</id>
     <published>2016-09-09T02:01:04.000Z</published>
     <updated>2016-09-09T02:57:51.666Z</updated>
     
@@ -283,19 +283,19 @@
     
     </summary>
     
-      <category term="leetcode" scheme="http://thinerzq.com/categories/leetcode/"/>
+      <category term="leetcode" scheme="http://thinerzq.me/categories/leetcode/"/>
     
     
-      <category term="leetcode" scheme="http://thinerzq.com/tags/leetcode/"/>
+      <category term="leetcode" scheme="http://thinerzq.me/tags/leetcode/"/>
     
-      <category term="two pointers" scheme="http://thinerzq.com/tags/two-pointers/"/>
+      <category term="two pointers" scheme="http://thinerzq.me/tags/two-pointers/"/>
     
   </entry>
   
   <entry>
     <title>102. Binary Tree Level Order Traversal</title>
-    <link href="http://thinerzq.com/2016/09/09/leetcode/102-Binary-Tree-Level-Order-Traversal/"/>
-    <id>http://thinerzq.com/2016/09/09/leetcode/102-Binary-Tree-Level-Order-Traversal/</id>
+    <link href="http://thinerzq.me/2016/09/09/leetcode/102-Binary-Tree-Level-Order-Traversal/"/>
+    <id>http://thinerzq.me/2016/09/09/leetcode/102-Binary-Tree-Level-Order-Traversal/</id>
     <published>2016-09-09T01:26:34.000Z</published>
     <updated>2016-09-09T02:58:23.469Z</updated>
     
@@ -346,21 +346,21 @@
     
     </summary>
     
-      <category term="leetcode" scheme="http://thinerzq.com/categories/leetcode/"/>
+      <category term="leetcode" scheme="http://thinerzq.me/categories/leetcode/"/>
     
     
-      <category term="Breadth-first Search" scheme="http://thinerzq.com/tags/Breadth-first-Search/"/>
+      <category term="Breadth-first Search" scheme="http://thinerzq.me/tags/Breadth-first-Search/"/>
     
-      <category term="leetcode" scheme="http://thinerzq.com/tags/leetcode/"/>
+      <category term="leetcode" scheme="http://thinerzq.me/tags/leetcode/"/>
     
-      <category term="tree" scheme="http://thinerzq.com/tags/tree/"/>
+      <category term="tree" scheme="http://thinerzq.me/tags/tree/"/>
     
   </entry>
   
   <entry>
     <title>102 Pascal&#39;a Triangle</title>
-    <link href="http://thinerzq.com/2016/09/08/leetcode/118-Pascal&#39;s%20Triangle/"/>
-    <id>http://thinerzq.com/2016/09/08/leetcode/118-Pascal&#39;s Triangle/</id>
+    <link href="http://thinerzq.me/2016/09/08/leetcode/118-Pascal&#39;s%20Triangle/"/>
+    <id>http://thinerzq.me/2016/09/08/leetcode/118-Pascal&#39;s Triangle/</id>
     <published>2016-09-08T13:08:06.000Z</published>
     <updated>2016-09-09T02:59:25.892Z</updated>
     
@@ -381,19 +381,19 @@
     
     </summary>
     
-      <category term="leetcode" scheme="http://thinerzq.com/categories/leetcode/"/>
+      <category term="leetcode" scheme="http://thinerzq.me/categories/leetcode/"/>
     
     
-      <category term="leetcode" scheme="http://thinerzq.com/tags/leetcode/"/>
+      <category term="leetcode" scheme="http://thinerzq.me/tags/leetcode/"/>
     
-      <category term="array" scheme="http://thinerzq.com/tags/array/"/>
+      <category term="array" scheme="http://thinerzq.me/tags/array/"/>
     
   </entry>
   
   <entry>
     <title>mysql win64 5.7.9 zip包安装日记</title>
-    <link href="http://thinerzq.com/2016/09/01/mysql/mysql%20win64%205.7.9%20zip%E5%8C%85%E5%AE%89%E8%A3%85%E6%97%A5%E8%AE%B0/"/>
-    <id>http://thinerzq.com/2016/09/01/mysql/mysql win64 5.7.9 zip包安装日记/</id>
+    <link href="http://thinerzq.me/2016/09/01/mysql/mysql%20win64%205.7.9%20zip%E5%8C%85%E5%AE%89%E8%A3%85%E6%97%A5%E8%AE%B0/"/>
+    <id>http://thinerzq.me/2016/09/01/mysql/mysql win64 5.7.9 zip包安装日记/</id>
     <published>2016-09-01T02:52:20.000Z</published>
     <updated>2016-09-09T03:17:41.547Z</updated>
     
@@ -425,17 +425,17 @@
     
     </summary>
     
-      <category term="mysql" scheme="http://thinerzq.com/categories/mysql/"/>
+      <category term="mysql" scheme="http://thinerzq.me/categories/mysql/"/>
     
     
-      <category term="mysql" scheme="http://thinerzq.com/tags/mysql/"/>
+      <category term="mysql" scheme="http://thinerzq.me/tags/mysql/"/>
     
   </entry>
   
   <entry>
     <title>战国纵横</title>
-    <link href="http://thinerzq.com/2016/08/27/history/%E6%88%98%E5%9B%BD%E7%BA%B5%E6%A8%AA/"/>
-    <id>http://thinerzq.com/2016/08/27/history/战国纵横/</id>
+    <link href="http://thinerzq.me/2016/08/27/history/%E6%88%98%E5%9B%BD%E7%BA%B5%E6%A8%AA/"/>
+    <id>http://thinerzq.me/2016/08/27/history/战国纵横/</id>
     <published>2016-08-27T01:08:47.000Z</published>
     <updated>2016-08-27T04:21:29.818Z</updated>
     
@@ -454,17 +454,17 @@
     
     </summary>
     
-      <category term="history" scheme="http://thinerzq.com/categories/history/"/>
+      <category term="history" scheme="http://thinerzq.me/categories/history/"/>
     
     
-      <category term="history 春秋战国" scheme="http://thinerzq.com/tags/history-%E6%98%A5%E7%A7%8B%E6%88%98%E5%9B%BD/"/>
+      <category term="history 春秋战国" scheme="http://thinerzq.me/tags/history-%E6%98%A5%E7%A7%8B%E6%88%98%E5%9B%BD/"/>
     
   </entry>
   
   <entry>
     <title>Tair学习</title>
-    <link href="http://thinerzq.com/2016/07/28/AliBaBa/tair%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
-    <id>http://thinerzq.com/2016/07/28/AliBaBa/tair学习报告/</id>
+    <link href="http://thinerzq.me/2016/07/28/AliBaBa/tair%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    <id>http://thinerzq.me/2016/07/28/AliBaBa/tair学习报告/</id>
     <published>2016-07-28T01:08:06.000Z</published>
     <updated>2016-09-09T03:15:07.425Z</updated>
     
@@ -1002,19 +1002,19 @@
     
     </summary>
     
-      <category term="Tair" scheme="http://thinerzq.com/categories/Tair/"/>
+      <category term="Tair" scheme="http://thinerzq.me/categories/Tair/"/>
     
     
-      <category term="tair" scheme="http://thinerzq.com/tags/tair/"/>
+      <category term="tair" scheme="http://thinerzq.me/tags/tair/"/>
     
-      <category term="分布式缓存" scheme="http://thinerzq.com/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98/"/>
+      <category term="分布式缓存" scheme="http://thinerzq.me/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98/"/>
     
   </entry>
   
   <entry>
     <title>MetaQ(RocketMQ)学习</title>
-    <link href="http://thinerzq.com/2016/07/25/AliBaBa/metaQ%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
-    <id>http://thinerzq.com/2016/07/25/AliBaBa/metaQ学习报告/</id>
+    <link href="http://thinerzq.me/2016/07/25/AliBaBa/metaQ%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    <id>http://thinerzq.me/2016/07/25/AliBaBa/metaQ学习报告/</id>
     <published>2016-07-25T01:08:06.000Z</published>
     <updated>2016-09-09T03:12:46.253Z</updated>
     
@@ -1158,21 +1158,21 @@
     
     </summary>
     
-      <category term="MetaQ" scheme="http://thinerzq.com/categories/MetaQ/"/>
+      <category term="MetaQ" scheme="http://thinerzq.me/categories/MetaQ/"/>
     
     
-      <category term="MetaQ" scheme="http://thinerzq.com/tags/MetaQ/"/>
+      <category term="MetaQ" scheme="http://thinerzq.me/tags/MetaQ/"/>
     
-      <category term="RocketMQ" scheme="http://thinerzq.com/tags/RocketMQ/"/>
+      <category term="RocketMQ" scheme="http://thinerzq.me/tags/RocketMQ/"/>
     
-      <category term="消息队列" scheme="http://thinerzq.com/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"/>
+      <category term="消息队列" scheme="http://thinerzq.me/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"/>
     
   </entry>
   
   <entry>
     <title>HSF学习</title>
-    <link href="http://thinerzq.com/2016/07/22/AliBaBa/HSF%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
-    <id>http://thinerzq.com/2016/07/22/AliBaBa/HSF学习报告/</id>
+    <link href="http://thinerzq.me/2016/07/22/AliBaBa/HSF%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    <id>http://thinerzq.me/2016/07/22/AliBaBa/HSF学习报告/</id>
     <published>2016-07-22T01:08:06.000Z</published>
     <updated>2016-09-09T03:06:46.326Z</updated>
     
@@ -1226,19 +1226,19 @@
     
     </summary>
     
-      <category term="HSF" scheme="http://thinerzq.com/categories/HSF/"/>
+      <category term="HSF" scheme="http://thinerzq.me/categories/HSF/"/>
     
     
-      <category term="HSF" scheme="http://thinerzq.com/tags/HSF/"/>
+      <category term="HSF" scheme="http://thinerzq.me/tags/HSF/"/>
     
-      <category term="分布式服务" scheme="http://thinerzq.com/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1/"/>
+      <category term="分布式服务" scheme="http://thinerzq.me/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1/"/>
     
   </entry>
   
   <entry>
     <title>Ibatis学习</title>
-    <link href="http://thinerzq.com/2016/07/20/ibatis/ibatis%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
-    <id>http://thinerzq.com/2016/07/20/ibatis/ibatis学习报告/</id>
+    <link href="http://thinerzq.me/2016/07/20/ibatis/ibatis%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    <id>http://thinerzq.me/2016/07/20/ibatis/ibatis学习报告/</id>
     <published>2016-07-20T01:08:06.000Z</published>
     <updated>2016-09-09T03:07:01.393Z</updated>
     
@@ -1329,17 +1329,17 @@
     
     </summary>
     
-      <category term="ibatis" scheme="http://thinerzq.com/categories/ibatis/"/>
+      <category term="ibatis" scheme="http://thinerzq.me/categories/ibatis/"/>
     
     
-      <category term="ibatis" scheme="http://thinerzq.com/tags/ibatis/"/>
+      <category term="ibatis" scheme="http://thinerzq.me/tags/ibatis/"/>
     
   </entry>
   
   <entry>
     <title>Jvm学习</title>
-    <link href="http://thinerzq.com/2016/07/11/java/jvm%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
-    <id>http://thinerzq.com/2016/07/11/java/jvm学习报告/</id>
+    <link href="http://thinerzq.me/2016/07/11/java/jvm%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    <id>http://thinerzq.me/2016/07/11/java/jvm学习报告/</id>
     <published>2016-07-11T01:08:06.000Z</published>
     <updated>2016-09-09T03:11:20.228Z</updated>
     
@@ -1482,17 +1482,17 @@
     
     </summary>
     
-      <category term="java" scheme="http://thinerzq.com/categories/java/"/>
+      <category term="java" scheme="http://thinerzq.me/categories/java/"/>
     
     
-      <category term="jvm" scheme="http://thinerzq.com/tags/jvm/"/>
+      <category term="jvm" scheme="http://thinerzq.me/tags/jvm/"/>
     
   </entry>
   
   <entry>
     <title>Java NIO学习</title>
-    <link href="http://thinerzq.com/2016/07/09/java/java%20nio%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
-    <id>http://thinerzq.com/2016/07/09/java/java nio学习报告/</id>
+    <link href="http://thinerzq.me/2016/07/09/java/java%20nio%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    <id>http://thinerzq.me/2016/07/09/java/java nio学习报告/</id>
     <published>2016-07-09T01:08:06.000Z</published>
     <updated>2016-09-09T03:07:36.396Z</updated>
     
@@ -1536,17 +1536,17 @@
     
     </summary>
     
-      <category term="java" scheme="http://thinerzq.com/categories/java/"/>
+      <category term="java" scheme="http://thinerzq.me/categories/java/"/>
     
     
-      <category term="nio" scheme="http://thinerzq.com/tags/nio/"/>
+      <category term="nio" scheme="http://thinerzq.me/tags/nio/"/>
     
   </entry>
   
   <entry>
     <title>Java 多线程学习</title>
-    <link href="http://thinerzq.com/2016/07/09/java/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
-    <id>http://thinerzq.com/2016/07/09/java/java多线程学习报告/</id>
+    <link href="http://thinerzq.me/2016/07/09/java/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    <id>http://thinerzq.me/2016/07/09/java/java多线程学习报告/</id>
     <published>2016-07-09T01:08:06.000Z</published>
     <updated>2016-09-09T03:10:08.412Z</updated>
     
@@ -1622,17 +1622,17 @@
     
     </summary>
     
-      <category term="java" scheme="http://thinerzq.com/categories/java/"/>
+      <category term="java" scheme="http://thinerzq.me/categories/java/"/>
     
     
-      <category term="多线程" scheme="http://thinerzq.com/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+      <category term="多线程" scheme="http://thinerzq.me/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
     <title>Java Io学习</title>
-    <link href="http://thinerzq.com/2016/07/09/java/java%20Io%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
-    <id>http://thinerzq.com/2016/07/09/java/java Io学习报告/</id>
+    <link href="http://thinerzq.me/2016/07/09/java/java%20Io%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    <id>http://thinerzq.me/2016/07/09/java/java Io学习报告/</id>
     <published>2016-07-09T01:08:06.000Z</published>
     <updated>2016-09-09T03:07:24.970Z</updated>
     
@@ -1887,10 +1887,10 @@
     
     </summary>
     
-      <category term="java" scheme="http://thinerzq.com/categories/java/"/>
+      <category term="java" scheme="http://thinerzq.me/categories/java/"/>
     
     
-      <category term="io" scheme="http://thinerzq.com/tags/io/"/>
+      <category term="io" scheme="http://thinerzq.me/tags/io/"/>
     
   </entry>
   
