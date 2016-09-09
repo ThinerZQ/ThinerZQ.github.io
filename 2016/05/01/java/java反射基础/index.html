@@ -1,0 +1,1043 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="反射," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="ThinerZQ's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="java 反射
+
+
+使用Java反射机制可以在运行时期检查Java类的信息，检查Java类的信息往往是你在使用Java反射机制的时候所做的第一件事情，通过获取类的信息你可以获取以下相关的内容：
+
+
+Class对象
+类名
+修饰符
+包信息
+父类
+实现的接口
+构造器
+方法
+变量
+注解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java反射基础">
+<meta property="og:url" content="http://thinerzq.com/2016/05/01/java/java反射基础/index.html">
+<meta property="og:site_name" content="ThinerZQ's Blog">
+<meta property="og:description" content="java 反射
+
+
+使用Java反射机制可以在运行时期检查Java类的信息，检查Java类的信息往往是你在使用Java反射机制的时候所做的第一件事情，通过获取类的信息你可以获取以下相关的内容：
+
+
+Class对象
+类名
+修饰符
+包信息
+父类
+实现的接口
+构造器
+方法
+变量
+注解">
+<meta property="og:updated_time" content="2016-09-09T03:10:23.878Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java反射基础">
+<meta name="twitter:description" content="java 反射
+
+
+使用Java反射机制可以在运行时期检查Java类的信息，检查Java类的信息往往是你在使用Java反射机制的时候所做的第一件事情，通过获取类的信息你可以获取以下相关的内容：
+
+
+Class对象
+类名
+修饰符
+包信息
+父类
+实现的接口
+构造器
+方法
+变量
+注解">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6243707489116751000,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <title> java反射基础 | ThinerZQ's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?3ef097b3d9a03a9b6839d3dd7465769a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">ThinerZQ's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">酷爱历史文学的程序猿</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-history">
+          <a href="/categories/history" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            menu.history
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'JesUP7ZhCHhKkRxmxyjh','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                java反射基础
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-01T16:38:52+08:00" content="2016-05-01">
+              2016-05-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/01/java/java反射基础/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/01/java/java反射基础/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/05/01/java/java反射基础/" class="leancloud_visitors" data-flag-title="java反射基础">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o">本站总阅读量</i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <center><h1>java 反射</h1></center>
+
+<blockquote>
+<p>使用Java反射机制可以在运行时期检查Java类的信息，<br>检查Java类的信息往往是你在使用Java反射机制的时候所做的第一件事情，<br>通过获取类的信息你可以获取以下相关的内容：</p>
+</blockquote>
+<ol>
+<li>Class对象</li>
+<li>类名</li>
+<li>修饰符</li>
+<li>包信息</li>
+<li>父类</li>
+<li>实现的接口</li>
+<li>构造器</li>
+<li>方法</li>
+<li>变量</li>
+<li>注解</li>
+</ol>
+<a id="more"></a>
+<h1 id="Class对象"><a href="#Class对象" class="headerlink" title="Class对象"></a>Class对象</h1><p>在你想检查一个类的信息之前，你首先需要获取类的Class对象。Java中的所有类型包括基本类型(int, long, float等等)，即使是数组都有与之关联的Class类的对象。</p>
+<h2 id="编译期间已知类名的获取Class对象的方法"><a href="#编译期间已知类名的获取Class对象的方法" class="headerlink" title="编译期间已知类名的获取Class对象的方法"></a>编译期间已知类名的获取Class对象的方法</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Class myObjectClass = MyObject.class;</div></pre></td></tr></table></figure>
+<h2 id="编译期间不知道类名的获取Class对象的方法"><a href="#编译期间不知道类名的获取Class对象的方法" class="headerlink" title="编译期间不知道类名的获取Class对象的方法"></a>编译期间不知道类名的获取Class对象的方法</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">String className = ... ;<span class="comment">//在运行期获取的类名字符串===全限定名字：包括包名字</span></div><div class="line">Class <span class="class"><span class="keyword">class</span> </span>= Class.forName(className);</div></pre></td></tr></table></figure>
+<font color="red">拿到这上述的Class对象之后，就能得到对象的所有<strong>元信息</strong></font>
+
+<h1 id="使用Class对象获取信息"><a href="#使用Class对象获取信息" class="headerlink" title="使用Class对象获取信息"></a>使用Class对象获取信息</h1><h2 id="类名"><a href="#类名" class="headerlink" title="类名"></a>类名</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Class aClass = ... <span class="comment">//获取Class对象</span></div><div class="line">String className = aClass.getName();<span class="comment">//获取到的是全限定名</span></div><div class="line">String simpleClassName = aClass.getSimpleName();<span class="comment">//获取到的是对象的名字</span></div></pre></td></tr></table></figure>
+<h2 id="类的修饰符"><a href="#类的修饰符" class="headerlink" title="类的修饰符"></a>类的修饰符</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Class  aClass = ... <span class="comment">//获</span></div><div class="line"><span class="keyword">int</span> modifiers = aClass.getModifiers();</div></pre></td></tr></table></figure>
+<p>修饰符都被包装成一个int类型的数字，这样每个修饰符都是一个位标识(flag bit)，这个位标识可以设置和清除修饰符的类型。<br>可以使用java.lang.reflect.Modifier类中的方法来检查修饰符的类型：</p>
+<h3 id="Modifier类的判定方法"><a href="#Modifier类的判定方法" class="headerlink" title="Modifier类的判定方法"></a>Modifier类的判定方法</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Modifier.isAbstract(<span class="keyword">int</span> modifiers);</div><div class="line">Modifier.isFinal(<span class="keyword">int</span> modifiers);</div><div class="line">Modifier.isInterface(<span class="keyword">int</span> modifiers);</div><div class="line">Modifier.isNative(<span class="keyword">int</span> modifiers);</div><div class="line">Modifier.isPrivate(<span class="keyword">int</span> modifiers);</div><div class="line">Modifier.isProtected(<span class="keyword">int</span> modifiers);</div><div class="line">Modifier.isPublic(<span class="keyword">int</span> modifiers);</div><div class="line">Modifier.isStatic(<span class="keyword">int</span> modifiers);</div><div class="line">Modifier.isStrict(<span class="keyword">int</span> modifiers);</div><div class="line">Modifier.isSynchronized(<span class="keyword">int</span> modifiers);</div><div class="line">Modifier.isTransient(<span class="keyword">int</span> modifiers);</div><div class="line">Modifier.isVolatile(<span class="keyword">int</span> modifiers);</div></pre></td></tr></table></figure>
+<h3 id="每一个类修饰符的具体定义"><a href="#每一个类修饰符的具体定义" class="headerlink" title="每一个类修饰符的具体定义"></a>每一个类修饰符的具体定义</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> PUBLIC           = <span class="number">0x00000001</span>;</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> PRIVATE          = <span class="number">0x00000002</span>;</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> PROTECTED        = <span class="number">0x00000004</span>;</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> STATIC           = <span class="number">0x00000008</span>;</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> FINAL            = <span class="number">0x00000010</span>;</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> SYNCHRONIZED     = <span class="number">0x00000020</span>;</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> VOLATILE         = <span class="number">0x00000040</span>;</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TRANSIENT        = <span class="number">0x00000080</span>;</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NATIVE           = <span class="number">0x00000100</span>;</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> INTERFACE        = <span class="number">0x00000200</span>;</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ABSTRACT         = <span class="number">0x00000400</span>;</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> STRICT           = <span class="number">0x00000800</span>;</div></pre></td></tr></table></figure>
+<h2 id="包信息"><a href="#包信息" class="headerlink" title="包信息"></a>包信息</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Class  aClass = ... <span class="comment">//</span></div><div class="line">Package <span class="keyword">package</span> = aClass.getPackage();</div></pre></td></tr></table></figure>
+<p>通过Package对象你可以获取包的相关信息比如”包名“等</p>
+<h2 id="父类"><a href="#父类" class="headerlink" title="父类"></a>父类</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Class superclass = aClass.getSuperclass();</div></pre></td></tr></table></figure>
+<p>可以看到superclass对象其实就是一个Class类的实例，所以你可以继续在这个对象上进行反射操作。</p>
+<h2 id="实现的接口"><a href="#实现的接口" class="headerlink" title="实现的接口"></a>实现的接口</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Class[] interfaces = aClass.getInterfaces();</div></pre></td></tr></table></figure>
+<p>由于一个类可以实现多个接口，因此getInterfaces();方法返回一个Class数组，在Java中接口同样有对应的Class对象。注意：getInterfaces()方法仅仅只返回当前类所实现的接口。当前类的父类如果实现了接口，这些接口是不会在返回的Class集合中的，尽管实际上当前类其实已经实现了父类接口。</p>
+<h2 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Constructor[] constructors = aClass.getConstructors();</div></pre></td></tr></table></figure>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Method[] method = aClass.getMethods();</div></pre></td></tr></table></figure>
+<h2 id="成员变量"><a href="#成员变量" class="headerlink" title="成员变量"></a>成员变量</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Field[] method = aClass.getFields();</div></pre></td></tr></table></figure>
+<h2 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Annotation[] annotations = aClass.getAnnotations();</div></pre></td></tr></table></figure>
+<h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><p><pre>Info.java</pre><br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Info</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id=<span class="number">10</span>;</div><div class="line">    <span class="keyword">private</span> String name=<span class="string">"zhengqiang"</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">getNameAndId</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> name+<span class="string">" "</span>+id;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><pre>ReflectionBasic.java</pre> 解析类前面Info.java类的类<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReflectionBasic</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ClassNotFoundException </span>&#123;</div><div class="line"></div><div class="line">        Class infoClass= Info.class;</div><div class="line"></div><div class="line">        System.out.println(<span class="string">"全限定名："</span>+infoClass.getName());</div><div class="line">        System.out.println(<span class="string">"类名："</span>+infoClass.getSimpleName());</div><div class="line"></div><div class="line">        <span class="keyword">int</span> modifier = infoClass.getModifiers();</div><div class="line"></div><div class="line">        System.out.println(<span class="string">"是否时public的： "</span>+Modifier.isPublic(modifier));</div><div class="line"></div><div class="line">        Package packagename = infoClass.getPackage();</div><div class="line"></div><div class="line">        System.out.println(<span class="string">"包名："</span>+packagename.getName());</div><div class="line"></div><div class="line">        Method[] methods = infoClass.getDeclaredMethods();</div><div class="line">        <span class="keyword">for</span> (Method method :</div><div class="line">                methods) &#123;</div><div class="line">            System.out.println(<span class="string">"方法签名： "</span>+method.getModifiers()+<span class="string">" "</span> +method.getReturnType()+<span class="string">" "</span>+method.getName());</div><div class="line">        &#125;</div><div class="line">        Field[] fields = infoClass.getDeclaredFields();</div><div class="line">        <span class="keyword">for</span> (Field field :</div><div class="line">                fields) &#123;</div><div class="line">            System.out.println(<span class="string">"属性签名： "</span>+field.getModifiers()+ <span class="string">" "</span>+ field.getType() +<span class="string">" "</span>+ field.getName());</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>输出结果</p>
+<blockquote>
+<p>全限定名：com.zq.reflection.Info<br>类名：Info<br>是否时public的： true<br>包名：com.zq.reflection<br>方法签名： 2 class java.lang.String getNameAndId<br>属性签名： 2 int id<br>属性签名： 2 class java.lang.String name</p>
+</blockquote>
+<p> Process finished with exit code 0</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat_pay.png" alt="Monet Zheng WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/zhifubao_pay.jpg" alt="Monet Zheng Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/反射/" rel="tag">#反射</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/28/http/我眼中的http协议/" rel="next" title="我眼中的http协议">
+                <i class="fa fa-chevron-left"></i> 我眼中的http协议
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/03/java/synchronized和ReentrantLock区别与联系/" rel="prev" title="synchronized和ReentrantLock区别与联系">
+                synchronized和ReentrantLock区别与联系 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/05/01/java/java反射基础/"
+     data-title="java反射基础"
+     data-content=""
+     data-url="http://thinerzq.com/2016/05/01/java/java反射基础/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/01/java/java反射基础/"
+           data-title="java反射基础" data-url="http://thinerzq.com/2016/05/01/java/java反射基础/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars3.githubusercontent.com/u/10881023?v=3&s=460"
+               alt="Monet Zheng" />
+          <p class="site-author-name" itemprop="name">Monet Zheng</p>
+          <p class="site-description motion-element" itemprop="description">为万世开太平，为圣贤继绝学</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">42</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">78</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ThinerZQ" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/ZhengShouZi" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/zhengshouzi" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://read.douban.com/people/65276245/" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.pianke.me/profile/136988/" target="_blank" title="片刻">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  片刻
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://tieba.baidu.com/home/main?un=a601097836&fr=home" target="_blank" title="贴吧">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  贴吧
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.bingoogolapple.cn/" title="bingoogle" target="_blank">bingoogle</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">java 反射</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Class对象"><span class="nav-number">2.</span> <span class="nav-text">Class对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#编译期间已知类名的获取Class对象的方法"><span class="nav-number">2.1.</span> <span class="nav-text">编译期间已知类名的获取Class对象的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译期间不知道类名的获取Class对象的方法"><span class="nav-number">2.2.</span> <span class="nav-text">编译期间不知道类名的获取Class对象的方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用Class对象获取信息"><span class="nav-number">3.</span> <span class="nav-text">使用Class对象获取信息</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#类名"><span class="nav-number">3.1.</span> <span class="nav-text">类名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类的修饰符"><span class="nav-number">3.2.</span> <span class="nav-text">类的修饰符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Modifier类的判定方法"><span class="nav-number">3.2.1.</span> <span class="nav-text">Modifier类的判定方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#每一个类修饰符的具体定义"><span class="nav-number">3.2.2.</span> <span class="nav-text">每一个类修饰符的具体定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#包信息"><span class="nav-number">3.3.</span> <span class="nav-text">包信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#父类"><span class="nav-number">3.4.</span> <span class="nav-text">父类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现的接口"><span class="nav-number">3.5.</span> <span class="nav-text">实现的接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造器"><span class="nav-number">3.6.</span> <span class="nav-text">构造器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">3.7.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#成员变量"><span class="nav-number">3.8.</span> <span class="nav-text">成员变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注解"><span class="nav-number">3.9.</span> <span class="nav-text">注解</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#案例"><span class="nav-number">4.</span> <span class="nav-text">案例</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Monet Zheng</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user">本站访客数</i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye">本站总访问量</i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"thinerzq"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Ejk3T06mIIR6qAsgj2xDACNt-gzGzoHsz", "t6iVWLLthVAcMzIBKMfPaalb");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>

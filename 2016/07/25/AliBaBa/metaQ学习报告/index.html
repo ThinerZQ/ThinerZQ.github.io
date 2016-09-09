@@ -1,0 +1,1079 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="MetaQ,RocketMQ,消息队列," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="ThinerZQ's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="1. 消息中间件解决的问题消息中间件的核心作用就是三点：解耦，异步和并行，其中解耦是目的，异步和并行是表现形式。生产者和消费者彼此没有直接依赖，同步化解成了异步，大大减少了等待时间。例如：手机验证码的发送，当点击发送验证码的时候，只需要Client发送一条消息：{topic:sendVerifyCode,to:155xxxxxxxx,..}到消息中间件，消息中间件返回Client ok;然后消息中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MetaQ(RocketMQ)学习">
+<meta property="og:url" content="http://thinerzq.com/2016/07/25/AliBaBa/metaQ学习报告/index.html">
+<meta property="og:site_name" content="ThinerZQ's Blog">
+<meta property="og:description" content="1. 消息中间件解决的问题消息中间件的核心作用就是三点：解耦，异步和并行，其中解耦是目的，异步和并行是表现形式。生产者和消费者彼此没有直接依赖，同步化解成了异步，大大减少了等待时间。例如：手机验证码的发送，当点击发送验证码的时候，只需要Client发送一条消息：{topic:sendVerifyCode,to:155xxxxxxxx,..}到消息中间件，消息中间件返回Client ok;然后消息中">
+<meta property="og:updated_time" content="2016-09-09T03:12:46.253Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MetaQ(RocketMQ)学习">
+<meta name="twitter:description" content="1. 消息中间件解决的问题消息中间件的核心作用就是三点：解耦，异步和并行，其中解耦是目的，异步和并行是表现形式。生产者和消费者彼此没有直接依赖，同步化解成了异步，大大减少了等待时间。例如：手机验证码的发送，当点击发送验证码的时候，只需要Client发送一条消息：{topic:sendVerifyCode,to:155xxxxxxxx,..}到消息中间件，消息中间件返回Client ok;然后消息中">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6243707489116751000,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <title> MetaQ(RocketMQ)学习 | ThinerZQ's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?3ef097b3d9a03a9b6839d3dd7465769a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">ThinerZQ's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">酷爱历史文学的程序猿</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-history">
+          <a href="/categories/history" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            menu.history
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'JesUP7ZhCHhKkRxmxyjh','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                MetaQ(RocketMQ)学习
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-25T09:08:06+08:00" content="2016-07-25">
+              2016-07-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/MetaQ/" itemprop="url" rel="index">
+                    <span itemprop="name">MetaQ</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/25/AliBaBa/metaQ学习报告/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/25/AliBaBa/metaQ学习报告/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/25/AliBaBa/metaQ学习报告/" class="leancloud_visitors" data-flag-title="MetaQ(RocketMQ)学习">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o">本站总阅读量</i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="1-消息中间件解决的问题"><a href="#1-消息中间件解决的问题" class="headerlink" title="1. 消息中间件解决的问题"></a>1. 消息中间件解决的问题</h1><p>消息中间件的核心作用就是三点：解耦，异步和并行，其中解耦是目的，异步和并行是表现形式。生产者和消费者彼此没有直接依赖，同步化解成了异步，大大减少了等待时间。例如：手机验证码的发送，当点击发送验证码的时候，只需要Client发送一条消息：{topic:sendVerifyCode,to:155xxxxxxxx,..}到消息中间件，消息中间件返回Client ok;然后消息中间件会将这条消息转发给订阅了这一个topic的Consumer，由Consumer去执行发送验证码的任务。由此看出消息中间主要做了三件事：接收消息+存储消息+转发消息。</p>
+<h1 id="2-JMS-与-MetaQ"><a href="#2-JMS-与-MetaQ" class="headerlink" title="2. JMS 与 MetaQ"></a>2. JMS 与 MetaQ</h1><ol>
+<li><p><strong>消息传递方式</strong><br>JMS：1 基于队列的点对点消费模型，2 基于发布/订阅的消费模型<br>MetaQ： 只有发布/订阅的消费方式</p>
+</li>
+<li><p><strong>消息类型</strong><br>JMS：TextMessage、MapMessage、BytesMessage，StreamMessage、ObjectMessage。<br>MetaQ：Message。</p>
+</li>
+<li><p><strong>消息持久性</strong><br>JMS：持久订阅，指示 JMS provider 持久保存消息，以保证消息不会因为 JMS provider 的失败而丢失。非持久订阅， 不要求 JMS provider 持久保存消息。<br>MetaQ 的消息都是持久性的</p>
+</li>
+<li><p>API<br>JMS：定义了消息中间件的生产端 api 和消费端 api，这些 api 都是约定的接口。<br>MetaQ：没有遵从JMS的定义，自己搞了一套。</p>
+</li>
+</ol>
+<a id="more"></a>
+<h1 id="3-MetaQ基本概念"><a href="#3-MetaQ基本概念" class="headerlink" title="3. MetaQ基本概念"></a>3. MetaQ基本概念</h1><p><strong><font color="blue">生产者</font></strong></p>
+<blockquote>
+<p>Producer:负责产生消息并发送消息到MetaQ服务器</p>
+</blockquote>
+<p><strong><font color="blue">消费者</font></strong></p>
+<blockquote>
+<p>Consumer:负责从MetaQ拉取消息并完成消费</p>
+</blockquote>
+<p><strong><font color="blue">Topic</font></strong></p>
+<blockquote>
+<p>消息的主题，由用户定义。类似于知乎的话题，Producer发送消息的时候需要指定发送到某一个topic下面，Consumer从某一个topic下面消费消息。</p>
+</blockquote>
+<p><strong><font color="blue">分区</font></strong></p>
+<blockquote>
+<p>同一个topic下面又分为多个分区，这些分区散落在各个服务器上，消息是发送到某一个topic下面的某一个分区，Consumer 也是从Topic下面的某一给分区拉取消息</p>
+</blockquote>
+<p><strong><font color="blue">Message</font></strong></p>
+<blockquote>
+<p>消息，负载发送的消息的信息。在生产者，服务端和 消费者之间传输</p>
+</blockquote>
+<p><strong><font color="blue">Broker</font></strong></p>
+<blockquote>
+<p>MetaQ的服务端。</p>
+</blockquote>
+<p><strong><font color="blue">Offset</font></strong></p>
+<blockquote>
+<p>消息在 Broker 上的每个分区都是组织成一个文件列表,消费者拉取数据需要知道数据在文件中的偏移量,这个偏移量就是所谓 offset。Offset 是绝对偏移量,服务器会将 offset 转化为具体文件的相对偏移量</p>
+</blockquote>
+<p><strong><font color="blue">Tag</font></strong></p>
+<blockquote>
+<p>每次发送一条消息的时候，给消息加一个Tag，方便Consumer过滤消息。</p>
+</blockquote>
+<p><strong><font color="blue">生产者Group/消费者Group</font></strong></p>
+<blockquote>
+<p>消费者可以是多个消费者共同消费一个 topic 下的消息,每个消费者消费部分消息。这些消费者就组成一个分组,拥有同一个分组名称,通常也称为消费者集群</p>
+</blockquote>
+<p><strong><font color="blue">集群消费/广播消费</font></strong></p>
+<blockquote>
+<ol>
+<li>集群消费，一条消息只会被同一个group里一个消费者消费。    不同group之间相互不影响。</li>
+<li>广播消费，一条消息会被同一个group里每一个消费端消费。</li>
+</ol>
+</blockquote>
+<h1 id="4-消息写入，存储与读出"><a href="#4-消息写入，存储与读出" class="headerlink" title="4. 消息写入，存储与读出"></a>4. 消息写入，存储与读出</h1><p>MetaQ的存储结构是一种物理队列+逻辑队列的结构。如下图所示：<br>![metaq]/images/metaq.png)<br>Producer生产消息，根据消息的topic选择topic对应某一个分区，然后发送到这个分区对应的Broker；Consumer根据订阅的topic选择去topic的某一个分区拉取消息。</p>
+<h2 id="4-1-生产者如何选择发送分区（生产者负载均衡）"><a href="#4-1-生产者如何选择发送分区（生产者负载均衡）" class="headerlink" title="4.1 生产者如何选择发送分区（生产者负载均衡）"></a>4.1 生产者如何选择发送分区（生产者负载均衡）</h2><p>每个broker都可以配置多个topic，每个topic可以有多少个分区。topic，broker,分区三者是多对多的关系。但是在生产者看来，一个topic在所有broker上的所有分区组成一个分区列表来使用。</p>
+<p>在创建producer的时候，客户端会从zookeeper上获取publish的topic对应的broker和分区列表，生产者在发送消息的时候必须选择一台broker上的一个分区来发送消息。</p>
+<p>生产者在通过zk获取分区列表之后，会按照brokerId和分区的顺序排列组织成一个有序的分区列表，<strong>发送的时候按照从头到尾循环往复的方式选择一个分区来发送消息</strong>。考虑到我们的broker服务器软硬件配置基本一致，默认的轮询策略已然足够。</p>
+<p>在broker因为重启或者故障等因素无法服务的时候，producer通过zookeeper会感知到这个变化，将失效的分区从列表中移除做到fail over。因为从故障到感知变化有一个延迟，可能在那一瞬间会有部分的消息发送失败(在这一瞬间如果发送的是顺序消息怎么办？)。</p>
+<h2 id="4-2-存储消息"><a href="#4-2-存储消息" class="headerlink" title="4.2 存储消息"></a>4.2 存储消息</h2><p>MetaQ将消息存储在本地文件中，每个文件最大大小为1G，如果写入新的消息时，超过当前文件大小，则会自动新建一个文件。文件名称为起始字节大小。以起始字节大小命名并排序这些文件是有诸多好处的，当消费者要抓取某个起始偏移量开始位置的数据，会变的很简单，只要根据传上来的offset二分查找文件列表，定位到具体文件，然后将绝对offset减去文件的起始节点转化为相对offset，即可开始传输数据。假设，每个文件大小为1KB，图中Consumer1 订阅了TopicA,采用pull的方式来拉取消息，刚好Consumer1又被匹配到了TopicA_2分区，Consumer1需要获取{offset=1200,size=200}处的消息。需要经历如下的步骤：  </p>
+<ol>
+<li><p>当改pull请求发送到Broker1的时候，Broker1遍历TopicA_2分区（分区就是一些按照文件起始字节大小命名的索引文件，每一个索引文件又包含了多个索引项）找到offset对应的索引项{offset=1200,size=100B,tagHashcode=xxx}。</p>
+</li>
+<li><p>然后Broker1根据offset值二分查找TopicA_2的commitlog，获取到offset=1200的消息所在的真实文件（0000001024.meta）</p>
+</li>
+<li><p>根据真实文件的文件名000001024 获取offset=1300的消息所在文件的起始位置=276（1300-1024）</p>
+</li>
+<li><p>接下来，Broker1从TopicA_2分区的commitlog文件组中0000001024.meta文件的276B个字节开始，读取100B，然后返回给Consumer1。</p>
+</li>
+</ol>
+<p>对于最终用户展现的消息队列只存储Offset,这样使得队列轻量化，单个队列数据量非常少。</p>
+<p><strong>这样做的好处如下</strong>：<br>(1). 队列轻量化，单个队列数据量非常少。   </p>
+<p>(2). 对磁盘的访问串行化，避免磁盘竟争，不会因为队列增加导致IOWAIT增高。   </p>
+<p>每个方案都有<strong>缺点</strong>，它的缺点如下：   </p>
+<p>(1). 写虽然完全是顺序写，但是读却变成了完全的随机读。   </p>
+<p>(2). 读一条消息，会先读Consume Queue，再读Commit Log，增加了开销。  </p>
+<p>(3). 要保证Commit Log与Consume Queue完全的一致，增加了编程的复杂度。  </p>
+<p>以上缺点<strong>如何克服</strong>：<br>(1). 随机读，尽可能让读命中PAGECACHE，减少IO读操作，所以内存越大越好。如果系统中堆积的消息过多，读数据要访问磁盘会不会由于随机读导致系统性能急剧下降，答案是否定的。    </p>
+<ol>
+<li><p>访问PAGECACHE时，即使只访问1k的消息，系统也会提前预读出更多数据，在下次读时，就可能命中内存。</p>
+</li>
+<li><p>随机访问Commit Log磁盘数据，系统IO调度算法设置为NOOP(不是ANTICIPATORY吗)方式，会在一定程度上将完全的随机读变成顺序跳跃方式</p>
+</li>
+</ol>
+<p>(2). 由于Consume Queue存储数据量极少，而且是顺序读，在PAGECACHE预读作用下，Consume Queue的读性能几乎与内存一致，即使堆积情况下。所以可认为Consume Queue完全不会阻碍读性能。</p>
+<p>(3). Commit Log中存储了所有的元信息，包含消息体，类似于Mysql、Oracle的redolog，所以只要有Commit Log在，Consume Queue即使数据丢失，仍然可以恢复出来。</p>
+<p>在读取消息的时候，如何加快读取消息的速度？<br>传统的read调用会经历内核态–&gt;用户态—&gt;内核态—&gt;网卡缓冲区这样一个复杂的过程。MetaQ使用了mmap的方式，将硬盘文件映射到用内存中，也就是将page cache中的页直接映射到用户进程地址空间中，从而进程可以直接访问自身地址空间的虚拟地址来访问page cache中的页，这样会并不会涉及page cache到用户缓冲区之间的拷贝。对于小文件比较管用</p>
+<h2 id="4-3-消费者如何选择拉取的分区（消费者负载均衡）"><a href="#4-3-消费者如何选择拉取的分区（消费者负载均衡）" class="headerlink" title="4.3 消费者如何选择拉取的分区（消费者负载均衡）"></a>4.3 消费者如何选择拉取的分区（消费者负载均衡）</h2><p>消费者的负载均衡跟topic的分区数目紧密相关，要考察几个场景。</p>
+<p>首先，单个分组内的消费者数目如果比总的分区数目多的话，则多出来的消费者不参与消费。</p>
+<p>其次，如果分组内的消费者数目比分区数目小，则有部分消费者要额外承担消息的消费任务。</p>
+<p>Meta的客户端会自动帮处理消费者的负载均衡，它会将消费者列表和分区列表分别排序，然后按照上述规则做合理的挂载。合理地设置分区数目至关重要。如果分区数目太小，则有部分消费者可能闲置，如果分区数目太大，则对服务器的性能有影响。<br>在某个消费者故障或者重启等情况下，其他消费者会感知到这一变化（通过 zookeeper watch消费者列表），然后重新进行负载均衡，保证所有的分区都有消费者进行消费。</p>
+<h1 id="5-如何保证消息不丢"><a href="#5-如何保证消息不丢" class="headerlink" title="5. 如何保证消息不丢"></a>5. 如何保证消息不丢</h1><h2 id="5-1-生产者可靠性保证"><a href="#5-1-生产者可靠性保证" class="headerlink" title="5.1 生产者可靠性保证"></a>5.1 生产者可靠性保证</h2><p>消息生产者发送消息后返回SendResult，如果isSuccess返回为true,则表示消息已经确认发送到服务器并被服务器接收存储。整个发送过程是一个同步的过程。保证消息送达服务器并返回结果。</p>
+<h2 id="5-2-服务器可靠性保证"><a href="#5-2-服务器可靠性保证" class="headerlink" title="5.2 服务器可靠性保证"></a>5.2 服务器可靠性保证</h2><p>消息生产者发送的消息，meta服务器收到后在做必要的校验和检查之后的第一件事就是写入磁盘，写入成功之后返回应答给生产者。因此，可以确认每条发送结果为成功的消息服务器都是写入磁盘的。写入磁盘，不意味着数据落到磁盘设备上，毕竟我们还隔着一层os，os对写有缓冲。Meta有以下刷盘策略：</p>
+<p><strong>异步刷盘</strong>：  </p>
+<ol>
+<li>每1000条消息（可配置），即强制调用一次force来写入磁盘设备。</li>
+<li>每隔10秒（可配置），强制调用一次force来写入磁盘设备。    </li>
+</ol>
+<p><strong>同步刷盘</strong><br>如果存储配置上的groupCommitEnable选项为true，则会在写入消息后，立即强制刷盘。</p>
+<h2 id="5-3-消费者可靠性保证"><a href="#5-3-消费者可靠性保证" class="headerlink" title="5.3 消费者可靠性保证"></a>5.3 消费者可靠性保证</h2><p>消费者是一条接着一条地消费消息，只有在成功消费一条消息后才会接着消费下一条。如果在消费某条消息失败（如异常），则会尝试重试消费这条消 息（默认最大5次），超过最大次数后仍然无法消费，则将消息存储在消费者的本地磁盘，由后台线程继续做重试。而主线程继续往后走，消费后续的消息。因此， 只有在MessageListener确认成功消费一条消息后，meta的消费者才会继续消费另一条消息。由此来保证消息的可靠消费。消费者的另一个可靠性的关键点是offset的存储，也就是拉取数据的偏移量。默认存储在zoopkeeper上，zookeeper通过集群来保证数据的安全性。Offset会定期保存，并且在每次重新负载均衡前都会强制保存一次，因此可能会存在极端情况下的消息的重复消费。</p>
+<h1 id="6-消息过滤（服务端-客户端）"><a href="#6-消息过滤（服务端-客户端）" class="headerlink" title="6. 消息过滤（服务端/客户端）"></a>6. 消息过滤（服务端/客户端）</h1><p>消息过滤主要使用Message 的Tag字段做的。</p>
+<ol>
+<li>在服务端，每一条消息对应的Tag被转换成一个8byte的hashcode, 在Broker 端对比Queue中每一个存储单元的的hashcode和 订阅的Tag的hashcode进行对比，不符合，则跳过，继续比对下一个，符合则传输给Consumer。在队列中进行hashcode对比</li>
+<li>Consumer 收到过滤后的消息后，再次将传递过来的Message中的Tag字符串和订阅的Tag字符串进行对比，不是hashcode。这样做可以避免Hash冲突</li>
+</ol>
+<h1 id="7-消息重复性"><a href="#7-消息重复性" class="headerlink" title="7. 消息重复性"></a>7. 消息重复性</h1><p>MetaQ<font color="red">不能保证消息不重复</font>,原因如下：</p>
+<ul>
+<li>发送消息阶段，会存在分布式环境下典型的超时问题,即发送阶段不能保证消息不重复。</li>
+<li>订阅消息阶段，由于涉及集群订阅，多个订阅方需要使用负载均衡方式订阅，在因负载均衡出现的短暂不一致的情况下可能会重复。</li>
+<li>订阅者意外宕机，消费进度未及时存储也会产生息重复。</li>
+</ul>
+<p>如何解决？</p>
+<ul>
+<li>Consumer收到消息后，通过Tair,DB去重。</li>
+<li>使用Pull的方式拉取消息，但是Pull的时候，怎么协调分配队列需要应用控制。</li>
+</ul>
+<h1 id="8-消息顺序性"><a href="#8-消息顺序性" class="headerlink" title="8. 消息顺序性"></a>8. 消息顺序性</h1><p><strong>顺序消息</strong>：消费消息的顺序要同发送消息的顺序一致，在 MetaQ 中，主要指的是局部顺序，即一类消息为满足顺 序性，必须 Producer 单线程顺序发送，且发送到同一个队列，这样 Consumer 就可以按照 Producer 发送 的顺序去消费消息。</p>
+<p><strong>普通顺序消息</strong>：顺序消息的一种，正常情况下可以保证完全的顺序消息，但是一旦发生通信异常，Broker 重启，由于队列 总数发生变化，哈希取模后定位的队列会变化，产生短暂的消息顺序不一致。 如果业务能容忍在集群异常情况（如某个 Broker 宕机或者重启）下，消息短暂的乱序，使用普通顺序方 式比较合适。</p>
+<p><strong>严格顺序消息</strong>：顺序消息的一种，无论正常异常情况都能保证顺序，但是牺牲了分布式 Failover 特性，即 Broker 集群中只 要有一台机器不可用，则整个集群都不可用，服务可用性大大降低。 如果服务器部署为同步双写模式，此缺陷可通过备机自动切换为主避免，不过仍然会存在几分钟的服务不可用。</p>
+<h1 id="9-Pull-Push模型对比"><a href="#9-Pull-Push模型对比" class="headerlink" title="9. Pull/Push模型对比"></a>9. Pull/Push模型对比</h1><p>Pull: Comsumer主动请求Broker获取消息，请求的时候需要指定消息的offset（第一次读取为0，根据每次读取的返回值可以获取到下一次需要读取的offset）。这样只要事先知道offset，只要消息还没有被清除就能读取消息出来在（即使已经读取过了）</p>
+<p>Push：Consumer事先注册监听，由Broker主动推送消息到Consumer。Push能加载出未读取的消息的原因是MetaQ的服务端维护了一个offset。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat_pay.png" alt="Monet Zheng WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/zhifubao_pay.jpg" alt="Monet Zheng Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MetaQ/" rel="tag">#MetaQ</a>
+          
+            <a href="/tags/RocketMQ/" rel="tag">#RocketMQ</a>
+          
+            <a href="/tags/消息队列/" rel="tag">#消息队列</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/22/AliBaBa/HSF学习报告/" rel="next" title="HSF学习">
+                <i class="fa fa-chevron-left"></i> HSF学习
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/28/AliBaBa/tair学习报告/" rel="prev" title="Tair学习">
+                Tair学习 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/07/25/AliBaBa/metaQ学习报告/"
+     data-title="MetaQ(RocketMQ)学习"
+     data-content=""
+     data-url="http://thinerzq.com/2016/07/25/AliBaBa/metaQ学习报告/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/07/25/AliBaBa/metaQ学习报告/"
+           data-title="MetaQ(RocketMQ)学习" data-url="http://thinerzq.com/2016/07/25/AliBaBa/metaQ学习报告/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars3.githubusercontent.com/u/10881023?v=3&s=460"
+               alt="Monet Zheng" />
+          <p class="site-author-name" itemprop="name">Monet Zheng</p>
+          <p class="site-description motion-element" itemprop="description">为万世开太平，为圣贤继绝学</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">42</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">78</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ThinerZQ" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/ZhengShouZi" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/zhengshouzi" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://read.douban.com/people/65276245/" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.pianke.me/profile/136988/" target="_blank" title="片刻">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  片刻
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://tieba.baidu.com/home/main?un=a601097836&fr=home" target="_blank" title="贴吧">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  贴吧
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.bingoogolapple.cn/" title="bingoogle" target="_blank">bingoogle</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-消息中间件解决的问题"><span class="nav-number">1.</span> <span class="nav-text">1. 消息中间件解决的问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-JMS-与-MetaQ"><span class="nav-number">2.</span> <span class="nav-text">2. JMS 与 MetaQ</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-MetaQ基本概念"><span class="nav-number">3.</span> <span class="nav-text">3. MetaQ基本概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-消息写入，存储与读出"><span class="nav-number">4.</span> <span class="nav-text">4. 消息写入，存储与读出</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-生产者如何选择发送分区（生产者负载均衡）"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 生产者如何选择发送分区（生产者负载均衡）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-存储消息"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 存储消息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-消费者如何选择拉取的分区（消费者负载均衡）"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 消费者如何选择拉取的分区（消费者负载均衡）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-如何保证消息不丢"><span class="nav-number">5.</span> <span class="nav-text">5. 如何保证消息不丢</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-生产者可靠性保证"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 生产者可靠性保证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-服务器可靠性保证"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 服务器可靠性保证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-消费者可靠性保证"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 消费者可靠性保证</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-消息过滤（服务端-客户端）"><span class="nav-number">6.</span> <span class="nav-text">6. 消息过滤（服务端/客户端）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-消息重复性"><span class="nav-number">7.</span> <span class="nav-text">7. 消息重复性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-消息顺序性"><span class="nav-number">8.</span> <span class="nav-text">8. 消息顺序性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-Pull-Push模型对比"><span class="nav-number">9.</span> <span class="nav-text">9. Pull/Push模型对比</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Monet Zheng</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user">本站访客数</i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye">本站总访问量</i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"thinerzq"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Ejk3T06mIIR6qAsgj2xDACNt-gzGzoHsz", "t6iVWLLthVAcMzIBKMfPaalb");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>

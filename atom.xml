@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://thinerzq.com/"/>
-  <updated>2016-09-09T02:49:57.486Z</updated>
+  <updated>2016-09-09T02:57:51.666Z</updated>
   <id>http://thinerzq.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://thinerzq.com/2016/09/09/leetcode/26-Remove-Duplicates-from-Sorted-Array/"/>
     <id>http://thinerzq.com/2016/09/09/leetcode/26-Remove-Duplicates-from-Sorted-Array/</id>
     <published>2016-09-09T02:01:04.000Z</published>
-    <updated>2016-09-09T02:49:57.486Z</updated>
+    <updated>2016-09-09T02:57:51.666Z</updated>
     
     <content type="html"><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.</p>
 <p>Do not allocate extra space for another array, you must do this in place with constant memory.</p>
@@ -43,7 +43,9 @@
       <category term="leetcode" scheme="http://thinerzq.com/categories/leetcode/"/>
     
     
-      <category term="leetcode two pointers" scheme="http://thinerzq.com/tags/leetcode-two-pointers/"/>
+      <category term="leetcode" scheme="http://thinerzq.com/tags/leetcode/"/>
+    
+      <category term="two pointers" scheme="http://thinerzq.com/tags/two-pointers/"/>
     
   </entry>
   
@@ -52,7 +54,7 @@
     <link href="http://thinerzq.com/2016/09/09/leetcode/102-Binary-Tree-Level-Order-Traversal/"/>
     <id>http://thinerzq.com/2016/09/09/leetcode/102-Binary-Tree-Level-Order-Traversal/</id>
     <published>2016-09-09T01:26:34.000Z</published>
-    <updated>2016-09-09T01:53:57.444Z</updated>
+    <updated>2016-09-09T02:58:23.469Z</updated>
     
     <content type="html"><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Given a binary tree, return the level order traversal of its nodes’ values. (ie, from left to right, level by level).</p>
 <p>For example:<br>Given binary tree [3,9,20,null,null,15,7],</p>
@@ -104,7 +106,11 @@
       <category term="leetcode" scheme="http://thinerzq.com/categories/leetcode/"/>
     
     
-      <category term="leetcode tree Breadth-first Search" scheme="http://thinerzq.com/tags/leetcode-tree-Breadth-first-Search/"/>
+      <category term="leetcode" scheme="http://thinerzq.com/tags/leetcode/"/>
+    
+      <category term="tree" scheme="http://thinerzq.com/tags/tree/"/>
+    
+      <category term="Breadth-first Search" scheme="http://thinerzq.com/tags/Breadth-first-Search/"/>
     
   </entry>
   
@@ -113,7 +119,7 @@
     <link href="http://thinerzq.com/2016/09/08/leetcode/118-Pascal&#39;s%20Triangle/"/>
     <id>http://thinerzq.com/2016/09/08/leetcode/118-Pascal&#39;s Triangle/</id>
     <published>2016-09-08T13:08:06.000Z</published>
-    <updated>2016-09-09T01:25:00.861Z</updated>
+    <updated>2016-09-09T02:59:25.892Z</updated>
     
     <content type="html"><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>given numRows, generate the first numRows of Pascal’s triangle.</p>
 <p>For example, given numRows = 5</p>
@@ -135,16 +141,18 @@
       <category term="leetcode" scheme="http://thinerzq.com/categories/leetcode/"/>
     
     
-      <category term="leetcode array" scheme="http://thinerzq.com/tags/leetcode-array/"/>
+      <category term="leetcode" scheme="http://thinerzq.com/tags/leetcode/"/>
+    
+      <category term="array" scheme="http://thinerzq.com/tags/array/"/>
     
   </entry>
   
   <entry>
     <title>mysql win64 5.7.9 zip包安装日记</title>
-    <link href="http://thinerzq.com/2016/09/01/mysql%20win64%205.7.9%20zip%E5%8C%85%E5%AE%89%E8%A3%85%E6%97%A5%E8%AE%B0/"/>
-    <id>http://thinerzq.com/2016/09/01/mysql win64 5.7.9 zip包安装日记/</id>
+    <link href="http://thinerzq.com/2016/09/01/mysql/mysql%20win64%205.7.9%20zip%E5%8C%85%E5%AE%89%E8%A3%85%E6%97%A5%E8%AE%B0/"/>
+    <id>http://thinerzq.com/2016/09/01/mysql/mysql win64 5.7.9 zip包安装日记/</id>
     <published>2016-09-01T02:52:20.000Z</published>
-    <updated>2016-09-04T07:34:51.777Z</updated>
+    <updated>2016-09-09T03:17:41.547Z</updated>
     
     <content type="html"><![CDATA[<h1 id="官网下载win64-zip包"><a href="#官网下载win64-zip包" class="headerlink" title="官网下载win64 zip包"></a>官网下载win64 zip包</h1><p>找到合适的目录解压</p>
 <h1 id="配置my-default-ini"><a href="#配置my-default-ini" class="headerlink" title="配置my-default.ini"></a>配置my-default.ini</h1><blockquote>
@@ -212,10 +220,10 @@
   
   <entry>
     <title>Tair学习</title>
-    <link href="http://thinerzq.com/2016/07/28/tair%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
-    <id>http://thinerzq.com/2016/07/28/tair学习报告/</id>
+    <link href="http://thinerzq.com/2016/07/28/AliBaBa/tair%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    <id>http://thinerzq.com/2016/07/28/AliBaBa/tair学习报告/</id>
     <published>2016-07-28T01:08:06.000Z</published>
-    <updated>2016-08-14T14:38:23.632Z</updated>
+    <updated>2016-09-09T03:15:07.425Z</updated>
     
     <content type="html"><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>首先tair是一个的Key-Value结构分布式存储系统，既可以做高速缓存，也可以做持久化存储。分布式系统一般来说是一个集群，而在Tair的集群中主要存在如下几个模块：</p>
 <p><strong>ConfigServer</strong><br>一个集群中包含2台configserver,两台configserver互为主备。</p>
@@ -754,16 +762,18 @@
       <category term="Tair" scheme="http://thinerzq.com/categories/Tair/"/>
     
     
-      <category term="tair 分布式缓存" scheme="http://thinerzq.com/tags/tair-%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98/"/>
+      <category term="tair" scheme="http://thinerzq.com/tags/tair/"/>
+    
+      <category term="分布式缓存" scheme="http://thinerzq.com/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98/"/>
     
   </entry>
   
   <entry>
     <title>MetaQ(RocketMQ)学习</title>
-    <link href="http://thinerzq.com/2016/07/25/metaQ%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
-    <id>http://thinerzq.com/2016/07/25/metaQ学习报告/</id>
+    <link href="http://thinerzq.com/2016/07/25/AliBaBa/metaQ%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    <id>http://thinerzq.com/2016/07/25/AliBaBa/metaQ学习报告/</id>
     <published>2016-07-25T01:08:06.000Z</published>
-    <updated>2016-08-14T14:37:32.790Z</updated>
+    <updated>2016-09-09T03:12:46.253Z</updated>
     
     <content type="html"><![CDATA[<h1 id="1-消息中间件解决的问题"><a href="#1-消息中间件解决的问题" class="headerlink" title="1. 消息中间件解决的问题"></a>1. 消息中间件解决的问题</h1><p>消息中间件的核心作用就是三点：解耦，异步和并行，其中解耦是目的，异步和并行是表现形式。生产者和消费者彼此没有直接依赖，同步化解成了异步，大大减少了等待时间。例如：手机验证码的发送，当点击发送验证码的时候，只需要Client发送一条消息：{topic:sendVerifyCode,to:155xxxxxxxx,..}到消息中间件，消息中间件返回Client ok;然后消息中间件会将这条消息转发给订阅了这一个topic的Consumer，由Consumer去执行发送验证码的任务。由此看出消息中间主要做了三件事：接收消息+存储消息+转发消息。</p>
 <h1 id="2-JMS-与-MetaQ"><a href="#2-JMS-与-MetaQ" class="headerlink" title="2. JMS 与 MetaQ"></a>2. JMS 与 MetaQ</h1><ol>
@@ -908,16 +918,20 @@
       <category term="MetaQ" scheme="http://thinerzq.com/categories/MetaQ/"/>
     
     
-      <category term="MetaQ RocketMQ 消息队列" scheme="http://thinerzq.com/tags/MetaQ-RocketMQ-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"/>
+      <category term="MetaQ" scheme="http://thinerzq.com/tags/MetaQ/"/>
+    
+      <category term="RocketMQ" scheme="http://thinerzq.com/tags/RocketMQ/"/>
+    
+      <category term="消息队列" scheme="http://thinerzq.com/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"/>
     
   </entry>
   
   <entry>
     <title>HSF学习</title>
-    <link href="http://thinerzq.com/2016/07/22/HSF%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
-    <id>http://thinerzq.com/2016/07/22/HSF学习报告/</id>
+    <link href="http://thinerzq.com/2016/07/22/AliBaBa/HSF%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    <id>http://thinerzq.com/2016/07/22/AliBaBa/HSF学习报告/</id>
     <published>2016-07-22T01:08:06.000Z</published>
-    <updated>2016-08-14T14:36:49.730Z</updated>
+    <updated>2016-09-09T03:06:46.326Z</updated>
     
     <content type="html"><![CDATA[<p>HSF(High-Speed Service Framework)，是一个高性能的分布式服务框架。一个分布式框架提供的最基本的功能就是远程调用（A机器调用B机器上的一个对象的方法，B机器将方法到返回值发送回A机器）。HSF面向接口编程，以“Service”的形式进行远程调用，简单的说就是接口的具体实现(服务)运行在服务器上，服务器将这些接口暴露出来，客户端拿到这些接口之后通过接口调用具体的服务。在服务发布和调用过程中主要涉及到下面这些知识。</p>
 <h1 id="1-服务注册"><a href="#1-服务注册" class="headerlink" title="1.服务注册"></a>1.服务注册</h1><p>服务注册的基本要素就是</p>
@@ -972,16 +986,18 @@
       <category term="HSF" scheme="http://thinerzq.com/categories/HSF/"/>
     
     
-      <category term="HSF 分布式服务" scheme="http://thinerzq.com/tags/HSF-%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1/"/>
+      <category term="HSF" scheme="http://thinerzq.com/tags/HSF/"/>
+    
+      <category term="分布式服务" scheme="http://thinerzq.com/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1/"/>
     
   </entry>
   
   <entry>
     <title>Ibatis学习</title>
-    <link href="http://thinerzq.com/2016/07/20/ibatis%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
-    <id>http://thinerzq.com/2016/07/20/ibatis学习报告/</id>
+    <link href="http://thinerzq.com/2016/07/20/ibatis/ibatis%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    <id>http://thinerzq.com/2016/07/20/ibatis/ibatis学习报告/</id>
     <published>2016-07-20T01:08:06.000Z</published>
-    <updated>2016-08-14T14:31:13.604Z</updated>
+    <updated>2016-09-09T03:07:01.393Z</updated>
     
     <content type="html"><![CDATA[<h1 id="iBatis-简介："><a href="#iBatis-简介：" class="headerlink" title="iBatis 简介："></a>iBatis 简介：</h1><p>iBatis 是apache 的一个开源项目(2010后改名为Mybatis)，一个半自动化的O/R Mapping 解决方案，iBatis 最大的特点就是小巧，上手很快。<br>适用于以下场景：</p>
 <ol>
@@ -1079,10 +1095,10 @@
   
   <entry>
     <title>Jvm学习</title>
-    <link href="http://thinerzq.com/2016/07/11/jvm%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
-    <id>http://thinerzq.com/2016/07/11/jvm学习报告/</id>
+    <link href="http://thinerzq.com/2016/07/11/java/jvm%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    <id>http://thinerzq.com/2016/07/11/java/jvm学习报告/</id>
     <published>2016-07-11T01:08:06.000Z</published>
-    <updated>2016-08-14T14:29:45.392Z</updated>
+    <updated>2016-09-09T03:11:20.228Z</updated>
     
     <content type="html"><![CDATA[<h1 id="内存布局"><a href="#内存布局" class="headerlink" title="内存布局"></a>内存布局</h1><ol>
 <li>程序计数器（Program Counter Register）：程序计数器是一个比较小的内存区域，用于指示当前线程所执行的字节码执行到了第几行，可以理解为是当前线程的行号指示器。字节码解释器在工作时，会通过改变这个计数器的值来取下一条语句指令。每个程序计数器只用来记录一个线程的行号，所以它是线程私有（一个线程就有一个程序计数器）的。</li>
@@ -1231,11 +1247,151 @@
   </entry>
   
   <entry>
-    <title>Spring基础学习</title>
-    <link href="http://thinerzq.com/2016/07/09/spring%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
-    <id>http://thinerzq.com/2016/07/09/spring学习报告/</id>
+    <title>Java NIO学习</title>
+    <link href="http://thinerzq.com/2016/07/09/java/java%20nio%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    <id>http://thinerzq.com/2016/07/09/java/java nio学习报告/</id>
     <published>2016-07-09T01:08:06.000Z</published>
-    <updated>2016-08-14T14:30:24.271Z</updated>
+    <updated>2016-09-09T03:07:36.396Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="NIO概述"><a href="#NIO概述" class="headerlink" title="NIO概述"></a>NIO概述</h1><p>Java NIO: Non-blocking IO（非阻塞IO）是jdk 1.4提出的，简单的理解就是使用nio api读写数据的时候不会等待把所有数据读写完再返回(所以读写的时候应该使用while循环不断尝试读写数据)。NIO中关键的三个概念是通道，缓冲区，选择器。</p>
+<a id="more"></a>
+<h2 id="Channel-通道"><a href="#Channel-通道" class="headerlink" title="Channel(通道)"></a>Channel(通道)</h2><p>所有的数据读写在NIO 中都从Channel 开始，可以把Channel想象成io 中的Stream。数据是从Channel读到Buffer中，或者从Buffer 写到Channel中。Channel主要有以下几种</p>
+<ol>
+<li>FileChannel: 从FileInputStream和FileOutputStream打开的文件通道</li>
+<li>DatagramChannel：通过UDP协议读写网络中的数据</li>
+<li>SocketChannel：通过TCP协议读写网络中的数据</li>
+<li>ServerSocketChannel：对每一个连接创建一个SocketChannel</li>
+</ol>
+<h2 id="Buffer-缓冲区"><a href="#Buffer-缓冲区" class="headerlink" title="Buffer(缓冲区)"></a>Buffer(缓冲区)</h2><p>读取数据的第一步是Channel，第二步是Buffer。数据从通道读取到Buffer中，然后再使用，或者从Buffer中写入通道。Buffer本质上是一块可以写入数据，然后可以从中读取数据的内存,这块内存被包装成NIO Buffer对象。</p>
+<p>Buffer主要由三个属性，它们决定了每次读写缓冲区的什么位置。</p>
+<ol>
+<li>capacity：缓冲区的大小</li>
+<li>position：读模式的时候，position为下一个可以读取的位置；写模式的时候，position为下一个可以写入数据的位置</li>
+<li>limit：写模式的时候，可以写入的数据的大小；读模式下，limit表示可以读取的数据大小</li>
+</ol>
+<p>当向buffer写入数据时，buffer会记录下写了多少数据。一旦要读取数据，需要通过flip()方法将Buffer从写模式切换到读模式（相应的position和limit值会改变）。在读模式下，可以读取之前写入到buffer的所有数据。</p>
+<p>一旦读完Buffer中的数据，需要让Buffer准备好再次被写入。可以通过clear()或compact()方法来完成。clear()将Buffer中剩余的数据清除，compact()会将没有读取的数据移动到Buffer起始处，之后还可以读取。</p>
+<p>Buffer.allocate() 直接在Head上分配内存，Buffer.directAllocate()在堆外分配内存（分配的内存不受GC影响，需要自己手动释放）。</p>
+<h2 id="Selector-选择器"><a href="#Selector-选择器" class="headerlink" title="Selector(选择器)"></a>Selector(选择器)</h2><p>Selector（选择器）是NIO中能够侦听多个NIO Channel，并能够知晓这些Channel是否为特定的事件做好准备的组件。<br>Selector的使用主要是通过如下这种形式来使用<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">ServerSocketChannel ssChannel = ServerSocketChannel.open();</div><div class="line">ServerSocket ss = ssChannel.socket();</div><div class="line">InetSocketAddress address = <span class="keyword">new</span> InetSocketAddress(port);</div><div class="line">ss.bind(address);</div><div class="line"></div><div class="line">Selector selector = Selector.open();</div><div class="line"></div><div class="line">ssChannel.configureBlocking(<span class="keyword">false</span>);</div><div class="line">ssChannel.register(selector, SelectionKey.OP_ACCEPT); <span class="comment">//向selector注册监听连接请求</span></div><div class="line"></div><div class="line"><span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">    selector.select();<span class="comment">//阻塞 直到某个channel注册的感兴趣的事件被触发</span></div><div class="line">    Set&lt;SelectionKey&gt; keys = selector.selectedKeys();</div><div class="line">    <span class="keyword">for</span> (SelectionKey key : keys) &#123;</div><div class="line">        <span class="keyword">if</span> (key.isAcceptable()) &#123; <span class="comment">//客户端连接请求</span></div><div class="line">            ServerSocketChannel ssc = (ServerSocketChannel) key.channel();</div><div class="line">            SocketChannel sc = ssc.accept();</div><div class="line">            sc.configureBlocking(<span class="keyword">false</span>);</div><div class="line">            sc.register(selector, SelectionKey.OP_READ); <span class="comment">//向selector注册监听客户端输入</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (key.isReadable()) &#123; <span class="comment">//客户端输入</span></div><div class="line"></div><div class="line">            ByteBuffer buffer = ByteBuffer.allocate(<span class="number">1024</span>);</div><div class="line"></div><div class="line">            SocketChannel socketChannel = (SocketChannel) key.channel();</div><div class="line"></div><div class="line">            <span class="comment">// 针对当前连接做一些事情.read or write</span></div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    keys.clear();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Selector必须和Channel配合使用，而且Channel必须处于非阻塞模式下。通过resigter()方法绑定selector和channel的时候，第二个参数指定了当前channel对什么事件感兴趣。一个channel可以有如下4种感兴趣的事件</p>
+<ol>
+<li>SelectionKey.OP_CONNECT</li>
+<li>SelectionKey.OP_ACCEPT</li>
+<li>SelectionKey.OP_READ</li>
+<li>SelectionKey.OP_WRITE</li>
+</ol>
+<p>当channel向selector注册了事件之后，selector.selector()方法会阻塞直到channel关心的哪些事件已经就绪。事件就绪之后判断事件的类别，根据不同类别分别做不同的读写处理。</p>
+<h1 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h1><p>一个对象可以被表示为一个字节序列，该字节序列包括该对象的数据、有关对象的类型的信息和存储在对象中数据的类型。</p>
+<p>对应的流是ObjectOutputStream，ObjectInputStream。static变量, transient不会序列化，static final会序列化。实现这两个接口的类可以序列化：Serializible ,Externalizible。</p>
+<p>如果想自己控制一部分序列化的过程，可以在需要序列化的类种加入private级别的readObject()和writeObject()方法，这两个方法再ObjectInputStream和ObjectOutputStream中会反射调用。write和read的顺序必须一致。使用实现Externalizible接口来序列化，序列化的过程完全可控。</p>
+<p>如果需要序列化的对象使用了Signleton模式，（序列化前的对象 == 序列化后的对象）=false,如果要使这两者相等，可以在Singleton类种加入readResolve()方法，在这个方法中返回Signleton对象替换掉在流中创建的对象。——这些都是在同一个jvm中才有用</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;NIO概述&quot;&gt;&lt;a href=&quot;#NIO概述&quot; class=&quot;headerlink&quot; title=&quot;NIO概述&quot;&gt;&lt;/a&gt;NIO概述&lt;/h1&gt;&lt;p&gt;Java NIO: Non-blocking IO（非阻塞IO）是jdk 1.4提出的，简单的理解就是使用nio api读写数据的时候不会等待把所有数据读写完再返回(所以读写的时候应该使用while循环不断尝试读写数据)。NIO中关键的三个概念是通道，缓冲区，选择器。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="java" scheme="http://thinerzq.com/categories/java/"/>
+    
+    
+      <category term="nio" scheme="http://thinerzq.com/tags/nio/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java 多线程学习</title>
+    <link href="http://thinerzq.com/2016/07/09/java/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    <id>http://thinerzq.com/2016/07/09/java/java多线程学习报告/</id>
+    <published>2016-07-09T01:08:06.000Z</published>
+    <updated>2016-09-09T03:10:08.412Z</updated>
+    
+    <content type="html"><![CDATA[<ol>
+<li><p>ConcurrentHashMap：线程安全HashMap，分段锁。put(),remove()加锁，size()三次后再加锁</p>
+</li>
+<li><p>CopyOnWriteArrayList：线程安全，读无锁的ArrayList,使用ReentrantLock, 每次add，remove都是新创建一个数组，复制元素到新的数组，最后切换全局数组引用。适用于多读少写</p>
+</li>
+<li><p>CopyOnWriteArraySet：通过CopyOnWriteSet实现，add()的时候会遍历整个数组判断数组是否存在这个值，因此性能略低于CopyOnWriteArrayList</p>
+</li>
+<li><p>ArrayBlockingQueue： 基于数组，ReentrantLock,Condition实现的有界队列。add(E e):队满，抛异常。put(E e):队满，阻塞。offer(E e):队满，返回false。remove()，take()，poll()。和上面对应。</p>
+</li>
+<li><p>LinkedBlockingQueue：基于链表，读写锁分离，遍历同时锁。此按FIFO （先进先出） 排序元素，吞吐量通常要高于ArrayBlockingQueue。</p>
+</li>
+<li><p>SynchronousQueue：一个不存储元素的阻塞队列。每个插入操作必须等到另一个线程调用移除操作，否则插入操作一直处于阻塞状态，吞吐量通常要高于LinkedBlockingQueue。</p>
+</li>
+<li><p>PriorityBlockingQueue：一个具有优先级的无限阻塞队列。</p>
+</li>
+<li><p>Atomic：支持原子操作的类，由硬件指令cmpxchg提供CAS支持（简单来说，先使用一个期望值和一个变量的当前值进行比较，如果当前变量的值与期望的值相等，就使用一个新值替换当前变量的值）,比synchronize性能高出2倍。实现类有AtomicBoolean，AtomicInteger，AtomicIntegerArray，AtomicLong，AtomicLongArray，AtomicReference，AtomicReferenceArray等。需要注意的是ABA问题，可以通过AtomicStampedReference解决。</p>
+</li>
+<li><p>线程池<br>线程池就是有一堆线程，随时可以取一个线程出来用。学习线程池最好的方法就是从线程池的构造函数开始看。一个线程池的关注点在构造函数中的几个参数。常用的Executor类的几个方法都是返回一个的ThreadPoolExecutor，这些ThreadPoolExecutor的构造函数的参数各不相同。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">ThreadPoolExecutor</span><span class="params">(<span class="keyword">int</span> corePoolSize,<span class="keyword">int</span> maximumPoolSize,<span class="keyword">long</span> keepAliveTime,TimeUnit unit,  BlockingQueue&lt;Runnable&gt; workQueue,ThreadFactory threadFactory,RejectedExecutionHandler handler)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (corePoolSize &lt; <span class="number">0</span> ||</div><div class="line">            maximumPoolSize &lt;= <span class="number">0</span> ||</div><div class="line">            maximumPoolSize &lt; corePoolSize ||</div><div class="line">            keepAliveTime &lt; <span class="number">0</span>)</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException();</div><div class="line">        <span class="keyword">if</span> (workQueue == <span class="keyword">null</span> || threadFactory == <span class="keyword">null</span> || handler == <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</div><div class="line">        <span class="keyword">this</span>.corePoolSize = corePoolSize;</div><div class="line">        <span class="keyword">this</span>.maximumPoolSize = maximumPoolSize;</div><div class="line">        <span class="keyword">this</span>.workQueue = workQueue;</div><div class="line">        <span class="keyword">this</span>.keepAliveTime = unit.toNanos(keepAliveTime);</div><div class="line">        <span class="keyword">this</span>.threadFactory = threadFactory;</div><div class="line">        <span class="keyword">this</span>.handler = handler;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<ol>
+<li><p>corePoolSize： 线程池维护线程的最少数量：当提交一个任务到线程池时，线程池会创建一个线程来执行任务，即使其他空闲的基本线程能够执行新任务也会创建线程，等到需要执行的任务数大于线程池基本大小时就不再创建。如果调用了线程池的prestartAllCoreThreads方法，线程池会提前创建并启动所有基本线程。</p>
+</li>
+<li><p>maximumPoolSize：线程池维护线程的最大数量：线程池允许创建的最大线程数。如果队列满了，并且已创建的线程数小于最大线程数，则线程池会再创建新的线程执行任务。如果使用了无界的任务队列这个参数就没什么效果。</p>
+</li>
+<li><p>keepAliveTime： 线程池维护线程所允许的空闲时间：线程池的工作线程空闲后，保持存活的时间。所以如果任务很多，并且每个任务执行的时间比较短，可以调大这个时间，提高线程的利用率。</p>
+</li>
+<li><p>unit： 线程池维护线程所允许的空闲时间的单位：可选的单位有天（DAYS），小时（HOURS），分钟（MINUTES），毫秒(MILLISECONDS)，微秒(MICROSECONDS, 千分之一毫秒)和毫微秒(NANOSECONDS, 千分之一微秒)。</p>
+</li>
+<li><p>workQueue： 线程池所使用的缓冲队列。</p>
+</li>
+<li><p>threadFactory：线程池创建线程的工厂：可以通过线程工厂给每个创建出来的线程设置更有意义的名字。</p>
+</li>
+<li><p>handler： 线程池对拒绝任务的处理策略：AbortPolicy：直接抛出异常。<br>CallerRunsPolicy：只用调用者所在线程来运行任务。<br>DiscardOldestPolicy：丢弃队列里最近的一个任务，并执行当前任务。<br>DiscardPolicy：不处理，丢弃掉。<br>当然也可以根据应用场景需要来实现RejectedExecutionHandler接口自定义策略。如记录日志或持久化不能处理的任务。</p>
+</li>
+</ol>
+</li>
+<li><p>Executors：对ThreadPoolExecutor再封装。</p>
+<ol>
+<li><p>nexFixedThreadPool(int) :直接创建固定大小的线程池，keepAlive=0，超过LinkedBlockingQueue的最大范围拒绝</p>
+</li>
+<li><p>newSingleThreadExecutor:线程只有1个，其他的等待</p>
+</li>
+<li><p>newCachedThreadPool:corePoolSize=0,keepAlive=60s,SynchronousQueue,最大线程未Integer.Max_Value</p>
+</li>
+<li><p>newScheduledThreadPool(int):DelayedWorkQueue:会对新加入的任务按照执行时间排序</p>
+</li>
+</ol>
+</li>
+<li><p>FutureTask：异步获取执行结果，保证只执行一次，可取消任务。</p>
+</li>
+<li>Semaphore：控制某资源同时被访问的个数的类，通过构造函数可以达到公平访问和非公平访问，默认非公平。如果把资源那个数设置为1,可以达到锁的效果。</li>
+<li>CountDownLatch：用于多个线程同时开始某一个动作，每个线程执行的时候，计数器-1，如果计数器为0，位于latch.await()后面代码才会执行。一般用来等待任务执行完毕</li>
+<li><p>CyclicBarrier: 和CountDownLatch刚好反过来，它是当await()的数量达到一定，才继续往后执行，另外还能设置一个回调：当await()达到一定数量后，开始执行回调的Runable对象</p>
+</li>
+<li><p>ReentrantLock：ReentrantLock提供了公平锁和非公平锁，lock().trylock(),trylockInterrupted, tryLock(time)等方法</p>
+</li>
+<li><p>Condition： 一般和RenentrantLock配合使用，可在同一个锁上启用多个Condition,用于等待，通知操作。</p>
+</li>
+<li><p>和ReentrantLock没有任何继承关系    ，提供了读写锁分离。读的时候如果没有线程写就直接获取，读操作是无阻赛的。写的时候如果有其他线程在读或者写就会被阻塞。在同一线程中，持有读锁后不能调用写锁的lock方法（会死锁）：读锁不可升级。同一个线程中，持有写锁后，可以调用读锁的lock方法，之后如果调用写锁的unlock(0方法，当前锁降级为读锁。适用于读多写少</p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;ConcurrentHashMap：线程安全HashMap，分段锁。put(),remove()加锁，size()三次后再加锁&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;CopyOnWriteArrayList：线程安全，读无锁的ArrayList,使用Reent
+    
+    </summary>
+    
+      <category term="java" scheme="http://thinerzq.com/categories/java/"/>
+    
+    
+      <category term="多线程" scheme="http://thinerzq.com/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring基础学习</title>
+    <link href="http://thinerzq.com/2016/07/09/spring/spring%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    <id>http://thinerzq.com/2016/07/09/spring/spring学习报告/</id>
+    <published>2016-07-09T01:08:06.000Z</published>
+    <updated>2016-09-09T03:14:15.376Z</updated>
     
     <content type="html"><![CDATA[<p>通常说的Spring其实指的是Spring Framework，它是Spring下的一个子项目，Spring围绕Spring Framework这个核心项目开发了大量其他项目，比如Spring Security，Spring Data，Spring Boot等. Spring Framework包括他的核心解决方案IoC容器、 AOP。</p>
 <a id="more"></a>
@@ -1312,10 +1468,10 @@
   
   <entry>
     <title>Java Io学习</title>
-    <link href="http://thinerzq.com/2016/07/09/java%20Io%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
-    <id>http://thinerzq.com/2016/07/09/java Io学习报告/</id>
+    <link href="http://thinerzq.com/2016/07/09/java/java%20Io%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    <id>http://thinerzq.com/2016/07/09/java/java Io学习报告/</id>
     <published>2016-07-09T01:08:06.000Z</published>
-    <updated>2016-08-14T14:26:16.632Z</updated>
+    <updated>2016-09-09T03:07:24.970Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Io概述"><a href="#Io概述" class="headerlink" title="Io概述"></a>Io概述</h1><p>流是一组有顺序的，有起点和终点的字节集合，是对数据传输的总称或抽象。即数据在两设备间的传输称为流，流的本质是数据传输，根据数据传输介质将流抽象为各种类，方便更直观的进行数据操作。说白了这些类就是用来读取和写入数据的，由于可以读取或写入的媒介非常多，针对每一种媒介jdk提供了单独的类来读和写数据。同时根据读写单位又分为读取按字节读写和按字符读取(根据不同的编码方案,一个字符可能按多个字节读取)。大致可以分为如下</p>
 <p>从读写介质的角度来看</p>
@@ -1576,151 +1732,11 @@
   </entry>
   
   <entry>
-    <title>Java NIO学习</title>
-    <link href="http://thinerzq.com/2016/07/09/java%20nio%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
-    <id>http://thinerzq.com/2016/07/09/java nio学习报告/</id>
-    <published>2016-07-09T01:08:06.000Z</published>
-    <updated>2016-08-14T14:28:02.483Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="NIO概述"><a href="#NIO概述" class="headerlink" title="NIO概述"></a>NIO概述</h1><p>Java NIO: Non-blocking IO（非阻塞IO）是jdk 1.4提出的，简单的理解就是使用nio api读写数据的时候不会等待把所有数据读写完再返回(所以读写的时候应该使用while循环不断尝试读写数据)。NIO中关键的三个概念是通道，缓冲区，选择器。</p>
-<a id="more"></a>
-<h2 id="Channel-通道"><a href="#Channel-通道" class="headerlink" title="Channel(通道)"></a>Channel(通道)</h2><p>所有的数据读写在NIO 中都从Channel 开始，可以把Channel想象成io 中的Stream。数据是从Channel读到Buffer中，或者从Buffer 写到Channel中。Channel主要有以下几种</p>
-<ol>
-<li>FileChannel: 从FileInputStream和FileOutputStream打开的文件通道</li>
-<li>DatagramChannel：通过UDP协议读写网络中的数据</li>
-<li>SocketChannel：通过TCP协议读写网络中的数据</li>
-<li>ServerSocketChannel：对每一个连接创建一个SocketChannel</li>
-</ol>
-<h2 id="Buffer-缓冲区"><a href="#Buffer-缓冲区" class="headerlink" title="Buffer(缓冲区)"></a>Buffer(缓冲区)</h2><p>读取数据的第一步是Channel，第二步是Buffer。数据从通道读取到Buffer中，然后再使用，或者从Buffer中写入通道。Buffer本质上是一块可以写入数据，然后可以从中读取数据的内存,这块内存被包装成NIO Buffer对象。</p>
-<p>Buffer主要由三个属性，它们决定了每次读写缓冲区的什么位置。</p>
-<ol>
-<li>capacity：缓冲区的大小</li>
-<li>position：读模式的时候，position为下一个可以读取的位置；写模式的时候，position为下一个可以写入数据的位置</li>
-<li>limit：写模式的时候，可以写入的数据的大小；读模式下，limit表示可以读取的数据大小</li>
-</ol>
-<p>当向buffer写入数据时，buffer会记录下写了多少数据。一旦要读取数据，需要通过flip()方法将Buffer从写模式切换到读模式（相应的position和limit值会改变）。在读模式下，可以读取之前写入到buffer的所有数据。</p>
-<p>一旦读完Buffer中的数据，需要让Buffer准备好再次被写入。可以通过clear()或compact()方法来完成。clear()将Buffer中剩余的数据清除，compact()会将没有读取的数据移动到Buffer起始处，之后还可以读取。</p>
-<p>Buffer.allocate() 直接在Head上分配内存，Buffer.directAllocate()在堆外分配内存（分配的内存不受GC影响，需要自己手动释放）。</p>
-<h2 id="Selector-选择器"><a href="#Selector-选择器" class="headerlink" title="Selector(选择器)"></a>Selector(选择器)</h2><p>Selector（选择器）是NIO中能够侦听多个NIO Channel，并能够知晓这些Channel是否为特定的事件做好准备的组件。<br>Selector的使用主要是通过如下这种形式来使用<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">ServerSocketChannel ssChannel = ServerSocketChannel.open();</div><div class="line">ServerSocket ss = ssChannel.socket();</div><div class="line">InetSocketAddress address = <span class="keyword">new</span> InetSocketAddress(port);</div><div class="line">ss.bind(address);</div><div class="line"></div><div class="line">Selector selector = Selector.open();</div><div class="line"></div><div class="line">ssChannel.configureBlocking(<span class="keyword">false</span>);</div><div class="line">ssChannel.register(selector, SelectionKey.OP_ACCEPT); <span class="comment">//向selector注册监听连接请求</span></div><div class="line"></div><div class="line"><span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">    selector.select();<span class="comment">//阻塞 直到某个channel注册的感兴趣的事件被触发</span></div><div class="line">    Set&lt;SelectionKey&gt; keys = selector.selectedKeys();</div><div class="line">    <span class="keyword">for</span> (SelectionKey key : keys) &#123;</div><div class="line">        <span class="keyword">if</span> (key.isAcceptable()) &#123; <span class="comment">//客户端连接请求</span></div><div class="line">            ServerSocketChannel ssc = (ServerSocketChannel) key.channel();</div><div class="line">            SocketChannel sc = ssc.accept();</div><div class="line">            sc.configureBlocking(<span class="keyword">false</span>);</div><div class="line">            sc.register(selector, SelectionKey.OP_READ); <span class="comment">//向selector注册监听客户端输入</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (key.isReadable()) &#123; <span class="comment">//客户端输入</span></div><div class="line"></div><div class="line">            ByteBuffer buffer = ByteBuffer.allocate(<span class="number">1024</span>);</div><div class="line"></div><div class="line">            SocketChannel socketChannel = (SocketChannel) key.channel();</div><div class="line"></div><div class="line">            <span class="comment">// 针对当前连接做一些事情.read or write</span></div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    keys.clear();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>Selector必须和Channel配合使用，而且Channel必须处于非阻塞模式下。通过resigter()方法绑定selector和channel的时候，第二个参数指定了当前channel对什么事件感兴趣。一个channel可以有如下4种感兴趣的事件</p>
-<ol>
-<li>SelectionKey.OP_CONNECT</li>
-<li>SelectionKey.OP_ACCEPT</li>
-<li>SelectionKey.OP_READ</li>
-<li>SelectionKey.OP_WRITE</li>
-</ol>
-<p>当channel向selector注册了事件之后，selector.selector()方法会阻塞直到channel关心的哪些事件已经就绪。事件就绪之后判断事件的类别，根据不同类别分别做不同的读写处理。</p>
-<h1 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h1><p>一个对象可以被表示为一个字节序列，该字节序列包括该对象的数据、有关对象的类型的信息和存储在对象中数据的类型。</p>
-<p>对应的流是ObjectOutputStream，ObjectInputStream。static变量, transient不会序列化，static final会序列化。实现这两个接口的类可以序列化：Serializible ,Externalizible。</p>
-<p>如果想自己控制一部分序列化的过程，可以在需要序列化的类种加入private级别的readObject()和writeObject()方法，这两个方法再ObjectInputStream和ObjectOutputStream中会反射调用。write和read的顺序必须一致。使用实现Externalizible接口来序列化，序列化的过程完全可控。</p>
-<p>如果需要序列化的对象使用了Signleton模式，（序列化前的对象 == 序列化后的对象）=false,如果要使这两者相等，可以在Singleton类种加入readResolve()方法，在这个方法中返回Signleton对象替换掉在流中创建的对象。——这些都是在同一个jvm中才有用</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;NIO概述&quot;&gt;&lt;a href=&quot;#NIO概述&quot; class=&quot;headerlink&quot; title=&quot;NIO概述&quot;&gt;&lt;/a&gt;NIO概述&lt;/h1&gt;&lt;p&gt;Java NIO: Non-blocking IO（非阻塞IO）是jdk 1.4提出的，简单的理解就是使用nio api读写数据的时候不会等待把所有数据读写完再返回(所以读写的时候应该使用while循环不断尝试读写数据)。NIO中关键的三个概念是通道，缓冲区，选择器。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="java" scheme="http://thinerzq.com/categories/java/"/>
-    
-    
-      <category term="nio" scheme="http://thinerzq.com/tags/nio/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java 多线程学习</title>
-    <link href="http://thinerzq.com/2016/07/09/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
-    <id>http://thinerzq.com/2016/07/09/java多线程学习报告/</id>
-    <published>2016-07-09T01:08:06.000Z</published>
-    <updated>2016-08-14T14:28:18.696Z</updated>
-    
-    <content type="html"><![CDATA[<ol>
-<li><p>ConcurrentHashMap：线程安全HashMap，分段锁。put(),remove()加锁，size()三次后再加锁</p>
-</li>
-<li><p>CopyOnWriteArrayList：线程安全，读无锁的ArrayList,使用ReentrantLock, 每次add，remove都是新创建一个数组，复制元素到新的数组，最后切换全局数组引用。适用于多读少写</p>
-</li>
-<li><p>CopyOnWriteArraySet：通过CopyOnWriteSet实现，add()的时候会遍历整个数组判断数组是否存在这个值，因此性能略低于CopyOnWriteArrayList</p>
-</li>
-<li><p>ArrayBlockingQueue： 基于数组，ReentrantLock,Condition实现的有界队列。add(E e):队满，抛异常。put(E e):队满，阻塞。offer(E e):队满，返回false。remove()，take()，poll()。和上面对应。</p>
-</li>
-<li><p>LinkedBlockingQueue：基于链表，读写锁分离，遍历同时锁。此按FIFO （先进先出） 排序元素，吞吐量通常要高于ArrayBlockingQueue。</p>
-</li>
-<li><p>SynchronousQueue：一个不存储元素的阻塞队列。每个插入操作必须等到另一个线程调用移除操作，否则插入操作一直处于阻塞状态，吞吐量通常要高于LinkedBlockingQueue。</p>
-</li>
-<li><p>PriorityBlockingQueue：一个具有优先级的无限阻塞队列。</p>
-</li>
-<li><p>Atomic：支持原子操作的类，由硬件指令cmpxchg提供CAS支持（简单来说，先使用一个期望值和一个变量的当前值进行比较，如果当前变量的值与期望的值相等，就使用一个新值替换当前变量的值）,比synchronize性能高出2倍。实现类有AtomicBoolean，AtomicInteger，AtomicIntegerArray，AtomicLong，AtomicLongArray，AtomicReference，AtomicReferenceArray等。需要注意的是ABA问题，可以通过AtomicStampedReference解决。</p>
-</li>
-<li><p>线程池<br>线程池就是有一堆线程，随时可以取一个线程出来用。学习线程池最好的方法就是从线程池的构造函数开始看。一个线程池的关注点在构造函数中的几个参数。常用的Executor类的几个方法都是返回一个的ThreadPoolExecutor，这些ThreadPoolExecutor的构造函数的参数各不相同。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">ThreadPoolExecutor</span><span class="params">(<span class="keyword">int</span> corePoolSize,<span class="keyword">int</span> maximumPoolSize,<span class="keyword">long</span> keepAliveTime,TimeUnit unit,  BlockingQueue&lt;Runnable&gt; workQueue,ThreadFactory threadFactory,RejectedExecutionHandler handler)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (corePoolSize &lt; <span class="number">0</span> ||</div><div class="line">            maximumPoolSize &lt;= <span class="number">0</span> ||</div><div class="line">            maximumPoolSize &lt; corePoolSize ||</div><div class="line">            keepAliveTime &lt; <span class="number">0</span>)</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException();</div><div class="line">        <span class="keyword">if</span> (workQueue == <span class="keyword">null</span> || threadFactory == <span class="keyword">null</span> || handler == <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</div><div class="line">        <span class="keyword">this</span>.corePoolSize = corePoolSize;</div><div class="line">        <span class="keyword">this</span>.maximumPoolSize = maximumPoolSize;</div><div class="line">        <span class="keyword">this</span>.workQueue = workQueue;</div><div class="line">        <span class="keyword">this</span>.keepAliveTime = unit.toNanos(keepAliveTime);</div><div class="line">        <span class="keyword">this</span>.threadFactory = threadFactory;</div><div class="line">        <span class="keyword">this</span>.handler = handler;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<ol>
-<li><p>corePoolSize： 线程池维护线程的最少数量：当提交一个任务到线程池时，线程池会创建一个线程来执行任务，即使其他空闲的基本线程能够执行新任务也会创建线程，等到需要执行的任务数大于线程池基本大小时就不再创建。如果调用了线程池的prestartAllCoreThreads方法，线程池会提前创建并启动所有基本线程。</p>
-</li>
-<li><p>maximumPoolSize：线程池维护线程的最大数量：线程池允许创建的最大线程数。如果队列满了，并且已创建的线程数小于最大线程数，则线程池会再创建新的线程执行任务。如果使用了无界的任务队列这个参数就没什么效果。</p>
-</li>
-<li><p>keepAliveTime： 线程池维护线程所允许的空闲时间：线程池的工作线程空闲后，保持存活的时间。所以如果任务很多，并且每个任务执行的时间比较短，可以调大这个时间，提高线程的利用率。</p>
-</li>
-<li><p>unit： 线程池维护线程所允许的空闲时间的单位：可选的单位有天（DAYS），小时（HOURS），分钟（MINUTES），毫秒(MILLISECONDS)，微秒(MICROSECONDS, 千分之一毫秒)和毫微秒(NANOSECONDS, 千分之一微秒)。</p>
-</li>
-<li><p>workQueue： 线程池所使用的缓冲队列。</p>
-</li>
-<li><p>threadFactory：线程池创建线程的工厂：可以通过线程工厂给每个创建出来的线程设置更有意义的名字。</p>
-</li>
-<li><p>handler： 线程池对拒绝任务的处理策略：AbortPolicy：直接抛出异常。<br>CallerRunsPolicy：只用调用者所在线程来运行任务。<br>DiscardOldestPolicy：丢弃队列里最近的一个任务，并执行当前任务。<br>DiscardPolicy：不处理，丢弃掉。<br>当然也可以根据应用场景需要来实现RejectedExecutionHandler接口自定义策略。如记录日志或持久化不能处理的任务。</p>
-</li>
-</ol>
-</li>
-<li><p>Executors：对ThreadPoolExecutor再封装。</p>
-<ol>
-<li><p>nexFixedThreadPool(int) :直接创建固定大小的线程池，keepAlive=0，超过LinkedBlockingQueue的最大范围拒绝</p>
-</li>
-<li><p>newSingleThreadExecutor:线程只有1个，其他的等待</p>
-</li>
-<li><p>newCachedThreadPool:corePoolSize=0,keepAlive=60s,SynchronousQueue,最大线程未Integer.Max_Value</p>
-</li>
-<li><p>newScheduledThreadPool(int):DelayedWorkQueue:会对新加入的任务按照执行时间排序</p>
-</li>
-</ol>
-</li>
-<li><p>FutureTask：异步获取执行结果，保证只执行一次，可取消任务。</p>
-</li>
-<li>Semaphore：控制某资源同时被访问的个数的类，通过构造函数可以达到公平访问和非公平访问，默认非公平。如果把资源那个数设置为1,可以达到锁的效果。</li>
-<li>CountDownLatch：用于多个线程同时开始某一个动作，每个线程执行的时候，计数器-1，如果计数器为0，位于latch.await()后面代码才会执行。一般用来等待任务执行完毕</li>
-<li><p>CyclicBarrier: 和CountDownLatch刚好反过来，它是当await()的数量达到一定，才继续往后执行，另外还能设置一个回调：当await()达到一定数量后，开始执行回调的Runable对象</p>
-</li>
-<li><p>ReentrantLock：ReentrantLock提供了公平锁和非公平锁，lock().trylock(),trylockInterrupted, tryLock(time)等方法</p>
-</li>
-<li><p>Condition： 一般和RenentrantLock配合使用，可在同一个锁上启用多个Condition,用于等待，通知操作。</p>
-</li>
-<li><p>和ReentrantLock没有任何继承关系    ，提供了读写锁分离。读的时候如果没有线程写就直接获取，读操作是无阻赛的。写的时候如果有其他线程在读或者写就会被阻塞。在同一线程中，持有读锁后不能调用写锁的lock方法（会死锁）：读锁不可升级。同一个线程中，持有写锁后，可以调用读锁的lock方法，之后如果调用写锁的unlock(0方法，当前锁降级为读锁。适用于读多写少</p>
-</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;ConcurrentHashMap：线程安全HashMap，分段锁。put(),remove()加锁，size()三次后再加锁&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;CopyOnWriteArrayList：线程安全，读无锁的ArrayList,使用Reent
-    
-    </summary>
-    
-      <category term="java" scheme="http://thinerzq.com/categories/java/"/>
-    
-    
-      <category term="多线程" scheme="http://thinerzq.com/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
     <title>linux里面一些文件或者目录的作用</title>
-    <link href="http://thinerzq.com/2016/05/29/linux%E9%87%8C%E9%9D%A2%E4%B8%80%E4%BA%9B%E6%96%87%E4%BB%B6%E6%88%96%E7%9B%AE%E5%BD%95%E7%9A%84%E4%BD%9C%E7%94%A8/"/>
-    <id>http://thinerzq.com/2016/05/29/linux里面一些文件或目录的作用/</id>
+    <link href="http://thinerzq.com/2016/05/29/linux/linux%E9%87%8C%E9%9D%A2%E4%B8%80%E4%BA%9B%E6%96%87%E4%BB%B6%E6%88%96%E7%9B%AE%E5%BD%95%E7%9A%84%E4%BD%9C%E7%94%A8/"/>
+    <id>http://thinerzq.com/2016/05/29/linux/linux里面一些文件或目录的作用/</id>
     <published>2016-05-29T12:58:06.000Z</published>
-    <updated>2016-05-30T16:09:49.782Z</updated>
+    <updated>2016-09-09T03:11:53.861Z</updated>
     
     <content type="html"><![CDATA[<p>linux里面文件或者目录作用索引表</p>
 <a id="more"></a>
@@ -1768,10 +1784,10 @@
   
   <entry>
     <title>mysql存储引擎</title>
-    <link href="http://thinerzq.com/2016/05/10/mysql%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/"/>
-    <id>http://thinerzq.com/2016/05/10/mysql存储引擎/</id>
+    <link href="http://thinerzq.com/2016/05/10/mysql/mysql%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/"/>
+    <id>http://thinerzq.com/2016/05/10/mysql/mysql存储引擎/</id>
     <published>2016-05-10T13:22:44.000Z</published>
-    <updated>2016-05-30T16:01:53.530Z</updated>
+    <updated>2016-09-09T03:13:33.792Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>mysql&gt; select version();<br>+—————–+<br>| version()       |<br>+—————–+<br>| 5.7.12-0ubuntu1 |<br>+—————–+</p>
@@ -1890,16 +1906,18 @@
       <category term="mysql" scheme="http://thinerzq.com/categories/mysql/"/>
     
     
-      <category term="mysql 存储引擎" scheme="http://thinerzq.com/tags/mysql-%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/"/>
+      <category term="mysql" scheme="http://thinerzq.com/tags/mysql/"/>
+    
+      <category term="存储引擎" scheme="http://thinerzq.com/tags/%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/"/>
     
   </entry>
   
   <entry>
     <title>linux命令大全</title>
-    <link href="http://thinerzq.com/2016/05/06/linux%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/"/>
-    <id>http://thinerzq.com/2016/05/06/linux命令大全/</id>
+    <link href="http://thinerzq.com/2016/05/06/linux/linux%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/"/>
+    <id>http://thinerzq.com/2016/05/06/linux/linux命令大全/</id>
     <published>2016-05-06T05:34:00.000Z</published>
-    <updated>2016-05-29T13:21:38.394Z</updated>
+    <updated>2016-09-09T03:12:12.056Z</updated>
     
     <content type="html"><![CDATA[<p>主要是为了通过命令的目的或者全名，理解记忆各个命令的功能</p>
 <a id="more"></a>
@@ -2255,16 +2273,18 @@
       <category term="linux" scheme="http://thinerzq.com/categories/linux/"/>
     
     
-      <category term="linux order" scheme="http://thinerzq.com/tags/linux-order/"/>
+      <category term="linux" scheme="http://thinerzq.com/tags/linux/"/>
+    
+      <category term="order" scheme="http://thinerzq.com/tags/order/"/>
     
   </entry>
   
   <entry>
     <title>linux杂记</title>
-    <link href="http://thinerzq.com/2016/05/06/linux%E6%9D%82%E8%AE%B0/"/>
-    <id>http://thinerzq.com/2016/05/06/linux杂记/</id>
+    <link href="http://thinerzq.com/2016/05/06/linux/linux%E6%9D%82%E8%AE%B0/"/>
+    <id>http://thinerzq.com/2016/05/06/linux/linux杂记/</id>
     <published>2016-05-06T05:31:06.000Z</published>
-    <updated>2016-05-29T13:16:59.834Z</updated>
+    <updated>2016-09-09T03:12:26.705Z</updated>
     
     <content type="html"><![CDATA[<p>linux 中的一些琐碎知识点<br><a id="more"></a></p>
 <h1 id="目录标识："><a href="#目录标识：" class="headerlink" title="目录标识："></a>目录标识：</h1><table>
@@ -2323,10 +2343,10 @@
   
   <entry>
     <title>linux 文件与目录权限问题</title>
-    <link href="http://thinerzq.com/2016/05/06/linux-%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98/"/>
-    <id>http://thinerzq.com/2016/05/06/linux-文件与目录权限问题/</id>
+    <link href="http://thinerzq.com/2016/05/06/linux/linux-%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98/"/>
+    <id>http://thinerzq.com/2016/05/06/linux/linux-文件与目录权限问题/</id>
     <published>2016-05-06T05:02:31.000Z</published>
-    <updated>2016-05-30T16:02:29.126Z</updated>
+    <updated>2016-09-09T03:11:40.965Z</updated>
     
     <content type="html"><![CDATA[<h1 id="File"><a href="#File" class="headerlink" title="File"></a>File</h1><table>
 <thead>
@@ -2432,16 +2452,20 @@
       <category term="linux" scheme="http://thinerzq.com/categories/linux/"/>
     
     
-      <category term="linux file permission" scheme="http://thinerzq.com/tags/linux-file-permission/"/>
+      <category term="linux" scheme="http://thinerzq.com/tags/linux/"/>
+    
+      <category term="file" scheme="http://thinerzq.com/tags/file/"/>
+    
+      <category term="permission" scheme="http://thinerzq.com/tags/permission/"/>
     
   </entry>
   
   <entry>
     <title>多线程知识点总结</title>
-    <link href="http://thinerzq.com/2016/05/04/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/"/>
-    <id>http://thinerzq.com/2016/05/04/多线程知识点总结/</id>
+    <link href="http://thinerzq.com/2016/05/04/java/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/"/>
+    <id>http://thinerzq.com/2016/05/04/java/多线程知识点总结/</id>
     <published>2016-05-04T01:08:06.000Z</published>
-    <updated>2016-05-13T14:22:17.518Z</updated>
+    <updated>2016-09-09T03:01:09.513Z</updated>
     
     <content type="html"><![CDATA[<p>java多线程中一些零碎的知识点总结</p>
 <a id="more"></a>
