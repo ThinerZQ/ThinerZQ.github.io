@@ -308,6 +308,146 @@
             
               
                 
+                <a class="post-title-link" href="/2016/05/03/java线程池的实现总结/" itemprop="url">
+                  java线程池的实现总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-03T16:19:38+08:00" content="2016-05-03">
+              2016-05-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/03/java线程池的实现总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/03/java线程池的实现总结/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/05/03/java线程池的实现总结/" class="leancloud_visitors" data-flag-title="java线程池的实现总结">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="Thread-和Runnable-的区别"><a href="#Thread-和Runnable-的区别" class="headerlink" title="Thread 和Runnable 的区别"></a>Thread 和Runnable 的区别</h1><p>学了这么久的多线程，始终有一点迷惑</p>
+<blockquote>
+<p>往线程池里面提交的时候，提交的是一个实现了Runnable接口的对象，本来提交的时候就是一个Runnable,那么怎么实现线程复用。</p>
+</blockquote>
+<p>产生这个迷惑的原因是没有弄明白Thread 和Runnable的区别。</p>
+<p>java中真正的线程执行类是Thread  </p>
+<p>Runnable（可运行的）只是一个接口，中间定义了run()方法，实现了这个接口的类，实现了run()方法，通过把这个实现类交给Thread对象去运行。  </p>
+<p>thread.start()方法里调用了start0()这个native函数来实现.start()函数的注释上写着，java虚拟机会自动调用这个线程的run()方法，然并卵。  </p>
+<p>请看thread里面的run()怎么写的，如果target(一个Runnable实例对象)不为空，他就调用其中的run()方法。我相信start0()这个native方法里面肯定取调用了run()方法。见如下的代码</p>
+<p>也可以把Runnable理解成只是JDK给出的一个标识性接口而已。看网上说了那么多都是浮云。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/03/java线程池的实现总结/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/05/03/synchronized和ReentrantLock区别与联系/" itemprop="url">
                   synchronized和ReentrantLock区别与联系
                 </a>
@@ -1701,139 +1841,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/03/25/实习面试碰到的问题/" itemprop="url">
-                  实习面试碰到的问题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-25T10:27:44+08:00" content="2016-03-25">
-              2016-03-25
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/杂谈/" itemprop="url" rel="index">
-                    <span itemprop="name">杂谈</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/03/25/实习面试碰到的问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/25/实习面试碰到的问题/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/03/25/实习面试碰到的问题/" class="leancloud_visitors" data-flag-title="实习面试碰到的问题">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>最近找实习，被问到了不少问题，来记录一下，第一次面试面的腾讯，先从腾讯说起吧</p>
-<h1 id="腾讯一电面"><a href="#腾讯一电面" class="headerlink" title="腾讯一电面"></a>腾讯一电面</h1><p> 由于是第一次电面，当时4点过，我在外面吃饭，接着电话找了一个角落开始聊了</p>
-<p> 先是自我介绍，巴拉巴拉<br> 然后问了我的研究方向，我简单的介绍了一个之后，越问越深，你的研究方向里面有哪些算法啊，介绍一下啊……<br> 然后问了数据库的三大范式<br> 然后问了一道算法，关于爬楼梯的：一次只能爬1级和2级台阶，问到第N 级台阶有多少种爬法，这题还好，以前在了leetcode上刷过，属于简单类型，当时想了一下就答上来了。<br> 然后问了操作系统怎么做内存管理，程序是怎么被转入内存的，怎么切换的。我简单的说了一下，说的不详细也就这样过去了。这段时间一直忙着写论文，根本没复习过好嘛。<br> 然后问了设计模型的单例模式怎么实现的，我回答饿汉和懒汉，然后简单的解释了一下。后来回来百度才发现有5中实现方式…..<br> 然后问了java中hashmap 和hashtable的区别，这个比较好说。<br> 然后问了TCP/IP 三次握手，四次挥手，为什么要3次，2次行不行。这是老问题了。<br> 然后….想不起来了。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/25/实习面试碰到的问题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1879,7 +1886,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">41</span>
+              <span class="site-state-item-count">42</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1896,7 +1903,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
