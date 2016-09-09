@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="leetcode,math," />
 
 
 
@@ -86,15 +86,19 @@
 
 
 
-<meta name="description" content="为万世开太平，为圣贤继绝学">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ThinerZQ's Blog">
-<meta property="og:url" content="http://thinerzq.com/tags/permission/index.html">
+<meta name="description" content="题目描述Given an integer n, return the number of trailing zeroes in n!.
+Note: Your solution should be in logarithmic time complexity.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="172. Factorial Trailing Zeroes">
+<meta property="og:url" content="http://thinerzq.com/2016/09/09/leetcode/172-Factorial Trailing Zeroes/index.html">
 <meta property="og:site_name" content="ThinerZQ's Blog">
-<meta property="og:description" content="为万世开太平，为圣贤继绝学">
+<meta property="og:description" content="题目描述Given an integer n, return the number of trailing zeroes in n!.
+Note: Your solution should be in logarithmic time complexity.">
+<meta property="og:updated_time" content="2016-09-09T06:12:16.177Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ThinerZQ's Blog">
-<meta name="twitter:description" content="为万世开太平，为圣贤继绝学">
+<meta name="twitter:title" content="172. Factorial Trailing Zeroes">
+<meta name="twitter:description" content="题目描述Given an integer n, return the number of trailing zeroes in n!.
+Note: Your solution should be in logarithmic time complexity.">
 
 
 
@@ -115,7 +119,7 @@
 
 
 
-  <title> 标签: permission | ThinerZQ's Blog </title>
+  <title> 172. Factorial Trailing Zeroes | ThinerZQ's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -146,7 +150,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -284,53 +288,244 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        permission
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                172. Factorial Trailing Zeroes
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-09T13:49:06+08:00" content="2016-09-09">
+              2016-09-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/09/leetcode/172-Factorial Trailing Zeroes/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/09/leetcode/172-Factorial Trailing Zeroes/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/09/leetcode/172-Factorial Trailing Zeroes/" class="leancloud_visitors" data-flag-title="172. Factorial Trailing Zeroes">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o">本站总阅读量</i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Given an integer n, return the number of trailing zeroes in n!.</p>
+<p>Note: Your solution should be in logarithmic time complexity.</p>
+<a id="more"></a>
+<h1 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h1><h2 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h2><p>煞笔的纯粹计算出n的阶乘，然后取出最后的0的个数，这样会导致n太大溢出。</p>
+<h2 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h2><p>n! 除了1以外必然是合数，合数可以做质因数分解，n!分解质因数的表达式如下：</p>
+<blockquote>
+<p>n! = 2^x <em> 3^y </em> 5^z * …</p>
+</blockquote>
+<p>一个数末尾0的个数，取决于它的质因子中2和5的个数的最小值，对于本题就是min(x,z)=z</p>
+<p>证明:<br>证明：</p>
+<pre>
+对于阶乘而言，也就是1*2*3*...
+[n/k]代表1~n中能被k整除的个数
+那么很显然
+[n/2] > [n/5] (左边是逢2增1，右边是逢5增1)
+[n/2^2] > [n/5^2](左边是逢4增1，右边是逢25增1)
+……
+[n/2^p] > [n/5^p](左边是逢2^p增1，右边是逢5^p增1)
+随着幂次p的上升，出现2^p的概率会远大于出现5^p的概率。
+因此左边的加和一定大于右边的加和，也就是n!质因数分解中，2的次幂一定大于5的次幂
+</pre>
 
-      <h1 class="post-title">
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">zeroes</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">       <span class="keyword">int</span> sum=<span class="number">0</span>;</div><div class="line">       <span class="keyword">int</span> count =<span class="number">0</span>;</div><div class="line">       <span class="keyword">int</span> k=n;</div><div class="line">       <span class="keyword">while</span> (n&gt;<span class="number">0</span>)&#123;</div><div class="line">           n=n/<span class="number">5</span>;</div><div class="line">           count++;</div><div class="line">       &#125;</div><div class="line">       count--;</div><div class="line">       <span class="keyword">while</span> (count&gt;<span class="number">0</span>)&#123;</div><div class="line">           sum+= (k/(Math.pow(<span class="number">5</span>,count--)));</div><div class="line">       &#125;</div><div class="line">       <span class="keyword">return</span> sum;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/05/06/linux/linux-文件与目录权限问题/" itemprop="url">
-              
-                <span itemprop="name">linux 文件与目录权限问题</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat_pay.png" alt="Monet Zheng WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/zhifubao_pay.jpg" alt="Monet Zheng Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-05-06T13:02:31+08:00"
-              content="2016-05-06" >
-          05-06
-        </time>
-      </div>
 
-    </header>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/leetcode/" rel="tag">#leetcode</a>
+          
+            <a href="/tags/math/" rel="tag">#math</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/09/leetcode/26-Remove-Duplicates-from-Sorted-Array/" rel="next" title="26.Remove Duplicates from Sorted Array">
+                <i class="fa fa-chevron-left"></i> 26.Remove Duplicates from Sorted Array
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/09/09/leetcode/172-Factorial Trailing Zeroes/"
+     data-title="172. Factorial Trailing Zeroes"
+     data-content=""
+     data-url="http://thinerzq.com/2016/09/09/leetcode/172-Factorial Trailing Zeroes/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
           </div>
           
 
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/09/leetcode/172-Factorial Trailing Zeroes/"
+           data-title="172. Factorial Trailing Zeroes" data-url="http://thinerzq.com/2016/09/09/leetcode/172-Factorial Trailing Zeroes/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -350,8 +545,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://avatars3.githubusercontent.com/u/10881023?v=3&s=460"
@@ -479,6 +683,17 @@
       </section>
 
       
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解题"><span class="nav-number">2.</span> <span class="nav-text">解题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解法一"><span class="nav-number">2.1.</span> <span class="nav-text">解法一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解法二"><span class="nav-number">2.2.</span> <span class="nav-text">解法二</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">2.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
 
     </div>
   </aside>
@@ -597,6 +812,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
