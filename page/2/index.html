@@ -308,6 +308,425 @@
             
               
                 
+                <a class="post-title-link" href="/2016/07/25/AliBaBa/metaQ学习报告/" itemprop="url">
+                  MetaQ(RocketMQ)学习
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-25T09:08:06+08:00" content="2016-07-25">
+              2016-07-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/MetaQ/" itemprop="url" rel="index">
+                    <span itemprop="name">MetaQ</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/25/AliBaBa/metaQ学习报告/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/25/AliBaBa/metaQ学习报告/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/25/AliBaBa/metaQ学习报告/" class="leancloud_visitors" data-flag-title="MetaQ(RocketMQ)学习">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="1-消息中间件解决的问题"><a href="#1-消息中间件解决的问题" class="headerlink" title="1. 消息中间件解决的问题"></a>1. 消息中间件解决的问题</h1><p>消息中间件的核心作用就是三点：解耦，异步和并行，其中解耦是目的，异步和并行是表现形式。生产者和消费者彼此没有直接依赖，同步化解成了异步，大大减少了等待时间。例如：手机验证码的发送，当点击发送验证码的时候，只需要Client发送一条消息：{topic:sendVerifyCode,to:155xxxxxxxx,..}到消息中间件，消息中间件返回Client ok;然后消息中间件会将这条消息转发给订阅了这一个topic的Consumer，由Consumer去执行发送验证码的任务。由此看出消息中间主要做了三件事：接收消息+存储消息+转发消息。</p>
+<h1 id="2-JMS-与-MetaQ"><a href="#2-JMS-与-MetaQ" class="headerlink" title="2. JMS 与 MetaQ"></a>2. JMS 与 MetaQ</h1><ol>
+<li><p><strong>消息传递方式</strong><br>JMS：1 基于队列的点对点消费模型，2 基于发布/订阅的消费模型<br>MetaQ： 只有发布/订阅的消费方式</p>
+</li>
+<li><p><strong>消息类型</strong><br>JMS：TextMessage、MapMessage、BytesMessage，StreamMessage、ObjectMessage。<br>MetaQ：Message。</p>
+</li>
+<li><p><strong>消息持久性</strong><br>JMS：持久订阅，指示 JMS provider 持久保存消息，以保证消息不会因为 JMS provider 的失败而丢失。非持久订阅， 不要求 JMS provider 持久保存消息。<br>MetaQ 的消息都是持久性的</p>
+</li>
+<li><p>API<br>JMS：定义了消息中间件的生产端 api 和消费端 api，这些 api 都是约定的接口。<br>MetaQ：没有遵从JMS的定义，自己搞了一套。</p>
+</li>
+</ol>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/25/AliBaBa/metaQ学习报告/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/22/AliBaBa/HSF学习报告/" itemprop="url">
+                  HSF学习
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-22T09:08:06+08:00" content="2016-07-22">
+              2016-07-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/HSF/" itemprop="url" rel="index">
+                    <span itemprop="name">HSF</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/22/AliBaBa/HSF学习报告/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/22/AliBaBa/HSF学习报告/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/22/AliBaBa/HSF学习报告/" class="leancloud_visitors" data-flag-title="HSF学习">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>HSF(High-Speed Service Framework)，是一个高性能的分布式服务框架。一个分布式框架提供的最基本的功能就是远程调用（A机器调用B机器上的一个对象的方法，B机器将方法到返回值发送回A机器）。HSF面向接口编程，以“Service”的形式进行远程调用，简单的说就是接口的具体实现(服务)运行在服务器上，服务器将这些接口暴露出来，客户端拿到这些接口之后通过接口调用具体的服务。在服务发布和调用过程中主要涉及到下面这些知识。</p>
+<h1 id="1-服务注册"><a href="#1-服务注册" class="headerlink" title="1.服务注册"></a>1.服务注册</h1><p>服务注册的基本要素就是</p>
+<h2 id="1-1-将服务metadata发布到ConfigServer上"><a href="#1-1-将服务metadata发布到ConfigServer上" class="headerlink" title="1.1 将服务metadata发布到ConfigServer上"></a>1.1 将服务metadata发布到ConfigServer上</h2><p>ConfigServer就是存放ServiceID – ip地址映射关系(多对多)的机器，服务的元信息包括在HSFSpringProviderBean中配置的信息和服务所在的ip地址。服务的发布流程非常复杂</p>
+<p>首先在beans里面配置一个HSFSpringProviderBean以及一些属性，必要的有serviceInterface和target。在HSFSpringProviderBean里面还包装了一层 HSFApiProviderBean,HSFApiProviderBean里面包装了ServiceMetadata元数据类（关于服务的配置信息基本都在这儿）和MetadataService类，当所有配置的属性初始化完成之后，就开始调用init方法做一些发布之前的配置信息检查，再调用publish方法准备发布服务（这里面涉及到一个HSFServiceContainer单例类），通过HSFServiceContainer得到ProcessComponent的对象，调用ProcessComponent.publish()方法正真的发布服务.实际的发布过程挺复杂。</p>
+<h2 id="1-2-将服务对象注册到本地Server容器，"><a href="#1-2-将服务对象注册到本地Server容器，" class="headerlink" title="1.2. 将服务对象注册到本地Server容器，"></a>1.2. 将服务对象注册到本地Server容器，</h2><p>将某一个接口的具体实现注册到本地的Server容器里面，等待客户端调用</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/22/AliBaBa/HSF学习报告/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/20/ibatis/ibatis学习报告/" itemprop="url">
+                  Ibatis学习
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-20T09:08:06+08:00" content="2016-07-20">
+              2016-07-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/ibatis/" itemprop="url" rel="index">
+                    <span itemprop="name">ibatis</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/20/ibatis/ibatis学习报告/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/20/ibatis/ibatis学习报告/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/20/ibatis/ibatis学习报告/" class="leancloud_visitors" data-flag-title="Ibatis学习">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="iBatis-简介："><a href="#iBatis-简介：" class="headerlink" title="iBatis 简介："></a>iBatis 简介：</h1><p>iBatis 是apache 的一个开源项目(2010后改名为Mybatis)，一个半自动化的O/R Mapping 解决方案，iBatis 最大的特点就是小巧，上手很快。<br>适用于以下场景：</p>
+<ol>
+<li>系统的部分或全部数据来自现有数据库，出于安全考虑，只对开发团队提供几条Select SQL（或存储过程）以获取所需数据，具体的表结构不予公开。</li>
+<li>开发规范中要求，所有牵涉到业务逻辑部分的数据库操作，必须在数据库层由存储过程实现</li>
+<li>系统数据处理量巨大，性能要求极为苛刻，这往往意味着必须通过经过高度优化的SQL语句才能达到系统性能设计指标。</li>
+</ol>
+<p>ORM框架都是在JDBC层面上的封装，把如下的jdbc代码分解到不同的步骤去执行，以达到流程化，可定制，方便配置管理的目的。<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Class.forName(<span class="string">"com.mysql.jdbc.Driver"</span>);</div><div class="line">Connection conn= DriverManager.getConnection(url,user,password);</div><div class="line">PreparedStatement  st = conn.prepareStatement(sql);</div><div class="line">st.setInt(<span class="number">0</span>,<span class="number">1</span>);</div><div class="line">st.execute();</div><div class="line">ResultSet rs =  st.getResultSet();</div><div class="line"><span class="keyword">while</span>(rs.next())&#123;</div><div class="line">    String result = rs.getString(colname);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>iBatis主要做了两件事:</p>
+<ul>
+<li>根据 JDBC 规范建立与数据库的连接</li>
+<li>通过反射打通 Java 对象与数据库参数交互之间相互转化关系。</li>
+</ul>
+<p>iBATIS的一个重要组成部分就是其 SqlMap 配置文件，SqlMap 配置文件的核心是 Statement 语句包括CRUD。 iBATIS 通过解析 SqlMap 配置文件得到所有的 sql 执行语句，同时会形成 ParameterMap、ResultMap 两个对象用于处理sql语句中的参数和sql语句执行后的ResultSet–&gt;Object的构造。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/20/ibatis/ibatis学习报告/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/11/java/jvm学习报告/" itemprop="url">
                   Jvm学习
                 </a>
@@ -397,6 +816,137 @@
 </ol>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/07/11/java/jvm学习报告/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/09/spring/spring学习报告/" itemprop="url">
+                  Spring基础学习
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-09T09:08:06+08:00" content="2016-07-09">
+              2016-07-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/spring/" itemprop="url" rel="index">
+                    <span itemprop="name">spring</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/09/spring/spring学习报告/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/09/spring/spring学习报告/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/09/spring/spring学习报告/" class="leancloud_visitors" data-flag-title="Spring基础学习">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>通常说的Spring其实指的是Spring Framework，它是Spring下的一个子项目，Spring围绕Spring Framework这个核心项目开发了大量其他项目，比如Spring Security，Spring Data，Spring Boot等. Spring Framework包括他的核心解决方案IoC容器、 AOP。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/09/spring/spring学习报告/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -676,268 +1226,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/07/09/java/java nio学习报告/" itemprop="url">
-                  Java NIO学习
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-09T09:08:06+08:00" content="2016-07-09">
-              2016-07-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/09/java/java nio学习报告/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/09/java/java nio学习报告/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/07/09/java/java nio学习报告/" class="leancloud_visitors" data-flag-title="Java NIO学习">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="NIO概述"><a href="#NIO概述" class="headerlink" title="NIO概述"></a>NIO概述</h1><p>Java NIO: Non-blocking IO（非阻塞IO）是jdk 1.4提出的，简单的理解就是使用nio api读写数据的时候不会等待把所有数据读写完再返回(所以读写的时候应该使用while循环不断尝试读写数据)。NIO中关键的三个概念是通道，缓冲区，选择器。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/09/java/java nio学习报告/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/09/spring/spring学习报告/" itemprop="url">
-                  Spring基础学习
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-09T09:08:06+08:00" content="2016-07-09">
-              2016-07-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/spring/" itemprop="url" rel="index">
-                    <span itemprop="name">spring</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/09/spring/spring学习报告/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/09/spring/spring学习报告/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/07/09/spring/spring学习报告/" class="leancloud_visitors" data-flag-title="Spring基础学习">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>通常说的Spring其实指的是Spring Framework，它是Spring下的一个子项目，Spring围绕Spring Framework这个核心项目开发了大量其他项目，比如Spring Security，Spring Data，Spring Boot等. Spring Framework包括他的核心解决方案IoC容器、 AOP。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/09/spring/spring学习报告/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/07/09/java/java多线程学习报告/" itemprop="url">
                   Java 多线程学习
                 </a>
@@ -1080,6 +1368,137 @@
 </ol>
 
           
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/09/java/java nio学习报告/" itemprop="url">
+                  Java NIO学习
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-09T09:08:06+08:00" content="2016-07-09">
+              2016-07-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/09/java/java nio学习报告/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/09/java/java nio学习报告/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/09/java/java nio学习报告/" class="leancloud_visitors" data-flag-title="Java NIO学习">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="NIO概述"><a href="#NIO概述" class="headerlink" title="NIO概述"></a>NIO概述</h1><p>Java NIO: Non-blocking IO（非阻塞IO）是jdk 1.4提出的，简单的理解就是使用nio api读写数据的时候不会等待把所有数据读写完再返回(所以读写的时候应该使用while循环不断尝试读写数据)。NIO中关键的三个概念是通道，缓冲区，选择器。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/09/java/java nio学习报告/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1370,443 +1789,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/06/linux/linux命令大全/" itemprop="url">
-                  linux命令大全
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-06T13:34:00+08:00" content="2016-05-06">
-              2016-05-06
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index">
-                    <span itemprop="name">linux</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/06/linux/linux命令大全/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/06/linux/linux命令大全/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/05/06/linux/linux命令大全/" class="leancloud_visitors" data-flag-title="linux命令大全">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>主要是为了通过命令的目的或者全名，理解记忆各个命令的功能</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/06/linux/linux命令大全/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/06/linux/linux杂记/" itemprop="url">
-                  linux杂记
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-06T13:31:06+08:00" content="2016-05-06">
-              2016-05-06
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index">
-                    <span itemprop="name">linux</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/06/linux/linux杂记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/06/linux/linux杂记/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/05/06/linux/linux杂记/" class="leancloud_visitors" data-flag-title="linux杂记">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>linux 中的一些琐碎知识点<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/06/linux/linux杂记/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/06/linux/linux-文件与目录权限问题/" itemprop="url">
-                  linux 文件与目录权限问题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-06T13:02:31+08:00" content="2016-05-06">
-              2016-05-06
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index">
-                    <span itemprop="name">linux</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/06/linux/linux-文件与目录权限问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/06/linux/linux-文件与目录权限问题/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/05/06/linux/linux-文件与目录权限问题/" class="leancloud_visitors" data-flag-title="linux 文件与目录权限问题">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="File"><a href="#File" class="headerlink" title="File"></a>File</h1><table>
-<thead>
-<tr>
-<th style="text-align:center">权限</th>
-<th style="text-align:center">作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">r</td>
-<td style="text-align:center">读取文件类容</td>
-</tr>
-<tr>
-<td style="text-align:center">w</td>
-<td style="text-align:center">编辑，新增，或者修改文件类容（不能删除）</td>
-</tr>
-<tr>
-<td style="text-align:center">x</td>
-<td style="text-align:center">可执行，不代表能执行成功</td>
-</tr>
-</tbody>
-</table>
-<h1 id="Directory"><a href="#Directory" class="headerlink" title="Directory"></a>Directory</h1><table>
-<thead>
-<tr>
-<th style="text-align:center">权限</th>
-<th style="text-align:center">作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">r</td>
-<td style="text-align:center">读取目录结构列表的权限，查询该目录下的文件名列表，只能用ls看文件名，文件的其他属性看不到</td>
-</tr>
-<tr>
-<td style="text-align:center">w</td>
-<td style="text-align:center">更改该目录下面的目录结构列表，包括（新建，删除，重命名，转移）该目录下面的文件或目录</td>
-</tr>
-<tr>
-<td style="text-align:center">x</td>
-<td style="text-align:center">能够进入该目录工作，可以cd进入这个目录</td>
-</tr>
-</tbody>
-</table>
-<p>要将目录开放给任何人，一般要具有rx权限</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/06/linux/linux-文件与目录权限问题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1852,7 +1834,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-count">46</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1860,7 +1842,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1869,7 +1851,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">79</span>
+                <span class="site-state-item-count">59</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

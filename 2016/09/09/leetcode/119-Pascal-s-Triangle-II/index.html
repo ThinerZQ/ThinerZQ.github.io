@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="leetcode array," />
+  <meta name="keywords" content="leetcode,array," />
 
 
 
@@ -86,25 +86,25 @@
 
 
 
-<meta name="description" content="题目描述given numRows, generate the first numRows of Pascal’s triangle.
-For example, given numRows = 5
+<meta name="description" content="题目描述Given an index k, return the kth row of the Pascal’s triangle.
+For example, given k = 3,
 Return
-[     [1],    [1,1],   [1,2,1],  [1,3,3,1], [1,4,6,4,1]]">
+[1,3,3,1].本题k=0,返回[1]">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Pascal'a Triangle">
-<meta property="og:url" content="http://thinerzq.com/2016/09/08/leetcode/Pascal's Triangle/index.html">
+<meta property="og:title" content="119.Pascal's Triangle II">
+<meta property="og:url" content="http://thinerzq.com/2016/09/09/leetcode/119-Pascal-s-Triangle-II/index.html">
 <meta property="og:site_name" content="ThinerZQ's Blog">
-<meta property="og:description" content="题目描述given numRows, generate the first numRows of Pascal’s triangle.
-For example, given numRows = 5
+<meta property="og:description" content="题目描述Given an index k, return the kth row of the Pascal’s triangle.
+For example, given k = 3,
 Return
-[     [1],    [1,1],   [1,2,1],  [1,3,3,1], [1,4,6,4,1]]">
-<meta property="og:updated_time" content="2016-09-08T13:34:21.965Z">
+[1,3,3,1].本题k=0,返回[1]">
+<meta property="og:updated_time" content="2016-09-09T06:55:08.242Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Pascal'a Triangle">
-<meta name="twitter:description" content="题目描述given numRows, generate the first numRows of Pascal’s triangle.
-For example, given numRows = 5
+<meta name="twitter:title" content="119.Pascal's Triangle II">
+<meta name="twitter:description" content="题目描述Given an index k, return the kth row of the Pascal’s triangle.
+For example, given k = 3,
 Return
-[     [1],    [1,1],   [1,2,1],  [1,3,3,1], [1,4,6,4,1]]">
+[1,3,3,1].本题k=0,返回[1]">
 
 
 
@@ -125,7 +125,7 @@ Return
 
 
 
-  <title> Pascal'a Triangle | ThinerZQ's Blog </title>
+  <title> 119.Pascal's Triangle II | ThinerZQ's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -315,7 +315,7 @@ Return
             
             
               
-                Pascal'a Triangle
+                119.Pascal's Triangle II
               
             
           </h1>
@@ -327,8 +327,8 @@ Return
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-08T21:08:06+08:00" content="2016-09-08">
-              2016-09-08
+            <time itemprop="dateCreated" datetime="2016-09-09T14:43:26+08:00" content="2016-09-09">
+              2016-09-09
             </time>
           </span>
 
@@ -357,8 +357,8 @@ Return
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/08/leetcode/Pascal's Triangle/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/08/leetcode/Pascal's Triangle/" itemprop="commentsCount"></span>
+                <a href="/2016/09/09/leetcode/119-Pascal-s-Triangle-II/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/09/leetcode/119-Pascal-s-Triangle-II/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -368,7 +368,7 @@ Return
 
           
           
-             <span id="/2016/09/08/leetcode/Pascal's Triangle/" class="leancloud_visitors" data-flag-title="Pascal'a Triangle">
+             <span id="/2016/09/09/leetcode/119-Pascal-s-Triangle-II/" class="leancloud_visitors" data-flag-title="119.Pascal's Triangle II">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -395,12 +395,12 @@ Return
       
 
       
-        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>given numRows, generate the first numRows of Pascal’s triangle.</p>
-<p>For example, given numRows = 5</p>
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Given an index k, return the k<sup>th</sup> row of the Pascal’s triangle.</p>
+<p>For example, given k = 3,</p>
 <p>Return</p>
-<p><pre>[<br>     [1],<br>    [1,1],<br>   [1,2,1],<br>  [1,3,3,1],<br> [1,4,6,4,1]<br>]<br></pre><br><a id="more"></a></p>
+<p><pre>[1,3,3,1].<br></pre><br>本题k=0,返回[1]<br><a id="more"></a></p>
 <h1 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h1><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>每一行除了第0个元素和最后一个元素除外，current[j] = lastRow[j-1]+lastRow[j];</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;List&lt;Integer&gt;&gt; generate(<span class="keyword">int</span> numRows) &#123;</div><div class="line">        <span class="comment">//防御式编程</span></div><div class="line">        <span class="keyword">if</span> (numRows == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//最终返回结果</span></div><div class="line">        List&lt;List&lt;Integer&gt;&gt; lists = <span class="keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">        <span class="comment">//加入第一行元素</span></div><div class="line">        ArrayList&lt;Integer&gt; first = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">        first.add(<span class="number">0</span>, <span class="number">1</span>);</div><div class="line">        lists.add(<span class="number">0</span>, first);</div><div class="line">        <span class="comment">//对接下来的每一行，取出上一行</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; numRows; i++) &#123;</div><div class="line">            <span class="comment">//templist 是arraylist，可以保持加入的顺序</span></div><div class="line">            List&lt;Integer&gt; tempLists = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">            <span class="comment">//取出上一行</span></div><div class="line">            List&lt;Integer&gt; preList = lists.get(i - <span class="number">1</span>);</div><div class="line">            <span class="comment">//在templist 上插入第0个元素：1，</span></div><div class="line">            tempLists.add(<span class="number">0</span>, <span class="number">1</span>);</div><div class="line">            <span class="comment">// int len = (i)/2+1;</span></div><div class="line">            <span class="comment">//本行的第j个元素 = 上一行的第j-1个元素 + 上一行的第j个元素 ， 1&lt;=j&lt;i</span></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; i; j++) &#123;</div><div class="line">                tempLists.add(j, preList.get(j - <span class="number">1</span>) + preList.get(j));</div><div class="line">            &#125;</div><div class="line">            <span class="comment">//在templist 中Haru最后一个元素：1</span></div><div class="line">            tempLists.add(<span class="number">1</span>);</div><div class="line">            lists.add(i, tempLists);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> lists;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">getRow</span><span class="params">(<span class="keyword">int</span> rowIndex)</span> </span>&#123;</div><div class="line">        List&lt;Integer&gt; pre = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">        pre.add(<span class="number">0</span>,<span class="number">1</span>);</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;rowIndex; i++) &#123;</div><div class="line">            List&lt;Integer&gt; tempLists =<span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">            tempLists.add(<span class="number">0</span>,<span class="number">1</span>);</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;=i;j++) &#123;</div><div class="line">                tempLists.add(j,pre.get(j-<span class="number">1</span>)+pre.get(j));</div><div class="line">            &#125;</div><div class="line">            tempLists.add(<span class="number">1</span>);</div><div class="line">            pre = tempLists;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> pre;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -444,7 +444,9 @@ Return
       
         <div class="post-tags">
           
-            <a href="/tags/leetcode-array/" rel="tag">#leetcode array</a>
+            <a href="/tags/leetcode/" rel="tag">#leetcode</a>
+          
+            <a href="/tags/array/" rel="tag">#array</a>
           
         </div>
       
@@ -453,13 +455,17 @@ Return
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/01/mysql win64 5.7.9 zip包安装日记/" rel="next" title="mysql win64 5.7.9 zip包安装日记">
-                <i class="fa fa-chevron-left"></i> mysql win64 5.7.9 zip包安装日记
+              <a href="/2016/09/09/leetcode/172-Factorial Trailing Zeroes/" rel="next" title="172. Factorial Trailing Zeroes">
+                <i class="fa fa-chevron-left"></i> 172. Factorial Trailing Zeroes
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/09/leetcode/112-Path Sum/" rel="prev" title="112. Path Sum">
+                112. Path Sum <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -474,10 +480,10 @@ Return
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/09/08/leetcode/Pascal's Triangle/"
-     data-title="Pascal'a Triangle"
+        <div class="ds-share flat" data-thread-key="2016/09/09/leetcode/119-Pascal-s-Triangle-II/"
+     data-title="119.Pascal's Triangle II"
      data-content=""
-     data-url="http://thinerzq.com/2016/09/08/leetcode/Pascal's Triangle/">
+     data-url="http://thinerzq.com/2016/09/09/leetcode/119-Pascal-s-Triangle-II/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -507,8 +513,8 @@ Return
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/09/08/leetcode/Pascal's Triangle/"
-           data-title="Pascal'a Triangle" data-url="http://thinerzq.com/2016/09/08/leetcode/Pascal's Triangle/">
+      <div class="ds-thread" data-thread-key="2016/09/09/leetcode/119-Pascal-s-Triangle-II/"
+           data-title="119.Pascal's Triangle II" data-url="http://thinerzq.com/2016/09/09/leetcode/119-Pascal-s-Triangle-II/">
       </div>
     
   </div>
@@ -553,7 +559,7 @@ Return
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-count">46</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -561,7 +567,7 @@ Return
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -570,7 +576,7 @@ Return
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">59</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -845,6 +851,26 @@ Return
   
 
   
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
 
   
 
