@@ -308,6 +308,440 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/01/mysql/mysql win64 5.7.9 zip包安装日记/" itemprop="url">
+                  mysql win64 5.7.9 zip包安装日记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-01T10:52:20+08:00" content="2016-09-01">
+              2016-09-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/01/mysql/mysql win64 5.7.9 zip包安装日记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/01/mysql/mysql win64 5.7.9 zip包安装日记/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/01/mysql/mysql win64 5.7.9 zip包安装日记/" class="leancloud_visitors" data-flag-title="mysql win64 5.7.9 zip包安装日记">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="官网下载win64-zip包"><a href="#官网下载win64-zip包" class="headerlink" title="官网下载win64 zip包"></a>官网下载win64 zip包</h1><p>找到合适的目录解压</p>
+<h1 id="配置my-default-ini"><a href="#配置my-default-ini" class="headerlink" title="配置my-default.ini"></a>配置my-default.ini</h1><blockquote>
+<p>basedir = D:\Study\MySQL\mysql-5.7.14-server-win64<br> datadir = D:\Study\MySQL\mysql-5.7.14-server-win64\data<br> port = 3306</p>
+</blockquote>
+<p> #管理员方式打开命令行，进入mysql home 目录下的bin目录</p>
+<p>执行如下命令：</p>
+<blockquote>
+<ol>
+<li>mysqld –initialize（我使用mysqld –initialize -secure生成的data目录下的文件不完整）<br>在mysql的根目录下自动生成data目录以及其他文件，初始化一个随机密码的root用户</li>
+<li>mysqld -install/remove<br>注册mysql服务</li>
+<li>net start/stop mysql<br>启动服务</li>
+</ol>
+</blockquote>
+<h1 id="关于root的随机密码在那里"><a href="#关于root的随机密码在那里" class="headerlink" title="关于root的随机密码在那里"></a>关于root的随机密码在那里</h1><p>windows在data目录下的DESKTOP-M03IEJ5.err文件里面，搜索“2016-09-01T02:15:22.399996Z 1 [Note] A temporary password is generated for root@localhost: -/br&gt;,B;o9gm”这样的一个字符串就能找到了，其他系统也都写在日志里面，找找总会有的</p>
+<h1 id="最后-mysql-u-root-p-password-进入mysql-控制台"><a href="#最后-mysql-u-root-p-password-进入mysql-控制台" class="headerlink" title="最后:mysql -u root -p password 进入mysql 控制台"></a>最后:mysql -u root -p password 进入mysql 控制台</h1><p>更改mysql密码</p>
+<blockquote>
+<p>alter user ‘root’@’localhost’ identified by ‘your password’;</p>
+</blockquote>
+<p>that’s all</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/27/history/战国纵横/" itemprop="url">
+                  战国纵横
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-27T09:08:47+08:00" content="2016-08-27">
+              2016-08-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/history/" itemprop="url" rel="index">
+                    <span itemprop="name">history</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/27/history/战国纵横/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/27/history/战国纵横/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/08/27/history/战国纵横/" class="leancloud_visitors" data-flag-title="战国纵横">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>乱世总有英雄，奇人，最早的乱世莫过于春秋战国。</p>
+<p>庞涓，孙膑，苏秦，张仪，纵横捭阖。以前对这段历史充满了向往，总是一直没时间看，终于借助这两个月的上下班时间熟悉了一下这段历史，记录一下，留个印象。</p>
+<p>还是从周朝说起，西周末年，周氏衰落，天子雄风不在，天下早已礼崩乐坏，各路诸侯明着都尊周天子，实际上都在谋划着如何除掉其他诸侯，如何称王。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/27/history/战国纵横/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/28/AliBaBa/tair学习报告/" itemprop="url">
+                  Tair学习
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-28T09:08:06+08:00" content="2016-07-28">
+              2016-07-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Tair/" itemprop="url" rel="index">
+                    <span itemprop="name">Tair</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/28/AliBaBa/tair学习报告/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/28/AliBaBa/tair学习报告/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/28/AliBaBa/tair学习报告/" class="leancloud_visitors" data-flag-title="Tair学习">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>首先tair是一个的Key-Value结构分布式存储系统，既可以做高速缓存，也可以做持久化存储。分布式系统一般来说是一个集群，而在Tair的集群中主要存在如下几个模块：</p>
+<p><strong>ConfigServer</strong><br>一个集群中包含2台configserver,两台configserver互为主备。</p>
+<ol>
+<li>维护和dataserver之间的心跳获得集群中存活可用的dataserver</li>
+<li>根据存活的dataserver 构建数据在集群中的分布信息（对照表）</li>
+<li>对client提供分部信息（对照表）的查询</li>
+<li>当dataserver挂掉，或者新添加dataserver的时候，调度各个dataserver完成数据的迁移，复制</li>
+</ol>
+<p><strong>DataServer</strong><br>真正存放数据的地方</p>
+<ol>
+<li>提供数据存储服务，接受client端的put/get/remove操作。</li>
+<li>执行数据迁移复制</li>
+</ol>
+<p><strong>InvalidServer</strong><br>InvalidServer是一个可选模块，</p>
+<ol>
+<li>接收来自client的invalid/hide请求，对属于同一组的集群（双机房独立集群部署方式）做delete/hide操作，保证同一组集群的一致。</li>
+</ol>
+<p><strong>Client</strong><br>Tair提供出来的SDK</p>
+<ol>
+<li>在应用端提供访问Tair集群的接口。</li>
+<li>和ConfigServer通信，更新并缓存数据分布表和invalidserver地址等。</li>
+<li>LocalCache，避免过热数据访问影响tair集群服务。</li>
+</ol>
+<p>在启动时，Client会根据本地的配置文件与ConfigServer通信。Client从Config Servcer处获得可用的DataServer地址，然后Client从这些DataServer获取真正的数据。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/28/AliBaBa/tair学习报告/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/25/AliBaBa/metaQ学习报告/" itemprop="url">
                   MetaQ(RocketMQ)学习
                 </a>
@@ -997,235 +1431,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/07/09/java/java Io学习报告/" itemprop="url">
-                  Java Io学习
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-09T09:08:06+08:00" content="2016-07-09">
-              2016-07-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/09/java/java Io学习报告/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/09/java/java Io学习报告/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/07/09/java/java Io学习报告/" class="leancloud_visitors" data-flag-title="Java Io学习">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Io概述"><a href="#Io概述" class="headerlink" title="Io概述"></a>Io概述</h1><p>流是一组有顺序的，有起点和终点的字节集合，是对数据传输的总称或抽象。即数据在两设备间的传输称为流，流的本质是数据传输，根据数据传输介质将流抽象为各种类，方便更直观的进行数据操作。说白了这些类就是用来读取和写入数据的，由于可以读取或写入的媒介非常多，针对每一种媒介jdk提供了单独的类来读和写数据。同时根据读写单位又分为读取按字节读写和按字符读取(根据不同的编码方案,一个字符可能按多个字节读取)。大致可以分为如下</p>
-<p>从读写介质的角度来看</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">读写介质</th>
-<th style="text-align:left">字节输入</th>
-<th style="text-align:left">字节输出</th>
-<th style="text-align:left">字符输入</th>
-<th style="text-align:left">字符输出</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Basic</td>
-<td style="text-align:left">InputStream</td>
-<td style="text-align:left">OutputStream</td>
-<td style="text-align:left">Reader, InputStreamReader</td>
-<td style="text-align:left">Writer, OutputStreamReader</td>
-</tr>
-<tr>
-<td style="text-align:left">Arrays</td>
-<td style="text-align:left">ByteArrayInputStream</td>
-<td style="text-align:left">ByteArrayOutputStream</td>
-<td style="text-align:left">CharArrayReader</td>
-<td style="text-align:left">CharArrayWriter</td>
-</tr>
-<tr>
-<td style="text-align:left">File</td>
-<td style="text-align:left">FileInputStream, RandomAccessFile</td>
-<td style="text-align:left">FileOutputStream, RandomAccessFile</td>
-<td style="text-align:left">FileReader</td>
-<td style="text-align:left">FileWriter</td>
-</tr>
-<tr>
-<td style="text-align:left">Pipes</td>
-<td style="text-align:left">PipedInputStream</td>
-<td style="text-align:left">PipedOutputStream</td>
-<td style="text-align:left">PipedReader</td>
-<td style="text-align:left">PipedWriter</td>
-</tr>
-<tr>
-<td style="text-align:left">Buffering</td>
-<td style="text-align:left">BufferedInputStream</td>
-<td style="text-align:left">BufferedOutputStream</td>
-<td style="text-align:left">BufferedReader</td>
-<td style="text-align:left">BufferedWriter</td>
-</tr>
-<tr>
-<td style="text-align:left">Filtering</td>
-<td style="text-align:left">FilterInputStream</td>
-<td style="text-align:left">FilterOuptStream</td>
-<td style="text-align:left">FilterReader</td>
-<td style="text-align:left">FilterWriter</td>
-</tr>
-<tr>
-<td style="text-align:left">Parsing</td>
-<td style="text-align:left">PushbackInputStream, StreamTokenizer</td>
-<td style="text-align:left"></td>
-<td style="text-align:left">PushbackReader, LineNumberReader</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">String</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left">StringReader</td>
-<td style="text-align:left">StringWriter</td>
-</tr>
-<tr>
-<td style="text-align:left">Data</td>
-<td style="text-align:left">DataInputStream</td>
-<td style="text-align:left">DataOutputStream</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">Data-Formatterd</td>
-<td style="text-align:left"></td>
-<td style="text-align:left">PrintStream</td>
-<td style="text-align:left"></td>
-<td style="text-align:left">PrintWriter</td>
-</tr>
-<tr>
-<td style="text-align:left">Objects</td>
-<td style="text-align:left">ObjectInputStream</td>
-<td style="text-align:left">ObjectOutputStream</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">Utilities</td>
-<td style="text-align:left">SequenceInputStream</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-</tbody>
-</table>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/09/java/java Io学习报告/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/07/09/java/java多线程学习报告/" itemprop="url">
                   Java 多线程学习
                 </a>
@@ -1525,270 +1730,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/29/linux/linux里面一些文件或目录的作用/" itemprop="url">
-                  linux里面一些文件或者目录的作用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-29T20:58:06+08:00" content="2016-05-29">
-              2016-05-29
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index">
-                    <span itemprop="name">linux</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/29/linux/linux里面一些文件或目录的作用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/29/linux/linux里面一些文件或目录的作用/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/05/29/linux/linux里面一些文件或目录的作用/" class="leancloud_visitors" data-flag-title="linux里面一些文件或者目录的作用">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>linux里面文件或者目录作用索引表</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/29/linux/linux里面一些文件或目录的作用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/10/mysql/mysql存储引擎/" itemprop="url">
-                  mysql存储引擎
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-10T21:22:44+08:00" content="2016-05-10">
-              2016-05-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/mysql/" itemprop="url" rel="index">
-                    <span itemprop="name">mysql</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/10/mysql/mysql存储引擎/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/10/mysql/mysql存储引擎/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/05/10/mysql/mysql存储引擎/" class="leancloud_visitors" data-flag-title="mysql存储引擎">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>mysql&gt; select version();<br>+—————–+<br>| version()       |<br>+—————–+<br>| 5.7.12-0ubuntu1 |<br>+—————–+</p>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/10/mysql/mysql存储引擎/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1834,7 +1775,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">46</span>
+              <span class="site-state-item-count">49</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1851,7 +1792,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-count">63</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

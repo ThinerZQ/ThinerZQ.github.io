@@ -308,6 +308,499 @@
             
               
                 
+                <a class="post-title-link" href="/2016/07/09/java/java Io学习报告/" itemprop="url">
+                  Java Io学习
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-09T09:08:06+08:00" content="2016-07-09">
+              2016-07-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/09/java/java Io学习报告/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/09/java/java Io学习报告/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/07/09/java/java Io学习报告/" class="leancloud_visitors" data-flag-title="Java Io学习">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="Io概述"><a href="#Io概述" class="headerlink" title="Io概述"></a>Io概述</h1><p>流是一组有顺序的，有起点和终点的字节集合，是对数据传输的总称或抽象。即数据在两设备间的传输称为流，流的本质是数据传输，根据数据传输介质将流抽象为各种类，方便更直观的进行数据操作。说白了这些类就是用来读取和写入数据的，由于可以读取或写入的媒介非常多，针对每一种媒介jdk提供了单独的类来读和写数据。同时根据读写单位又分为读取按字节读写和按字符读取(根据不同的编码方案,一个字符可能按多个字节读取)。大致可以分为如下</p>
+<p>从读写介质的角度来看</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">读写介质</th>
+<th style="text-align:left">字节输入</th>
+<th style="text-align:left">字节输出</th>
+<th style="text-align:left">字符输入</th>
+<th style="text-align:left">字符输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Basic</td>
+<td style="text-align:left">InputStream</td>
+<td style="text-align:left">OutputStream</td>
+<td style="text-align:left">Reader, InputStreamReader</td>
+<td style="text-align:left">Writer, OutputStreamReader</td>
+</tr>
+<tr>
+<td style="text-align:left">Arrays</td>
+<td style="text-align:left">ByteArrayInputStream</td>
+<td style="text-align:left">ByteArrayOutputStream</td>
+<td style="text-align:left">CharArrayReader</td>
+<td style="text-align:left">CharArrayWriter</td>
+</tr>
+<tr>
+<td style="text-align:left">File</td>
+<td style="text-align:left">FileInputStream, RandomAccessFile</td>
+<td style="text-align:left">FileOutputStream, RandomAccessFile</td>
+<td style="text-align:left">FileReader</td>
+<td style="text-align:left">FileWriter</td>
+</tr>
+<tr>
+<td style="text-align:left">Pipes</td>
+<td style="text-align:left">PipedInputStream</td>
+<td style="text-align:left">PipedOutputStream</td>
+<td style="text-align:left">PipedReader</td>
+<td style="text-align:left">PipedWriter</td>
+</tr>
+<tr>
+<td style="text-align:left">Buffering</td>
+<td style="text-align:left">BufferedInputStream</td>
+<td style="text-align:left">BufferedOutputStream</td>
+<td style="text-align:left">BufferedReader</td>
+<td style="text-align:left">BufferedWriter</td>
+</tr>
+<tr>
+<td style="text-align:left">Filtering</td>
+<td style="text-align:left">FilterInputStream</td>
+<td style="text-align:left">FilterOuptStream</td>
+<td style="text-align:left">FilterReader</td>
+<td style="text-align:left">FilterWriter</td>
+</tr>
+<tr>
+<td style="text-align:left">Parsing</td>
+<td style="text-align:left">PushbackInputStream, StreamTokenizer</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">PushbackReader, LineNumberReader</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">String</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">StringReader</td>
+<td style="text-align:left">StringWriter</td>
+</tr>
+<tr>
+<td style="text-align:left">Data</td>
+<td style="text-align:left">DataInputStream</td>
+<td style="text-align:left">DataOutputStream</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Data-Formatterd</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">PrintStream</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">PrintWriter</td>
+</tr>
+<tr>
+<td style="text-align:left">Objects</td>
+<td style="text-align:left">ObjectInputStream</td>
+<td style="text-align:left">ObjectOutputStream</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Utilities</td>
+<td style="text-align:left">SequenceInputStream</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/09/java/java Io学习报告/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/29/linux/linux里面一些文件或目录的作用/" itemprop="url">
+                  linux里面一些文件或者目录的作用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-29T20:58:06+08:00" content="2016-05-29">
+              2016-05-29
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/29/linux/linux里面一些文件或目录的作用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/29/linux/linux里面一些文件或目录的作用/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/05/29/linux/linux里面一些文件或目录的作用/" class="leancloud_visitors" data-flag-title="linux里面一些文件或者目录的作用">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>linux里面文件或者目录作用索引表</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/29/linux/linux里面一些文件或目录的作用/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/10/mysql/mysql存储引擎/" itemprop="url">
+                  mysql存储引擎
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-10T21:22:44+08:00" content="2016-05-10">
+              2016-05-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/10/mysql/mysql存储引擎/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/10/mysql/mysql存储引擎/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/05/10/mysql/mysql存储引擎/" class="leancloud_visitors" data-flag-title="mysql存储引擎">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>mysql&gt; select version();<br>+—————–+<br>| version()       |<br>+—————–+<br>| 5.7.12-0ubuntu1 |<br>+—————–+</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/10/mysql/mysql存储引擎/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/05/06/linux/linux命令大全/" itemprop="url">
                   linux命令大全
                 </a>
@@ -1278,601 +1771,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/28/http/我眼中的http协议/" itemprop="url">
-                  我眼中的http协议
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-28T10:24:35+08:00" content="2016-04-28">
-              2016-04-28
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/http/" itemprop="url" rel="index">
-                    <span itemprop="name">http</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/28/http/我眼中的http协议/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/28/http/我眼中的http协议/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/04/28/http/我眼中的http协议/" class="leancloud_visitors" data-flag-title="我眼中的http协议">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>URI是下面的这样的形式</p>
-<blockquote>
-<p><a href="http://user:pass@www.example.jp:80/dir/index.htm?uid=1#ch1">http://user:pass@www.example.jp:80/dir/index.htm?uid=1#ch1</a></p>
-</blockquote>
-<pre><code>各部分标示的意思如下     
-</code></pre><table>
-<thead>
-<tr>
-<th style="text-align:center">字符串</th>
-<th style="text-align:center">用途</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">http</td>
-<td style="text-align:center">协议类型</td>
-</tr>
-<tr>
-<td style="text-align:center">user：pass</td>
-<td style="text-align:center">登录服务器的用户名和密码</td>
-</tr>
-<tr>
-<td style="text-align:center">www.example.jp</td>
-<td style="text-align:center">服务器地址，还可以用ipv6的标示的表示形式[0:0:0:0:0:0:0:1]</td>
-</tr>
-<tr>
-<td style="text-align:center">80</td>
-<td style="text-align:center">端口号</td>
-</tr>
-<tr>
-<td style="text-align:center">index.html</td>
-<td style="text-align:center">带层次的文件路径</td>
-</tr>
-<tr>
-<td style="text-align:center">uid=1</td>
-<td style="text-align:center">查询字符串</td>
-</tr>
-<tr>
-<td style="text-align:center">ch1</td>
-<td style="text-align:center">片段标示符，锚</td>
-</tr>
-</tbody>
-</table>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/28/http/我眼中的http协议/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/26/spring/spring注解/" itemprop="url">
-                  spring注解
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-26T15:47:52+08:00" content="2016-04-26">
-              2016-04-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/spring/" itemprop="url" rel="index">
-                    <span itemprop="name">spring</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/26/spring/spring注解/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/26/spring/spring注解/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/04/26/spring/spring注解/" class="leancloud_visitors" data-flag-title="spring注解">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <table>
-<thead>
-<tr>
-<th>注解名</th>
-<th style="text-align:center">参数</th>
-<th style="text-align:center">放置位置</th>
-<th style="text-align:center">作用</th>
-<th style="text-align:center">近义词 / 来源</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>@Required</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">setter方法</td>
-<td style="text-align:center">强调这个bean的该属性必须被注入</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>@Autowired</td>
-<td style="text-align:center">required</td>
-<td style="text-align:center">方法，构造器，属性</td>
-<td style="text-align:center">强调该属性ByType自动注入</td>
-<td style="text-align:center">@Resource,@Inject</td>
-</tr>
-<tr>
-<td>@Qualifier</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">属性，构造器参数，方法参数</td>
-<td style="text-align:center">和@Autowire配合使用，当ByType冲突时候，使用ByName</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>@Primary</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">方法，构造器，属性</td>
-<td style="text-align:center">当@Autowired ByType冲突的时候，自动选择有该注解的对象</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>@Resource</td>
-<td style="text-align:center">name</td>
-<td style="text-align:center">setter方法，属性</td>
-<td style="text-align:center">同@Autowired</td>
-<td style="text-align:center">@Autowired,@Inject</td>
-</tr>
-<tr>
-<td>@PostConstruct</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">方法</td>
-<td style="text-align:center">强调该方法, 会在实例化之后自动调用</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>@PreDestroy</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">方法</td>
-<td style="text-align:center">强调该方法, 会在销毁之前自动调用</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>@Component</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center">更加一般会的组件, 不确定该组件作用的时候，使用这个组件</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>@Service</td>
-<td style="text-align:center">bane</td>
-<td style="text-align:center">类</td>
-<td style="text-align:center">表示服务层</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>@Repository</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">类</td>
-<td style="text-align:center">表示数据处理层</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>@ComponentScan</td>
-<td style="text-align:center">basePackages, includeFilters, excludeFilters</td>
-<td style="text-align:center">类</td>
-<td style="text-align:center">自动发现组件</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>@Bean</td>
-<td style="text-align:center">name, initMethod, destroyMethod</td>
-<td style="text-align:center">特定方法</td>
-<td style="text-align:center">生成一个bean定义</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>@Description</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">方法</td>
-<td style="text-align:center">和@Bean一起配合使用，指定bean的描述</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>@Repository</td>
-<td style="text-align:center">name</td>
-<td style="text-align:center">类</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>@Controller</td>
-<td style="text-align:center">name</td>
-<td style="text-align:center">类</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>@Scope</td>
-<td style="text-align:center">name, proxyMode</td>
-<td style="text-align:center">类</td>
-<td style="text-align:center">表示bean的scope域</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>@Inject</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">方法，构造器，属性</td>
-<td style="text-align:center">强调该属性ByType自动注入</td>
-<td style="text-align:center">@Autowire / JSR-330</td>
-</tr>
-<tr>
-<td>@Named</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center">更加一般会的组件, 不确定该组件作用的时候，使用这个组件</td>
-<td style="text-align:center">@Component / JSR-330</td>
-</tr>
-<tr>
-<td>@Configuration</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">类</td>
-<td style="text-align:center">和</beans>标签很像，最好和@Bean搭配使用，可以解决内部依赖问题</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>@Import</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">类</td>
-<td style="text-align:center">和@Configuration搭配使用</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td>@PropertySource</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">类</td>
-<td style="text-align:center">注入属性资源</td>
-</tr>
-</tbody>
-</table>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/26/spring/spring注解/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/26/http/NanoHTTPD简易http服务器解读/" itemprop="url">
-                  NanoHTTPD简易http服务器解读
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-26T13:38:32+08:00" content="2016-04-26">
-              2016-04-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/26/http/NanoHTTPD简易http服务器解读/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/26/http/NanoHTTPD简易http服务器解读/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/04/26/http/NanoHTTPD简易http服务器解读/" class="leancloud_visitors" data-flag-title="NanoHTTPD简易http服务器解读">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>前两天学RMI的时候，看java core上说有一个简易的HTTP服务器，只有一个类文件。就像去瞧瞧，结果发现这个类里面有20+个内部类和接口。看了源代码之后，对http服务器的理解也更加深入了。<a href="https://github.com/NanoHttpd/nanohttpd">源代码</a></p>
-<h1 id="NanoHTTPD-服务器的请求流程图"><a href="#NanoHTTPD-服务器的请求流程图" class="headerlink" title="NanoHTTPD 服务器的请求流程图"></a>NanoHTTPD 服务器的请求流程图</h1><p><img src="/images/NanoHTTPD.jpg" alt="NanoHTTPD服务器请求流程的序列图"></p>
-<p><font color="red"> 图上3中不同颜色的箭头，分别代表三种线程。</font>&gt;<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/26/http/NanoHTTPD简易http服务器解读/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1918,7 +1816,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">46</span>
+              <span class="site-state-item-count">49</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1935,7 +1833,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-count">63</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
