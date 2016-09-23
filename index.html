@@ -311,6 +311,152 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/23/java/Comparator接口漫谈/" itemprop="url">
+                  Comparator接口漫谈
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-23T15:40:06+08:00" content="2016-09-23">
+              2016-09-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/23/java/Comparator接口漫谈/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/23/java/Comparator接口漫谈/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/23/java/Comparator接口漫谈/" class="leancloud_visitors" data-flag-title="Comparator接口漫谈">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>废话不多说</p>
+<h1 id="怎么判断升序和降序"><a href="#怎么判断升序和降序" class="headerlink" title="怎么判断升序和降序"></a>怎么判断升序和降序</h1><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">//伪代码</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Object o1, Object o2)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> o1 -o2;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这么说吧，Comparator接口的compare方法是由一个默认是《<strong>升序</strong>》的。</p>
+<p><strong>Collections类始终认为</strong></p>
+<ol>
+<li>如果返回负值，o1比o2小  </li>
+<li>如果返回正值，o1比o2大</li>
+</ol>
+<p>Collections类会把它认为小的值放到前面，它认为大的值放到后面。</p>
+<ol>
+<li><p>如果我们需要升序排列<br><pre>return o1-o2 </pre><br>1.1.  如果返回负值，o1真实值的比o2小，Collections也是这么认为的，所以Collections把o1排在前面<br>1.2. 如果返回正值，o1真实值的比o2大，Collections也是这么认为的，所以Collections把o1放在后面</p>
+</li>
+<li><p>如果我们需要降序排列<br><pre>return o2-o1 </pre><br>如果返回负值，o1真实值比o2大，Collections却认为o1比o2小，所以Collections把o1排在前面<br>如果返回正值，o1真实值比o2小，Collections却认为o1比o2大，所以Collections把o1排在后面</p>
+</li>
+</ol>
+<p>这样不就达到我们需要的降序的效果了吗！！</p>
+<h1 id="怎么实现多重排序"><a href="#怎么实现多重排序" class="headerlink" title="怎么实现多重排序"></a>怎么实现多重排序</h1><p>一开始自己没想，就想google看看有没有现成的，结果google出来质量堪忧。<br>于是就想着自己写写看，那直接看代码好了。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line"><span class="keyword">import</span> java.util.Collections;</div><div class="line"><span class="keyword">import</span> java.util.Comparator;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * User：ThinerZQ</div><div class="line"> * Email：thinerzq@gmail.com</div><div class="line"> * Date：2016/9/23 14:37</div><div class="line"> * Project：Test</div><div class="line"> * Package：PACKAGE_NAME</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestCompartor</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"></div><div class="line">        ArrayList&lt;Person&gt; persons = <span class="keyword">new</span> ArrayList&lt;Person&gt;();</div><div class="line">        persons.add(<span class="keyword">new</span> Person(<span class="number">10</span>,<span class="number">1000</span>,<span class="number">4</span>));</div><div class="line">        persons.add(<span class="keyword">new</span> Person(<span class="number">1</span>,<span class="number">1020</span>,<span class="number">5</span>));</div><div class="line">        persons.add(<span class="keyword">new</span> Person(<span class="number">1</span>,<span class="number">1020</span>,<span class="number">4</span>));</div><div class="line">        persons.add(<span class="keyword">new</span> Person(<span class="number">13</span>,<span class="number">1100</span>,<span class="number">2</span>));</div><div class="line">        persons.add(<span class="keyword">new</span> Person(<span class="number">1</span>,<span class="number">1020</span>,<span class="number">5</span>));</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;persons.size(); i++) &#123;</div><div class="line">            System.out.println(persons.get(i));</div><div class="line">        &#125;</div><div class="line">        System.out.println();</div><div class="line">        Collections.sort(persons, <span class="keyword">new</span> Comparator&lt;Person&gt;() &#123;</div><div class="line">            <span class="comment">//级别，年份，薪资排序降序，</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Person o1, Person o2)</span> </span>&#123;</div><div class="line">                <span class="comment">//只有级别相等的时候才用去判断薪水</span></div><div class="line">                <span class="keyword">if</span> (o1.level == o2.level)&#123;</div><div class="line">                    <span class="comment">//只有薪水相等的时候采用去判断年份</span></div><div class="line">                    <span class="keyword">if</span> (o1.salary == o2.salary)&#123;</div><div class="line">                        <span class="comment">//最后按照年份判断了。</span></div><div class="line">                        <span class="keyword">return</span> o2.years - o1.years;</div><div class="line">                    &#125;<span class="keyword">else</span>&#123;</div><div class="line">                        <span class="comment">//薪水不相等就按照薪水判断嘛</span></div><div class="line">                        <span class="keyword">return</span> o2.salary - o1.salary;</div><div class="line">                    &#125;</div><div class="line">                &#125;<span class="keyword">else</span>&#123;</div><div class="line">                    <span class="comment">//级别不相等就按照级别判断嘛</span></div><div class="line">                    <span class="keyword">return</span> o2.level - o1.level;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;persons.size(); i++) &#123;</div><div class="line">            System.out.println(persons.get(i));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</div><div class="line">        <span class="keyword">public</span> <span class="keyword">int</span> level;  <span class="comment">//级别</span></div><div class="line">        <span class="keyword">public</span> <span class="keyword">int</span> salary; <span class="comment">//工资</span></div><div class="line">        <span class="keyword">public</span> <span class="keyword">int</span> years;  <span class="comment">//入职年数</span></div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="string">"Person&#123;"</span> +</div><div class="line">                    <span class="string">"level="</span> + level +</div><div class="line">                    <span class="string">", salary="</span> + salary +</div><div class="line">                    <span class="string">", years="</span> + years +</div><div class="line">                    <span class="string">'&#125;'</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(<span class="keyword">int</span> level, <span class="keyword">int</span> salary, <span class="keyword">int</span> years)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.level = level;</div><div class="line">            <span class="keyword">this</span>.salary = salary;</div><div class="line">            <span class="keyword">this</span>.years = years;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/09/leetcode/58-Length-of-Last-Word/" itemprop="url">
                   58. Length of Last Word
                 </a>
@@ -1488,140 +1634,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/08/leetcode/118-Pascal's Triangle/" itemprop="url">
-                  102 Pascal'a Triangle
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-08T21:08:06+08:00" content="2016-09-08">
-              2016-09-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/08/leetcode/118-Pascal's Triangle/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/08/leetcode/118-Pascal's Triangle/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/09/08/leetcode/118-Pascal's Triangle/" class="leancloud_visitors" data-flag-title="102 Pascal'a Triangle">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>given numRows, generate the first numRows of Pascal’s triangle.</p>
-<p>For example, given numRows = 5</p>
-<p>Return</p>
-<p><pre>[<br>     [1],<br>    [1,1],<br>   [1,2,1],<br>  [1,3,3,1],<br> [1,4,6,4,1]<br>]<br></pre><br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/08/leetcode/118-Pascal's Triangle/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1667,7 +1679,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">49</span>
+              <span class="site-state-item-count">50</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
