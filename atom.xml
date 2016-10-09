@@ -436,7 +436,7 @@
     <link href="http://thinerzq.me/2016/09/01/mysql/mysql%20win64%205.7.9%20zip%E5%8C%85%E5%AE%89%E8%A3%85%E6%97%A5%E8%AE%B0/"/>
     <id>http://thinerzq.me/2016/09/01/mysql/mysql win64 5.7.9 zip包安装日记/</id>
     <published>2016-09-01T02:52:20.000Z</published>
-    <updated>2016-09-09T03:17:41.547Z</updated>
+    <updated>2016-10-09T14:36:04.206Z</updated>
     
     <content type="html"><![CDATA[<h1 id="官网下载win64-zip包"><a href="#官网下载win64-zip包" class="headerlink" title="官网下载win64 zip包"></a>官网下载win64 zip包</h1><p>找到合适的目录解压</p>
 <h1 id="配置my-default-ini"><a href="#配置my-default-ini" class="headerlink" title="配置my-default.ini"></a>配置my-default.ini</h1><blockquote>
@@ -507,7 +507,7 @@
     <link href="http://thinerzq.me/2016/07/28/AliBaBa/tair%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
     <id>http://thinerzq.me/2016/07/28/AliBaBa/tair学习报告/</id>
     <published>2016-07-28T01:08:06.000Z</published>
-    <updated>2016-09-09T03:15:07.425Z</updated>
+    <updated>2016-10-09T14:37:58.271Z</updated>
     
     <content type="html"><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>首先tair是一个的Key-Value结构分布式存储系统，既可以做高速缓存，也可以做持久化存储。分布式系统一般来说是一个集群，而在Tair的集群中主要存在如下几个模块：</p>
 <p><strong>ConfigServer</strong><br>一个集群中包含2台configserver,两台configserver互为主备。</p>
@@ -667,7 +667,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="分布式一致性hash"><a href="#分布式一致性hash" class="headerlink" title="分布式一致性hash"></a>分布式一致性hash</h1><p>若tair采用普通哈希即让key对机器数count取模决定key存放的机器，但当某台机器故障或增加机器时count发生变化，则原来key对应的机器发生变化，因此需要移动大量的数据。目前为了使移动的数据少一点，主要<a href="http://www.blogjava.net/hao446tian/archive/2013/01/29/394858.html" target="_blank" rel="external">采用一致性hash算法</a>来解决问题。在这里Tair使用改进的一致性hash算法来解决这个问题：<br>设有一个有限域（0-2^32）个整数，将其首尾相连形成一个环，如下图所示。<br><img src="http://img4.tbcdn.cn/L1/461/1/bf857946fd33f7d811cbe190698196b013fcb67a" alt="tair"><br>一致性哈希算法大致流程如下：</p>
+<h1 id="分布式一致性hash"><a href="#分布式一致性hash" class="headerlink" title="分布式一致性hash"></a>分布式一致性hash</h1><p>若tair采用普通哈希即让key对机器数count取模决定key存放的机器，但当某台机器故障或增加机器时count发生变化，则原来key对应的机器发生变化，因此需要移动大量的数据。目前为了使移动的数据少一点，主要<a href="http://www.blogjava.net/hao446tian/archive/2013/01/29/394858.html" target="_blank" rel="external">采用一致性hash算法</a>来解决问题。在这里Tair使用改进的一致性hash算法来解决这个问题：<br>设有一个有限域（0-2^32）个整数，将其首尾相连形成一个环，如下图所示。<br><img src="/images/tair.png" alt="tair"><br>一致性哈希算法大致流程如下：</p>
 <ol>
 <li>将dataserver根据hash函数映射到环上。</li>
 <li>将bucket根据hash函数映射到换上；从bucket在环的位置开始顺时针找到第一个桶，这就是该桶所在的dataserver。</li>
@@ -1057,7 +1057,7 @@
     <link href="http://thinerzq.me/2016/07/25/AliBaBa/metaQ%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
     <id>http://thinerzq.me/2016/07/25/AliBaBa/metaQ学习报告/</id>
     <published>2016-07-25T01:08:06.000Z</published>
-    <updated>2016-09-09T03:12:46.253Z</updated>
+    <updated>2016-10-09T14:37:18.088Z</updated>
     
     <content type="html"><![CDATA[<h1 id="1-消息中间件解决的问题"><a href="#1-消息中间件解决的问题" class="headerlink" title="1. 消息中间件解决的问题"></a>1. 消息中间件解决的问题</h1><p>消息中间件的核心作用就是三点：解耦，异步和并行，其中解耦是目的，异步和并行是表现形式。生产者和消费者彼此没有直接依赖，同步化解成了异步，大大减少了等待时间。例如：手机验证码的发送，当点击发送验证码的时候，只需要Client发送一条消息：{topic:sendVerifyCode,to:155xxxxxxxx,..}到消息中间件，消息中间件返回Client ok;然后消息中间件会将这条消息转发给订阅了这一个topic的Consumer，由Consumer去执行发送验证码的任务。由此看出消息中间主要做了三件事：接收消息+存储消息+转发消息。</p>
 <h1 id="2-JMS-与-MetaQ"><a href="#2-JMS-与-MetaQ" class="headerlink" title="2. JMS 与 MetaQ"></a>2. JMS 与 MetaQ</h1><ol>
@@ -1114,7 +1114,7 @@
 <li>广播消费，一条消息会被同一个group里每一个消费端消费。</li>
 </ol>
 </blockquote>
-<h1 id="4-消息写入，存储与读出"><a href="#4-消息写入，存储与读出" class="headerlink" title="4. 消息写入，存储与读出"></a>4. 消息写入，存储与读出</h1><p>MetaQ的存储结构是一种物理队列+逻辑队列的结构。如下图所示：<br>![metaq]/images/metaq.png)<br>Producer生产消息，根据消息的topic选择topic对应某一个分区，然后发送到这个分区对应的Broker；Consumer根据订阅的topic选择去topic的某一个分区拉取消息。</p>
+<h1 id="4-消息写入，存储与读出"><a href="#4-消息写入，存储与读出" class="headerlink" title="4. 消息写入，存储与读出"></a>4. 消息写入，存储与读出</h1><p>MetaQ的存储结构是一种物理队列+逻辑队列的结构。如下图所示：<br><img src="/images/metaq.png" alt="metaq"><br>Producer生产消息，根据消息的topic选择topic对应某一个分区，然后发送到这个分区对应的Broker；Consumer根据订阅的topic选择去topic的某一个分区拉取消息。</p>
 <h2 id="4-1-生产者如何选择发送分区（生产者负载均衡）"><a href="#4-1-生产者如何选择发送分区（生产者负载均衡）" class="headerlink" title="4.1 生产者如何选择发送分区（生产者负载均衡）"></a>4.1 生产者如何选择发送分区（生产者负载均衡）</h2><p>每个broker都可以配置多个topic，每个topic可以有多少个分区。topic，broker,分区三者是多对多的关系。但是在生产者看来，一个topic在所有broker上的所有分区组成一个分区列表来使用。</p>
 <p>在创建producer的时候，客户端会从zookeeper上获取publish的topic对应的broker和分区列表，生产者在发送消息的时候必须选择一台broker上的一个分区来发送消息。</p>
 <p>生产者在通过zk获取分区列表之后，会按照brokerId和分区的顺序排列组织成一个有序的分区列表，<strong>发送的时候按照从头到尾循环往复的方式选择一个分区来发送消息</strong>。考虑到我们的broker服务器软硬件配置基本一致，默认的轮询策略已然足够。</p>
@@ -1531,6 +1531,60 @@
   </entry>
   
   <entry>
+    <title>Java NIO学习</title>
+    <link href="http://thinerzq.me/2016/07/09/java/java%20nio%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
+    <id>http://thinerzq.me/2016/07/09/java/java nio学习报告/</id>
+    <published>2016-07-09T01:08:06.000Z</published>
+    <updated>2016-09-09T03:07:36.396Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="NIO概述"><a href="#NIO概述" class="headerlink" title="NIO概述"></a>NIO概述</h1><p>Java NIO: Non-blocking IO（非阻塞IO）是jdk 1.4提出的，简单的理解就是使用nio api读写数据的时候不会等待把所有数据读写完再返回(所以读写的时候应该使用while循环不断尝试读写数据)。NIO中关键的三个概念是通道，缓冲区，选择器。</p>
+<a id="more"></a>
+<h2 id="Channel-通道"><a href="#Channel-通道" class="headerlink" title="Channel(通道)"></a>Channel(通道)</h2><p>所有的数据读写在NIO 中都从Channel 开始，可以把Channel想象成io 中的Stream。数据是从Channel读到Buffer中，或者从Buffer 写到Channel中。Channel主要有以下几种</p>
+<ol>
+<li>FileChannel: 从FileInputStream和FileOutputStream打开的文件通道</li>
+<li>DatagramChannel：通过UDP协议读写网络中的数据</li>
+<li>SocketChannel：通过TCP协议读写网络中的数据</li>
+<li>ServerSocketChannel：对每一个连接创建一个SocketChannel</li>
+</ol>
+<h2 id="Buffer-缓冲区"><a href="#Buffer-缓冲区" class="headerlink" title="Buffer(缓冲区)"></a>Buffer(缓冲区)</h2><p>读取数据的第一步是Channel，第二步是Buffer。数据从通道读取到Buffer中，然后再使用，或者从Buffer中写入通道。Buffer本质上是一块可以写入数据，然后可以从中读取数据的内存,这块内存被包装成NIO Buffer对象。</p>
+<p>Buffer主要由三个属性，它们决定了每次读写缓冲区的什么位置。</p>
+<ol>
+<li>capacity：缓冲区的大小</li>
+<li>position：读模式的时候，position为下一个可以读取的位置；写模式的时候，position为下一个可以写入数据的位置</li>
+<li>limit：写模式的时候，可以写入的数据的大小；读模式下，limit表示可以读取的数据大小</li>
+</ol>
+<p>当向buffer写入数据时，buffer会记录下写了多少数据。一旦要读取数据，需要通过flip()方法将Buffer从写模式切换到读模式（相应的position和limit值会改变）。在读模式下，可以读取之前写入到buffer的所有数据。</p>
+<p>一旦读完Buffer中的数据，需要让Buffer准备好再次被写入。可以通过clear()或compact()方法来完成。clear()将Buffer中剩余的数据清除，compact()会将没有读取的数据移动到Buffer起始处，之后还可以读取。</p>
+<p>Buffer.allocate() 直接在Head上分配内存，Buffer.directAllocate()在堆外分配内存（分配的内存不受GC影响，需要自己手动释放）。</p>
+<h2 id="Selector-选择器"><a href="#Selector-选择器" class="headerlink" title="Selector(选择器)"></a>Selector(选择器)</h2><p>Selector（选择器）是NIO中能够侦听多个NIO Channel，并能够知晓这些Channel是否为特定的事件做好准备的组件。<br>Selector的使用主要是通过如下这种形式来使用<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">ServerSocketChannel ssChannel = ServerSocketChannel.open();</div><div class="line">ServerSocket ss = ssChannel.socket();</div><div class="line">InetSocketAddress address = <span class="keyword">new</span> InetSocketAddress(port);</div><div class="line">ss.bind(address);</div><div class="line"></div><div class="line">Selector selector = Selector.open();</div><div class="line"></div><div class="line">ssChannel.configureBlocking(<span class="keyword">false</span>);</div><div class="line">ssChannel.register(selector, SelectionKey.OP_ACCEPT); <span class="comment">//向selector注册监听连接请求</span></div><div class="line"></div><div class="line"><span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">    selector.select();<span class="comment">//阻塞 直到某个channel注册的感兴趣的事件被触发</span></div><div class="line">    Set&lt;SelectionKey&gt; keys = selector.selectedKeys();</div><div class="line">    <span class="keyword">for</span> (SelectionKey key : keys) &#123;</div><div class="line">        <span class="keyword">if</span> (key.isAcceptable()) &#123; <span class="comment">//客户端连接请求</span></div><div class="line">            ServerSocketChannel ssc = (ServerSocketChannel) key.channel();</div><div class="line">            SocketChannel sc = ssc.accept();</div><div class="line">            sc.configureBlocking(<span class="keyword">false</span>);</div><div class="line">            sc.register(selector, SelectionKey.OP_READ); <span class="comment">//向selector注册监听客户端输入</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (key.isReadable()) &#123; <span class="comment">//客户端输入</span></div><div class="line"></div><div class="line">            ByteBuffer buffer = ByteBuffer.allocate(<span class="number">1024</span>);</div><div class="line"></div><div class="line">            SocketChannel socketChannel = (SocketChannel) key.channel();</div><div class="line"></div><div class="line">            <span class="comment">// 针对当前连接做一些事情.read or write</span></div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    keys.clear();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Selector必须和Channel配合使用，而且Channel必须处于非阻塞模式下。通过resigter()方法绑定selector和channel的时候，第二个参数指定了当前channel对什么事件感兴趣。一个channel可以有如下4种感兴趣的事件</p>
+<ol>
+<li>SelectionKey.OP_CONNECT</li>
+<li>SelectionKey.OP_ACCEPT</li>
+<li>SelectionKey.OP_READ</li>
+<li>SelectionKey.OP_WRITE</li>
+</ol>
+<p>当channel向selector注册了事件之后，selector.selector()方法会阻塞直到channel关心的哪些事件已经就绪。事件就绪之后判断事件的类别，根据不同类别分别做不同的读写处理。</p>
+<h1 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h1><p>一个对象可以被表示为一个字节序列，该字节序列包括该对象的数据、有关对象的类型的信息和存储在对象中数据的类型。</p>
+<p>对应的流是ObjectOutputStream，ObjectInputStream。static变量, transient不会序列化，static final会序列化。实现这两个接口的类可以序列化：Serializible ,Externalizible。</p>
+<p>如果想自己控制一部分序列化的过程，可以在需要序列化的类种加入private级别的readObject()和writeObject()方法，这两个方法再ObjectInputStream和ObjectOutputStream中会反射调用。write和read的顺序必须一致。使用实现Externalizible接口来序列化，序列化的过程完全可控。</p>
+<p>如果需要序列化的对象使用了Signleton模式，（序列化前的对象 == 序列化后的对象）=false,如果要使这两者相等，可以在Singleton类种加入readResolve()方法，在这个方法中返回Signleton对象替换掉在流中创建的对象。——这些都是在同一个jvm中才有用</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;NIO概述&quot;&gt;&lt;a href=&quot;#NIO概述&quot; class=&quot;headerlink&quot; title=&quot;NIO概述&quot;&gt;&lt;/a&gt;NIO概述&lt;/h1&gt;&lt;p&gt;Java NIO: Non-blocking IO（非阻塞IO）是jdk 1.4提出的，简单的理解就是使用nio api读写数据的时候不会等待把所有数据读写完再返回(所以读写的时候应该使用while循环不断尝试读写数据)。NIO中关键的三个概念是通道，缓冲区，选择器。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="java" scheme="http://thinerzq.me/categories/java/"/>
+    
+    
+      <category term="nio" scheme="http://thinerzq.me/tags/nio/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Java Io学习</title>
     <link href="http://thinerzq.me/2016/07/09/java/java%20Io%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
     <id>http://thinerzq.me/2016/07/09/java/java Io学习报告/</id>
@@ -1792,86 +1846,6 @@
     
     
       <category term="io" scheme="http://thinerzq.me/tags/io/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Spring基础学习</title>
-    <link href="http://thinerzq.me/2016/07/09/spring/spring%E5%AD%A6%E4%B9%A0%E6%8A%A5%E5%91%8A/"/>
-    <id>http://thinerzq.me/2016/07/09/spring/spring学习报告/</id>
-    <published>2016-07-09T01:08:06.000Z</published>
-    <updated>2016-09-09T03:14:15.376Z</updated>
-    
-    <content type="html"><![CDATA[<p>通常说的Spring其实指的是Spring Framework，它是Spring下的一个子项目，Spring围绕Spring Framework这个核心项目开发了大量其他项目，比如Spring Security，Spring Data，Spring Boot等. Spring Framework包括他的核心解决方案IoC容器、 AOP。</p>
-<a id="more"></a>
-<h1 id="控制反转"><a href="#控制反转" class="headerlink" title="控制反转"></a>控制反转</h1><p>所谓控制反转，是指通过使用IoC容器对象依赖关系的管理被反转了，也就是说，对象之间的依赖关系由IoC容器进行管理，并且由Ioc容器通过依赖注入（DI，Dependency Injection）的方式来完成对象的注入（以前一个对象需要new了才能使用，现在你只要声明就行了，spring会帮你new好了，在你需要的时候把这个对象的引用传递给你）。</p>
-<p>整个依赖入住的过程中，有一个问题如何解决循环依赖的对象的注入：构造器循环依赖是无法解决的，只有单例模式下的setter注入可以解决（通过将new完了，还未调用其setter方法的bean放入到Map中，从而使其他Bean能引用到该Bean）</p>
-<h1 id="切面编程"><a href="#切面编程" class="headerlink" title="切面编程"></a>切面编程</h1><p>面向切面编程（AOP）通过提供另外一种思考程序结构的途经来弥补面向对象编程（OOP）的不足。在OOP中模块化的关键单元是类（classes），而在AOP中模块化的单元则是切面。切面能对关注点进行模块化，例如横切多个类型和对象的事务管理。Aop中有一些核心概念：</p>
-<ul>
-<li>横切性关注点：对哪些方法拦截，拦截后怎么处理，这些关注就称之为横切性关注点.<br>Aspect（切面）：指横切性关注点的抽象即为切面，它与类相似，只是两者的关注点不一样，类是对物体特征的抽象，而切面是横切性关注点的抽象。</li>
-<li>Joinpoint（连接点）：所谓连接点是指那些被拦截到的点。在Spring中，这些点指的是方法，因为Spring只支持方法类型的连接点，实际上joinpoint还可以是field或类构造器。</li>
-<li>Pointcut(切入点)：所谓切入点是指我们要对那些joinpoin进行拦截的定义。</li>
-<li>Advice（通知）：所谓通知是指拦截到joinpoint之后所要做的事情就是通知。通知分为前置通知，后置通知，异常通知，最终通知，环绕通知。<ul>
-<li>前置通知（Before advice）：在某连接点之前执行的通知，但这个通知不能阻止连接点之前的执行流程（除非它抛出一个异常）。</li>
-<li>后置通知（After returning advice）：在某连接点正常完成后执行的通知：例如，一个方法没有抛出任何异常，正常返回。</li>
-<li>异常通知（After throwing advice）：在方法抛出异常退出时执行的通知。</li>
-<li>最终通知（After (finally) advice）：当某连接点退出的时候执行的通知（不论是正常返回还是异常退出）。</li>
-<li>环绕通知（Around Advice）：包围一个连接点的通知，如方法调用。这是最强大的一种通知类型。环绕通知可以在方法调用前后完成自定义的行为。它也会选择是否继续执行连接点或直接返回它自己的返回值或抛出异常来结束执行。</li>
-</ul>
-</li>
-<li>Target（目标对象）：代理的目标对象</li>
-<li>Weave(织入)：指将aspects应用到target对象并导致proxy对象创建的过程称为织入。</li>
-</ul>
-<p>由于开启了切面编程功能，所以当获取一个被切面类监控管理的bean对象时，它实际上获取的是此对象的一个代理对象，而在spring中对代理对象的处理有如下原则：（1）如果要代理的对象实现了接口，则会按照Proxy的方式来产生代理对象，这即是说产生的代理对象只能是接口类型。如果要代理的对象未实现接口，则按cglib方式来产生代理对象。<br>要想spring的切面技术起作用，被管理的bean对象只能是通过spring容器获取的对象。</p>
-<h1 id="事物管理"><a href="#事物管理" class="headerlink" title="事物管理"></a>事物管理</h1><p>在 Spring 中，事务是通过 TransactionDefinition 接口来定义的。接口只提供了获取事物隔离级别，传播行为，超时时间的方法</p>
-<h2 id="事物的隔离级别"><a href="#事物的隔离级别" class="headerlink" title="事物的隔离级别"></a>事物的隔离级别</h2><p>隔离级别是指若干个并发的事务之间的隔离程度。TransactionDefinition 接口中定义了五个表示隔离级别的常量：</p>
-<ul>
-<li>TransactionDefinition.ISOLATION_DEFAULT：这是默认值，表示使用底层数据库的默认隔离级别。对大部分数据库而言，通常这值就是TransactionDefinition.ISOLATION_READ_COMMITTED。</li>
-<li>TransactionDefinition.ISOLATION_READ_UNCOMMITTED：该隔离级别表示一个事务可以读取另一个事务修改但还没有提交的数据。该级别不能防止脏读和不可重复读，因此很少使用该隔离级别。</li>
-<li>TransactionDefinition.ISOLATION_READ_COMMITTED：该隔离级别表示一个事务只能读取另一个事务已经提交的数据。该级别可以防止脏读，这也是大多数情况下的推荐值。</li>
-<li>TransactionDefinition.ISOLATION_REPEATABLE_READ：该隔离级别表示一个事务在整个过程中可以多次重复执行某个查询，并且每次返回的记录都相同。即使在多次查询之间有新增的数据满足该查询，这些新增的记录也会被忽略。该级别可以防止脏读和不可重复读。</li>
-<li>TransactionDefinition.ISOLATION_SERIALIZABLE：所有的事务依次逐个执行，这样事务之间就完全不可能产生干扰，也就是说，该级别可以防止脏读、不可重复读以及幻读。但是这将严重影响程序的性能。通常情况下也不会用到该级别。</li>
-</ul>
-<h2 id="事务传播行为"><a href="#事务传播行为" class="headerlink" title="事务传播行为"></a>事务传播行为</h2><p>所谓事务的传播行为是指，如果在开始当前事务之前，一个事务上下文已经存在，此时有若干选项可以指定一个事务性方法的执行行为。在TransactionDefinition定义中包括了如下几个表示传播行为的常量：</p>
-<ul>
-<li>TransactionDefinition.PROPAGATION_REQUIRED：如果当前存在事务，则加入该事务；如果当前没有事务，则创建一个新的事务。</li>
-<li>TransactionDefinition.PROPAGATION_REQUIRES_NEW：创建一个新的事务，如果当前存在事务，则把当前事务挂起。</li>
-<li>TransactionDefinition.PROPAGATION_SUPPORTS：如果当前存在事务，则加入该事务；如果当前没有事务，则以非事务的方式继续运行。</li>
-<li>TransactionDefinition.PROPAGATION_NOT_SUPPORTED：以非事务方式运行，如果当前存在事务，则把当前事务挂起。</li>
-<li>TransactionDefinition.PROPAGATION_NEVER：以非事务方式运行，如果当前存在事务，则抛出异常。</li>
-<li>TransactionDefinition.PROPAGATION_MANDATORY：如果当前存在事务，则加入该事务；如果当前没有事务，则抛出异常。</li>
-</ul>
-<h2 id="事务超时"><a href="#事务超时" class="headerlink" title="事务超时"></a>事务超时</h2><p>所谓事务超时，就是指一个事务所允许执行的最长时间，如果超过该时间限制但事务还没有完成，则自动回滚事务。在 TransactionDefinition 中以 int 的值来表示超时时间，其单位是秒。</p>
-<p>通常情况下，如果在事务中抛出了未检查异常（继承自 RuntimeException 的异常），则默认将回滚事务。如果没有抛出任何异常，或者抛出了已检查异常，则仍然提交事务</p>
-<p>基于 @Transactional 的声明式事务管理，可以作用于接口、接口方法、类以及类方法上。当作用于类上时，该类的所有 public 方法将都具有该类型的事务属性，同时，也可以在方法级别使用该标注来覆盖类级别的定义。， @Transactional 注解应该只被应用到 public 方法上，如果在protected、private 或者默认可见性的方法上使用 @Transactional 注解，将被忽略，也不会抛出任何异常。</p>
-<h1 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h1><p>DispatcherServlet是前置控制器，配置在web.xml文件中的。拦截匹配的请求，Servlet拦截匹配规则要自已定义，把拦截下来的请求，依据相应的规则分发到目标Controller来处理，是配置spring MVC的第一步。</p>
-<p>Controller：具体处理请求的控制器。日常功能都在Controller 中处理</p>
-<p>handlerMapping：映射处理器。负责映射中央处理器转发给 Controller时的映射策略，即DispatcherServlet按什么规则去寻找需要访问的</p>
-<p>Controller。需要在spring-mvc的配置文件中配置。主要有三种类型，分别为为按Controller控制器的名称、类型和简单url隐射。默认为按Controller的名称（可省略）</p>
-<p>ModelAndView：服务层返回的数据和视图层的封装类,用来封装 Controller 需要访问的视图(view)和传输的数据(model)，一般在控制器Controller  中自己实现处理。</p>
-<p>ViewResolver &amp; View：视图解析器.需要在spring-mvc的配置文件中配置，一般分为前缀与后缀。前缀：webroot到某一指定的文件夹的路径；后缀：视图名称的后缀。然后和 ModelAndView 中的view结合使用，确认具体的访问视图。</p>
-<p>Interceptors ：拦截器,负责拦截我们定义的请求然后做处理工作。</p>
-<p>运行原理：</p>
-<ol>
-<li>客户端请求提交到DispatcherServlet；</li>
-<li>由DispatcherServlet控制器查询一个或多个HandlerMapping，找到处理请求的Controller；</li>
-<li>DispatcherServlet将请求提交到Controller；</li>
-<li>Controller调用业务逻辑处理后，返回ModelAndView；</li>
-<li>DispatcherServlet查询一个或多个ViewResoler视图解析器，找到ModelAndView指定的视图；</li>
-<li>视图负责将结果显示到客户端。</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;通常说的Spring其实指的是Spring Framework，它是Spring下的一个子项目，Spring围绕Spring Framework这个核心项目开发了大量其他项目，比如Spring Security，Spring Data，Spring Boot等. Spring Framework包括他的核心解决方案IoC容器、 AOP。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="spring" scheme="http://thinerzq.me/categories/spring/"/>
-    
-    
-      <category term="spring" scheme="http://thinerzq.me/tags/spring/"/>
     
   </entry>
   

@@ -92,10 +92,12 @@
 <meta property="og:url" content="http://thinerzq.me/2016/07/25/AliBaBa/metaQ学习报告/index.html">
 <meta property="og:site_name" content="ThinerZQ's Blog">
 <meta property="og:description" content="1. 消息中间件解决的问题消息中间件的核心作用就是三点：解耦，异步和并行，其中解耦是目的，异步和并行是表现形式。生产者和消费者彼此没有直接依赖，同步化解成了异步，大大减少了等待时间。例如：手机验证码的发送，当点击发送验证码的时候，只需要Client发送一条消息：{topic:sendVerifyCode,to:155xxxxxxxx,..}到消息中间件，消息中间件返回Client ok;然后消息中">
-<meta property="og:updated_time" content="2016-09-09T03:12:46.253Z">
+<meta property="og:image" content="http://thinerzq.me/images/metaq.png">
+<meta property="og:updated_time" content="2016-10-09T14:37:18.088Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MetaQ(RocketMQ)学习">
 <meta name="twitter:description" content="1. 消息中间件解决的问题消息中间件的核心作用就是三点：解耦，异步和并行，其中解耦是目的，异步和并行是表现形式。生产者和消费者彼此没有直接依赖，同步化解成了异步，大大减少了等待时间。例如：手机验证码的发送，当点击发送验证码的时候，只需要Client发送一条消息：{topic:sendVerifyCode,to:155xxxxxxxx,..}到消息中间件，消息中间件返回Client ok;然后消息中">
+<meta name="twitter:image" content="http://thinerzq.me/images/metaq.png">
 
 
 
@@ -444,7 +446,7 @@
 <li>广播消费，一条消息会被同一个group里每一个消费端消费。</li>
 </ol>
 </blockquote>
-<h1 id="4-消息写入，存储与读出"><a href="#4-消息写入，存储与读出" class="headerlink" title="4. 消息写入，存储与读出"></a>4. 消息写入，存储与读出</h1><p>MetaQ的存储结构是一种物理队列+逻辑队列的结构。如下图所示：<br>![metaq]/images/metaq.png)<br>Producer生产消息，根据消息的topic选择topic对应某一个分区，然后发送到这个分区对应的Broker；Consumer根据订阅的topic选择去topic的某一个分区拉取消息。</p>
+<h1 id="4-消息写入，存储与读出"><a href="#4-消息写入，存储与读出" class="headerlink" title="4. 消息写入，存储与读出"></a>4. 消息写入，存储与读出</h1><p>MetaQ的存储结构是一种物理队列+逻辑队列的结构。如下图所示：<br><img src="/images/metaq.png" alt="metaq"><br>Producer生产消息，根据消息的topic选择topic对应某一个分区，然后发送到这个分区对应的Broker；Consumer根据订阅的topic选择去topic的某一个分区拉取消息。</p>
 <h2 id="4-1-生产者如何选择发送分区（生产者负载均衡）"><a href="#4-1-生产者如何选择发送分区（生产者负载均衡）" class="headerlink" title="4.1 生产者如何选择发送分区（生产者负载均衡）"></a>4.1 生产者如何选择发送分区（生产者负载均衡）</h2><p>每个broker都可以配置多个topic，每个topic可以有多少个分区。topic，broker,分区三者是多对多的关系。但是在生产者看来，一个topic在所有broker上的所有分区组成一个分区列表来使用。</p>
 <p>在创建producer的时候，客户端会从zookeeper上获取publish的topic对应的broker和分区列表，生产者在发送消息的时候必须选择一台broker上的一个分区来发送消息。</p>
 <p>生产者在通过zk获取分区列表之后，会按照brokerId和分区的顺序排列组织成一个有序的分区列表，<strong>发送的时候按照从头到尾循环往复的方式选择一个分区来发送消息</strong>。考虑到我们的broker服务器软硬件配置基本一致，默认的轮询策略已然足够。</p>

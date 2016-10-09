@@ -100,8 +100,8 @@ ConfigServer一个集群中包含2台configserver,两台configserver互为主备
 
 维护和dataserver之间的心跳获得集群中存活可用的dataserver
 根据存活的dataserver 构建数">
-<meta property="og:image" content="http://img4.tbcdn.cn/L1/461/1/bf857946fd33f7d811cbe190698196b013fcb67a">
-<meta property="og:updated_time" content="2016-09-09T03:15:07.425Z">
+<meta property="og:image" content="http://thinerzq.me/images/tair.png">
+<meta property="og:updated_time" content="2016-10-09T14:37:58.271Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tair学习">
 <meta name="twitter:description" content="概述首先tair是一个的Key-Value结构分布式存储系统，既可以做高速缓存，也可以做持久化存储。分布式系统一般来说是一个集群，而在Tair的集群中主要存在如下几个模块：
@@ -109,7 +109,7 @@ ConfigServer一个集群中包含2台configserver,两台configserver互为主备
 
 维护和dataserver之间的心跳获得集群中存活可用的dataserver
 根据存活的dataserver 构建数">
-<meta name="twitter:image" content="http://img4.tbcdn.cn/L1/461/1/bf857946fd33f7d811cbe190698196b013fcb67a">
+<meta name="twitter:image" content="http://thinerzq.me/images/tair.png">
 
 
 
@@ -561,7 +561,7 @@ ConfigServer一个集群中包含2台configserver,两台configserver互为主备
 </tr>
 </tbody>
 </table>
-<h1 id="分布式一致性hash"><a href="#分布式一致性hash" class="headerlink" title="分布式一致性hash"></a>分布式一致性hash</h1><p>若tair采用普通哈希即让key对机器数count取模决定key存放的机器，但当某台机器故障或增加机器时count发生变化，则原来key对应的机器发生变化，因此需要移动大量的数据。目前为了使移动的数据少一点，主要<a href="http://www.blogjava.net/hao446tian/archive/2013/01/29/394858.html" target="_blank" rel="external">采用一致性hash算法</a>来解决问题。在这里Tair使用改进的一致性hash算法来解决这个问题：<br>设有一个有限域（0-2^32）个整数，将其首尾相连形成一个环，如下图所示。<br><img src="http://img4.tbcdn.cn/L1/461/1/bf857946fd33f7d811cbe190698196b013fcb67a" alt="tair"><br>一致性哈希算法大致流程如下：</p>
+<h1 id="分布式一致性hash"><a href="#分布式一致性hash" class="headerlink" title="分布式一致性hash"></a>分布式一致性hash</h1><p>若tair采用普通哈希即让key对机器数count取模决定key存放的机器，但当某台机器故障或增加机器时count发生变化，则原来key对应的机器发生变化，因此需要移动大量的数据。目前为了使移动的数据少一点，主要<a href="http://www.blogjava.net/hao446tian/archive/2013/01/29/394858.html" target="_blank" rel="external">采用一致性hash算法</a>来解决问题。在这里Tair使用改进的一致性hash算法来解决这个问题：<br>设有一个有限域（0-2^32）个整数，将其首尾相连形成一个环，如下图所示。<br><img src="/images/tair.png" alt="tair"><br>一致性哈希算法大致流程如下：</p>
 <ol>
 <li>将dataserver根据hash函数映射到环上。</li>
 <li>将bucket根据hash函数映射到换上；从bucket在环的位置开始顺时针找到第一个桶，这就是该桶所在的dataserver。</li>
